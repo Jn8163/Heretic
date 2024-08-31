@@ -956,6 +956,7 @@ GameObject:
   - component: {fileID: 602643454}
   - component: {fileID: 602643453}
   - component: {fileID: 602643452}
+  - component: {fileID: 602643456}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1048,6 +1049,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &602643456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602643451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465388e25998f8f4f80f054432d852d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pLife: 0
+  pAmmo: 0
+  pArmor: 0
+  pItemCount: 0
+  life: {fileID: 382784828}
+  ammo: {fileID: 1976944400}
+  armor: {fileID: 1380004592}
+  itemCount: {fileID: 246130923}
+  ammoIcon: {fileID: 1391388075}
+  itemIcon: {fileID: 1337008230}
+  yKey: {fileID: 9475981}
+  gKey: {fileID: 628550947}
+  bKey: {fileID: 2118170706}
+  hpIndicator: {fileID: 1630742988}
+  lerpPointA: {fileID: 1116009115}
+  lerpPointB: {fileID: 1028620938}
 --- !u!1 &628550945
 GameObject:
   m_ObjectHideFlags: 0
