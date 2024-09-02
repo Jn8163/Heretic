@@ -53,15 +53,17 @@ public class PlayerMovement : MonoBehaviour
         direction.y = 0;
         direction.z = pInput.Player.Move.ReadValue<Vector2>().y;
 
-        rb.AddForce(direction.normalized * speed, ForceMode.Acceleration);
+        //Normalizes movement for any direction - needed for camera rotation
+        direction = transform.right * direction.x + transform.forward * direction.z;
+
+        rb.AddForce(direction.normalized * speed, ForceMode.VelocityChange);
     }
 
     #endregion
 
 }
 
-/*
- * Resource Used:
+/* Refrences:
  * https://www.youtube.com/watch?v=LqnPeqoJRFY
  * Utilized physic based movement and considered other properties in video.
  * Decided agaisnt implementing drag since Rigidbody component already has options for drag.
