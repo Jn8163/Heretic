@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private InputSystem pInput;
     private Rigidbody rb;
     private Vector3 direction;
+    private Animator cameraAnim;
 
     #endregion
 
@@ -29,6 +30,13 @@ public class PlayerMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+    }
+
+
+
+    private void Start()
+    {
+        cameraAnim = transform.Find("CameraParent").transform.Find("Camera").GetComponent<Animator>();
     }
 
 
@@ -55,6 +63,14 @@ public class PlayerMovement : MonoBehaviour
 
         //Normalizes movement for any direction - needed for camera rotation
         direction = transform.right * direction.x + transform.forward * direction.z;
+        if(direction != Vector3.zero)
+        {
+            cameraAnim.SetBool("moving", true);
+        }
+        else
+        {
+            cameraAnim.SetBool("moving", false);
+        }
 
         rb.AddForce(direction.normalized * speed, ForceMode.VelocityChange);
     }
