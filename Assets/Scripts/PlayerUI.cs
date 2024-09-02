@@ -16,6 +16,13 @@ public class PlayerUI : MonoBehaviour
 	[SerializeField]
 	private GameObject hpIndicator, lerpPointA, lerpPointB;
 
+	private void Start()
+	{
+		KeyYPickupGA.KeyYPickup += KeyYellowLight;
+		KeyGPickupGA.KeyGPickup += KeyGreenLight;
+		KeyBPickupGA.KeyBPickup += KeyBlueLight;
+	}
+
 	private void Update()
 	{
 		life.text = pLife.ToString();
@@ -29,6 +36,21 @@ public class PlayerUI : MonoBehaviour
 		// KEY ICONS: Use game action trigger script alongside a special key script to call delegate functions here. Change the image color of a key when its function is called.
 
 
+	}
+
+	private void KeyYellowLight(bool b)
+	{
+		yKey.color = Color.yellow;
+	}
+
+	private void KeyGreenLight(bool b)
+	{
+		gKey.color = Color.green;
+	}
+
+	private void KeyBlueLight(bool b)
+	{
+		bKey.color = Color.blue;
 	}
 
 	// AMMO ICON/COUNT: Have input action functions that pull up the ammo icon on the UI for the respective weapon
