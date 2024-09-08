@@ -4,7 +4,7 @@ using System.Collections;
 
 public abstract class WeaponSystem : MonoBehaviour
 {
-    public int weapon_damage = 10;
+    public int weapon_damage = -10;
     private InputSystem pInput;
     public float reload_time = 1.00f;
     private bool reloading = false;
