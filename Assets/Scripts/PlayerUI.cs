@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
+	public HealthSystem healthSystem;
+
 	[SerializeField]
 	private int pLife, pAmmo, pArmor, pItemCount; // these are temporary until the systems for these are actually implemented
 
@@ -25,13 +27,20 @@ public class PlayerUI : MonoBehaviour
 
 	private void Update()
 	{
-		life.text = pLife.ToString();
+		life.text = healthSystem.currentHealth.ToString();
 		ammo.text = pAmmo.ToString();
 		armor.text = pArmor.ToString();
-		itemCount.text = pItemCount.ToString();
+		if (pItemCount > 1)
+		{
+			itemCount.text = pItemCount.ToString();
+		}
+		else
+		{
+			itemCount.text = "";
+		}
 
 		// indicator changes depending on player hp, the more full their hp is the farther right the indicator goes
-		hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, pLife / 100f);
+		hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, healthSystem.currentHealth / 100f);
 
 		// KEY ICONS: Use game action trigger script alongside a special key script to call delegate functions here. Change the image color of a key when its function is called.
 
