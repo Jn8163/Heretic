@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBaseClass : MonoBehaviour
+public abstract class EnemyBaseClass : MonoBehaviour
 {
-    public float eHealth, eSpeed, eAtkRate, eDamage;
+    // protected float eHealth, eSpeed, eAtkRate, eDamage;
 
     public NavMeshAgent agent;
 
@@ -15,6 +15,7 @@ public class EnemyBaseClass : MonoBehaviour
 	public Vector3 walkPoint;
 	public bool walkPointSet;
 	public float walkPointRange;
+	public Vector3 startingPos;
 
 	// Attacking
 
@@ -22,25 +23,26 @@ public class EnemyBaseClass : MonoBehaviour
 	public float sightRange, attackRange;
 	public bool playerInSightRange, playerInAttackRange;
 
-	private void Awake()
+	protected virtual void Awake()
 	{
 		agent = GetComponent<NavMeshAgent>();
+		startingPos = transform.position;
 	}
 
-	private void Update()
+	protected virtual void Update()
 	{
-		playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+		// playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 		playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-		if (!playerInSightRange && !playerInAttackRange)
-			Patrolling();
-		if(playerInSightRange && !playerInAttackRange)
+		/*if (!playerInSightRange && !playerInAttackRange)
+			Patrolling();*/
+		if(Physics.CheckSphere(transform.position, sightRange, whatIsPlayer) && !playerInAttackRange)
 			ChasePlayer();
 		if(playerInAttackRange && playerInSightRange)
 			AttackPlayer();
 	}
 
-	private void Patrolling()
+	protected virtual void Patrolling()
 	{
 		if (!walkPointSet)
 			SearchWalkPoint();
@@ -55,23 +57,33 @@ public class EnemyBaseClass : MonoBehaviour
 			walkPointSet = false;
 	}
 
-	private void SearchWalkPoint()
+	protected virtual void SearchWalkPoint()
 	{
 		float randomZ = Random.Range(-walkPointRange, walkPointRange);
 		float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-		walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+		walkPoint = new Vector3(startingPos.x + randomX, startingPos.y, startingPos.z + randomZ);
 
 		walkPointSet = true;
 	}
 
-	private void ChasePlayer()
+	protected virtual void ChasePlayer()
 	{
 		agent.SetDestination(player.position);
 	}
 
-	public void AttackPlayer()
+	protected virtual void AttackPlayer()
 	{
 		agent.SetDestination(transform.position);
+	}
+
+	protected virtual void OnDrawGizmos()
+	{
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(transform.position, attackRange);
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawWireSphere(transform.position, sightRange);
+		Gizmos.color = Color.green;
+		Gizmos.DrawWireSphere(startingPos, walkPointRange);
 	}
 }
