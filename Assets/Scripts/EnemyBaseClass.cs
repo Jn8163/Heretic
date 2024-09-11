@@ -7,7 +7,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
 
     public NavMeshAgent agent;
 
-	public Transform player;
+	protected Transform player;
 
 	public LayerMask whatIsPlayer;
 
@@ -25,6 +25,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
 
 	protected virtual void Awake()
 	{
+		player = GameObject.Find("Player").transform;
 		agent = GetComponent<NavMeshAgent>();
 		startingPos = transform.position;
 	}
@@ -42,7 +43,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
 			AttackPlayer();
 	}
 
-	protected virtual void Patrolling()
+	/*protected virtual void Patrolling()
 	{
 		if (!walkPointSet)
 			SearchWalkPoint();
@@ -55,7 +56,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
 		// Walkpoint reached
 		if(distanceToWalkPoint.magnitude < 1f)
 			walkPointSet = false;
-	}
+	}*/
 
 	protected virtual void SearchWalkPoint()
 	{

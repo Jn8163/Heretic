@@ -1169,6 +1169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4610250722428272375, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6768151894223333459, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 788.98785
@@ -1208,6 +1212,14 @@ PrefabInstance:
     - target: {fileID: 6768151894223333459, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476538743688062896, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
+      propertyPath: hoverDist
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476538743688062896, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1318,22 +1330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e5a448d66384f42999647d38010873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eHealth: 0
-  eSpeed: 0
-  eAtkRate: 0
-  eDamage: 0
-  agent: {fileID: 924754810}
-  player: {fileID: 1656830087}
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointSet: 0
-  walkPointRange: 20
-  sightRange: 10
-  attackRange: 2
-  playerInSightRange: 0
-  playerInAttackRange: 0
 --- !u!136 &924754812
 CapsuleCollider:
   m_ObjectHideFlags: 0
