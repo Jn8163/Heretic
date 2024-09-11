@@ -9,6 +9,7 @@ public class EnemyGargoyleAI : EnemyBaseClass
 	protected override void Awake()
 	{
 		base.Awake();
+		// test
 	}
 	protected override void Update()
 	{
