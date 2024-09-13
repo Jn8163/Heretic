@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void AutoStep()
     {
-        if (Physics.BoxCast(stepRayLower.transform.position, new Vector3(.1f,.9f, .1f), direction, Quaternion.identity, 1f))
+        if (Physics.BoxCast(stepRayLower.transform.position, new Vector3(.1f,.9f, .1f), direction, out RaycastHit hit, Quaternion.identity, 1f) && hit.transform.CompareTag("Ground"))
         {
             if (!Physics.BoxCast(stepRayUpper.transform.position, new Vector3(.1f, .1f, .1f), direction, Quaternion.identity, 1f))
             {
