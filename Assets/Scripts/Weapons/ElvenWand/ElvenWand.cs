@@ -5,6 +5,8 @@ public class ElvenWand : WeaponSystem
     [SerializeField]
     private Transform attack_spawn;
     private Vector3 direction = Vector3.forward;
+    public int current_ammo = 10;
+    public int max_ammo = 30;
 
     public override void Start()
     {
@@ -14,14 +16,24 @@ public class ElvenWand : WeaponSystem
 
     public override void Attack()
     {
-        base.Attack();
-        Debug.DrawRay(attack_spawn.position, direction);
-        if (Physics.Raycast(attack_spawn.position, direction, out RaycastHit hit))
+        if (attack_spawn != null)
         {
-            if (hit.collider.GetComponent<HealthSystem>() != null)
+            if (current_ammo > 0)
             {
-                Debug.Log("Enemy Hit");
-                OnHit(hit.collider.GetComponent<HealthSystem>());
+                current_ammo--;
+                base.Attack();
+                Debug.DrawRay(attack_spawn.position, direction);
+                if (Physics.Raycast(attack_spawn.position, direction, out RaycastHit hit))
+                {
+                    if (hit.collider.GetComponent<HealthSystem>() != null)
+                    {
+                        Debug.Log("Enemy Hit");
+                        OnHit(hit.collider.GetComponent<HealthSystem>());
+                    }
+                }
+            } else
+            {
+                Debug.Log("Out of ammo");
             }
         }
     }
@@ -37,8 +49,15 @@ public class ElvenWand : WeaponSystem
         base.OnWeaponSwap();
     }
 
+    public void UpdateAmmo(int updateAmmo)
+    {
+        current_ammo += updateAmmo;
+    }
+
     private void Update()
     {
         
     }
+
+  
 }
