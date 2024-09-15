@@ -19,9 +19,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Animator cameraAnim;
 
-    private GameObject groundCheck;
-    private bool grounded = true;
-
     private Vector3 direction;
 
 
@@ -30,9 +27,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Tooltip("The max vertical length of step the player will automatically take.")]
     [SerializeField] private float stepHeight = .3f;
-
-    [Tooltip("How smooth auto-step's will be: Smaller = smoother")]
-    [SerializeField] private float stepRate = .1f;
 
     private GameObject stepRayLower, stepRayUpper;
 
@@ -48,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         cameraAnim = transform.Find("CameraParent").transform.Find("Camera").GetComponent<Animator>();
         stepRayLower = transform.Find("StepRayLower").gameObject;
         stepRayUpper = transform.Find("StepRayUpper").gameObject;
-        groundCheck = transform.Find("GroundCheck").gameObject;
         rb = GetComponent<Rigidbody>();
 
         stepRayUpper.transform.localPosition = new Vector3(0, stepHeight, 0);
@@ -75,27 +68,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //GroundCheck();
         Move();
     }
 
-    
-    //In progress
-    private void GroundCheck()
-    {
-        Debug.DrawLine(groundCheck.transform.position, groundCheck.transform.position - new Vector3(0, .3f, 0), Color.red, .1f);
-        if(Physics.BoxCast(groundCheck.transform.position, new Vector3(.5f,.01f,.5f), Vector3.down, out RaycastHit hit, Quaternion.identity, .5f))
-        {
-            if(!(hit.point.y + .1f < transform.position.y))
-            {
-                grounded = true;
-            }
-        }
-        else
-        {
-            grounded = false;
-        }
-    }
+
 
     private void Move()
     {
