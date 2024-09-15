@@ -40,11 +40,15 @@ public class PlayerUI : MonoBehaviour
 		}
 
 		// indicator changes depending on player hp, the more full their hp is the farther right the indicator goes
-		hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, healthSystem.currentHealth / 100f);
 
 		// KEY ICONS: Use game action trigger script alongside a special key script to call delegate functions here. Change the image color of a key when its function is called.
 
 
+	}
+
+	private void FixedUpdate()
+	{
+		hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, healthSystem.currentHealth / 100f);
 	}
 
 	private void KeyYellowLight(bool b)
