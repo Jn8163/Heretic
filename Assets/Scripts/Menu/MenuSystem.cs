@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class MenuSystem : MonoBehaviour
 {
     #region Fields
+    [SerializeField] private string startM;
     [SerializeField] private bool main, settings, load, pause, death, episode, difficulty, HUD;
     private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, playerHUD;
     private List<GameObject> menus = new List<GameObject>();
@@ -68,6 +69,20 @@ public class MenuSystem : MonoBehaviour
 
 
 
+    private void Start()
+    {
+        SwitchMenu(startM);
+    }
+
+
+
+    private void OnEnable()
+    {
+        SwitchMenu(startM);
+    }
+
+
+
     public void SwitchMenu(string targetMenu)
     {
         switch (targetMenu)
@@ -76,10 +91,12 @@ public class MenuSystem : MonoBehaviour
                 ActivateMenu(mainM);
                 return;
             case "SettingsMenu":
-                ActivateMenu(settingsM);
+                //ActivateMenu(settingsM);
+                Debug.Log(targetMenu + " not implemented");
                 return;
             case "LoadMenu":
-                ActivateMenu(loadM);
+                //ActivateMenu(loadM);
+                Debug.Log(targetMenu + " not implemented");
                 return;
             case "PauseMenu":
                 ActivateMenu(pauseM);
@@ -130,6 +147,16 @@ public class MenuSystem : MonoBehaviour
 
 
 
+    public void Continue()
+    {
+        Debug.Log("Save-System not implemented: Currently Starts first level");
+
+        SetLevel(1);
+        ChangeScene();
+    }
+
+
+
     public void SetLevel(int i)
     {
         selectedLevel = i;
@@ -147,13 +174,6 @@ public class MenuSystem : MonoBehaviour
     public void ChangeScene()
     {
         SceneManager.LoadScene(selectedLevel);
-    }
-
-
-
-    public void Continue()
-    {
-        Debug.Log("Not Implemented");
     }
 
 
