@@ -1,16 +1,20 @@
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// On Input/Menu Button change state and track 
+/// Managment of Menus in scene and buttons included in menus.
+/// 
+/// If bool is set to true, will locate corresponding menu.
+/// On menu switch deactivates any located menu and activates the target menu.
+/// Any menu button action flows through this script.
+/// Pause menu is activated in this script from PauseSystem script.
 /// </summary>
 public class MenuSystem : MonoBehaviour
 {
     #region Fields
     [SerializeField] private string startM;
-    [SerializeField] private bool main, settings, load, pause, death, episode, difficulty, HUD;
+    [SerializeField] private bool onStartActive, main, settings, load, pause, death, episode, difficulty, HUD;
     private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, playerHUD;
     private List<GameObject> menus = new List<GameObject>();
     private int selectedLevel, selectedDifficulty;
@@ -71,14 +75,42 @@ public class MenuSystem : MonoBehaviour
 
     private void Start()
     {
-        SwitchMenu(startM);
-    }
+        if (onStartActive)
+        {
+            SwitchMenu(startM);
+        }
+    } 
 
 
 
     private void OnEnable()
     {
         SwitchMenu(startM);
+    }
+
+
+   
+    private void ActivateMenu(GameObject g)
+    {
+        if (g)
+        {
+            DeactivateAllMenus();
+            g.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Menu was not located in scene");
+        }
+    }
+
+
+
+    private void DeactivateAllMenus()
+    {
+        foreach(GameObject g in menus)
+        {
+            g.SetActive(false);
+        }
     }
 
 
@@ -118,32 +150,7 @@ public class MenuSystem : MonoBehaviour
                 return;
 
         }
-    }
-
-
-
-    private void ActivateMenu(GameObject g)
-    {
-        if (g)
-        {
-            DeactivateAllMenus();
-            g.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("Menu was not located in scene");
-        }
-    }
-
-
-
-    private void DeactivateAllMenus()
-    {
-        foreach(GameObject g in menus)
-        {
-            g.SetActive(false);
-        }
-    }
+    }   //Method called by buttons to switch menu.
 
 
 
