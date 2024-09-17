@@ -32,7 +32,10 @@ public class ESSetSelected : MonoBehaviour
     {
         myEventSystem = FindAnyObjectByType<EventSystem>();
         myEventSystem.SetSelectedGameObject(null);
-        myEventSystem.SetSelectedGameObject(SelectedButton);
+        if (myEventSystem)
+        {
+            myEventSystem.SetSelectedGameObject(SelectedButton);
+        }
         Debug.Log(myEventSystem.currentSelectedGameObject);
     }
 

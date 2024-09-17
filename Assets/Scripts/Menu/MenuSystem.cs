@@ -65,7 +65,8 @@ public class MenuSystem : MonoBehaviour
 
         if (HUD)
         {
-            playerHUD = transform.Find("PlayerHUD").gameObject;
+            playerHUD = GameObject.FindWithTag("PlayerUI");
+            menus.Add(playerHUD);
         }
 
         #endregion
@@ -85,11 +86,37 @@ public class MenuSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        SwitchMenu(startM);
+        PauseSystem.PauseMenuActive += PauseMenu;
+        if (onStartActive)
+        {
+            SwitchMenu(startM);
+        }
     }
 
 
-   
+
+    private void OnDisable()
+    {
+        PauseSystem.PauseMenuActive -= PauseMenu;
+    }
+
+
+
+    private void PauseMenu(bool b)
+    {
+        Debug.Log("Pause " + b);
+        if (b)
+        {
+            SwitchMenu("PauseMenu");
+        }
+        else
+        {
+            DeactivateAllMenus();
+        }
+    }
+
+
+
     private void ActivateMenu(GameObject g)
     {
         if (g)
