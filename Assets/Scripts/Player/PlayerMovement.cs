@@ -83,7 +83,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
-            rb.AddForce( direction * speed, ForceMode.VelocityChange);
+
+            rb.linearVelocity += direction * speed * Time.fixedDeltaTime;
 
             if (animateCam)
             {
@@ -102,7 +103,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void AutoStep()
     {
-        if (Physics.BoxCast(stepRayLower.transform.position, new Vector3(.1f,.9f, .1f), direction, out RaycastHit hit, Quaternion.identity, 1f) && hit.transform.CompareTag("Ground"))
+        Debug.DrawRay(stepRayLower.transform.position, direction);
+        if (Physics.BoxCast(stepRayLower.transform.position, new Vector3(.4f, .5f, .4f), direction, out RaycastHit hit, Quaternion.identity, 1f) && hit.transform.CompareTag("Ground"))
         {
             if (!Physics.BoxCast(stepRayUpper.transform.position, new Vector3(.1f, .1f, .1f), direction, Quaternion.identity, 1f))
             {
@@ -113,6 +115,8 @@ public class PlayerMovement : MonoBehaviour
                     objectHeight = boxCastHeightInc;
                     boxCastHeightInc += .1f;
                 }
+                
+                //Update rb position instead of object since rb is being used for movement.
                 rb.position += new Vector3(0f, objectHeight, 0f);
             }
         }

@@ -15,6 +15,13 @@ public class CursorState : MonoBehaviour
 
     #region Methods
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+
+
     private void OnEnable()
     {
         PauseSystem.PauseMenuActive += CursorVisible;
@@ -24,8 +31,6 @@ public class CursorState : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-
         if (!VisibleOnStart)
         {
             CursorVisible(false);
