@@ -4,8 +4,8 @@ using UnityEngine.AI;
 public abstract class EnemyBaseClass : MonoBehaviour
 {
     // protected float eHealth, eSpeed, eAtkRate, eDamage;
-
-    public NavMeshAgent agent;
+	[SerializeField]
+    private NavMeshAgent agent;
 
 	protected Transform player;
 
@@ -32,7 +32,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
 
 	protected virtual void Update()
 	{
-		// playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+		playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 		playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
 		/*if (!playerInSightRange && !playerInAttackRange)
@@ -70,12 +70,21 @@ public abstract class EnemyBaseClass : MonoBehaviour
 
 	protected virtual void ChasePlayer()
 	{
-		agent.SetDestination(player.position);
+		if (GetComponent<NavMeshAgent>() != null)
+		{
+			agent.SetDestination(player.position);
+		}
+		
 	}
 
 	protected virtual void AttackPlayer()
 	{
-		agent.SetDestination(transform.position);
+		if (GetComponent<NavMeshAgent>() != null)
+		{
+			Debug.Log("Attack!");
+			agent.SetDestination(transform.position);
+		}
+		
 	}
 
 	protected virtual void OnDrawGizmos()
