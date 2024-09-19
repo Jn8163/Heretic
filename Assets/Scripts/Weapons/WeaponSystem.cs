@@ -4,6 +4,8 @@ using System.Collections;
 
 public abstract class WeaponSystem : MonoBehaviour
 {
+    public bool is_ammo = true;
+    public int weapon_ammo = 10;
     public int weapon_damage = -10;
     private InputSystem pInput;
     public float reload_time = 1.00f;
@@ -21,8 +23,11 @@ public abstract class WeaponSystem : MonoBehaviour
     public virtual void Attack()
     {
         //Do Attack
+        if (is_ammo) {
+            weapon_ammo--;
+        }
         Debug.Log("Attack Casted");
-        coroutine = start_reloading(reload_time);
+        coroutine = start_cooldown(reload_time);
         StartCoroutine(coroutine);
     }
 
@@ -47,7 +52,7 @@ public abstract class WeaponSystem : MonoBehaviour
         }
     }
 
-    private IEnumerator start_reloading(float reload_time)
+    private IEnumerator start_cooldown(float reload_time)
     {
         reloading = true;
         Debug.Log("Reloading");
@@ -55,5 +60,10 @@ public abstract class WeaponSystem : MonoBehaviour
 
         reloading = false;
     }
-    
+
+    public void UpdateAmmo(int updateAmmo)
+    {
+        weapon_ammo += updateAmmo;
+    }
+
 }

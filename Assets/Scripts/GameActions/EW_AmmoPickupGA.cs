@@ -5,7 +5,7 @@ using UnityEngine;
 public class EW_AmmoPickupGA : GameAction
 {
 	[SerializeField]
-	ElvenWand elvenWand;
+	private ElvenWand elvenWand;
 
 	public int ammo_amount = 10;
 

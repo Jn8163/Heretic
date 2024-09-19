@@ -21,6 +21,7 @@ public class ElvenWand : WeaponSystem
             if (current_ammo > 0)
             {
                 current_ammo--;
+                Debug.Log("Current Ammo: " + current_ammo);
                 base.Attack();
                 Debug.DrawRay(attack_spawn.position, direction);
                 if (Physics.Raycast(attack_spawn.position, direction, out RaycastHit hit))
@@ -47,11 +48,6 @@ public class ElvenWand : WeaponSystem
     public override void OnWeaponSwap()
     {
         base.OnWeaponSwap();
-    }
-
-    public void UpdateAmmo(int updateAmmo)
-    {
-        current_ammo += updateAmmo;
     }
 
     private void Update()
