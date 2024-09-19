@@ -83,8 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
-
-            rb.linearVelocity += direction * speed * Time.fixedDeltaTime;
+            rb.linearVelocity = (direction * speed) + new Vector3(0, rb.linearVelocity.y, 0);
 
             if (animateCam)
             {
@@ -115,9 +114,9 @@ public class PlayerMovement : MonoBehaviour
                     objectHeight = boxCastHeightInc;
                     boxCastHeightInc += .1f;
                 }
-                
+
                 //Update rb position instead of object since rb is being used for movement.
-                rb.position += new Vector3(0f, objectHeight, 0f);
+                rb.position = rb.position + new Vector3(0f, objectHeight, 0f);
             }
         }
     }

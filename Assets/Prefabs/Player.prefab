@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2069564516227274093}
-  sensitivity: 50
+  sensitivity: 40
 --- !u!95 &859149938066602040
 Animator:
   serializedVersion: 7
@@ -331,7 +331,6 @@ Transform:
   - {fileID: 2040743484924062903}
   - {fileID: 3620238813630513807}
   - {fileID: 3514062937738562098}
-  - {fileID: 7712150292816090830}
   - {fileID: 6631157210886981990}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,7 +366,7 @@ Rigidbody:
   m_GameObject: {fileID: 2069564516227274093}
   serializedVersion: 4
   m_Mass: 50
-  m_Drag: 5
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -397,6 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a1d2f2f110fb124cb94d9a48565d5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VisibleOnStart: 0
 --- !u!114 &8646978145662749897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84cb090e2c664b643b8208d8098f8b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 10
   animateCam: 1
   stepHeight: 1
 --- !u!1 &2907615243466202451
@@ -455,37 +455,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.233, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 551849847247523623}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3742171233530232752
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7712150292816090830}
-  m_Layer: 3
-  m_Name: GroundCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7712150292816090830
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3742171233530232752}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
