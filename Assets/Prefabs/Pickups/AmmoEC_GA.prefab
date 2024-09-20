@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7061797215601664192}
   - component: {fileID: 5374581589657995113}
   - component: {fileID: 420155831639064666}
-  - component: {fileID: 5693115410672239819}
+  - component: {fileID: -1193725955295948075}
   m_Layer: 0
   m_Name: AmmoEC_GA
   m_TagString: Untagged
@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 5693115410672239819}
+  - {fileID: -1193725955295948075}
   bToggle: 1
---- !u!114 &5693115410672239819
+--- !u!114 &-1193725955295948075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,9 +134,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4311281349883400539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0097abe7bfc5e143a4b3c10b2c85bb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 43b61c5e1b0e75f4ba0a3c65a2374ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  elvenWand: {fileID: 0}
   ammo_amount: 10

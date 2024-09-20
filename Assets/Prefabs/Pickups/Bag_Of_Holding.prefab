@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7488846192632806095}
   - component: {fileID: 5701044200707766569}
   - component: {fileID: 3878810909396215247}
+  - component: {fileID: 3508392140017428585}
   m_Layer: 0
   m_Name: Bag_Of_Holding
   m_TagString: Untagged
@@ -135,5 +136,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852ce7a6d40822c46aeb042ac4d927fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 3508392140017428585}
   bToggle: 0
+--- !u!114 &3508392140017428585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7845494183717795178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc63f56c72ff8bd4c8c83c6081d6f364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
