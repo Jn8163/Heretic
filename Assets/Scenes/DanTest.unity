@@ -239,39 +239,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
---- !u!1 &420307770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2134255733291779297, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
-  m_PrefabInstance: {fileID: 736831209}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &420307776 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6768151894223333459, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
-  m_PrefabInstance: {fileID: 736831209}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &420307778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 420307770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b64267f12e0c5a648b3f913142dd7b82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 8
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointSet: 0
-  walkPointRange: 10
-  startingPos: {x: 0, y: 0, z: 0}
-  sightRange: 20
-  attackRange: 1
-  playerInSightRange: 0
-  playerInAttackRange: 0
 --- !u!1001 &478166242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -406,21 +373,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1140323433549674120, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 2134255733291779297, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
       propertyPath: m_Name
       value: Enemy1 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2134255733291779297, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4610250722428272375, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6768151894223333459, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -462,28 +417,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8476538743688062896, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
-      propertyPath: hoverDist
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8476538743688062896, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8476538743688062896, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
-      propertyPath: attackRange
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6768151894223333459, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 958374103}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2134255733291779297, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 420307778}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
 --- !u!1 &832575517
 GameObject:
@@ -680,87 +617,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &958374101
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 958374103}
-  - component: {fileID: 958374102}
-  - component: {fileID: 958374104}
-  m_Layer: 0
-  m_Name: ClawHitbox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &958374102
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958374101}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &958374103
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958374101}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 420307776}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &958374104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958374101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e569f9feadf0f714280b4315d4c90c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 8
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointSet: 0
-  walkPointRange: 10
-  startingPos: {x: 0, y: 0, z: 0}
-  sightRange: 20
-  attackRange: 1
-  playerInSightRange: 0
-  playerInAttackRange: 0
-  melee: 0
-  ranged: 0
-  claw: {fileID: 958374102}
-  claw_dmg: -5
 --- !u!1 &1102640055
 GameObject:
   m_ObjectHideFlags: 0
