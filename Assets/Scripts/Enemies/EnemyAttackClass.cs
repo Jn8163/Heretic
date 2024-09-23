@@ -7,6 +7,9 @@ public class EnemyAttackClass : EnemyBaseClass
     public bool melee;
     public bool ranged;
 
+    //remove dependency on enemybaseclass
+    //change melee versus ranged determination an onAwake, 
+    //put base.onAwake inside of the either gargoyle or gargoyle
     protected override void AttackPlayer()
     {
         Debug.Log("attack player called");

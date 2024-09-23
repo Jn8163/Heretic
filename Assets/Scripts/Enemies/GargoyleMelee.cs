@@ -4,7 +4,7 @@ using UnityEngine;
 public class GargoyleMelee : EnemyAttackClass
 {
     [SerializeField] private Collider claw;
-    [SerializeField] private int claw_dmg = -5;
+    [SerializeField] private int claw_dmg = -1;
     [SerializeField] private float coolDown = .5f;
     private bool attacked;
 
