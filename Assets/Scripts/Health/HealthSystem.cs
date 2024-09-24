@@ -8,7 +8,7 @@ public class HealthSystem : MonoBehaviour
 
     [SerializeField] private bool bPlayer;
     [SerializeField] private int score;
-    [SerializeField] private int maxHealth = 10;
+    [SerializeField] private int maxHealth = 100;
 
     [SerializeField]private Image healthBar;
 
