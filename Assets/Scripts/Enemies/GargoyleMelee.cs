@@ -6,15 +6,35 @@ public class GargoyleMelee : EnemyAttackClass
     [SerializeField] private Collider claw;
     [SerializeField] private int claw_dmg = -5;
     [SerializeField] private float coolDown = .5f;
+    [SerializeField] private Animator anim;
     private bool attacked;
 
 
-
+    protected void Start()
+    {
+        claw.enabled = false;
+	}
     protected override void MeleeAttack()
     {
         base.MeleeAttack();
-        claw.enabled = true;
+        if (!attacked)
+        {
+            StartCoroutine(nameof(HurtBox));
+        }
+        
         Debug.Log("claw hit");
+    }
+
+    IEnumerator HurtBox()
+    {
+        attacked = true;
+        Debug.Log("hurtbox timer test");
+		claw.enabled = true;
+        anim.SetBool("isAttacking", true);
+		yield return new WaitForSeconds(1);
+		anim.SetBool("isAttacking", false);
+		claw.enabled = false;
+		attacked = false;
     }
 
 
@@ -30,13 +50,14 @@ public class GargoyleMelee : EnemyAttackClass
 
 
 
-    private void OnTriggerStay(Collider other)
+    /*private void OnTriggerStay(Collider other)
     {
         if(!attacked && other.TryGetComponent(out HealthSystem hSystem))
         {
-            OnHit(hSystem);
+            if(other.CompareTag("Player"))
+                OnHit(hSystem);
         }
-    }
+    }*/
 
 
 

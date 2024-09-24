@@ -2,31 +2,48 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAttackClass : EnemyBaseClass
+public abstract class EnemyAttackClass : MonoBehaviour
 {
-    public bool melee;
-    public bool ranged;
+    /*public bool melee;
+    public bool ranged;*/
 
-    protected override void AttackPlayer()
+    /*protected override void AttackPlayer()
     {
         Debug.Log("attack player called");
-        if (attackRange == 1)
+        if (playerInAttackRange)
         {
             melee = true;
         }
-        if (attackRange > 1)
+        *//*if (attackRange > 1)
         {
             ranged = true;
-        }
+        }*//*
         base.AttackPlayer();
         if (melee == true)
         {
             MeleeAttack();
         }
-        if (ranged == true)
+        *//*if (ranged == true)
         {
             RangedAttack();
-        }
+        }*//*
+    }*/
+
+    public LayerMask whatIsPlayer;
+    public float attackRange;
+    public bool playerInAttackRange;
+
+    protected virtual void Update()
+    {
+		playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+
+        if (playerInAttackRange)
+            MeleeAttack();
+	}
+
+    protected virtual void AttackPlayer()
+    {
+
     }
 
     protected virtual void MeleeAttack()
