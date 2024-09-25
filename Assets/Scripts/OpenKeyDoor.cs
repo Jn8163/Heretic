@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class OpenKeyDoor : MonoBehaviour
 {
-	private InputSystem pInput;
+	private PlayerInput pInput;
 	private bool isDoorOpen;
 	private bool isInteractable;
 	private bool isKeyY, isKeyG, isKeyB;
@@ -16,7 +16,7 @@ public class OpenKeyDoor : MonoBehaviour
 	private int index; // 0 is yellow, 1 is green, 2 is blue
 	private void Start()
 	{
-		pInput = new InputSystem();
+		pInput = new PlayerInput();
 		pInput.Enable();
 
 		pInput.Player.Interact.performed += OpenDoor;

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +21,10 @@ public class MenuSystem : MonoBehaviour
     private List<GameObject> menus = new List<GameObject>();
     private int selectedLevel, selectedDifficulty;
 
+    public static Action<bool> FreezeTime = delegate { };
+    public static Action Reset = delegate { };
+    public static Action Restart = delegate { };
+
     #endregion
 
 
@@ -32,17 +38,17 @@ public class MenuSystem : MonoBehaviour
         {
             menus.Add(mainM);
         }
-        
+
         if (settings && (settingsM = transform.Find("SettingsMenu").gameObject))
         {
             menus.Add(settingsM);
         }
-        
+
         if (load && (loadM = transform.Find("LoadMenu").gameObject))
         {
             menus.Add(loadM);
         }
-        
+
         if (pause && (pauseM = transform.Find("PauseMenu").gameObject))
         {
             menus.Add(pauseM);
@@ -52,12 +58,12 @@ public class MenuSystem : MonoBehaviour
         {
             menus.Add(deathM);
         }
-        
+
         if (episode && (episodeM = transform.Find("EpisodeMenu").gameObject))
         {
             menus.Add(episodeM);
         }
-        
+
         if (difficulty && (difficultyM = transform.Find("DifficultyMenu").gameObject))
         {
             menus.Add(difficultyM);
@@ -68,10 +74,13 @@ public class MenuSystem : MonoBehaviour
             playerHUD = GameObject.FindWithTag("PlayerUI");
             menus.Add(playerHUD);
         }
-
         HealthSystem.GameOver += CallGameOverScreen;
-        #endregion
+
+
     }
+
+    #endregion
+
 
 
     private void CallGameOverScreen()
@@ -80,19 +89,28 @@ public class MenuSystem : MonoBehaviour
         Cursor.visible = true;
     }
 
+
+
     private void Start()
     {
+        Debug.Log("menu");
         if (onStartActive)
         {
             SwitchMenu(startM);
+            FreezeTime(true);
         }
-    } 
+        else
+        {
+            FreezeTime(false);
+        }
+    }
 
 
 
     private void OnEnable()
     {
         PauseSystem.PauseMenuActive += PauseMenu;
+
         if (onStartActive)
         {
             SwitchMenu(startM);
@@ -129,6 +147,7 @@ public class MenuSystem : MonoBehaviour
         {
             DeactivateAllMenus();
             g.SetActive(true);
+            FreezeTime(true);
         }
         else
         {
@@ -140,7 +159,7 @@ public class MenuSystem : MonoBehaviour
 
     private void DeactivateAllMenus()
     {
-        foreach(GameObject g in menus)
+        foreach (GameObject g in menus)
         {
             g.SetActive(false);
         }
@@ -210,7 +229,7 @@ public class MenuSystem : MonoBehaviour
     }
 
 
-    
+
     public void ChangeScene()
     {
         SceneManager.LoadScene(selectedLevel);
@@ -218,10 +237,23 @@ public class MenuSystem : MonoBehaviour
 
 
 
+    public void ResetCall()
+    {
+        IEnum();
+        //Reset();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     public void Quit()
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+
+    private IEnumerator IEnum()
+    {
+        FreezeTime(false);
+        yield return new WaitForEndOfFrame();
     }
 
     #endregion

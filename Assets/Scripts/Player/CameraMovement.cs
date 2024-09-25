@@ -7,7 +7,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] private float sensitivity = 100f;
     private Vector3 startPos;
-    private InputSystem pInput;
+    private PlayerInput pInput;
     private float verticalRotation;
 
     #endregion
@@ -18,7 +18,7 @@ public class CameraMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        pInput = new InputSystem();
+        pInput = new PlayerInput();
         pInput.Enable();
     }
 

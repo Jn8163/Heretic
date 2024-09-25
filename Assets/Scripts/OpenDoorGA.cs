@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class OpenDoorGA : MonoBehaviour
 {
-	private InputSystem pInput;
+	private PlayerInput pInput;
 	private bool isDoorOpen;
 	private bool isInteractable;
 
@@ -13,7 +13,7 @@ public class OpenDoorGA : MonoBehaviour
 	private Animator anim;
 	private void Start()
 	{
-		pInput = new InputSystem();
+		pInput = new PlayerInput();
 		pInput.Enable();
 
 		pInput.Player.Interact.performed += OpenDoor;
