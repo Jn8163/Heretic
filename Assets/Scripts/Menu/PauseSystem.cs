@@ -9,7 +9,7 @@ public class PauseSystem : MonoBehaviour
 
     [SerializeField] private GameObject menu;
     private EventSystem eSystem;
-    private InputSystem pInput;
+    private PlayerInput pInput;
     private bool mOpen;
 
     public static Action<bool> PauseMenuActive = delegate { };
@@ -20,11 +20,18 @@ public class PauseSystem : MonoBehaviour
 
     #region Methods
 
-    private void Start()
+    private void OnEnable()
     {
-        pInput = new InputSystem();
+        pInput = new PlayerInput();
         pInput.Enable();
         pInput.Player.Menu.performed += PauseMenuOpen;
+    }
+
+
+
+    private void Start()
+    {
+        Debug.Log("pause");
         eSystem = FindFirstObjectByType<EventSystem>();
     }
 
@@ -34,15 +41,27 @@ public class PauseSystem : MonoBehaviour
     {
         if (!mOpen)
         {
-            Time.timeScale = 0;
+            FreezeTime(true);
             mOpen = true;
             PauseMenuActive(true);
         }
         else if (menu.activeInHierarchy)
         {
-            Time.timeScale = 1;
+            FreezeTime(false);
             mOpen = false;
             PauseMenuActive(false);
+        }
+    }
+
+    private void FreezeTime(bool b)
+    {
+        if (b)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
     }
 

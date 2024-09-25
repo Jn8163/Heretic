@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class DoorSwitchGA : MonoBehaviour
 {
-    private InputSystem pInput;
+    private PlayerInput pInput;
     private bool isButtonPressed;
     private bool isInteractable;
 
@@ -15,7 +15,7 @@ public class DoorSwitchGA : MonoBehaviour
 
 	private void Start()
 	{
-        pInput = new InputSystem();
+        pInput = new PlayerInput();
         pInput.Enable();
 
         pInput.Player.Interact.performed += ButtonPressed;

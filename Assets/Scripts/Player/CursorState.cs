@@ -15,11 +15,6 @@ public class CursorState : MonoBehaviour
 
     #region Methods
 
-    private void Awake()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
 
 
     private void OnEnable()
@@ -50,10 +45,13 @@ public class CursorState : MonoBehaviour
     {
         if (b)
         {
+            Debug.Log("visable");
             Cursor.visible = true;
         }
         else
         {
+            Debug.Log("Invisable");
+
             Cursor.visible = false;
         }
     }

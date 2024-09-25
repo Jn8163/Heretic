@@ -23,7 +23,7 @@ public class ESSetSelected : MonoBehaviour
         myEventSystem = FindAnyObjectByType<EventSystem>();
         myEventSystem.SetSelectedGameObject(null);
         myEventSystem.SetSelectedGameObject(SelectedButton);
-        Debug.Log(myEventSystem.currentSelectedGameObject);
+        //Debug.Log(myEventSystem.currentSelectedGameObject);
     }
 
 
@@ -36,7 +36,7 @@ public class ESSetSelected : MonoBehaviour
         {
             myEventSystem.SetSelectedGameObject(SelectedButton);
         }
-        Debug.Log(myEventSystem.currentSelectedGameObject);
+        //Debug.Log(myEventSystem.currentSelectedGameObject);
     }
 
 

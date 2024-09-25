@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool animateCam = true;
     [SerializeField]
 
-    private InputSystem pInput;
+    private PlayerInput pInput;
     private Rigidbody rb;
     private Animator cameraAnim;
 
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        pInput = new InputSystem();
+        pInput = new PlayerInput();
         pInput.Enable();
 
         rb.freezeRotation = true;
