@@ -5,7 +5,7 @@ public class GargoyleMelee : EnemyAttackClass
 {
     [SerializeField] private Collider claw;
     [SerializeField] private int claw_dmg = -5;
-    [SerializeField] private float coolDown = .5f;
+    [SerializeField] private float coolDown = 1f;
     [SerializeField] private Animator anim;
     private bool attacked;
 
@@ -31,7 +31,7 @@ public class GargoyleMelee : EnemyAttackClass
         Debug.Log("hurtbox timer test");
 		claw.enabled = true;
         anim.SetBool("isAttacking", true);
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(coolDown);
 		anim.SetBool("isAttacking", false);
 		claw.enabled = false;
 		attacked = false;

@@ -69,10 +69,16 @@ public class MenuSystem : MonoBehaviour
             menus.Add(playerHUD);
         }
 
+        HealthSystem.GameOver += CallGameOverScreen;
         #endregion
     }
 
 
+    private void CallGameOverScreen()
+    {
+        ActivateMenu(deathM);
+        Cursor.visible = true;
+    }
 
     private void Start()
     {

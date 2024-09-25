@@ -16,6 +16,7 @@ public class HealthSystem : MonoBehaviour
     private bool bAlive = true;
 
     public static Action<int> UpdateScore = delegate { };
+    public static Action GameOver = delegate { };
 
     #endregion
 
@@ -51,6 +52,8 @@ public class HealthSystem : MonoBehaviour
         if (!bPlayer)
             UpdateScore(score);
 
+        if (bPlayer)
+            GameOver();
     }
 
     #endregion
