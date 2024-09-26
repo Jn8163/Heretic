@@ -20,6 +20,7 @@ public class CursorState : MonoBehaviour
     private void OnEnable()
     {
         PauseSystem.PauseMenuActive += CursorVisible;
+        HealthSystem.GameOver += EnableCursor;
     }
 
 
@@ -37,6 +38,7 @@ public class CursorState : MonoBehaviour
     private void OnDisable()
     {
         PauseSystem.PauseMenuActive -= CursorVisible;
+        HealthSystem.GameOver -= EnableCursor;
     }
 
 
@@ -54,6 +56,13 @@ public class CursorState : MonoBehaviour
 
             Cursor.visible = false;
         }
+    }
+
+
+
+    private void EnableCursor()
+    {
+        CursorVisible(true);
     }
 
     #endregion

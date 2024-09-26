@@ -34,6 +34,7 @@ public class MenuSystem : MonoBehaviour
     private void Awake()
     {
         #region GameObject Assignment
+
         if (main && (mainM = transform.Find("MainMenu").gameObject))
         {
             menus.Add(mainM);
@@ -74,26 +75,15 @@ public class MenuSystem : MonoBehaviour
             playerHUD = GameObject.FindWithTag("PlayerUI");
             menus.Add(playerHUD);
         }
-        HealthSystem.GameOver += CallGameOverScreen;
 
-
+        #endregion
     }
 
-    #endregion
-
-
-
-    private void CallGameOverScreen()
-    {
-        ActivateMenu(deathM);
-        Cursor.visible = true;
-    }
 
 
 
     private void Start()
     {
-        Debug.Log("menu");
         if (onStartActive)
         {
             SwitchMenu(startM);
@@ -110,6 +100,7 @@ public class MenuSystem : MonoBehaviour
     private void OnEnable()
     {
         PauseSystem.PauseMenuActive += PauseMenu;
+        HealthSystem.GameOver += DeathMenu;
 
         if (onStartActive)
         {
@@ -122,13 +113,13 @@ public class MenuSystem : MonoBehaviour
     private void OnDisable()
     {
         PauseSystem.PauseMenuActive -= PauseMenu;
+        HealthSystem.GameOver -= DeathMenu;
     }
 
 
 
     private void PauseMenu(bool b)
     {
-        Debug.Log("Pause " + b);
         if (b)
         {
             SwitchMenu("PauseMenu");
@@ -137,6 +128,14 @@ public class MenuSystem : MonoBehaviour
         {
             DeactivateAllMenus();
         }
+    }
+
+
+
+    private void DeathMenu()
+    {
+        DeactivateAllMenus();
+        SwitchMenu("DeathMenu");
     }
 
 
@@ -239,6 +238,7 @@ public class MenuSystem : MonoBehaviour
 
     public void ResetCall()
     {
+        Debug.Log("reset");
         IEnum();
         //Reset();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
