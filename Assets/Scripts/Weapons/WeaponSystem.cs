@@ -7,7 +7,7 @@ public abstract class WeaponSystem : MonoBehaviour
     public bool is_ammo = true;
     public int weapon_ammo = 10;
     public int weapon_damage = -10;
-    private InputSystem pInput;
+    private PlayerInput pInput;
     public float reload_time = 1.00f;
     private bool reloading = false;
 
@@ -15,7 +15,7 @@ public abstract class WeaponSystem : MonoBehaviour
 
     public virtual void Start()
     {
-        pInput = new InputSystem();
+        pInput = new PlayerInput();
         pInput.Enable();
         Debug.Log("Started");
     }
