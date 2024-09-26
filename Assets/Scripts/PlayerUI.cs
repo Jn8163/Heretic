@@ -9,8 +9,7 @@ public class PlayerUI : MonoBehaviour
 	[SerializeField]
 	private int pLife, pAmmo, pArmor, pItemCount; // these are temporary until the systems for these are actually implemented
 
-	[SerializeField]
-	private TextMeshProUGUI life, ammo, armor, itemCount;
+	public TextMeshProUGUI life, ammo, armor, itemCount;
 
 	[SerializeField]
 	private Image ammoIcon, itemIcon, yKey, gKey, bKey; 

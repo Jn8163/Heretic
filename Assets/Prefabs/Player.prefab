@@ -342,6 +342,7 @@ MonoBehaviour:
   weapon_damage: -10
   reload_time: 1
   attack_spawn: {fileID: 4207125468734337873}
+  playerUI: {fileID: 4588433284932185910}
   current_ammo: 10
   max_ammo: 30
 --- !u!1 &2069564516227274093
@@ -644,6 +645,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+--- !u!114 &4588433284932185910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 928005366064588571, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+  m_PrefabInstance: {fileID: 3696765031188891693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465388e25998f8f4f80f054432d852d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6631157210886981990 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8019528215425565003, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}

@@ -4,6 +4,8 @@ public class ElvenWand : WeaponSystem
 {
     [SerializeField]
     private Transform attack_spawn;
+    [SerializeField]
+    private PlayerUI playerUI;
     private Vector3 direction = Vector3.forward;
     public int current_ammo = 10;
     public int max_ammo = 30;
@@ -52,7 +54,7 @@ public class ElvenWand : WeaponSystem
 
     private void Update()
     {
-        
+        playerUI.ammo.text = current_ammo.ToString();
     }
 
   
