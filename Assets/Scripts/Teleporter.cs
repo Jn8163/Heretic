@@ -15,13 +15,4 @@ public class Teleporter : MonoBehaviour
         playerTPLoc.position = destination.position;
         playerTP.SetActive(true);
     }
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 }
