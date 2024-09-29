@@ -93,7 +93,6 @@ public class MenuSystem : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("menu");
         if (onStartActive)
         {
             SwitchMenu(startM);
@@ -101,6 +100,10 @@ public class MenuSystem : MonoBehaviour
         }
         else
         {
+            if(playerHUD)
+            {
+                playerHUD.SetActive(true);
+            }
             FreezeTime(false);
         }
     }
@@ -114,6 +117,14 @@ public class MenuSystem : MonoBehaviour
         if (onStartActive)
         {
             SwitchMenu(startM);
+        }
+        else
+        {
+            if (playerHUD)
+            {
+                playerHUD.SetActive(true);
+            }
+            FreezeTime(false);
         }
     }
 
@@ -136,6 +147,10 @@ public class MenuSystem : MonoBehaviour
         else
         {
             DeactivateAllMenus();
+            if (playerHUD)
+            {
+                playerHUD.SetActive(true);
+            }
         }
     }
 
@@ -163,6 +178,12 @@ public class MenuSystem : MonoBehaviour
         {
             g.SetActive(false);
         }
+
+        if (playerHUD)
+        {
+            playerHUD.SetActive(true);
+        }
+        FreezeTime(false);
     }
 
 
@@ -239,21 +260,16 @@ public class MenuSystem : MonoBehaviour
 
     public void ResetCall()
     {
-        IEnum();
         //Reset();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+
+
     public void Quit()
     {
         Debug.Log("Quit");
         Application.Quit();
-    }
-
-
-    private IEnumerator IEnum()
-    {
-        FreezeTime(false);
-        yield return new WaitForEndOfFrame();
     }
 
     #endregion

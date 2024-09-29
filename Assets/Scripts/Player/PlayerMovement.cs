@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         cameraAnim = transform.Find("CameraParent").transform.Find("Camera").GetComponent<Animator>();
-        weaponAnim = transform.Find("WeaponHolder").transform.Find("Wand").GetComponent <Animator>();
+        //weaponAnim = transform.Find("WeaponHolder").transform.Find("Wand").GetComponent <Animator>();
         stepRayLower = transform.Find("StepRayLower").gameObject;
         stepRayUpper = transform.Find("StepRayUpper").gameObject;
         rb = GetComponent<Rigidbody>();
@@ -93,17 +93,19 @@ public class PlayerMovement : MonoBehaviour
                 cameraAnim.SetBool("moving", true);
             }
 
+            /*
             if (animateWeapon)
             {
                 weaponAnim.SetBool("moving", true);
             }
+            */
 
             AutoStep();
         }
         else
         {
             cameraAnim.SetBool("moving", false);
-            weaponAnim.SetBool("moving", false);
+            //weaponAnim.SetBool("moving", false);
         }
     }
 

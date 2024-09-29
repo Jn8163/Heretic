@@ -25,13 +25,13 @@ public class PauseSystem : MonoBehaviour
         pInput = new PlayerInput();
         pInput.Enable();
         pInput.Player.Menu.performed += PauseMenuOpen;
+        MenuSystem.FreezeTime += FreezeTime;
     }
 
 
 
     private void Start()
     {
-        Debug.Log("pause");
         eSystem = FindFirstObjectByType<EventSystem>();
     }
 
@@ -55,6 +55,7 @@ public class PauseSystem : MonoBehaviour
 
     private void FreezeTime(bool b)
     {
+        Debug.Log("Freeze " + b);
         if (b)
         {
             Time.timeScale = 0;
@@ -76,7 +77,7 @@ public class PauseSystem : MonoBehaviour
 
     private void Restart()
     {
-        Time.timeScale = 1;
+        FreezeTime(false);
         mOpen = false;
         PauseMenuActive(false);
     }
@@ -87,6 +88,7 @@ public class PauseSystem : MonoBehaviour
     {
         pInput.Disable();
         pInput.Player.Menu.performed -= PauseMenuOpen;
+        MenuSystem.FreezeTime -= FreezeTime;
     }
 
     #endregion

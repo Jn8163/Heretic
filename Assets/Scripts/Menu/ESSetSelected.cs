@@ -20,30 +20,37 @@ public class ESSetSelected : MonoBehaviour
 
     private void Awake()
     {
-        myEventSystem = FindAnyObjectByType<EventSystem>();
-        myEventSystem.SetSelectedGameObject(null);
-        myEventSystem.SetSelectedGameObject(SelectedButton);
-        //Debug.Log(myEventSystem.currentSelectedGameObject);
+        if (InputDeviceTracker.currentDevice == "gamepad")
+        {
+            myEventSystem = FindAnyObjectByType<EventSystem>();
+            myEventSystem.SetSelectedGameObject(null);
+            myEventSystem.SetSelectedGameObject(SelectedButton);
+        }
     }
 
 
 
     private void OnEnable()
     {
-        myEventSystem = FindAnyObjectByType<EventSystem>();
-        myEventSystem.SetSelectedGameObject(null);
-        if (myEventSystem)
+        if (InputDeviceTracker.currentDevice == "gamepad")
         {
-            myEventSystem.SetSelectedGameObject(SelectedButton);
+            if (myEventSystem)
+            {
+                myEventSystem = FindAnyObjectByType<EventSystem>();
+                myEventSystem.SetSelectedGameObject(null);
+                myEventSystem.SetSelectedGameObject(SelectedButton);
+            }
         }
-        //Debug.Log(myEventSystem.currentSelectedGameObject);
     }
 
 
 
     private void OnDisable()
     {
-        myEventSystem.SetSelectedGameObject(null);
+        if (myEventSystem)
+        {
+            myEventSystem.SetSelectedGameObject(null);
+        }
     }
 
     #endregion

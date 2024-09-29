@@ -8,6 +8,7 @@ public class CursorState : MonoBehaviour
     #region Fields
 
     [SerializeField] private bool VisibleOnStart;
+    private bool controller = false;
 
     #endregion
 
@@ -20,13 +21,14 @@ public class CursorState : MonoBehaviour
     private void OnEnable()
     {
         PauseSystem.PauseMenuActive += CursorVisible;
+        InputDeviceTracker.ControllerConnected += Controller;
     }
 
 
 
     private void Start()
     {
-        if (!VisibleOnStart)
+        if (!VisibleOnStart || !controller)
         {
             CursorVisible(false);
         }
@@ -37,23 +39,29 @@ public class CursorState : MonoBehaviour
     private void OnDisable()
     {
         PauseSystem.PauseMenuActive -= CursorVisible;
+        InputDeviceTracker.ControllerConnected -= Controller;
     }
 
 
 
     private void CursorVisible(bool b)
     {
-        if (b)
+        if (b && !controller)
         {
-            Debug.Log("visable");
             Cursor.visible = true;
         }
         else
         {
-            Debug.Log("Invisable");
-
             Cursor.visible = false;
         }
+    }
+
+
+
+    private void Controller(bool b)
+    {
+        controller = b;
+        CursorVisible(!b);
     }
 
     #endregion
