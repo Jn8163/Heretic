@@ -6,6 +6,8 @@ public class ElvenWand : WeaponSystem
     private Transform attack_spawn;
     [SerializeField]
     private PlayerUI playerUI;
+    [SerializeField]
+    private AudioSource attack_sound;
     private Vector3 direction = Vector3.forward;
     public int current_ammo = 10;
     public int max_ammo = 30;
@@ -23,6 +25,7 @@ public class ElvenWand : WeaponSystem
             if (current_ammo > 0)
             {
                 current_ammo--;
+                attack_sound.Play();
                 Debug.Log("Current Ammo: " + current_ammo);
                 base.Attack();
                 Debug.DrawRay(attack_spawn.position, direction);
