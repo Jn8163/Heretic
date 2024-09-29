@@ -21,7 +21,7 @@ public class CursorState : MonoBehaviour
     private void OnEnable()
     {
         PauseSystem.PauseMenuActive += CursorVisible;
-        InputDeviceTracker.ControllerConnected += Controller;
+        InputDeviceTracker.ControllerConnected += GamepadToggle;
     }
 
 
@@ -39,7 +39,7 @@ public class CursorState : MonoBehaviour
     private void OnDisable()
     {
         PauseSystem.PauseMenuActive -= CursorVisible;
-        InputDeviceTracker.ControllerConnected -= Controller;
+        InputDeviceTracker.ControllerConnected -= GamepadToggle;
     }
 
 
@@ -58,8 +58,9 @@ public class CursorState : MonoBehaviour
 
 
 
-    private void Controller(bool b)
+    private void GamepadToggle(bool b)
     {
+        Debug.Log("Cursor " + b);
         controller = b;
         CursorVisible(!b);
     }

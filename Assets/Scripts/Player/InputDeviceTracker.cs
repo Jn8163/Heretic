@@ -14,6 +14,11 @@ public class InputDeviceTracker : MonoBehaviour
     private void OnEnable()
     {
         InputSystem.onDeviceChange += OnDeviceChange;
+
+        foreach (var device in InputSystem.devices)
+        {
+            OnDeviceChange(device, InputDeviceChange.Added);
+        }
     }
 
     private void OnDisable()
@@ -40,6 +45,7 @@ public class InputDeviceTracker : MonoBehaviour
                     if(currentDevice != "gamepad")
                     {
                         currentDevice = "keyboard";
+                        ControllerConnected(false);
                     }
                 }
                 break;
@@ -65,7 +71,7 @@ public class InputDeviceTracker : MonoBehaviour
             case InputDeviceChange.Reconnected:
                 if (device is Gamepad)
                 {
-                    Debug.Log("gamepad disconnected");
+                    Debug.Log("gamepad Reconnected");
                     currentDevice = "gamepad";
                     ControllerConnected(true);
                 }

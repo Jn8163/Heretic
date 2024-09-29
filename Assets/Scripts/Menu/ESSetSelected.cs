@@ -11,6 +11,7 @@ public class ESSetSelected : MonoBehaviour
 
     [SerializeField] private GameObject SelectedButton;
     private EventSystem myEventSystem;
+    private bool GamepadActive;
 
     #endregion
 
@@ -20,9 +21,10 @@ public class ESSetSelected : MonoBehaviour
 
     private void Awake()
     {
-        if (InputDeviceTracker.currentDevice == "gamepad")
+        myEventSystem = FindAnyObjectByType<EventSystem>();
+
+        if (GamepadActive && myEventSystem)
         {
-            myEventSystem = FindAnyObjectByType<EventSystem>();
             myEventSystem.SetSelectedGameObject(null);
             myEventSystem.SetSelectedGameObject(SelectedButton);
         }
@@ -32,15 +34,15 @@ public class ESSetSelected : MonoBehaviour
 
     private void OnEnable()
     {
-        if (InputDeviceTracker.currentDevice == "gamepad")
+        myEventSystem = FindAnyObjectByType<EventSystem>();
+
+        if (GamepadActive && myEventSystem)
         {
-            if (myEventSystem)
-            {
-                myEventSystem = FindAnyObjectByType<EventSystem>();
                 myEventSystem.SetSelectedGameObject(null);
                 myEventSystem.SetSelectedGameObject(SelectedButton);
-            }
         }
+
+        InputDeviceTracker.ControllerConnected += GamepadAdded;
     }
 
 
@@ -50,6 +52,17 @@ public class ESSetSelected : MonoBehaviour
         if (myEventSystem)
         {
             myEventSystem.SetSelectedGameObject(null);
+        }
+    }
+
+
+
+    private void GamepadAdded(bool b)
+    {
+        GamepadActive = b;
+        if (b && myEventSystem)
+        {
+            myEventSystem.SetSelectedGameObject(SelectedButton);
         }
     }
 
