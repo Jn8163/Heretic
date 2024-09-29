@@ -5,10 +5,11 @@ public class CameraMovement : MonoBehaviour
     #region Fields
 
     [SerializeField] GameObject player;
-    [SerializeField] private float sensitivity = 100f;
+    [SerializeField] private float sensitivity = 15f, gamepadSensitivity = 150f;
     private Vector3 startPos;
     private PlayerInput pInput;
     private float verticalRotation;
+    private bool gamepadActive;
 
     #endregion
 
@@ -20,6 +21,8 @@ public class CameraMovement : MonoBehaviour
     {
         pInput = new PlayerInput();
         pInput.Enable();
+
+        InputDeviceTracker.ControllerConnected += ControllerConnected;
     }
 
 
@@ -27,6 +30,9 @@ public class CameraMovement : MonoBehaviour
     private void OnDisable()
     {
         pInput.Disable();
+
+        InputDeviceTracker.ControllerConnected -= ControllerConnected;
+
     }
 
 
@@ -49,8 +55,18 @@ public class CameraMovement : MonoBehaviour
     private void Rotation()
     {
         //Retrieve input
-        float horizontalMov = pInput.Player.Look.ReadValue<Vector2>().x * sensitivity * Time.deltaTime;
-        float verticalMov = pInput.Player.Look.ReadValue<Vector2>().y * sensitivity * Time.deltaTime;
+        float horizontalMov, verticalMov;
+
+        if (gamepadActive)
+        {
+            horizontalMov = pInput.Player.Look.ReadValue<Vector2>().x * gamepadSensitivity * Time.deltaTime;
+            verticalMov = pInput.Player.Look.ReadValue<Vector2>().y * gamepadSensitivity * Time.deltaTime;
+        }
+        else
+        {
+            horizontalMov = pInput.Player.Look.ReadValue<Vector2>().x * sensitivity * Time.deltaTime;
+            verticalMov = pInput.Player.Look.ReadValue<Vector2>().y * sensitivity * Time.deltaTime;
+        }
 
         //Vertical rotation
         verticalRotation -= verticalMov;
@@ -59,6 +75,13 @@ public class CameraMovement : MonoBehaviour
 
         //Horizontal rotation
         player.transform.Rotate(Vector3.up * horizontalMov);
+    }
+    
+
+
+    private void ControllerConnected(bool b)
+    {
+        gamepadActive = b;
     }
 
     #endregion
