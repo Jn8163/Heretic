@@ -78,15 +78,39 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        //get direction from input.
         direction.x = pInput.Player.Move.ReadValue<Vector2>().x;
         direction.z = pInput.Player.Move.ReadValue<Vector2>().y;
 
-        direction = transform.right * direction.x + transform.forward * direction.z;
-        direction.Normalize();
 
-        if (direction != Vector3.zero)
+
+        //allign direction to current player allignment
+        direction = transform.right * direction.x + transform.forward * direction.z;
+
+
+
+        if (direction != Vector3.zero)//if player is moving
         {
+            if (Physics.SphereCast(transform.position, 0.35f, direction, out RaycastHit hit, 0.35f))
+            {
+                direction += hit.normal * (transform.position - hit.point).magnitude;
+            }
+            else if (Physics.SphereCast(transform.position, 0.35f, direction + Vector3.right * -.5f, out RaycastHit hitl, 0.35f))
+            {
+                direction += hitl.normal * (transform.position - hit.point).magnitude;
+            }
+            else if (Physics.SphereCast(transform.position, 0.35f, direction + Vector3.right * .5f, out RaycastHit hitr, 0.35f))
+            {
+                direction += hitr.normal * (transform.position - hit.point).magnitude;
+            }
+
+            direction.Normalize();
+
+
+
             rb.linearVelocity = (direction * speed) + new Vector3(0, rb.linearVelocity.y, 0);
+
+
 
             if (animateCam)
             {
