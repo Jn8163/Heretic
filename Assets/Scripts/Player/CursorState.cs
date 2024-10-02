@@ -28,7 +28,7 @@ public class CursorState : MonoBehaviour
 
     private void Start()
     {
-        if (!VisibleOnStart || !controller)
+        if (!VisibleOnStart || controller)
         {
             CursorVisible(false);
         }
@@ -48,11 +48,13 @@ public class CursorState : MonoBehaviour
     {
         if (b && !controller)
         {
+            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
         else
         {
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
