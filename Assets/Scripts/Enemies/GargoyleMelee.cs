@@ -31,7 +31,7 @@ public class GargoyleMelee : EnemyAttackClass
         Debug.Log("hurtbox timer test");
 		claw.enabled = true;
         anim.SetBool("isAttacking", true);
-		yield return new WaitForSeconds(coolDown);
+		yield return new WaitForSeconds(1);
 		anim.SetBool("isAttacking", false);
 		claw.enabled = false;
 		attacked = false;

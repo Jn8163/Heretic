@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -17,11 +18,18 @@ public class PlayerUI : MonoBehaviour
 	[SerializeField]
 	private GameObject hpIndicator, lerpPointA, lerpPointB;
 
+	private float tmp, difference;
+
+	private bool adjustingHPBar;
+	private bool wait;
+
 	private void Start()
 	{
 		KeyYPickupGA.KeyYPickup += KeyYellowLight;
 		KeyGPickupGA.KeyGPickup += KeyGreenLight;
 		KeyBPickupGA.KeyBPickup += KeyBlueLight;
+
+		tmp = healthSystem.currentHealth;
 	}
 
 	private void Update()
@@ -47,9 +55,44 @@ public class PlayerUI : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		/*if (tmp != healthSystem.currentHealth)
+		{
+			if (!adjustingHPBar)
+			{
+				difference = tmp - healthSystem.currentHealth;
+				adjustingHPBar = true;
+			}
+			if (!wait)
+			{
+				StartCoroutine(nameof(GradualHPBar));
+			}
+			
+			
+		}*/
 		hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, healthSystem.currentHealth / 100f);
 	}
 
+	/*IEnumerator GradualHPBar()
+	{
+		wait = true;
+		yield return new WaitForSeconds(1f / difference);
+		if (difference > 0)
+		{
+			tmp -= 1f / difference;
+			hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, tmp / 100f);
+		}
+		else if (difference < 0)
+		{
+			tmp += 1f / difference;
+			hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, tmp / 100f);
+		}
+		else if (difference == 0)
+		{
+			adjustingHPBar = false;
+		}
+		
+		wait = false;
+	}*/
 	private void KeyYellowLight(bool b)
 	{
 		yKey.color = Color.yellow;

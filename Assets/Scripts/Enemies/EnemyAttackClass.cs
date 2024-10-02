@@ -2,15 +2,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAttackClass : EnemyBaseClass
+public abstract class EnemyAttackClass : MonoBehaviour
 {
-    public bool melee;
-    public bool ranged;
-
-    //remove dependency on enemybaseclass
-    //change melee versus ranged determination an onAwake, 
-    //put base.onAwake inside of the either gargoyle or gargoyle
-    protected override void AttackPlayer()
+    /*protected override void AttackPlayer()
     {
         Debug.Log("attack player called");
         if (attackRange == 1)
@@ -30,16 +24,28 @@ public class EnemyAttackClass : EnemyBaseClass
         {
             RangedAttack();
         }
+    }*/
+
+    public LayerMask whatIsPlayer;
+    public float attackRange;
+    public bool playerInAttackRange;
+
+    protected virtual void Update()
+    {
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+
+        if (playerInAttackRange)
+            MeleeAttack();
     }
+
+	protected virtual void AttackPlayer()
+	{
+
+	}
 
     protected virtual void MeleeAttack()
     {
         Debug.Log("melee triggered");
-    }
-
-    protected virtual void RangedAttack()
-    {
-        Debug.Log("ranged triggered");
     }
 }
 

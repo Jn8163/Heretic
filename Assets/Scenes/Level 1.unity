@@ -64500,6 +64500,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 61814964268508076, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 61.56097
+      objectReference: {fileID: 0}
     - target: {fileID: 551849847247523623, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -64540,12 +64544,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1830828128460645313, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 61.560974
+      objectReference: {fileID: 0}
     - target: {fileID: 2069564516227274093, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2069564516227274093, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2917168334911712708, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2917168334911712708, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 61.560974
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923862727833234176, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923862727833234176, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 6923862727833234176, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8646978145662749897, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
