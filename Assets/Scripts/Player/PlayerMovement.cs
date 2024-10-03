@@ -13,13 +13,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Field(s)")]
     [SerializeField] private float speed = 6f;
     [SerializeField] private bool animateCam = true;
-    [SerializeField] private bool animateWeapon = true;
     [SerializeField]
 
     private PlayerInput pInput;
     private Rigidbody rb;
     private Animator cameraAnim;
-    private Animator weaponAnim;
 
     private Vector3 direction;
 
@@ -42,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         cameraAnim = transform.Find("CameraParent").transform.Find("Camera").GetComponent<Animator>();
-        weaponAnim = transform.Find("WeaponHolder").transform.Find("Wand").GetComponent <Animator>();
         stepRayLower = transform.Find("StepRayLower").gameObject;
         stepRayUpper = transform.Find("StepRayUpper").gameObject;
         rb = GetComponent<Rigidbody>();
@@ -117,19 +114,11 @@ public class PlayerMovement : MonoBehaviour
                 cameraAnim.SetBool("moving", true);
             }
 
-            
-            if (animateWeapon)
-            {
-                weaponAnim.SetBool("moving", true);
-            }
-            
-
             AutoStep();
         }
         else
         {
             cameraAnim.SetBool("moving", false);
-            weaponAnim.SetBool("moving", false);
         }
     }
 
