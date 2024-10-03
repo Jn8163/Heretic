@@ -38,6 +38,13 @@ public class PlayerUI : MonoBehaviour
 		Debug.Log(healthSystem.currentHealth + " is the current hp");
 	}
 
+	private void OnDisable()
+	{
+		KeyYPickupGA.KeyYPickup -= KeyYellowLight;
+		KeyGPickupGA.KeyGPickup -= KeyGreenLight;
+		KeyBPickupGA.KeyBPickup -= KeyBlueLight;
+	}
+
 	private void Update()
 	{
 		life.text = healthSystem.currentHealth.ToString();
@@ -98,9 +105,10 @@ public class PlayerUI : MonoBehaviour
 		adjustingHPBar = false;
 	}
 
-	/*IEnumerator HealthBarShaking()
+	IEnumerator HealthBarShaking()
 	{
-		Vector2 startPosition = hpIndicator.transform.position;
+		Vector2 startPosition1 = lerpPointA.transform.position;
+		Vector2 startPosition2 = lerpPointA.transform.position;
 		Vector2 tmpPosition = new Vector2(0, 0);
 		float elapsedTime = 0f;
 
@@ -109,12 +117,14 @@ public class PlayerUI : MonoBehaviour
 			elapsedTime += Time.deltaTime;
 			float strength = curve.Evaluate(elapsedTime / shakeDuration);
 			tmpPosition.y = Random.insideUnitCircle.y;
-			hpIndicator.transform.position = startPosition + tmpPosition;
+			lerpPointA.transform.position = startPosition1 + tmpPosition;
+			lerpPointB.transform.position = startPosition2 + tmpPosition;
 			yield return null;
 		}
 
-		hpIndicator.transform.position = startPosition;
-	}*/
+		lerpPointA.transform.position = startPosition1;
+		lerpPointB.transform.position = startPosition2;
+	}
 	
 	private void KeyYellowLight(bool b)
 	{
