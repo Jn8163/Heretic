@@ -2704,3 +2704,37 @@ MonoBehaviour:
   hpIndicator: {fileID: 3889971083313065662}
   lerpPointA: {fileID: 4045592289087051058}
   lerpPointB: {fileID: 3005443625159267660}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0000076293945
+      inSlope: 0.9979712
+      outSlope: 0.9979712
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.17803466
+      value: 0.17768109
+      inSlope: -0.3580039
+      outSlope: -0.3580039
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.10689166
+    - serializedVersion: 3
+      time: 1
+      value: 0.000011444092
+      inSlope: -0.21615224
+      outSlope: -0.21615224
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  shakeDuration: 1

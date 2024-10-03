@@ -23,6 +23,11 @@ public class PlayerUI : MonoBehaviour
 	private bool adjustingHPBar;
 	private bool wait;
 
+	private bool setTMP;
+
+	public AnimationCurve curve;
+	public float shakeDuration = 1f;
+
 	private void Start()
 	{
 		KeyYPickupGA.KeyYPickup += KeyYellowLight;
@@ -30,6 +35,7 @@ public class PlayerUI : MonoBehaviour
 		KeyBPickupGA.KeyBPickup += KeyBlueLight;
 
 		tmp = healthSystem.currentHealth;
+		Debug.Log(healthSystem.currentHealth + " is the current hp");
 	}
 
 	private void Update()
@@ -55,44 +61,61 @@ public class PlayerUI : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		/*if (tmp != healthSystem.currentHealth)
+		if (!setTMP)
 		{
+			tmp = healthSystem.currentHealth;
+			setTMP = true;
+		}
+		if (tmp != healthSystem.currentHealth)
+		{
+			Debug.Log("health mismatch!");
+			Debug.Log("tmp: " + tmp);
+			Debug.Log("health system: " + healthSystem.currentHealth.ToString());
+
 			if (!adjustingHPBar)
 			{
-				difference = tmp - healthSystem.currentHealth;
 				adjustingHPBar = true;
+				StartCoroutine(nameof(GradualHP));
+				// StartCoroutine(nameof(HealthBarShaking));
 			}
-			if (!wait)
-			{
-				StartCoroutine(nameof(GradualHPBar));
-			}
-			
-			
-		}*/
-		hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, healthSystem.currentHealth / 100f);
+		}
+		hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, tmp / 100f);
 	}
 
-	/*IEnumerator GradualHPBar()
+	IEnumerator GradualHP()
 	{
-		wait = true;
-		yield return new WaitForSeconds(1f / difference);
-		if (difference > 0)
+		yield return new WaitForSeconds(1 / 24);
+
+		if (tmp > healthSystem.currentHealth)
 		{
-			tmp -= 1f / difference;
-			hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, tmp / 100f);
+			tmp -= 0.5f;
 		}
-		else if (difference < 0)
+		else if (tmp < healthSystem.currentHealth)
 		{
-			tmp += 1f / difference;
-			hpIndicator.transform.position = Vector2.Lerp(lerpPointA.transform.position, lerpPointB.transform.position, tmp / 100f);
+			tmp += 0.5f;
 		}
-		else if (difference == 0)
+
+		adjustingHPBar = false;
+	}
+
+	/*IEnumerator HealthBarShaking()
+	{
+		Vector2 startPosition = hpIndicator.transform.position;
+		Vector2 tmpPosition = new Vector2(0, 0);
+		float elapsedTime = 0f;
+
+		while (elapsedTime < shakeDuration)
 		{
-			adjustingHPBar = false;
+			elapsedTime += Time.deltaTime;
+			float strength = curve.Evaluate(elapsedTime / shakeDuration);
+			tmpPosition.y = Random.insideUnitCircle.y;
+			hpIndicator.transform.position = startPosition + tmpPosition;
+			yield return null;
 		}
-		
-		wait = false;
+
+		hpIndicator.transform.position = startPosition;
 	}*/
+	
 	private void KeyYellowLight(bool b)
 	{
 		yKey.color = Color.yellow;
