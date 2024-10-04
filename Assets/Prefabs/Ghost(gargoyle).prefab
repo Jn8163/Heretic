@@ -66,22 +66,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e569f9feadf0f714280b4315d4c90c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 2840928366213356561}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointSet: 0
-  walkPointRange: 0
-  startingPos: {x: 0, y: 0, z: 0}
-  sightRange: 15
   attackRange: 1
-  playerInSightRange: 0
   playerInAttackRange: 0
-  melee: 0
-  ranged: 0
   claw: {fileID: 6956602159025144009}
-  claw_dmg: -1
+  claw_dmg: -3
   coolDown: 0.5
   anim: {fileID: 4004691089399778178}
 --- !u!1001 &5385394167490817120

@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Field(s)")]
     [SerializeField] private float speed = 6f;
     [SerializeField] private bool animateCam = true;
-    [SerializeField]
 
     private PlayerInput pInput;
     private Rigidbody rb;
@@ -29,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float stepHeight = .3f;
 
     private GameObject stepRayLower, stepRayUpper;
-
 
     #endregion
 
@@ -88,23 +86,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction != Vector3.zero)//if player is moving
         {
-            if (Physics.SphereCast(transform.position, 0.35f, direction, out RaycastHit hit, 0.35f))
+            //prevent sticking to wall
+            if (Physics.SphereCast(transform.position, 0.5f, direction, out RaycastHit hit, 0.35f))
             {
-                direction += hit.normal * (transform.position - hit.point).magnitude;
+                direction += hit.normal * .1f;
             }
-            else if (Physics.SphereCast(transform.position, 0.35f, direction + Vector3.right * -.5f, out RaycastHit hitl, 0.35f))
+            else if (Physics.SphereCast(transform.position, 0.5f, direction + Vector3.right * -.5f, out RaycastHit hitl, 0.35f))
             {
-                direction += hitl.normal * (transform.position - hit.point).magnitude;
+                direction += hitl.normal * .1f;
             }
-            else if (Physics.SphereCast(transform.position, 0.35f, direction + Vector3.right * .5f, out RaycastHit hitr, 0.35f))
+            else if (Physics.SphereCast(transform.position, 0.5f, direction + Vector3.right * .5f, out RaycastHit hitr, 0.35f))
             {
-                direction += hitr.normal * (transform.position - hit.point).magnitude;
+                direction += hitr.normal * .1f;
             }
-
-            direction.Normalize();
-
-
-
             rb.linearVelocity = (direction * speed) + new Vector3(0, rb.linearVelocity.y, 0);
 
 

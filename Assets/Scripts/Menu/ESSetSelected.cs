@@ -19,30 +19,18 @@ public class ESSetSelected : MonoBehaviour
 
     #region Methods
 
-    private void Awake()
+    private void OnEnable()
     {
+        InputDeviceTracker.ControllerConnected += GamepadAdded;
+
         myEventSystem = FindAnyObjectByType<EventSystem>();
+        GamepadActive = InputDeviceTracker.gamepadConnected;
 
         if (GamepadActive && myEventSystem)
         {
             myEventSystem.SetSelectedGameObject(null);
             myEventSystem.SetSelectedGameObject(SelectedButton);
         }
-    }
-
-
-
-    private void OnEnable()
-    {
-        myEventSystem = FindAnyObjectByType<EventSystem>();
-
-        if (GamepadActive && myEventSystem)
-        {
-                myEventSystem.SetSelectedGameObject(null);
-                myEventSystem.SetSelectedGameObject(SelectedButton);
-        }
-
-        InputDeviceTracker.ControllerConnected += GamepadAdded;
     }
 
 
@@ -53,6 +41,8 @@ public class ESSetSelected : MonoBehaviour
         {
             myEventSystem.SetSelectedGameObject(null);
         }
+
+        InputDeviceTracker.ControllerConnected -= GamepadAdded;
     }
 
 
@@ -63,6 +53,10 @@ public class ESSetSelected : MonoBehaviour
         if (b && myEventSystem)
         {
             myEventSystem.SetSelectedGameObject(SelectedButton);
+        }
+        else if(myEventSystem)
+        {
+            myEventSystem.SetSelectedGameObject(null);
         }
     }
 

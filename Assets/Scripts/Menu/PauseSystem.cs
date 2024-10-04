@@ -10,7 +10,7 @@ public class PauseSystem : MonoBehaviour
     [SerializeField] private GameObject menu;
     private EventSystem eSystem;
     private PlayerInput pInput;
-    private bool mOpen;
+    private bool mOpen, dead;
 
     public static Action<bool> PauseMenuActive = delegate { };
 
@@ -22,10 +22,13 @@ public class PauseSystem : MonoBehaviour
 
     private void OnEnable()
     {
+        dead = false;
         pInput = new PlayerInput();
         pInput.Enable();
+
         pInput.Player.Menu.performed += PauseMenuOpen;
         MenuSystem.FreezeTime += FreezeTime;
+        HealthSystem.GameOver += Death;
     }
 
 
@@ -39,17 +42,20 @@ public class PauseSystem : MonoBehaviour
 
     public void PauseMenu()
     {
-        if (!mOpen)
+        if (!dead)
         {
-            FreezeTime(true);
-            mOpen = true;
-            PauseMenuActive(true);
-        }
-        else if (menu.activeInHierarchy)
-        {
-            FreezeTime(false);
-            mOpen = false;
-            PauseMenuActive(false);
+            if (!mOpen)
+            {
+                FreezeTime(true);
+                mOpen = true;
+                PauseMenuActive(true);
+            }
+            else
+            {
+                FreezeTime(false);
+                mOpen = false;
+                PauseMenuActive(false);
+            }
         }
     }
 
@@ -84,11 +90,19 @@ public class PauseSystem : MonoBehaviour
 
 
 
+    private void Death()
+    {
+        dead = true;
+    }
+
+
+
     private void OnDisable()
     {
         pInput.Disable();
         pInput.Player.Menu.performed -= PauseMenuOpen;
         MenuSystem.FreezeTime -= FreezeTime;
+        HealthSystem.GameOver -= Death;
     }
 
     #endregion

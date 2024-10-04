@@ -24,6 +24,7 @@ public class MenuSystem : MonoBehaviour
     public static Action<bool> FreezeTime = delegate { };
     public static Action Reset = delegate { };
     public static Action Restart = delegate { };
+    public static Action<bool> MenuActive = delegate { };
 
     #endregion
 
@@ -140,6 +141,7 @@ public class MenuSystem : MonoBehaviour
     private void PauseMenu(bool b)
     {
         Debug.Log("Pause " + b);
+
         if (b)
         {
             SwitchMenu("PauseMenu");
@@ -162,6 +164,7 @@ public class MenuSystem : MonoBehaviour
         {
             DeactivateAllMenus();
             g.SetActive(true);
+            MenuActive(true);
             FreezeTime(true);
         }
         else
@@ -178,6 +181,7 @@ public class MenuSystem : MonoBehaviour
         {
             g.SetActive(false);
         }
+        MenuActive(false);
 
         if (playerHUD)
         {

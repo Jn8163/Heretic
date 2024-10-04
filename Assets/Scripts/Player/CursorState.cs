@@ -8,7 +8,7 @@ public class CursorState : MonoBehaviour
     #region Fields
 
     [SerializeField] private bool VisibleOnStart;
-    private bool controller = false;
+    private bool controller = false, cursorActive = false;
 
     #endregion
 
@@ -22,6 +22,7 @@ public class CursorState : MonoBehaviour
     {
         PauseSystem.PauseMenuActive += CursorVisible;
         InputDeviceTracker.ControllerConnected += GamepadToggle;
+        MenuSystem.MenuActive += CursorVisible;
     }
 
 
@@ -40,21 +41,25 @@ public class CursorState : MonoBehaviour
     {
         PauseSystem.PauseMenuActive -= CursorVisible;
         InputDeviceTracker.ControllerConnected -= GamepadToggle;
+        MenuSystem.MenuActive -= CursorVisible;
     }
 
 
 
     private void CursorVisible(bool b)
     {
+        Debug.Log("Cursor: " + b);
         if (b && !controller)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            cursorActive = true;
         }
         else
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            cursorActive = false;
         }
     }
 
@@ -62,9 +67,11 @@ public class CursorState : MonoBehaviour
 
     private void GamepadToggle(bool b)
     {
-        Debug.Log("Cursor " + b);
         controller = b;
-        CursorVisible(!b);
+        if (cursorActive)
+        {
+            CursorVisible(!b);
+        }
     }
 
     #endregion
