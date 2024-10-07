@@ -87,18 +87,8 @@ public class PlayerMovement : MonoBehaviour
         if (direction != Vector3.zero)//if player is moving
         {
             //prevent sticking to wall
-            if (Physics.SphereCast(transform.position, 0.5f, direction, out RaycastHit hit, 0.35f))
-            {
-                direction += hit.normal * .1f;
-            }
-            else if (Physics.SphereCast(transform.position, 0.5f, direction + Vector3.right * -.5f, out RaycastHit hitl, 0.35f))
-            {
-                direction += hitl.normal * .1f;
-            }
-            else if (Physics.SphereCast(transform.position, 0.5f, direction + Vector3.right * .5f, out RaycastHit hitr, 0.35f))
-            {
-                direction += hitr.normal * .1f;
-            }
+            WallCollisionCorrection();
+
             rb.linearVelocity = (direction * speed) + new Vector3(0, rb.linearVelocity.y, 0);
 
 
@@ -113,6 +103,21 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             cameraAnim.SetBool("moving", false);
+        }
+    }
+    private void WallCollisionCorrection()
+    {
+        if (Physics.SphereCast(transform.position, 0.5f, direction, out RaycastHit hit, 0.35f))
+        {
+            direction += hit.normal * (direction.magnitude/2);
+        }
+        else if (Physics.SphereCast(transform.position, 0.5f, direction + Vector3.right * -.5f, out RaycastHit hitl, 0.35f))
+        {
+            direction += hitl.normal * (direction.magnitude/2);
+        }
+        else if (Physics.SphereCast(transform.position, 0.5f, direction + Vector3.right * .5f, out RaycastHit hitr, 0.35f))
+        {
+            direction += hitr.normal * (direction.magnitude / 2);
         }
     }
 
