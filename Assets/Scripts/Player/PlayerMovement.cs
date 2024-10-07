@@ -71,6 +71,23 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+    private void LateUpdate()
+    {
+        if(direction.x != 0 && direction.z != 0)
+        {
+            if (animateCam)
+            {
+                //cameraAnim.SetBool("moving", true);
+            }
+        }
+        else
+        {
+            cameraAnim.SetBool("moving", false);
+        }
+    }   //Update animations
+
+
+
     private void Move()
     {
         //get direction from input.
@@ -84,27 +101,18 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (direction != Vector3.zero)//if player is moving
+        if (direction.x != 0 && direction.z != 0)//if player is moving
         {
             //prevent sticking to wall
             WallCollisionCorrection();
-
             rb.linearVelocity = (direction * speed) + new Vector3(0, rb.linearVelocity.y, 0);
-
-
-
-            if (animateCam)
-            {
-                cameraAnim.SetBool("moving", true);
-            }
 
             AutoStep();
         }
-        else
-        {
-            cameraAnim.SetBool("moving", false);
-        }
     }
+
+
+
     private void WallCollisionCorrection()
     {
         if (Physics.SphereCast(transform.position, 0.5f, direction, out RaycastHit hit, 0.35f))
