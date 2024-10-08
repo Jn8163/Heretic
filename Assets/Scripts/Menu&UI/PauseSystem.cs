@@ -7,10 +7,10 @@ public class PauseSystem : MonoBehaviour
 {
     #region Fields
 
-    [SerializeField] private GameObject menu;
+    private static PauseSystem instance;
     private EventSystem eSystem;
     private PlayerInput pInput;
-    private bool mOpen, dead;
+    private bool mOpen, inActive = false;
 
     public static Action<bool> PauseMenuActive = delegate { };
 
@@ -20,15 +20,33 @@ public class PauseSystem : MonoBehaviour
 
     #region Methods
 
+    private void Awake()
+    {
+        //Ensures only one instance is active in scene at all times.
+        //DDOL to preserve states
+        if (!instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            DestroyImmediate(gameObject);
+        }
+    }
+
+
+
     private void OnEnable()
     {
-        dead = false;
         pInput = new PlayerInput();
         pInput.Enable();
 
         pInput.Player.Menu.performed += PauseMenuOpen;
         MenuSystem.FreezeTime += FreezeTime;
         HealthSystem.GameOver += Death;
+        SceneInitializer.PauseSystemInactive += PauseInactive;
+        MenuSystem.Resume += PauseMenu;
     }
 
 
@@ -42,7 +60,7 @@ public class PauseSystem : MonoBehaviour
 
     public void PauseMenu()
     {
-        if (!dead)
+        if (!inActive)
         {
             if (!mOpen)
             {
@@ -61,7 +79,6 @@ public class PauseSystem : MonoBehaviour
 
     private void FreezeTime(bool b)
     {
-        Debug.Log("Freeze " + b);
         if (b)
         {
             Time.timeScale = 0;
@@ -90,9 +107,16 @@ public class PauseSystem : MonoBehaviour
 
 
 
+    private void PauseInactive(bool b)
+    {
+        inActive = b;
+    }
+
+
+
     private void Death()
     {
-        dead = true;
+        PauseInactive(true);
     }
 
 
@@ -103,6 +127,8 @@ public class PauseSystem : MonoBehaviour
         pInput.Player.Menu.performed -= PauseMenuOpen;
         MenuSystem.FreezeTime -= FreezeTime;
         HealthSystem.GameOver -= Death;
+        SceneInitializer.PauseSystemInactive -= PauseInactive;
+        MenuSystem.Resume -= PauseMenu;
     }
 
     #endregion

@@ -7,8 +7,8 @@ public class CursorState : MonoBehaviour
 {
     #region Fields
 
-    [SerializeField] private bool VisibleOnStart;
-    private bool controller = false, cursorActive = false;
+    private static CursorState instance;
+    private bool controller = false;
 
     #endregion
 
@@ -16,10 +16,26 @@ public class CursorState : MonoBehaviour
 
     #region Methods
 
+    private void Awake()
+    {
+        //Ensures only one instance is active in scene at all times.
+        //DDOL to preserve states
+        if (!instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            DestroyImmediate(gameObject);
+        }
+    }
+
 
 
     private void OnEnable()
     {
+        SceneInitializer.CursorVisibleOnStart += CursorVisible;
         PauseSystem.PauseMenuActive += CursorVisible;
         InputDeviceTracker.ControllerConnected += GamepadToggle;
         MenuSystem.MenuActive += CursorVisible;
@@ -27,18 +43,9 @@ public class CursorState : MonoBehaviour
 
 
 
-    private void Start()
-    {
-        if (!VisibleOnStart || controller)
-        {
-            CursorVisible(false);
-        }
-    }
-
-
-
     private void OnDisable()
     {
+        SceneInitializer.CursorVisibleOnStart -= CursorVisible;
         PauseSystem.PauseMenuActive -= CursorVisible;
         InputDeviceTracker.ControllerConnected -= GamepadToggle;
         MenuSystem.MenuActive -= CursorVisible;
@@ -53,13 +60,11 @@ public class CursorState : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            cursorActive = true;
         }
         else
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            cursorActive = false;
         }
     }
 
@@ -68,10 +73,7 @@ public class CursorState : MonoBehaviour
     private void GamepadToggle(bool b)
     {
         controller = b;
-        if (cursorActive)
-        {
-            CursorVisible(!b);
-        }
+        CursorVisible(!b);
     }
 
     #endregion

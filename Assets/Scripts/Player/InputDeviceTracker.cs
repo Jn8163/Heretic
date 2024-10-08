@@ -7,10 +7,33 @@ public class InputDeviceTracker : MonoBehaviour
 
     #region Fields
 
+    private static InputDeviceTracker instance;
     public static bool gamepadConnected = false;
     public static Action<bool> ControllerConnected = delegate { };
 
     #endregion
+
+
+
+    #region Methods
+
+    private void Awake()
+    {
+        //Ensures only one instance is active in scene at all times.
+        //DDOL to preserve states
+        if (!instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            DestroyImmediate(gameObject);
+        }
+    }
+
+
+
     private void OnEnable()
     {
         InputSystem.onDeviceChange += OnDeviceChange;
@@ -36,6 +59,7 @@ public class InputDeviceTracker : MonoBehaviour
     }
 
 
+
     // Method called when a device is added, removed, disconnected, or reconnected
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
     {
@@ -54,7 +78,6 @@ public class InputDeviceTracker : MonoBehaviour
                     if(!gamepadConnected)
                     {
                         gamepadConnected = false;
-                        ControllerConnected(false);
                     }
                 }
                 break;
@@ -87,4 +110,5 @@ public class InputDeviceTracker : MonoBehaviour
                 break;
         }
     }
+    #endregion
 }

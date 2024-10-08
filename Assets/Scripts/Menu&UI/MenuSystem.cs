@@ -1,30 +1,25 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Managment of Menus in scene and buttons included in menus.
-/// 
-/// If bool is set to true, will locate corresponding menu.
-/// On menu switch deactivates any located menu and activates the target menu.
-/// Any menu button action flows through this script.
-/// Pause menu is activated in this script from PauseSystem script.
+/// Management of menus through preset inspector refrences.
+/// Menu logs in DDOL- if another instance is created it's destroyed.
 /// </summary>
 public class MenuSystem : MonoBehaviour
 {
     #region Fields
-    [SerializeField] private string startM;
-    [SerializeField] private bool onStartActive, main, settings, load, pause, death, episode, difficulty, HUD;
-    private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, playerHUD;
-    private List<GameObject> menus = new List<GameObject>();
+    private static MenuSystem instance;
+    [SerializeField] private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, playerHUD;
+    [SerializeField] private List<GameObject> menus = new List<GameObject>();
     private int selectedLevel, selectedDifficulty;
 
+    public static Action<bool> MenuActive = delegate { };
     public static Action<bool> FreezeTime = delegate { };
     public static Action Reset = delegate { };
     public static Action Restart = delegate { };
-    public static Action<bool> MenuActive = delegate { };
+    public static Action Resume = delegate { };
 
     #endregion
 
@@ -34,98 +29,43 @@ public class MenuSystem : MonoBehaviour
 
     private void Awake()
     {
-        #region GameObject Assignment
-        if (main && (mainM = transform.Find("MainMenu").gameObject))
+        //Ensures only one instance is active in scene at all times.
+        //DDOL to preserve states
+        if (!instance)
         {
-            menus.Add(mainM);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-
-        if (settings && (settingsM = transform.Find("SettingsMenu").gameObject))
+        else
         {
-            menus.Add(settingsM);
+            DestroyImmediate(gameObject);
         }
-
-        if (load && (loadM = transform.Find("LoadMenu").gameObject))
-        {
-            menus.Add(loadM);
-        }
-
-        if (pause && (pauseM = transform.Find("PauseMenu").gameObject))
-        {
-            menus.Add(pauseM);
-        }
-
-        if (death && (deathM = transform.Find("DeathMenu").gameObject))
-        {
-            menus.Add(deathM);
-        }
-
-        if (episode && (episodeM = transform.Find("EpisodeMenu").gameObject))
-        {
-            menus.Add(episodeM);
-        }
-
-        if (difficulty && (difficultyM = transform.Find("DifficultyMenu").gameObject))
-        {
-            menus.Add(difficultyM);
-        }
-
-        if (HUD)
-        {
-            playerHUD = GameObject.FindWithTag("PlayerUI");
-            menus.Add(playerHUD);
-        }
-        HealthSystem.GameOver += CallGameOverScreen;
-
-
     }
-
-    #endregion
 
 
 
     private void CallGameOverScreen()
     {
         ActivateMenu(deathM);
-        Cursor.visible = true;
-    }
-
-
-
-    private void Start()
-    {
-        if (onStartActive)
-        {
-            SwitchMenu(startM);
-            FreezeTime(true);
-        }
-        else
-        {
-            if(playerHUD)
-            {
-                playerHUD.SetActive(true);
-            }
-            FreezeTime(false);
-        }
     }
 
 
 
     private void OnEnable()
     {
+        HealthSystem.GameOver += CallGameOverScreen;
         PauseSystem.PauseMenuActive += PauseMenu;
+        SceneInitializer.MenuActiveOnStart += SwitchMenu;
+    }
 
-        if (onStartActive)
+
+
+    private void Start()
+    {
+        playerHUD = GameObject.FindWithTag("PlayerUI");
+        if (playerHUD)
         {
-            SwitchMenu(startM);
-        }
-        else
-        {
-            if (playerHUD)
-            {
-                playerHUD.SetActive(true);
-            }
-            FreezeTime(false);
+            menus.Add(playerHUD);
         }
     }
 
@@ -133,7 +73,9 @@ public class MenuSystem : MonoBehaviour
 
     private void OnDisable()
     {
+        HealthSystem.GameOver -= CallGameOverScreen; 
         PauseSystem.PauseMenuActive -= PauseMenu;
+        SceneInitializer.MenuActiveOnStart -= SwitchMenu;
     }
 
 
@@ -169,7 +111,7 @@ public class MenuSystem : MonoBehaviour
         }
         else
         {
-            Debug.Log("Menu was not located in scene");
+            Debug.Log("Menu was not located identified in inspector.");
         }
     }
 
@@ -181,12 +123,12 @@ public class MenuSystem : MonoBehaviour
         {
             g.SetActive(false);
         }
-        MenuActive(false);
 
         if (playerHUD)
         {
             playerHUD.SetActive(true);
         }
+        MenuActive(false);
         FreezeTime(false);
     }
 
@@ -257,7 +199,15 @@ public class MenuSystem : MonoBehaviour
 
     public void ChangeScene()
     {
+        DeactivateAllMenus();
         SceneManager.LoadScene(selectedLevel);
+    }
+
+
+
+    public void ResumeCall()
+    {
+        Resume();
     }
 
 
