@@ -7,11 +7,11 @@ public class EW_AmmoPickupGA : GameAction
 	[SerializeField]
 	private ElvenWand elvenWand;
 
-	public int ammo_amount = 10;
+	public int ammo_amount = 1;
 
     public override void Action()
     {
-		elvenWand.UpdateAmmo(ammo_amount);
+		elvenWand.current_ammo += ammo_amount;
 		StartCoroutine(DestroyPickup());
     }
 
