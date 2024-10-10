@@ -41,6 +41,8 @@ public abstract class EnemyBaseClass : MonoBehaviour
 			ChasePlayer();
 		if(playerInAttackRange && playerInSightRange)
 			AttackPlayer();
+		if (!playerInAttackRange && !playerInSightRange)
+			ReturnToOrigin();
 	}
 
 	/*protected virtual void Patrolling()
@@ -75,6 +77,14 @@ public abstract class EnemyBaseClass : MonoBehaviour
 			agent.SetDestination(player.position);
 		}
 		
+	}
+
+	protected virtual void ReturnToOrigin()
+	{
+		if (GetComponent<NavMeshAgent>() != null)
+		{
+			agent.SetDestination(startingPos);
+		}
 	}
 
 	protected virtual void AttackPlayer()
