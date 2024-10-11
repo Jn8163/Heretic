@@ -17,6 +17,7 @@ public class HealthSystem : MonoBehaviour
 
     public static Action<int> UpdateScore = delegate { };
     public static Action GameOver = delegate { };
+    public event Action EnemyDeath;
 
     #endregion
 
@@ -47,14 +48,18 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
-    private void Death()
+    public void Death()
     {
         if (!bPlayer)
+        {
             UpdateScore(score);
+            EnemyDeath?.Invoke();
+        }
 
         if (bPlayer)
             GameOver();
     }
 
     #endregion
+
 }
