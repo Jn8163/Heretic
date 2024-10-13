@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,8 @@ public class OpenKeyDoor : MonoBehaviour
 	private bool isDoorOpen;
 	private bool isInteractable;
 	private bool isKeyY, isKeyG, isKeyB;
+
+	public static Action<int> DisplayText = delegate { };
 
 	[SerializeField]
 	private Animator anim;
@@ -87,9 +90,28 @@ public class OpenKeyDoor : MonoBehaviour
 			}
 		}
 
-		else
+		else if(index == 0 && !isKeyY)
 		{
-			Debug.Log("Need Key!");
+			if (isInteractable)
+			{
+				DisplayText(index);
+			}
+		}
+
+		else if (index == 1 && !isKeyG)
+		{
+			if (isInteractable)
+			{
+				DisplayText(index);
+			}
+		}
+
+		else if (index == 2 && !isKeyB)
+		{
+			if (isInteractable)
+			{
+				DisplayText(index);
+			}
 		}
 	}
 }

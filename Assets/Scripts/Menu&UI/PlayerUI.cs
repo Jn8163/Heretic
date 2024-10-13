@@ -10,7 +10,7 @@ public class PlayerUI : MonoBehaviour
 	[SerializeField]
 	private int pLife, pAmmo, pArmor, pItemCount; // these are temporary until the systems for these are actually implemented
 
-	public TextMeshProUGUI life, ammo, armor, itemCount;
+	public TextMeshProUGUI life, ammo, armor, itemCount, announcementText;
 
 	[SerializeField]
 	private Image ammoIcon, itemIcon, yKey, gKey, bKey; 
@@ -34,6 +34,8 @@ public class PlayerUI : MonoBehaviour
 		KeyGPickupGA.KeyGPickup += KeyGreenLight;
 		KeyBPickupGA.KeyBPickup += KeyBlueLight;
 
+		OpenKeyDoor.DisplayText += DisplayText;
+
 		tmp = healthSystem.currentHealth;
 		Debug.Log(healthSystem.currentHealth + " is the current hp");
 	}
@@ -43,6 +45,8 @@ public class PlayerUI : MonoBehaviour
 		KeyYPickupGA.KeyYPickup -= KeyYellowLight;
 		KeyGPickupGA.KeyGPickup -= KeyGreenLight;
 		KeyBPickupGA.KeyBPickup -= KeyBlueLight;
+
+		OpenKeyDoor.DisplayText -= DisplayText;
 	}
 
 	private void Update()
@@ -139,6 +143,19 @@ public class PlayerUI : MonoBehaviour
 	private void KeyBlueLight(bool b)
 	{
 		bKey.color = Color.blue;
+	}
+
+	private void DisplayText(int index)
+	{
+		announcementText.text = "You need a key to open this door.";
+		StartCoroutine(nameof(TextTimer));
+	}
+
+	IEnumerator TextTimer()
+	{
+		yield return new WaitForSeconds(5);
+
+		announcementText.text = "";
 	}
 
 	// AMMO ICON/COUNT: Have input action functions that pull up the ammo icon on the UI for the respective weapon
