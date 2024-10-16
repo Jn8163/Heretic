@@ -249,11 +249,7 @@ public class MenuSystem : MonoBehaviour
 
     public void ChangeScene()
     {
-        DeactivateAllMenus();
-        if (playerHUD)
-        {
-            menus.Remove(playerHUD);
-        }
+        ResetScript();
         SceneManager.LoadScene(selectedLevel);
     }
 
@@ -269,11 +265,7 @@ public class MenuSystem : MonoBehaviour
     public void ResetCall()
     {
         //Reset();
-        DeactivateAllMenus();
-        if (playerHUD)
-        {
-            menus.Remove(playerHUD);
-        }
+        ResetScript();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -290,6 +282,15 @@ public class MenuSystem : MonoBehaviour
     private void PlayerHUDActive(bool b)
     {
         activeHUD = b;
+    }
+
+    private void ResetScript()
+    {
+        DeactivateAllMenus();
+        if (playerHUD)
+        {
+            menus.Remove(playerHUD);
+        }
     }
 
     #endregion
