@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +16,7 @@ public class MenuSystem : MonoBehaviour
     [SerializeField] private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, playerHUD;
     [SerializeField] private List<GameObject> menus = new List<GameObject>();
     private int selectedLevel, selectedDifficulty;
+    private bool activeHUD, destroy = false;
 
     public static Action<bool> MenuActive = delegate { };
     public static Action<bool> FreezeTime = delegate { };
@@ -36,9 +39,10 @@ public class MenuSystem : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if(instance != this)
         {
-            DestroyImmediate(gameObject);
+            destroy = true;
+            gameObject.SetActive(false);
         }
     }
 
@@ -56,6 +60,7 @@ public class MenuSystem : MonoBehaviour
         HealthSystem.GameOver += CallGameOverScreen;
         PauseSystem.PauseMenuActive += PauseMenu;
         SceneInitializer.MenuActiveOnStart += SwitchMenu;
+        SceneInitializer.PlayerHUDActive += PlayerHUDActive;
     }
 
 
@@ -73,9 +78,31 @@ public class MenuSystem : MonoBehaviour
 
     private void OnDisable()
     {
-        HealthSystem.GameOver -= CallGameOverScreen; 
+        if (!destroy)
+        {
+            if (playerHUD)
+            {
+                menus.Remove(playerHUD);
+            }
+            HealthSystem.GameOver -= CallGameOverScreen;
+            PauseSystem.PauseMenuActive -= PauseMenu;
+            SceneInitializer.MenuActiveOnStart -= SwitchMenu;
+            SceneInitializer.PlayerHUDActive -= PlayerHUDActive;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+
+    private void OnDestroy()
+    {
+        HealthSystem.GameOver -= CallGameOverScreen;
         PauseSystem.PauseMenuActive -= PauseMenu;
         SceneInitializer.MenuActiveOnStart -= SwitchMenu;
+        SceneInitializer.PlayerHUDActive -= PlayerHUDActive;
     }
 
 
@@ -105,6 +132,10 @@ public class MenuSystem : MonoBehaviour
         if (g)
         {
             DeactivateAllMenus();
+            if (playerHUD && activeHUD)
+            {
+                playerHUD.SetActive(false);
+            }
             g.SetActive(true);
             MenuActive(true);
             FreezeTime(true);
@@ -124,7 +155,7 @@ public class MenuSystem : MonoBehaviour
             g.SetActive(false);
         }
 
-        if (playerHUD)
+        if (playerHUD && activeHUD)
         {
             playerHUD.SetActive(true);
         }
@@ -139,7 +170,10 @@ public class MenuSystem : MonoBehaviour
         switch (targetMenu)
         {
             case "MainMenu":
-                ActivateMenu(mainM);
+                if (mainM)
+                {
+                    ActivateMenu(mainM);
+                }
                 return;
             case "SettingsMenu":
                 //ActivateMenu(settingsM);
@@ -150,16 +184,28 @@ public class MenuSystem : MonoBehaviour
                 Debug.Log(targetMenu + " not implemented");
                 return;
             case "PauseMenu":
-                ActivateMenu(pauseM);
+                if (pauseM)
+                {
+                    ActivateMenu(pauseM);
+                }
                 return;
             case "DeathMenu":
-                ActivateMenu(deathM);
+                if (deathM)
+                {
+                    ActivateMenu(deathM);
+                }
                 return;
             case "EpisodeMenu":
-                ActivateMenu(episodeM);
+                if (episodeM)
+                {
+                    ActivateMenu(episodeM);
+                }
                 return;
             case "DifficultyMenu":
-                ActivateMenu(difficultyM);
+                if (difficultyM)
+                {
+                    ActivateMenu(difficultyM);
+                }
                 return;
             case null:
                 Debug.Log("Menu to switch to was not specified - please enter a menu name in the inspector.");
@@ -200,6 +246,10 @@ public class MenuSystem : MonoBehaviour
     public void ChangeScene()
     {
         DeactivateAllMenus();
+        if (playerHUD)
+        {
+            menus.Remove(playerHUD);
+        }
         SceneManager.LoadScene(selectedLevel);
     }
 
@@ -215,6 +265,11 @@ public class MenuSystem : MonoBehaviour
     public void ResetCall()
     {
         //Reset();
+        DeactivateAllMenus();
+        if (playerHUD)
+        {
+            menus.Remove(playerHUD);
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -224,6 +279,13 @@ public class MenuSystem : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+
+
+    private void PlayerHUDActive(bool b)
+    {
+        activeHUD = b;
     }
 
     #endregion

@@ -28,7 +28,7 @@ public class InputDeviceTracker : MonoBehaviour
         }
         else
         {
-            DestroyImmediate(gameObject);
+            Destroy(gameObject);
         }
     }
 

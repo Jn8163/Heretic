@@ -5,12 +5,13 @@ public class SceneInitializer : MonoBehaviour
 {
     #region Fields
 
-    [SerializeField] private bool cursorVisible = false, pausingInactive = false;
+    [SerializeField] private bool cursorVisible = false, pausingInactive = false, playerHUD = false;
     [SerializeField] private string menuToActivate;
 
     public static Action<bool> CursorVisibleOnStart = delegate { };
     public static Action<bool> PauseSystemInactive = delegate { };
     public static Action<string> MenuActiveOnStart = delegate { };
+    public static Action<bool> PlayerHUDActive = delegate { };
 
     #endregion
 
@@ -22,6 +23,7 @@ public class SceneInitializer : MonoBehaviour
     {
         CursorVisibleOnStart(cursorVisible);
         PauseSystemInactive(pausingInactive);
+        PlayerHUDActive(playerHUD);
 
         if (menuToActivate != "")
         {

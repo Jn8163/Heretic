@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PauseSystem : MonoBehaviour
@@ -8,9 +7,8 @@ public class PauseSystem : MonoBehaviour
     #region Fields
 
     private static PauseSystem instance;
-    private EventSystem eSystem;
     private PlayerInput pInput;
-    private bool mOpen, inActive = false;
+    private bool mOpen, isActive = false, destroy = false;
 
     public static Action<bool> PauseMenuActive = delegate { };
 
@@ -29,9 +27,10 @@ public class PauseSystem : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if(instance != this)
         {
-            DestroyImmediate(gameObject);
+            destroy = true;
+            gameObject.SetActive(false);
         }
     }
 
@@ -51,16 +50,9 @@ public class PauseSystem : MonoBehaviour
 
 
 
-    private void Start()
-    {
-        eSystem = FindFirstObjectByType<EventSystem>();
-    }
-
-
-
     public void PauseMenu()
     {
-        if (!inActive)
+        if (!isActive)
         {
             if (!mOpen)
             {
@@ -109,7 +101,7 @@ public class PauseSystem : MonoBehaviour
 
     private void PauseInactive(bool b)
     {
-        inActive = b;
+        isActive = b;
     }
 
 
@@ -123,12 +115,23 @@ public class PauseSystem : MonoBehaviour
 
     private void OnDisable()
     {
-        pInput.Disable();
-        pInput.Player.Menu.performed -= PauseMenuOpen;
-        MenuSystem.FreezeTime -= FreezeTime;
-        HealthSystem.GameOver -= Death;
-        SceneInitializer.PauseSystemInactive -= PauseInactive;
-        MenuSystem.Resume -= PauseMenu;
+        if (!destroy)
+        {
+            FreezeTime(false);
+            mOpen = false;
+            PauseMenuActive(false);
+
+            pInput.Disable();
+            pInput.Player.Menu.performed -= PauseMenuOpen;
+            MenuSystem.FreezeTime -= FreezeTime;
+            HealthSystem.GameOver -= Death;
+            SceneInitializer.PauseSystemInactive -= PauseInactive;
+            MenuSystem.Resume -= PauseMenu;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     #endregion
