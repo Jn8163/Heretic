@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +11,7 @@ public class MenuSystem : MonoBehaviour
 {
     #region Fields
     private static MenuSystem instance;
-    [SerializeField] private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, playerHUD;
+    [SerializeField] private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, creditsM, playerHUD;
     [SerializeField] private List<GameObject> menus = new List<GameObject>();
     private int selectedLevel, selectedDifficulty;
     private bool activeHUD, destroy = false;
@@ -205,6 +203,12 @@ public class MenuSystem : MonoBehaviour
                 if (difficultyM)
                 {
                     ActivateMenu(difficultyM);
+                }
+                return;
+            case "CreditsMenu":
+                if (creditsM)
+                {
+                    ActivateMenu(creditsM);
                 }
                 return;
             case null:
