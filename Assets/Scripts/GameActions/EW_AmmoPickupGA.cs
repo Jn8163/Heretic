@@ -7,6 +7,8 @@ public class EW_AmmoPickupGA : GameAction
 	[SerializeField]
 	private ElvenWand elvenWand;
 
+	[SerializeField] private GameObject mesh, sprite;
+
 	public int ammo_amount = 1;
 
     public override void Action()
@@ -18,7 +20,9 @@ public class EW_AmmoPickupGA : GameAction
     IEnumerator DestroyPickup()
 	{
 		this.GetComponent<Collider>().enabled = false;
-		this.GetComponent<MeshRenderer>().enabled = false;
+		//mesh.SetActive(false);
+		mesh.GetComponent<MeshRenderer>().enabled = false;
+		sprite.GetComponent<SpriteRenderer>().enabled = false;
 		yield return new WaitForSeconds(5);
 		Destroy(gameObject);
 	}

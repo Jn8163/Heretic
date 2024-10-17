@@ -1,11 +1,15 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 
 public class Health_PickupGA : GameAction
 {
 	[SerializeField]
 	private HealthSystem healthSystem;
+
+	[SerializeField] private GameObject mesh, sprite;
+
 	public int heal_amount = 20;
     public override void Action()
     {
@@ -16,7 +20,8 @@ public class Health_PickupGA : GameAction
     IEnumerator DestroyPickup()
 	{
 		this.GetComponent<Collider>().enabled = false;
-		this.GetComponent<MeshRenderer>().enabled = false;
+		mesh.GetComponent<MeshRenderer>().enabled = false;
+		sprite.GetComponent<SpriteRenderer>().enabled = false;
 		yield return new WaitForSeconds(5);
 		Destroy(gameObject);
 	}

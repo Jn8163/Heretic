@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 
 public class EC_AmmoPickupGA : GameAction
 {
+	[SerializeField] private GameObject mesh, sprite;
 
 	public int ammo_amount = 10;
 
@@ -15,7 +17,8 @@ public class EC_AmmoPickupGA : GameAction
     IEnumerator DestroyPickup()
 	{
 		this.GetComponent<Collider>().enabled = false;
-		this.GetComponent<MeshRenderer>().enabled = false;
+		mesh.GetComponent<MeshRenderer>().enabled = false;
+		sprite.GetComponent<SpriteRenderer>().enabled = false;
 		yield return new WaitForSeconds(5);
 		Destroy(gameObject);
 	}
