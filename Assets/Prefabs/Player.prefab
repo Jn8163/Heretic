@@ -325,6 +325,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6736674287152126712}
   - {fileID: 4347051594364882975}
   m_Father: {fileID: 551849847247523623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -344,11 +345,14 @@ MonoBehaviour:
   weapon_ammo: 10
   weapon_damage: -10
   reload_time: 1
-  attack_spawn: {fileID: 4207125468734337873}
   playerUI: {fileID: 4588433284932185910}
   attack_sound: {fileID: 5445230212948139709}
+  wandBullet: {fileID: 0}
+  wandBulletSpawn: {fileID: 0}
+  projectile_speed: 0
   current_ammo: 10
   max_ammo: 30
+  attackAnimation: {fileID: 0}
 --- !u!82 &5445230212948139709
 AudioSource:
   m_ObjectHideFlags: 0
@@ -644,6 +648,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 551849847247523623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7188393237227520009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6736674287152126712}
+  m_Layer: 0
+  m_Name: wandBulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6736674287152126712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7188393237227520009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7399999, z: 1.21}
+  m_LocalScale: {x: 0.1, y: 0.10000004, z: 0.10000004}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4207125468734337873}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3696765031188891693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -824,6 +859,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67be24e8ee52ec04497cfee5403c5fa3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5481778278646344263}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67be24e8ee52ec04497cfee5403c5fa3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3169172648466361958}
   m_SourcePrefab: {fileID: 100100000, guid: 67be24e8ee52ec04497cfee5403c5fa3, type: 3}
 --- !u!1 &3969928329319565989 stripped
 GameObject:
@@ -852,6 +890,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3169172648466361958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3969928329319565989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d084fc4092d74b54eae9e4cdf414e062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_ammo: 1
+  weapon_ammo: 10
+  weapon_damage: -10
+  reload_time: 1
+  playerUI: {fileID: 4588433284932185910}
+  attack_sound: {fileID: 5445230212948139709}
+  wandBullet: {fileID: 2305611230058581505, guid: 4607378f1255378488b561bc17c45ae0, type: 3}
+  wandBulletSpawn: {fileID: 7188393237227520009}
+  projectile_speed: 600
+  current_ammo: 10
+  max_ammo: 30
+  attackAnimation: {fileID: 5481778278646344263}
 --- !u!4 &4347051594364882975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67be24e8ee52ec04497cfee5403c5fa3, type: 3}
