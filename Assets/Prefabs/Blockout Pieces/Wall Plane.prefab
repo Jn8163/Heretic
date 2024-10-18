@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2045778175806044003}
   - component: {fileID: 6818297603631787849}
   - component: {fileID: 3961758278652761569}
+  - component: {fileID: -6264127437301051336}
   m_Layer: 0
   m_Name: Wall Plane
   m_TagString: Untagged
@@ -347,3 +348,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6264127437301051336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593567149452113694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90dcc60866915d418c9a6ddd8416c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oldMat: {fileID: 2100000, guid: e110d7c1338ea65469b3a4ad6306c71e, type: 2}
+  newMat: {fileID: 2100000, guid: af597916ac4643b4e82ca2b6a1aa1996, type: 2}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6996698139374592420}
   - component: {fileID: 9129364377301811967}
   - component: {fileID: 3856027423447861655}
+  - component: {fileID: 5438616680396341494}
   m_Layer: 0
   m_Name: Pillar Plane
   m_TagString: Untagged
@@ -347,3 +348,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0, y: 5, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5438616680396341494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883692316245538307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90dcc60866915d418c9a6ddd8416c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oldMat: {fileID: 2100000, guid: 9587dade97ccf5041b4173fe20f53c43, type: 2}
+  newMat: {fileID: 2100000, guid: 7731290414a9bae4bbcc84ece45b3cd4, type: 2}

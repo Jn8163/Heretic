@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8006117269924965188}
   - component: {fileID: 1922684979529181193}
   - component: {fileID: 7455403344987097910}
+  - component: {fileID: 3429629473735300035}
   m_Layer: 0
   m_Name: Roof Plane
   m_TagString: Untagged
@@ -347,3 +348,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 0, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3429629473735300035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116744194703831376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90dcc60866915d418c9a6ddd8416c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oldMat: {fileID: 2100000, guid: 53bde6eb3ad059b4595ad2c4e7396387, type: 2}
+  newMat: {fileID: 2100000, guid: af597916ac4643b4e82ca2b6a1aa1996, type: 2}

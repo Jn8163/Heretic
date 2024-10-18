@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4456364987703227803}
   - component: {fileID: 3320531431511174197}
   - component: {fileID: 331165799391920559}
+  - component: {fileID: 706711579648639078}
   m_Layer: 0
   m_Name: Door Frame Plane
   m_TagString: Untagged
@@ -347,3 +348,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 5, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &706711579648639078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698492531971666748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90dcc60866915d418c9a6ddd8416c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oldMat: {fileID: 2100000, guid: d5df663b765e30144b023883ed53b7d1, type: 2}
+  newMat: {fileID: 2100000, guid: af597916ac4643b4e82ca2b6a1aa1996, type: 2}
