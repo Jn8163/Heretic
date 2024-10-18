@@ -8,11 +8,14 @@ public class Teleporter : MonoBehaviour
     public Transform destination;
     [SerializeField]
     public GameObject playerTP;
+    [SerializeField]
+    public Transform rotation;
 
     private void OnTriggerEnter(Collider other)
     {
         playerTP.SetActive(false);
         playerTPLoc.position = destination.position;
+        playerTP.transform.LookAt(rotation);
         playerTP.SetActive(true);
     }
 }

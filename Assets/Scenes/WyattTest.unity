@@ -547,6 +547,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1239629284}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1238590068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4214444800644755556, guid: 98566febc306eef4f94102ce1cb6ab0c, type: 3}
+  m_PrefabInstance: {fileID: 2120594091213417880}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1239629282
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1239629283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,6 +663,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+--- !u!1 &1425028725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2069564516227274093, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+  m_PrefabInstance: {fileID: 1905930785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1425028731 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 551849847247523623, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+  m_PrefabInstance: {fileID: 1905930785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1501779945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,7 +1242,11 @@ PrefabInstance:
     - target: {fileID: 8132179739755253486, guid: 67ba3c7c3df79a84cb816721fdc886c3, type: 3}
       propertyPath: playerTP
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1425028725}
+    - target: {fileID: 8132179739755253486, guid: 67ba3c7c3df79a84cb816721fdc886c3, type: 3}
+      propertyPath: rotation
+      value: 
+      objectReference: {fileID: 1238590068}
     - target: {fileID: 8132179739755253486, guid: 67ba3c7c3df79a84cb816721fdc886c3, type: 3}
       propertyPath: destination
       value: 
@@ -1235,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 8132179739755253486, guid: 67ba3c7c3df79a84cb816721fdc886c3, type: 3}
       propertyPath: playerTPLoc
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1425028731}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
