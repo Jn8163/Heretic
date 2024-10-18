@@ -196,10 +196,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3834986561727923209}
   - component: {fileID: 7415060941636843960}
-  - component: {fileID: 2402177832455559248}
-  - component: {fileID: 4385407244367108221}
-  - component: {fileID: -6571014355486803556}
   - component: {fileID: 1827077213811763825}
+  - component: {fileID: 3080640077767156238}
   m_Layer: 6
   m_Name: Crystal_Vial
   m_TagString: Pickup
@@ -245,51 +243,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2402177832455559248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264753525667295727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de27400fa173d849bc747696135e3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
---- !u!114 &4385407244367108221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264753525667295727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852ce7a6d40822c46aeb042ac4d927fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions:
-  - {fileID: -6571014355486803556}
-  bToggle: 0
---- !u!114 &-6571014355486803556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264753525667295727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d324a1a9fa8788c44989b73954464d64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
-  healthSystem: {fileID: 0}
-  mesh: {fileID: 2752514611577645170}
-  sprite: {fileID: 628026786219084562}
-  heal_amount: 20
 --- !u!114 &1827077213811763825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,3 +257,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObj: {fileID: 628026786219084562}
   _meshObj: {fileID: 2752514611577645170}
+--- !u!114 &3080640077767156238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264753525667295727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23e8d13671e1064fa8b1714bae38b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickup: {fileID: 11400000, guid: fed469daa79d5024ea43d3b887f7ed75, type: 2}

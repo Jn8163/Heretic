@@ -54,14 +54,6 @@ public class PlayerUI : MonoBehaviour
 		life.text = healthSystem.currentHealth.ToString();
 		ammo.text = pAmmo.ToString();
 		armor.text = pArmor.ToString();
-		if (pItemCount > 1)
-		{
-			itemCount.text = pItemCount.ToString();
-		}
-		else
-		{
-			itemCount.text = "";
-		}
 
 		// indicator changes depending on player hp, the more full their hp is the farther right the indicator goes
 
