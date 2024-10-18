@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e79382f94f99bf74382a9567a06b6c00
+guid: 22e5158573e80e740a6c304dc5e52470
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MS-DOS - Heretic - Gargoyle_0
+      name: sprCrystalVial-Sheet_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 474
-        width: 84
-        height: 63
+        x: 13
+        y: 8
+        width: 6
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2771b365d4ef6014aaca97e4265907a4
-      internalID: -2087227681
+      spriteID: 566ca12f4ca0b614293de988603d473d
+      internalID: 277389585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprCrystalVial-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 8
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a89f12f78bca9419884b6ef84c3664
+      internalID: 1616801899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprCrystalVial-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 8
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c8fb721bd0668449660ffc4921ce24
+      internalID: -1084994367
       vertices: []
       indices: 
       edges: []
@@ -122,7 +166,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1135e7179ff3775438541df5ed51710f
+    spriteID: 3547336d4ff1fa84bb44390d1f305e51
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +176,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MS-DOS - Heretic - Gargoyle_0: -2087227681
+      sprCrystalVial-Sheet_0: 277389585
+      sprCrystalVial-Sheet_1: 1616801899
+      sprCrystalVial-Sheet_2: -1084994367
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
