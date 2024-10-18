@@ -29,7 +29,7 @@ public abstract class BulletSystem : MonoBehaviour
         {
             Hit(collision.gameObject.GetComponent<HealthSystem>());
         }
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
     void Hit(HealthSystem healthSystem)
