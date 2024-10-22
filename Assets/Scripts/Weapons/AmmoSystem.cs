@@ -12,8 +12,9 @@ public class AmmoSystem : MonoBehaviour
         ElvenWandAmmo = 10;
     }
 
-    void Update()
+
+    public virtual void UpdateAmmoSystem(int weapon_ammo, int updateAmmo)
     {
-        
+        weapon_ammo += updateAmmo;
     }
 }
