@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5691433131951936861}
   - component: {fileID: 843142836728728841}
   m_Layer: 0
-  m_Name: The_Docks
+  m_Name: Main_Menu_Theme
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,12 +43,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5a9414dfbb07ad7409fd2265e4e6379e, type: 3}
-  m_Resource: {fileID: 8300000, guid: 5a9414dfbb07ad7409fd2265e4e6379e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 26a3700ee011a12428885a0e37a80958, type: 3}
+  m_Resource: {fileID: 8300000, guid: 26a3700ee011a12428885a0e37a80958, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -143,4 +143,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 5691433131951936861}
-  bPreserve: 1
