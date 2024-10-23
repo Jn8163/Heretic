@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class AmmoSystem : MonoBehaviour
 {
-    int ElvenWandAmmo;
-    int ElvenWandAmmoMax = 30;
-    int EtherealCrossbowAmmo;
-    int EtherealCrossbowAmmoMax;
+    public int ElvenWandAmmo;
+    public int ElvenWandAmmoMax = 30;
+    public int EtherealCrossbowAmmo;
+    public int EtherealCrossbowAmmoMax;
 
     void Start()
     {

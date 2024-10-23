@@ -15,51 +15,43 @@ public class ElvenWand : WeaponSystem
     [SerializeField]
     private float projectile_speed = 600;
     private Vector3 direction = Vector3.forward;
-    public int current_ammo = 10;
-    public int max_ammo = 30;
     private int bullets_used = -1;
     [SerializeField]
     private Animator attackAnimation;
     private IEnumerator startAttackAnimation;
-    private AmmoSystem ammoSystem = new AmmoSystem();
+    public AmmoSystem ammoSystem;
 
     private void Awake()
     {
-        playerUI.ammo.text = current_ammo.ToString();
         //attackAnimation = transform.Find("Wand").GetComponent<Animator>();
     }
 
     public override void Start()
     {
+        GameObject ammoObject = GameObject.Find("Player");
+        if (ammoObject != null)
+        {
+            ammoSystem = ammoObject.GetComponent<AmmoSystem>();
+        }
         base.Start();
         reload_time = 1.00f;
+
     }
 
     public override void Attack()
     {
         if (wandBulletSpawn != null)
         {
-            if (current_ammo > 0)
+            if (ammoSystem.ElvenWandAmmo > 0)
             {
                 //current_ammo--;
-                UpdateAmmo(current_ammo,bullets_used);
+                UpdateAmmo(bullets_used);
                 attack_sound.Play();
 
                 startAttackAnimation = play_animation(attackAnimation);
                 StartCoroutine(startAttackAnimation);
                 
                 base.Attack();
-                /*
-                if (Physics.Raycast(attack_spawn.position, direction, out RaycastHit hit))
-                {
-                    if (hit.collider.GetComponent<HealthSystem>() != null)
-                    {
-                        Debug.Log("Enemy Hit");
-                        OnHit(hit.collider.GetComponent<HealthSystem>());
-                    }
-                }
-                */
-                
 
                 GameObject spell = Instantiate(wandBullet, wandBulletSpawn.transform.position, wandBulletSpawn.transform.rotation);
                 Vector3 launchDirection = wandBulletSpawn.transform.forward;
@@ -84,10 +76,11 @@ public class ElvenWand : WeaponSystem
         base.OnWeaponSwap();
     }
 
-    public void UpdateAmmo(int current_ammo,int bullets_used)
+    public void UpdateWandAmmo(int bullets_used)
     {
-        ammoSystem.UpdateAmmoSystem(current_ammo,bullets_used);
-        playerUI.ammo.text = current_ammo.ToString();
+        ammoSystem.UpdateAmmoSystem(ammoSystem.ElvenWandAmmo,bullets_used);
+        playerUI.ammo.text = ammoSystem.ElvenWandAmmo.ToString();
+        Debug.Log($"update elven wand ammo, {ammoSystem.ElvenWandAmmo}");
     }
 
     private IEnumerator play_animation(Animator attackAnimation)

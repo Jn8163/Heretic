@@ -25,9 +25,14 @@ public abstract class BulletSystem : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<HealthSystem>() != null)
+        HealthSystem healthSystem = collision.gameObject.GetComponent<HealthSystem>();
+
+        if (healthSystem != null)
         {
-            Hit(collision.gameObject.GetComponent<HealthSystem>());
+            if (!healthSystem.bPlayer)
+            {
+                Hit(healthSystem);
+            }
         }
         Destroy(this.gameObject);
     }

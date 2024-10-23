@@ -6,7 +6,7 @@ public class HealthSystem : MonoBehaviour
 {
     #region Fields
 
-    [SerializeField] private bool bPlayer;
+    [SerializeField] public bool bPlayer;
     [SerializeField] private int score;
     [SerializeField] private int maxHealth = 100;
 
