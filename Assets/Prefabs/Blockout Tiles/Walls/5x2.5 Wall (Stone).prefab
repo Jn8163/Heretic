@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4567537274344300815
+--- !u!1 &2659441089933454354
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1504593738980229926}
-  - component: {fileID: 667514118466328883}
-  - component: {fileID: 5107265769388586081}
-  - component: {fileID: 8637494267511710540}
-  - component: {fileID: 2240547496032756141}
-  - component: {fileID: 2372079953744141620}
-  - component: {fileID: 2312970885812542058}
+  - component: {fileID: 3633667503411449199}
+  - component: {fileID: 4713570027989708276}
+  - component: {fileID: 6917392354152967703}
+  - component: {fileID: 4006789179806276621}
+  - component: {fileID: 1980100231683527941}
+  - component: {fileID: 1269113937549668716}
+  - component: {fileID: 4414761566560688785}
   m_Layer: 0
-  m_Name: Starting Step Wall
-  m_TagString: Ground
+  m_Name: 5x2.5 Wall (Stone)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1504593738980229926
+--- !u!4 &3633667503411449199
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4567537274344300815}
+  m_GameObject: {fileID: 2659441089933454354}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071065, z: -0, w: 0.7071071}
-  m_LocalPosition: {x: -7.999956, y: 2.5, z: -15.000005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37.6202, y: 3, z: 3.8550105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &667514118466328883
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4713570027989708276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4567537274344300815}
+  m_GameObject: {fileID: 2659441089933454354}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
@@ -160,55 +160,55 @@ MonoBehaviour:
   - m_Vertices: 070000000a0000000b0000000e0000001200000013000000
   m_SharedTextures: []
   m_Positions:
-  - {x: -0.0005, y: -0.25, z: 2.5}
-  - {x: 0.0005, y: -0.25, z: 2.5}
-  - {x: -0.0005, y: 0.25, z: 2.5}
-  - {x: 0.0005, y: 0.25, z: 2.5}
-  - {x: 0.0005, y: -0.25, z: 2.5}
-  - {x: 0.0005, y: -0.25, z: -2.5}
-  - {x: 0.0005, y: 0.25, z: 2.5}
-  - {x: 0.0005, y: 0.25, z: -2.5}
-  - {x: 0.0005, y: -0.25, z: -2.5}
-  - {x: -0.0005, y: -0.25, z: -2.5}
-  - {x: 0.0005, y: 0.25, z: -2.5}
-  - {x: -0.0005, y: 0.25, z: -2.5}
-  - {x: -0.0005, y: -0.25, z: -2.5}
-  - {x: -0.0005, y: -0.25, z: 2.5}
-  - {x: -0.0005, y: 0.25, z: -2.5}
-  - {x: -0.0005, y: 0.25, z: 2.5}
-  - {x: -0.0005, y: 0.25, z: 2.5}
-  - {x: 0.0005, y: 0.25, z: 2.5}
-  - {x: -0.0005, y: 0.25, z: -2.5}
-  - {x: 0.0005, y: 0.25, z: -2.5}
-  - {x: -0.0005, y: -0.25, z: -2.5}
-  - {x: 0.0005, y: -0.25, z: -2.5}
-  - {x: -0.0005, y: -0.25, z: 2.5}
-  - {x: 0.0005, y: -0.25, z: 2.5}
+  - {x: -0.0005, y: -2.5, z: 1.25}
+  - {x: 0.0005, y: -2.5, z: 1.25}
+  - {x: -0.0005, y: 2.5, z: 1.25}
+  - {x: 0.0005, y: 2.5, z: 1.25}
+  - {x: 0.0005, y: -2.5, z: 1.25}
+  - {x: 0.0005, y: -2.5, z: -1.25}
+  - {x: 0.0005, y: 2.5, z: 1.25}
+  - {x: 0.0005, y: 2.5, z: -1.25}
+  - {x: 0.0005, y: -2.5, z: -1.25}
+  - {x: -0.0005, y: -2.5, z: -1.25}
+  - {x: 0.0005, y: 2.5, z: -1.25}
+  - {x: -0.0005, y: 2.5, z: -1.25}
+  - {x: -0.0005, y: -2.5, z: -1.25}
+  - {x: -0.0005, y: -2.5, z: 1.25}
+  - {x: -0.0005, y: 2.5, z: -1.25}
+  - {x: -0.0005, y: 2.5, z: 1.25}
+  - {x: -0.0005, y: 2.5, z: 1.25}
+  - {x: 0.0005, y: 2.5, z: 1.25}
+  - {x: -0.0005, y: 2.5, z: -1.25}
+  - {x: 0.0005, y: 2.5, z: -1.25}
+  - {x: -0.0005, y: -2.5, z: -1.25}
+  - {x: 0.0005, y: -2.5, z: -1.25}
+  - {x: -0.0005, y: -2.5, z: 1.25}
+  - {x: 0.0005, y: -2.5, z: 1.25}
   m_Textures0:
-  - {x: 0.0005, y: -0.25}
-  - {x: -0.0005, y: -0.25}
-  - {x: 0.0005, y: 0.25}
-  - {x: -0.0005, y: 0.25}
-  - {x: 2.5, y: -0.25}
-  - {x: -2.5, y: -0.25}
-  - {x: 2.5, y: 0.25}
-  - {x: -2.5, y: 0.25}
-  - {x: 0.0005, y: -0.25}
-  - {x: -0.0005, y: -0.25}
-  - {x: 0.0005, y: 0.25}
-  - {x: -0.0005, y: 0.25}
-  - {x: 2.5, y: -0.25}
-  - {x: -2.5, y: -0.25}
-  - {x: 2.5, y: 0.25}
-  - {x: -2.5, y: 0.25}
-  - {x: -0.0005, y: 2.5}
-  - {x: 0.0005, y: 2.5}
-  - {x: -0.0005, y: -2.5}
-  - {x: 0.0005, y: -2.5}
   - {x: 0.0005, y: -2.5}
   - {x: -0.0005, y: -2.5}
   - {x: 0.0005, y: 2.5}
   - {x: -0.0005, y: 2.5}
+  - {x: 1.25, y: -2.5}
+  - {x: -1.25, y: -2.5}
+  - {x: 1.25, y: 2.5}
+  - {x: -1.25, y: 2.5}
+  - {x: 0.0005, y: -2.5}
+  - {x: -0.0005, y: -2.5}
+  - {x: 0.0005, y: 2.5}
+  - {x: -0.0005, y: 2.5}
+  - {x: 1.25, y: -2.5}
+  - {x: -1.25, y: -2.5}
+  - {x: 1.25, y: 2.5}
+  - {x: -1.25, y: 2.5}
+  - {x: -0.0005, y: 1.25}
+  - {x: 0.0005, y: 1.25}
+  - {x: -0.0005, y: -1.25}
+  - {x: 0.0005, y: -1.25}
+  - {x: 0.0005, y: -1.25}
+  - {x: -0.0005, y: -1.25}
+  - {x: 0.0005, y: 1.25}
+  - {x: -0.0005, y: 1.25}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -245,18 +245,18 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1337
+  m_VersionIndex: 1305
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!114 &5107265769388586081
+--- !u!114 &6917392354152967703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4567537274344300815}
+  m_GameObject: {fileID: 2659441089933454354}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
@@ -265,8 +265,8 @@ MonoBehaviour:
   m_Shape:
     rid: 8580276653128679426
   m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_UnmodifiedMeshVersion: 1337
-  m_Size: {x: 0.001, y: 0.5, z: 5}
+  m_UnmodifiedMeshVersion: 1305
+  m_Size: {x: 0.001, y: 5, z: 2.5}
   m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
@@ -274,13 +274,13 @@ MonoBehaviour:
     - rid: 8580276653128679426
       type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
       data: 
---- !u!23 &8637494267511710540
+--- !u!23 &4006789179806276621
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4567537274344300815}
+  m_GameObject: {fileID: 2659441089933454354}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -319,21 +319,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2240547496032756141
+--- !u!33 &1980100231683527941
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4567537274344300815}
+  m_GameObject: {fileID: 2659441089933454354}
   m_Mesh: {fileID: 0}
---- !u!65 &2372079953744141620
+--- !u!65 &1269113937549668716
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4567537274344300815}
+  m_GameObject: {fileID: 2659441089933454354}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -346,15 +346,15 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0, y: 0.5, z: 5}
+  m_Size: {x: 0, y: 5, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2312970885812542058
+--- !u!114 &4414761566560688785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4567537274344300815}
+  m_GameObject: {fileID: 2659441089933454354}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f90dcc60866915d418c9a6ddd8416c24, type: 3}
