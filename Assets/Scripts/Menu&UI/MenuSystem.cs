@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class MenuSystem : MonoBehaviour
 {
     #region Fields
-    private static MenuSystem instance;
+    public static MenuSystem instance;
     [SerializeField] private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, creditsM, playerHUD;
     [SerializeField] private List<GameObject> menus = new List<GameObject>();
     private int selectedLevel, selectedDifficulty;
@@ -57,8 +57,7 @@ public class MenuSystem : MonoBehaviour
     {
         HealthSystem.GameOver += CallGameOverScreen;
         PauseSystem.PauseMenuActive += PauseMenu;
-        SceneInitializer.MenuActiveOnStart += SwitchMenu;
-        SceneInitializer.PlayerHUDActive += PlayerHUDActive;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
 
@@ -69,6 +68,7 @@ public class MenuSystem : MonoBehaviour
         if (playerHUD)
         {
             menus.Add(playerHUD);
+            activeHUD = true;
         }
     }
 
@@ -86,6 +86,7 @@ public class MenuSystem : MonoBehaviour
             PauseSystem.PauseMenuActive -= PauseMenu;
             SceneInitializer.MenuActiveOnStart -= SwitchMenu;
             SceneInitializer.PlayerHUDActive -= PlayerHUDActive;
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
         else
         {
@@ -101,6 +102,7 @@ public class MenuSystem : MonoBehaviour
         PauseSystem.PauseMenuActive -= PauseMenu;
         SceneInitializer.MenuActiveOnStart -= SwitchMenu;
         SceneInitializer.PlayerHUDActive -= PlayerHUDActive;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
 
@@ -279,18 +281,42 @@ public class MenuSystem : MonoBehaviour
 
 
 
-    private void PlayerHUDActive(bool b)
+    public void PlayerHUDActive(bool b)
     {
         activeHUD = b;
+        playerHUD = GameObject.FindWithTag("PlayerUI");
+        if (playerHUD && activeHUD)
+        {
+            menus.Add(playerHUD);
+            activeHUD = true;
+        }
     }
 
     private void ResetScript()
     {
         DeactivateAllMenus();
+
+        playerHUD = GameObject.FindWithTag("PlayerUI");
         if (playerHUD)
         {
             menus.Remove(playerHUD);
+            activeHUD = true;
         }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        HealthSystem.GameOver -= CallGameOverScreen;
+        PauseSystem.PauseMenuActive -= PauseMenu;
+        SceneInitializer.MenuActiveOnStart -= SwitchMenu;
+        SceneInitializer.PlayerHUDActive -= PlayerHUDActive;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        HealthSystem.GameOver += CallGameOverScreen;
+        PauseSystem.PauseMenuActive += PauseMenu;
+        SceneInitializer.MenuActiveOnStart += SwitchMenu;
+        SceneInitializer.PlayerHUDActive += PlayerHUDActive;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     #endregion

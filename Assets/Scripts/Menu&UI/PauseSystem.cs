@@ -6,9 +6,10 @@ public class PauseSystem : MonoBehaviour
 {
     #region Fields
 
-    private static PauseSystem instance;
+    public static PauseSystem instance;
     private PlayerInput pInput;
-    private bool mOpen, isActive = false, destroy = false;
+    private bool mOpen, destroy = false;
+    public bool isActive = false;
 
     public static Action<bool> PauseMenuActive = delegate { };
 
@@ -44,7 +45,6 @@ public class PauseSystem : MonoBehaviour
         pInput.Player.Menu.performed += PauseMenuOpen;
         MenuSystem.FreezeTime += FreezeTime;
         HealthSystem.GameOver += Death;
-        SceneInitializer.PauseSystemInactive += PauseInactive;
         MenuSystem.Resume += PauseMenu;
     }
 
@@ -99,7 +99,7 @@ public class PauseSystem : MonoBehaviour
 
 
 
-    private void PauseInactive(bool b)
+    public void PauseInactive(bool b)
     {
         isActive = b;
     }
@@ -125,7 +125,6 @@ public class PauseSystem : MonoBehaviour
             pInput.Player.Menu.performed -= PauseMenuOpen;
             MenuSystem.FreezeTime -= FreezeTime;
             HealthSystem.GameOver -= Death;
-            SceneInitializer.PauseSystemInactive -= PauseInactive;
             MenuSystem.Resume -= PauseMenu;
         }
         else

@@ -7,7 +7,7 @@ public class CursorState : MonoBehaviour
 {
     #region Fields
 
-    private static CursorState instance;
+    public static CursorState instance;
     private bool controller = false;
 
     #endregion
@@ -35,7 +35,6 @@ public class CursorState : MonoBehaviour
 
     private void OnEnable()
     {
-        SceneInitializer.CursorVisibleOnStart += CursorVisible;
         PauseSystem.PauseMenuActive += CursorVisible;
         InputDeviceTracker.ControllerConnected += GamepadToggle;
         MenuSystem.MenuActive += CursorVisible;
@@ -45,7 +44,6 @@ public class CursorState : MonoBehaviour
 
     private void OnDisable()
     {
-        SceneInitializer.CursorVisibleOnStart -= CursorVisible;
         PauseSystem.PauseMenuActive -= CursorVisible;
         InputDeviceTracker.ControllerConnected -= GamepadToggle;
         MenuSystem.MenuActive -= CursorVisible;
@@ -53,7 +51,7 @@ public class CursorState : MonoBehaviour
 
 
 
-    private void CursorVisible(bool b)
+    public void CursorVisible(bool b)
     {
         Debug.Log("Cursor: " + b);
         if (b && !controller)

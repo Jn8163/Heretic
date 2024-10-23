@@ -8,7 +8,6 @@ public class SceneInitializer : MonoBehaviour
     [SerializeField] private bool cursorVisible = false, pausingInactive = false, playerHUD = false;
     [SerializeField] private string menuToActivate;
 
-    public static Action<bool> CursorVisibleOnStart = delegate { };
     public static Action<bool> PauseSystemInactive = delegate { };
     public static Action<string> MenuActiveOnStart = delegate { };
     public static Action<bool> PlayerHUDActive = delegate { };
@@ -21,13 +20,13 @@ public class SceneInitializer : MonoBehaviour
 
     private void Start()
     {
-        CursorVisibleOnStart(cursorVisible);
-        PauseSystemInactive(pausingInactive);
-        PlayerHUDActive(playerHUD);
-
+        CursorState.instance.CursorVisible(cursorVisible);
+        PauseSystem.instance.PauseInactive(pausingInactive);
+        MenuSystem.instance.PlayerHUDActive(playerHUD);
+        
         if (menuToActivate != "")
         {
-            MenuActiveOnStart(menuToActivate);
+            MenuSystem.instance.SwitchMenu(menuToActivate);
         }
     }
 
