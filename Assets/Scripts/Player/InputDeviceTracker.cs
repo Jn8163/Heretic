@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class InputDeviceTracker : MonoBehaviour
 {
-
     #region Fields
 
     private static InputDeviceTracker instance;
@@ -13,52 +12,47 @@ public class InputDeviceTracker : MonoBehaviour
 
     #endregion
 
-
-
     #region Methods
 
     private void Awake()
     {
-        //Ensures only one instance is active in scene at all times.
-        //DDOL to preserve states
-        if (!instance)
+        if (instance == null)
         {
+            // No instance exists, set this as the instance and preserve it.
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (instance != this)
         {
-            Destroy(gameObject);
+            // Destroy the original instance.
+            Destroy(instance.gameObject);
+
+            // Set the new instance.
+            instance = this;
+
+            // Preserve the new instance.
+            DontDestroyOnLoad(gameObject);
         }
     }
-
-
 
     private void OnEnable()
     {
+        Debug.Log("Gamepad Connected: " + gamepadConnected);
         InputSystem.onDeviceChange += OnDeviceChange;
 
-        
+        // Notify listeners of the current gamepad state.
+        ControllerConnected(gamepadConnected);
     }
-
-
-
-    private void Start()
-    {
-        foreach (var device in InputSystem.devices)
-        {
-            OnDeviceChange(device, InputDeviceChange.Added);
-        }
-    }
-
-
 
     private void OnDisable()
     {
         InputSystem.onDeviceChange -= OnDeviceChange;
     }
 
-
+    private void Start()
+    {
+        CheckAllCurrentDevices();
+    }
 
     // Method called when a device is added, removed, disconnected, or reconnected
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -68,16 +62,16 @@ public class InputDeviceTracker : MonoBehaviour
             case InputDeviceChange.Added:
                 if (device is Gamepad)
                 {
-                    Debug.Log("gamepad added");
+                    Debug.Log("Gamepad added");
                     gamepadConnected = true;
                     ControllerConnected(true);
                 }
                 else if (device is Keyboard)
                 {
                     Debug.Log("Changed to keyboard");
-                    if(!gamepadConnected)
+                    if (!gamepadConnected)
                     {
-                        gamepadConnected = false;
+                        ControllerConnected(false);
                     }
                 }
                 break;
@@ -85,7 +79,7 @@ public class InputDeviceTracker : MonoBehaviour
             case InputDeviceChange.Removed:
                 if (device is Gamepad)
                 {
-                    Debug.Log("gamepad removed");
+                    Debug.Log("Gamepad removed");
                     gamepadConnected = false;
                     ControllerConnected(false);
                 }
@@ -94,7 +88,7 @@ public class InputDeviceTracker : MonoBehaviour
             case InputDeviceChange.Disconnected:
                 if (device is Gamepad)
                 {
-                    Debug.Log("gamepad disconnected");
+                    Debug.Log("Gamepad disconnected");
                     gamepadConnected = false;
                     ControllerConnected(false);
                 }
@@ -103,12 +97,21 @@ public class InputDeviceTracker : MonoBehaviour
             case InputDeviceChange.Reconnected:
                 if (device is Gamepad)
                 {
-                    Debug.Log("gamepad Reconnected");
+                    Debug.Log("Gamepad reconnected");
                     gamepadConnected = true;
                     ControllerConnected(true);
                 }
                 break;
         }
     }
+
+    private void CheckAllCurrentDevices()
+    {
+        foreach (var device in InputSystem.devices)
+        {
+            OnDeviceChange(device, InputDeviceChange.Added);
+        }
+    }
+
     #endregion
 }
