@@ -46,6 +46,7 @@ public class PauseSystem : MonoBehaviour
         MenuSystem.FreezeTime += FreezeTime;
         HealthSystem.GameOver += Death;
         MenuSystem.Resume += PauseMenu;
+
     }
 
 

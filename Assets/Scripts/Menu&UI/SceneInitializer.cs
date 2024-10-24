@@ -11,6 +11,7 @@ public class SceneInitializer : MonoBehaviour
     public static Action<bool> PauseSystemInactive = delegate { };
     public static Action<string> MenuActiveOnStart = delegate { };
     public static Action<bool> PlayerHUDActive = delegate { };
+    public static Action<bool> MusicSystemDeactivate = delegate { };
 
     #endregion
 
