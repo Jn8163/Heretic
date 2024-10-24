@@ -3,14 +3,14 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour
 {
     public Pickup pickup;
-    public Sprite sprite;
+    public Sprite image;
     [HideInInspector] public Item item;
     [SerializeField] private AudioSource audioSource;
     protected InventorySystem inventorySystem;
 
 
 
-    private void Awake()
+    protected virtual void Start()
     {
         item = this;
         inventorySystem = InventorySystem.instance;
@@ -29,7 +29,6 @@ public abstract class Item : MonoBehaviour
 
 public enum Pickup
 {
-    Vial,
     QuartzFlask,
     MysticUrn,
     Shield,
