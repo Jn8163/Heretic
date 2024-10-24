@@ -350,10 +350,9 @@ MonoBehaviour:
   attack_sound: {fileID: 5445230212948139709}
   wandBullet: {fileID: 2305611230058581505, guid: 4607378f1255378488b561bc17c45ae0, type: 3}
   wandBulletSpawn: {fileID: 7188393237227520009}
-  projectile_speed: 0
-  current_ammo: 10
-  max_ammo: 30
+  projectile_speed: 600
   attackAnimation: {fileID: 5481778278646344263}
+  ammoSystem: {fileID: 0}
 --- !u!82 &5445230212948139709
 AudioSource:
   m_ObjectHideFlags: 0
@@ -465,6 +464,7 @@ GameObject:
   - component: {fileID: 8646978145662749897}
   - component: {fileID: 256345378888288106}
   - component: {fileID: 4526130836130253100}
+  - component: {fileID: 4642459962824795597}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -586,6 +586,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9683b9323c362449380c6c71b9b931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4642459962824795597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069564516227274093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e02ec4f0d455a49b5539a91258f2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ElvenWandAmmo: 0
+  ElvenWandAmmoMax: 30
+  EtherealCrossbowAmmo: 0
+  EtherealCrossbowAmmoMax: 0
 --- !u!1 &2907615243466202451
 GameObject:
   m_ObjectHideFlags: 0
