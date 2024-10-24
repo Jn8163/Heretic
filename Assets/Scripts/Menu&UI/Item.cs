@@ -1,11 +1,31 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Item")]
-public class Item : ScriptableObject
+public abstract class Item : MonoBehaviour
 {
-    public Sprite image;
     public Pickup pickup;
+    public Sprite sprite;
+    [HideInInspector] public Item item;
+    [SerializeField] private AudioSource audioSource;
+    protected InventorySystem inventorySystem;
+
+
+
+    private void Awake()
+    {
+        item = this;
+        inventorySystem = InventorySystem.instance;
+    }
+
+
+
+    protected virtual void PickupItem()
+    {
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.Play();
+    }
 }
+
+
 
 public enum Pickup
 {

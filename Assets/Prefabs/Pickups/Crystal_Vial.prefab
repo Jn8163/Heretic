@@ -220,8 +220,8 @@ GameObject:
   - component: {fileID: 3834986561727923209}
   - component: {fileID: 7415060941636843960}
   - component: {fileID: 1827077213811763825}
-  - component: {fileID: 3080640077767156238}
   - component: {fileID: 186701923617473661}
+  - component: {fileID: 1392000890082959885}
   m_Layer: 6
   m_Name: Crystal_Vial
   m_TagString: Pickup
@@ -281,20 +281,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObj: {fileID: 628026786219084562}
   _meshObj: {fileID: 2752514611577645170}
---- !u!114 &3080640077767156238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264753525667295727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c23e8d13671e1064fa8b1714bae38b8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickup: {fileID: 11400000, guid: fed469daa79d5024ea43d3b887f7ed75, type: 2}
-  audioSource: {fileID: 186701923617473661}
 --- !u!82 &186701923617473661
 AudioSource:
   m_ObjectHideFlags: 0
@@ -392,3 +378,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1392000890082959885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264753525667295727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56c787d57ed40d444a9150879decd6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickup: 0
+  item: {fileID: 0}
+  audioSource: {fileID: 186701923617473661}
+  heal_amount: 20
+  mesh: {fileID: 2752514611577645170}
+  sprite: {fileID: 628026786219084562}

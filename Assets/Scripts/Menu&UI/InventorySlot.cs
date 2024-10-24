@@ -18,4 +18,9 @@ public class InventorySlot : MonoBehaviour
     {
         selected.SetActive(false);
     }
+
+    public bool IsSelected()
+    {
+        return selected.activeInHierarchy;
+    }
 }
