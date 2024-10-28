@@ -5,12 +5,13 @@ public abstract class BulletSystem : MonoBehaviour
     public Transform bullet_spawn;
     public float bullet_speed = 1.00f;
     public float cooldown = 1.00f;
+    public float lifetime = 2f;
 
     public int bulletDMG;
 
     public virtual void Start()
     {
-
+        Destroy(gameObject, lifetime);
     }
 
     public virtual void OnHit()
@@ -34,7 +35,10 @@ public abstract class BulletSystem : MonoBehaviour
                 Hit(healthSystem);
             }
         }
-        Destroy(this.gameObject);
+        if (healthSystem = null)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void Hit(HealthSystem healthSystem)
