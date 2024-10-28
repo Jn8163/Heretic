@@ -35,7 +35,7 @@ public abstract class BulletSystem : MonoBehaviour
                 Hit(healthSystem);
             }
         }
-        if (healthSystem = null)
+        if (healthSystem == null)
         {
             Destroy(this.gameObject);
         }
