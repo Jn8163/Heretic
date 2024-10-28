@@ -96,17 +96,6 @@ public class MenuSystem : MonoBehaviour
 
 
 
-    private void OnDestroy()
-    {
-        HealthSystem.GameOver -= CallGameOverScreen;
-        PauseSystem.PauseMenuActive -= PauseMenu;
-        SceneInitializer.MenuActiveOnStart -= SwitchMenu;
-        SceneInitializer.PlayerHUDActive -= PlayerHUDActive;
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-
-
     private void PauseMenu(bool b)
     {
         Debug.Log("Pause " + b);
@@ -150,9 +139,15 @@ public class MenuSystem : MonoBehaviour
 
     private void DeactivateAllMenus()
     {
-        foreach (GameObject g in menus)
+        for (int i = 0; i < menus.Count; i++)
         {
-            g.SetActive(false);
+            if (menus[i]) {
+                menus[i].SetActive(false);
+            }
+            else
+            {
+                menus.RemoveAt(i);
+            }
         }
 
         if (playerHUD && activeHUD)
@@ -296,7 +291,6 @@ public class MenuSystem : MonoBehaviour
     {
         DeactivateAllMenus();
 
-        playerHUD = GameObject.FindWithTag("PlayerUI");
         if (playerHUD)
         {
             menus.Remove(playerHUD);
