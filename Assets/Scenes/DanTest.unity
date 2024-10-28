@@ -572,13 +572,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2632519250179199114, guid: 53a6eadabb6203342bca9742d40623e6, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840928366213356561, guid: 53a6eadabb6203342bca9742d40623e6, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5079403592147603761, guid: 53a6eadabb6203342bca9742d40623e6, type: 3}
       propertyPath: m_Name
       value: Ghost(gargoyle)
       objectReference: {fileID: 0}
     - target: {fileID: 5563768577971800971, guid: 53a6eadabb6203342bca9742d40623e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 774.9788
+      value: 799
       objectReference: {fileID: 0}
     - target: {fileID: 5563768577971800971, guid: 53a6eadabb6203342bca9742d40623e6, type: 3}
       propertyPath: m_LocalPosition.y
