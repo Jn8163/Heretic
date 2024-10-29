@@ -74,7 +74,8 @@ MonoBehaviour:
   claw: {fileID: 6956602159025144009}
   claw_dmg: -3
   coolDown: 0.5
-  anim: {fileID: 4004691089399778178}
+  animMesh: {fileID: 4004691089399778178}
+  animSprite: {fileID: 1118926221542595518}
 --- !u!1 &1786131944443093574
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +384,7 @@ MonoBehaviour:
   walkPointRange: 0
   startingPos: {x: 0, y: 0, z: 0}
   sightRange: 15
-  attackRange: 1
+  attackRange: 0.9
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!114 &7502074913451588472
@@ -476,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSystem: {fileID: 1846511400864589154}
+  anim: {fileID: 1118926221542595518}
 --- !u!114 &8736291022980379130
 MonoBehaviour:
   m_ObjectHideFlags: 0
