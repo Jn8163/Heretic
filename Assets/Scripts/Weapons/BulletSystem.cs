@@ -23,10 +23,9 @@ public abstract class BulletSystem : MonoBehaviour
     {
 
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        HealthSystem healthSystem = collision.gameObject.GetComponent<HealthSystem>();
+        HealthSystem healthSystem = other.gameObject.GetComponent<HealthSystem>();
 
         if (healthSystem != null)
         {
@@ -40,7 +39,7 @@ public abstract class BulletSystem : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    
     void Hit(HealthSystem healthSystem)
     {
         healthSystem.UpdateHealth(bulletDMG);
