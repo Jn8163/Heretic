@@ -37,7 +37,6 @@ public class PlayerUI : MonoBehaviour
 		OpenKeyDoor.DisplayText += DisplayText;
 
 		tmp = healthSystem.currentHealth;
-		Debug.Log(healthSystem.currentHealth + " is the current hp");
 	}
 
 	private void OnDisable()
@@ -71,10 +70,6 @@ public class PlayerUI : MonoBehaviour
 		}
 		if (tmp != healthSystem.currentHealth)
 		{
-			Debug.Log("health mismatch!");
-			Debug.Log("tmp: " + tmp);
-			Debug.Log("health system: " + healthSystem.currentHealth.ToString());
-
 			if (!adjustingHPBar)
 			{
 				adjustingHPBar = true;
