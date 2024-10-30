@@ -8,7 +8,7 @@ public class CursorState : MonoBehaviour
     #region Fields
 
     public static CursorState instance;
-    private bool controller = false;
+    private bool controller = false, menuActive = false;
 
     #endregion
 
@@ -35,18 +35,18 @@ public class CursorState : MonoBehaviour
 
     private void OnEnable()
     {
-        PauseSystem.PauseMenuActive += CursorVisible;
+        PauseSystem.PauseMenuActive += MenuActive;
         InputDeviceTracker.ControllerConnected += GamepadToggle;
-        MenuSystem.MenuActive += CursorVisible;
+        MenuSystem.MenuActive += MenuActive;
     }
 
 
 
     private void OnDisable()
     {
-        PauseSystem.PauseMenuActive -= CursorVisible;
+        PauseSystem.PauseMenuActive -= MenuActive;
         InputDeviceTracker.ControllerConnected -= GamepadToggle;
-        MenuSystem.MenuActive -= CursorVisible;
+        MenuSystem.MenuActive -= MenuActive;
     }
 
 
@@ -71,7 +71,29 @@ public class CursorState : MonoBehaviour
     private void GamepadToggle(bool b)
     {
         controller = b;
-        CursorVisible(!b);
+        if (menuActive)
+        {
+            CursorVisible(!b);
+        }
+        else
+        {
+            CursorVisible(false);
+        }
+    }
+
+
+
+    private void MenuActive(bool b)
+    {
+        menuActive = b;
+        if (!controller)
+        {
+            CursorVisible(b);
+        }
+        else
+        {
+            CursorVisible(false);
+        }
     }
 
     #endregion

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class BulletSystem : MonoBehaviour
 {
+    [SerializeField] private GameObject effect;
+
     public Transform bullet_spawn;
     public float bullet_speed = 1.00f;
     public float cooldown = 1.00f;
@@ -25,12 +27,18 @@ public abstract class BulletSystem : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        HealthSystem healthSystem = other.gameObject.GetComponent<HealthSystem>();
+        if (effect)
+        {
+            GameObject g = Instantiate(effect, transform);
+            g.transform.parent = other.transform;
+        }
 
+        HealthSystem healthSystem = other.gameObject.GetComponent<HealthSystem>();
         if (healthSystem != null)
         {
             if (!healthSystem.bPlayer)
             {
+                
                 Hit(healthSystem);
             }
         }
