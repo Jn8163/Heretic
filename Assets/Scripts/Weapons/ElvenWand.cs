@@ -55,7 +55,7 @@ public class ElvenWand : WeaponSystem
 
                 GameObject spell = Instantiate(wandBullet, wandBulletSpawn.transform.position, wandBulletSpawn.transform.rotation);
                 Vector3 launchDirection = wandBulletSpawn.transform.forward;
-                spell.GetComponent<Rigidbody>().AddForce(launchDirection * projectile_speed);
+                spell.GetComponent<BulletSystem>().InstantiateBullet(launchDirection);
 
             } else
             {

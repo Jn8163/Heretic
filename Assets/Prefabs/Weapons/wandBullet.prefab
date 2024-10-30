@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4944662136370162732}
   - component: {fileID: -5734796699979112560}
   - component: {fileID: 3160940013548011734}
+  - component: {fileID: 1039576075750757344}
+  - component: {fileID: 7308153419809969846}
   m_Layer: 0
   m_Name: wandBullet
   m_TagString: Untagged
@@ -81,7 +83,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &3160940013548011734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +98,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 6832841594439106919, guid: d1e5df184b41ad346a626e02eecf232e, type: 3}
   bullet_spawn: {fileID: 0}
-  bullet_speed: 1
+  bullet_speed: 10
   cooldown: 1
-  lifetime: 2
+  lifetime: 5
   bulletDMG: -10
+  direction: {x: 0, y: 0, z: 0}
+--- !u!23 &1039576075750757344
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2305611230058581505}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 2c0f228b07628e14482ff75f05cd2dd0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &7308153419809969846
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2305611230058581505}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}

@@ -10,26 +10,37 @@ public abstract class BulletSystem : MonoBehaviour
     public float lifetime = 2f;
 
     public int bulletDMG;
+    public Vector3 direction;
+
+
 
     public virtual void Start()
     {
         Destroy(gameObject, lifetime);
     }
 
+
+
     public virtual void OnHit()
     {
 
     }
 
+
+
     public virtual void Update()
     {
-
+        transform.position = transform.position + (direction * bullet_speed * Time.deltaTime);
     }
+
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (effect)
         {
             GameObject g = Instantiate(effect, transform);
+            g.transform.position -= direction * .1f;
             g.transform.parent = other.transform;
         }
 
@@ -47,9 +58,18 @@ public abstract class BulletSystem : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+
     
     void Hit(HealthSystem healthSystem)
     {
         healthSystem.UpdateHealth(bulletDMG);
+    }
+
+
+
+    public virtual void InstantiateBullet(Vector3 dir)
+    {
+        direction = dir;
     }
 }
