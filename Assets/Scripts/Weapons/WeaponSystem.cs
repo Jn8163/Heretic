@@ -24,7 +24,7 @@ public abstract class WeaponSystem : MonoBehaviour
     {
         //Do Attack
         if (is_ammo) {
-            weapon_ammo--;
+            // weapon_ammo--;
         }
         Debug.Log("Attack Casted");
         coroutine = start_cooldown(reload_time);

@@ -10,7 +10,7 @@ public class EW_AmmoPickupGA : GameAction
 	[SerializeField] private GameObject mesh, sprite;
 	[SerializeField] private AudioSource audioSource;
 
-	public int ammo_amount = 1;
+	public int ammo_amount;
     private AmmoSystem ammoSystem;
 
     private void Start()
@@ -27,6 +27,7 @@ public class EW_AmmoPickupGA : GameAction
 		if (ammoSystem.ElvenWandAmmo != ammoSystem.ElvenWandAmmoMax)
 		{
 			ammoSystem.ElvenWandAmmo += ammo_amount;
+			ammoSystem.ElvenWandAmmo = Mathf.Clamp(ammoSystem.ElvenWandAmmo, 0, ammoSystem.ElvenWandAmmoMax);
 			audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
 			audioSource.Play();
 			StartCoroutine(DestroyPickup());

@@ -52,7 +52,7 @@ public class PlayerUI : MonoBehaviour
 	private void Update()
 	{
 		life.text = healthSystem.currentHealth.ToString();
-		ammo.text = pAmmo.ToString();
+		ammo.text = GameObject.Find("Player").GetComponent<AmmoSystem>().ElvenWandAmmo.ToString();
 		armor.text = pArmor.ToString();
 
 		// indicator changes depending on player hp, the more full their hp is the farther right the indicator goes

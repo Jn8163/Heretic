@@ -20,6 +20,7 @@ public class ElvenWand : WeaponSystem
     private Animator attackAnimation;
     private IEnumerator startAttackAnimation;
     public AmmoSystem ammoSystem;
+    private int ammoCount;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class ElvenWand : WeaponSystem
         if (ammoObject != null)
         {
             ammoSystem = ammoObject.GetComponent<AmmoSystem>();
+            ammoCount = ammoSystem.ElvenWandAmmo;
         }
         base.Start();
         reload_time = 1.00f;
@@ -42,10 +44,13 @@ public class ElvenWand : WeaponSystem
     {
         if (wandBulletSpawn != null)
         {
-            if (ammoSystem.ElvenWandAmmo > 0)
+            ammoSystem = GameObject.Find("Player").GetComponent<AmmoSystem>();
+            ammoCount = ammoSystem.ElvenWandAmmo;
+            if (ammoCount > 0)
             {
                 //current_ammo--;
-                UpdateAmmo(bullets_used);
+                // UpdateAmmo(bullets_used);
+                ammoSystem.ElvenWandAmmo--;
                 attack_sound.Play();
 
                 startAttackAnimation = play_animation(attackAnimation);
