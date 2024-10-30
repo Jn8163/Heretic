@@ -1,10 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 //Update get selected item for preview slot 
@@ -22,8 +18,7 @@ public class InventorySystem : MonoBehaviour
     private int selectedSlot = 0;
 
     [SerializeField] private InventorySlot[] inventorySlots;
-    [SerializeField] private Image previewSlot;
-    [SerializeField] private GameObject inventoryItemPrefab;
+    [SerializeField] private SelectedItem previewSlot;
 
     #endregion
 
@@ -60,60 +55,73 @@ public class InventorySystem : MonoBehaviour
 
 
     //For retreiving and using inventory items if use is set to true
-    public void UseSelectedItem(bool use)
+    public void UseSelectedItem()
     {
-        int tmp = previewSlot.GetComponent<SelectedItem>().UseItem();
-        if(tmp != -1)
+        int itemslot = previewSlot.UseItem();
+        if(itemslot >= 0 && itemslot < inventorySlots.Length)
         {
-            Destroy(inventorySlots[tmp].GetComponentInChildren<InventoryItem>().gameObject);
-            ClearPreviewSlot();
+            Destroy(inventorySlots[itemslot].GetComponentInChildren<InventoryItem>().gameObject);
         }
     }
 
 
 
     //Checks if inventory slot is available for adding an item
-    //If available- disables item and calls function to actually add item to system
-    //If unavailable- does nothing
-    public void AddItem(Item item, GameObject go)
+    public bool AddItem(GameObject prefab)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
             Item slotItem = slot.GetComponentInChildren<Item>();
-            Debug.Log("acheived");
             if (!slotItem)
             {
-                SpawnNewItem(item, slot);
-                go.SetActive(false);
-                ChangePreviewSlot(selectedSlot);
-                return;
+                Instantiate(prefab, slot.transform);
+                ChangeSelectedSlot(i);
+                return true;
             }
         }
+        return false;
     }
 
 
 
     //Changes selected slot based on player input
-    private void ChangeSelectedSlot(int increment)
+    private void IncrementSelectedSlot(int increment)
     {
-        if(selectedSlot >= 0 && selectedSlot < inventorySlots.Length)
+        increment += selectedSlot;
+
+        if(increment < 0)
+        {
+            increment = inventorySlots.Length - 1;
+        }else if(increment >= inventorySlots.Length)
+        {
+            increment = 0;
+        }
+
+
+
+        ChangeSelectedSlot(increment);
+    }
+
+
+
+    private void ChangeSelectedSlot(int currentSlot)
+    {
+        if (selectedSlot >= 0 && selectedSlot < inventorySlots.Length)
         {
             inventorySlots[selectedSlot].DeSelect();
         }
 
-        selectedSlot += increment;
-
-        if(selectedSlot < 0)
-        {
-            selectedSlot = inventorySlots.Length - 1;
-        }else if(selectedSlot >= inventorySlots.Length)
-        {
-            selectedSlot = 0;
-        }
-
+        selectedSlot = currentSlot;
         ChangePreviewSlot(selectedSlot);
         inventorySlots[selectedSlot].Select();
+    }
+
+
+
+    public void UpdatePreviewSlot()
+    {
+        ChangePreviewSlot(selectedSlot);
     }
 
 
@@ -124,12 +132,9 @@ public class InventorySystem : MonoBehaviour
         InventoryItem item = inventorySlots[slot].GetComponentInChildren<InventoryItem>();
         if (item)
         {
-            previewSlot.GetComponent<SelectedItem>().item = item.item;
-            previewSlot.GetComponent<SelectedItem>().itemSelected = true;
-            previewSlot.GetComponent<SelectedItem>().slot = slot;
-
-            previewSlot.sprite = item.gameObject.GetComponent<Image>().sprite;
-            previewSlot.color = item.gameObject.GetComponent<Image>().color;
+            previewSlot.itemSelected = true;
+            previewSlot.slot = slot;
+            previewSlot.ChangeItem(item.itemPrefab);
         }
         else
         {
@@ -139,26 +144,11 @@ public class InventorySystem : MonoBehaviour
 
 
 
-    //Adds item to inventory system
-    private void SpawnNewItem(Item item, InventorySlot slot)
-    {
-        GameObject newItemGO = Instantiate(inventoryItemPrefab, slot.transform);
-        InventoryItem inventoryItem = newItemGO.GetComponent<InventoryItem>();
-        inventoryItem.InitializeItem(item);
-
-    }
-
-
-
     private void ClearPreviewSlot()
     {
-        previewSlot.GetComponent<SelectedItem>().item = null;
-        previewSlot.GetComponent<SelectedItem>().itemSelected = false;
-        previewSlot.GetComponent<SelectedItem>().slot = -1;
-
-
-        previewSlot.sprite = null;
-        previewSlot.color = new Color(1f, 1f, 1f, 0f);
+        previewSlot.itemSelected = false;
+        previewSlot.slot = -1;
+        previewSlot.DestroyItem();
     }
 
 
@@ -175,11 +165,11 @@ public class InventorySystem : MonoBehaviour
 
             if (input < 0)
             {
-                ChangeSelectedSlot(-1);
+                IncrementSelectedSlot(-1);
             }
             else
             {
-                ChangeSelectedSlot(1);
+                IncrementSelectedSlot(1);
             }
         }
     }
@@ -188,7 +178,7 @@ public class InventorySystem : MonoBehaviour
 
     private void UsePreviewedItem(InputAction.CallbackContext c)
     {
-        UseSelectedItem(true);
+        UseSelectedItem();
     }
 
 

@@ -1,34 +1,40 @@
-using System.Collections.Generic;
-using System;
 using UnityEngine;
 
 public class SelectedItem : MonoBehaviour
 {
-    public Item item;
+    public GameObject inventoryitem;
     public bool itemSelected = false;
     public int slot = -1;
+
+
+
+    public void ChangeItem(GameObject newItem)
+    {
+        DestroyItem();
+
+        Instantiate(newItem, transform);
+    }
+
+
+
     public int UseItem()
     {
         if (itemSelected)
         {
-            var itemActions = new Dictionary<Pickup, Action>
-            {
-                { Pickup.QuartzFlask, () => { GetComponent<QuartzFlask>().Action(); }},
-            };
-
-            if (itemActions.ContainsKey(item.pickup))
-            {
-                try
-                {
-                    itemActions[item.pickup]();
-                }
-                catch (Exception MissingComponent)
-                {
-                    Debug.Log(MissingComponent);
-                }
-            }
+            transform.GetComponentInChildren<InventoryItem>().Action();
+            DestroyItem();
         }
-
         return slot;
+    }
+
+
+
+    public void DestroyItem()
+    {
+        InventoryItem item = GetComponentInChildren<InventoryItem>();
+        if (item)
+        {
+            Destroy(item.gameObject);
+        }
     }
 }

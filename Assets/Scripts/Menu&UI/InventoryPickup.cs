@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class InventoryPickup : Item
 {
+    [SerializeField] GameObject pickupPrefab;
     protected override void Start()
     {
         base.Start();    
@@ -19,6 +21,15 @@ public class InventoryPickup : Item
     protected override void PickupItem()
     {
         base.PickupItem();
-        inventorySystem.AddItem(item, gameObject);
+        if(inventorySystem.AddItem(pickupPrefab))
+        {
+            StartCoroutine(nameof(DestroyPickup));
+        }
+    }
+
+    protected override IEnumerator DestroyPickup()
+    {
+        yield return new WaitForSeconds(destroyDelay);
+        Destroy(gameObject);
     }
 }

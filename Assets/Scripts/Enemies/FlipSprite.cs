@@ -26,7 +26,6 @@ public class FlipSprite : MonoBehaviour
 
 		float angle = Vector3.SignedAngle(enemyLookDirection, playerRelativeDirection, Vector3.up);
 
-		Debug.Log("angle: " + angle);
 
 		if (-22.5 < angle && angle < 22.5)
 		{

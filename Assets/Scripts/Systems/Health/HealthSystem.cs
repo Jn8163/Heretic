@@ -30,6 +30,13 @@ public class HealthSystem : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+
+
+    public int GetMissingHealth()
+    {
+        return maxHealth - currentHealth;
+    }
+
     public void UpdateHealth(int amount)
     {
         currentHealth += amount;

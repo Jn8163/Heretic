@@ -1,18 +1,16 @@
+using System.Collections;
 using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    public Pickup pickup;
-    public Sprite image;
-    [HideInInspector] public Item item;
     [SerializeField] private AudioSource audioSource;
     protected InventorySystem inventorySystem;
+    [SerializeField] protected float destroyDelay = 1.0f;
 
 
 
     protected virtual void Start()
     {
-        item = this;
         inventorySystem = InventorySystem.instance;
     }
 
@@ -23,24 +21,12 @@ public abstract class Item : MonoBehaviour
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.Play();
     }
-}
 
 
 
-public enum Pickup
-{
-    QuartzFlask,
-    MysticUrn,
-    Shield,
-    EnchantedShield,
-    Torch,
-    MapScroll,
-    BagOfHolding,
-    ShadowSphere,
-    TykettosTomeOfPower,
-    ValadorsRingOfInvulnerability,
-    InhiliconsWingsOfWrath,
-    DarchalasChaosDevice,
-    TorpolsMorphOvum,
-    DelmintalitarsTimeBombOfTheAncients
+    protected virtual IEnumerator DestroyPickup()
+    {
+        yield return new WaitForSeconds(destroyDelay);
+        Destroy(gameObject);
+    }
 }

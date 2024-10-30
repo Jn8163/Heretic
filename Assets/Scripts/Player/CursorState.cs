@@ -53,7 +53,6 @@ public class CursorState : MonoBehaviour
 
     public void CursorVisible(bool b)
     {
-        Debug.Log("Cursor: " + b);
         if (b && !controller)
         {
             Cursor.lockState = CursorLockMode.None;

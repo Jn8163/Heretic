@@ -25,18 +25,35 @@ public class CrystalVialPickup : ImmediatePickup
 
 
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
+        {
+            if (hSystem.bPlayer)
+            {
+                healthSystem = hSystem;
+                PickupItem();
+            }
+        }
+    }
+
+
+
     protected override void PickupItem()
     {
         base.PickupItem();
-        healthSystem.UpdateHealth(heal_amount);
-        StartCoroutine(DestroyPickup());
+        if (healthSystem.GetMissingHealth() > 0)
+        {
+            healthSystem.UpdateHealth(heal_amount);
+            StartCoroutine(DestroyPickup());
+        }
     }
 
 
 
     protected override IEnumerator DestroyPickup()
     {
-        this.GetComponent<Collider>().enabled = false;
+        GetComponent<Collider>().enabled = false;
         mesh.GetComponent<MeshRenderer>().enabled = false;
         sprite.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(destroyDelay);

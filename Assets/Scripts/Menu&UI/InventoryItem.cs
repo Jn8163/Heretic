@@ -1,18 +1,10 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class InventoryItem : MonoBehaviour
+public abstract class InventoryItem : MonoBehaviour
 {
-    [HideInInspector] public Item item;
-
-    public void InitializeItem(Item newItem)
+    public GameObject itemPrefab;
+    public virtual void Action()
     {
-        item = newItem;
-        if (item)
-        {
-            GetComponent<Image>().sprite = item.image;
-        }
+
     }
 }

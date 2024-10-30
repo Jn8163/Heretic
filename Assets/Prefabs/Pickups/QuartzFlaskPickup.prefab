@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 186701923617473661}
   - component: {fileID: 4474227172996680446}
   m_Layer: 6
-  m_Name: QuartzFlask
+  m_Name: QuartzFlaskPickup
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5dbdb9a6cf41d2479424948c0f08994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickup: 0
-  image: {fileID: -1437684544, guid: c708e816739196141a37e0916045aa45, type: 3}
-  item: {fileID: 0}
   audioSource: {fileID: 186701923617473661}
+  destroyDelay: 0
+  pickupPrefab: {fileID: 4101700839171962501, guid: c082c263a55f61740b03d43d757d46e8, type: 3}

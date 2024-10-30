@@ -1,17 +1,15 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.ProBuilder.Shapes;
 
-public abstract class ImmediatePickup : MonoBehaviour
+public abstract class ImmediatePickup : Item
 {
-    protected float destroyDelay = 1.0f;
-    protected virtual void PickupItem()
+    protected override void PickupItem()
     {
     }
 
 
 
-    protected virtual IEnumerator DestroyPickup()
+    protected override IEnumerator DestroyPickup()
     {
         yield return new WaitForSeconds(destroyDelay);
         Destroy(gameObject);
