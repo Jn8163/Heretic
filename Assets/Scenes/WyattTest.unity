@@ -803,6 +803,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+--- !u!1 &1447644463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1447644464}
+  m_Layer: 0
+  m_Name: Skel1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1447644464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447644463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -8.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1239629284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1501779945
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +986,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 106840682}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1660643316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1660643317}
+  m_Layer: 0
+  m_Name: Golem1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1660643317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660643316}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.18, y: -8.68, z: 3.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1239629284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1681930501 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2134255733291779297, guid: 08674fa3f04836d40b585e3ba276d7bb, type: 3}
@@ -1055,6 +1117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSystem: {fileID: 1953548116}
+  anim: {fileID: 0}
 --- !u!114 &1953548115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1305,6 +1368,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1172765227582778106, guid: a65dbc45951ee534b82c0a22f179944e, type: 3}
+      propertyPath: GolemSpawns.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172765227582778106, guid: a65dbc45951ee534b82c0a22f179944e, type: 3}
+      propertyPath: 'GolemSpawns.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1660643316}
+    - target: {fileID: 1172765227582778106, guid: a65dbc45951ee534b82c0a22f179944e, type: 3}
+      propertyPath: SkeletonSpawns.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172765227582778106, guid: a65dbc45951ee534b82c0a22f179944e, type: 3}
       propertyPath: 'GargoyleSpawns.Array.data[0]'
       value: 
       objectReference: {fileID: 1025307559}
@@ -1312,6 +1387,10 @@ PrefabInstance:
       propertyPath: 'GargoyleSpawns.Array.data[1]'
       value: 
       objectReference: {fileID: 309616720}
+    - target: {fileID: 1172765227582778106, guid: a65dbc45951ee534b82c0a22f179944e, type: 3}
+      propertyPath: 'SkeletonSpawns.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1447644463}
     - target: {fileID: 7270661578981919274, guid: a65dbc45951ee534b82c0a22f179944e, type: 3}
       propertyPath: m_Name
       value: SpawnSystem
@@ -1365,6 +1444,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7380230726019570715, guid: a65dbc45951ee534b82c0a22f179944e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1025307560}
+    - targetCorrespondingSourceObject: {fileID: 7380230726019570715, guid: a65dbc45951ee534b82c0a22f179944e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1660643317}
+    - targetCorrespondingSourceObject: {fileID: 7380230726019570715, guid: a65dbc45951ee534b82c0a22f179944e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1447644464}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a65dbc45951ee534b82c0a22f179944e, type: 3}
 --- !u!1001 &8712101977096365614
