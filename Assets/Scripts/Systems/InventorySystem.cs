@@ -72,7 +72,7 @@ public class InventorySystem : MonoBehaviour
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
-            Item slotItem = slot.GetComponentInChildren<Item>();
+            InventoryItem slotItem = slot.GetComponentInChildren<InventoryItem>();
             if (!slotItem)
             {
                 Instantiate(prefab, slot.transform);
