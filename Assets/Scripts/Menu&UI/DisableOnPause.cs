@@ -15,6 +15,7 @@ public class DisableOnPause : MonoBehaviour
     private void OnEnable()
     {
         PauseSystem.PauseMenuActive += Toggle;
+        HealthSystem.GameOver += Disable;
     }
 
 
@@ -22,6 +23,7 @@ public class DisableOnPause : MonoBehaviour
     private void OnDisable()
     {
         PauseSystem.PauseMenuActive -= Toggle;
+        HealthSystem.GameOver -= Disable;
     }
 
 
@@ -29,6 +31,13 @@ public class DisableOnPause : MonoBehaviour
     private void Toggle(bool b)
     {
         target.SetActive(!b);
+    }
+
+
+
+    private void Disable()
+    {
+        Toggle(true);
     }
 
     #endregion
