@@ -36,8 +36,6 @@ public class ElvenWand : WeaponSystem
             ammoCount = ammoSystem.ElvenWandAmmo;
         }
         base.Start();
-        reload_time = 1.00f;
-
     }
 
     public override void Attack()
