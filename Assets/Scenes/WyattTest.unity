@@ -1023,6 +1023,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d19346e02cbe14d8b20dd224670104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2138750171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2069564516227274093, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+  m_PrefabInstance: {fileID: 106840679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2138750178 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 551849847247523623, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+  m_PrefabInstance: {fileID: 106840679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &476346842090677222
 Transform:
   m_ObjectHideFlags: 0
@@ -2436,6 +2446,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8132179739755253486, guid: 67ba3c7c3df79a84cb816721fdc886c3, type: 3}
+      propertyPath: TP_End
+      value: 
+      objectReference: {fileID: 1844781764}
+    - target: {fileID: 8132179739755253486, guid: 67ba3c7c3df79a84cb816721fdc886c3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2138750171}
+    - target: {fileID: 8132179739755253486, guid: 67ba3c7c3df79a84cb816721fdc886c3, type: 3}
+      propertyPath: TP_Start
+      value: 
+      objectReference: {fileID: 2138750178}
+    - target: {fileID: 8132179739755253486, guid: 67ba3c7c3df79a84cb816721fdc886c3, type: 3}
       propertyPath: playerTP
       value: 
       objectReference: {fileID: 0}
@@ -2450,7 +2472,7 @@ PrefabInstance:
     - target: {fileID: 8132179739755253486, guid: 67ba3c7c3df79a84cb816721fdc886c3, type: 3}
       propertyPath: playerTPLoc
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2138750178}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

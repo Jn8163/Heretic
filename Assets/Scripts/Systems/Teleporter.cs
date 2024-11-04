@@ -3,19 +3,22 @@ using UnityEngine;
 public class Teleporter : MonoBehaviour
 {
     [SerializeField]
-    public Transform playerTPLoc;
+    public Transform TP_Start;
     [SerializeField]
-    public Transform destination;
+    public Transform TP_End;
     [SerializeField]
-    public GameObject playerTP;
+    public GameObject player;
     [SerializeField]
     public Transform rotation;
 
     private void OnTriggerEnter(Collider other)
     {
-        playerTP.SetActive(false);
-        playerTPLoc.position = destination.position;
-        playerTP.transform.LookAt(rotation);
-        playerTP.SetActive(true);
+        if (other.GetComponent<PlayerMovement>() != null)
+        {
+            player.SetActive(false);
+            TP_Start.position = TP_End.position;
+            player.transform.LookAt(rotation);
+            player.SetActive(true);
+        }
     }
 }
