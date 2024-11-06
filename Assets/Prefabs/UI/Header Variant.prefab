@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2021274168759390114, guid: 2236415852359224ea522e2172b9853c, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021274168759390114, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
@@ -26,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3328342779468625278, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_MinWidth
-      value: 425
+      value: 850
       objectReference: {fileID: 0}
     - target: {fileID: 3328342779468625278, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_MinHeight
@@ -34,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055801206414191946, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_text
-      value: 'Header
+      value: 'header
 
 '
       objectReference: {fileID: 0}

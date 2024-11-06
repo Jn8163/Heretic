@@ -1,80 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2444606702366249128
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 592742409764009764}
-  - component: {fileID: 1118758159310856406}
-  - component: {fileID: 1582078294182432158}
-  m_Layer: 5
-  m_Name: Title
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &592742409764009764
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2444606702366249128}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.5014877, y: 4.5014877, z: 4.5014877}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6274067341814245030}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0}
---- !u!222 &1118758159310856406
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2444606702366249128}
-  m_CullTransparentMesh: 1
---- !u!114 &1582078294182432158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2444606702366249128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 603083948, guid: 46c52b690f52e4d4d82acf309b28bad4, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6231083414768996491
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055801206414191946, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_text
-      value: Continue
+      value: continue
       objectReference: {fileID: 0}
     - target: {fileID: 8972892979608143354, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_Name
@@ -1715,7 +1640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055801206414191946, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_text
-      value: 'Load Game
+      value: 'load game
 
 '
       objectReference: {fileID: 0}
@@ -2568,7 +2493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055801206414191946, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_text
-      value: 'Settings
+      value: 'settings
 
 '
       objectReference: {fileID: 0}
@@ -3271,7 +3196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055801206414191946, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_text
-      value: New Game
+      value: new game
       objectReference: {fileID: 0}
     - target: {fileID: 8972892979608143354, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_Name
@@ -4019,15 +3944,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3019817905094612298, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3019817905094612298, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
       propertyPath: m_ChildControlHeight
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 259595264632397969, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 592742409764009764}
     - targetCorrespondingSourceObject: {fileID: 259595264632397969, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7994201681189287779}
@@ -4724,7 +4650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055801206414191946, guid: 2236415852359224ea522e2172b9853c, type: 3}
       propertyPath: m_text
-      value: 'Quit
+      value: 'quit
 
 '
       objectReference: {fileID: 0}
