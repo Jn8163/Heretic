@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public abstract class EnemyBaseClass : MonoBehaviour
 {
@@ -7,7 +8,9 @@ public abstract class EnemyBaseClass : MonoBehaviour
 	[SerializeField]
     private NavMeshAgent agent;
 
-	protected Transform player;
+    private HealthSystem healthSystem;
+
+    protected Transform player;
 
 	public LayerMask whatIsPlayer;
 
@@ -27,22 +30,34 @@ public abstract class EnemyBaseClass : MonoBehaviour
 	{
 		player = GameObject.Find("Player").transform;
 		agent = GetComponent<NavMeshAgent>();
+		healthSystem = GetComponent<HealthSystem>();
 		startingPos = transform.position;
 	}
 
 	protected virtual void Update()
 	{
-		playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-		playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-
 		/*if (!playerInSightRange && !playerInAttackRange)
 			Patrolling();*/
-		if(Physics.CheckSphere(transform.position, sightRange, whatIsPlayer) && !playerInAttackRange)
-			ChasePlayer();
-		if(playerInAttackRange && playerInSightRange)
-			AttackPlayer();
-		if (!playerInAttackRange && !playerInSightRange)
-			ReturnToOrigin();
+
+		if (healthSystem != null && healthSystem.bAlive)
+		{
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+
+            Debug.Log(healthSystem.bAlive);
+			if (Physics.CheckSphere(transform.position, sightRange, whatIsPlayer) && !playerInAttackRange)
+				ChasePlayer();
+			if (playerInAttackRange && playerInSightRange)
+				AttackPlayer();
+			if (!playerInAttackRange && !playerInSightRange)
+				ReturnToOrigin();
+		}
+		else if (!healthSystem.bAlive)
+		{
+			playerInAttackRange = false;
+			playerInSightRange = false;
+			transform.position = transform.position;
+		}
 	}
 
 	/*protected virtual void Patrolling()
@@ -91,7 +106,6 @@ public abstract class EnemyBaseClass : MonoBehaviour
 	{
 		if (GetComponent<NavMeshAgent>() != null)
 		{
-			Debug.Log("Attack!");
 			agent.SetDestination(transform.position);
 		}
 		
