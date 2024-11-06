@@ -13,7 +13,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField]private Image healthBar;
 
     public int currentHealth;
-    private bool bAlive = true;
+    public bool bAlive = true;
 
     public static Action<int> UpdateScore = delegate { };
     public static Action GameOver = delegate { };
