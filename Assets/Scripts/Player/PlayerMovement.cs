@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (animateCam)
             {
-                //cameraAnim.SetBool("moving", true);
+                cameraAnim.SetBool("moving", true);
             }
         }
         else
