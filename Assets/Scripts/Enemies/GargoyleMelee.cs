@@ -22,13 +22,11 @@ public class GargoyleMelee : EnemyAttackClass
             StartCoroutine(nameof(HurtBox));
         }
         
-        Debug.Log("claw hit");
     }
 
     IEnumerator HurtBox()
     {
         attacked = true;
-        Debug.Log("hurtbox timer test");
 		claw.enabled = true;
         animMesh.SetBool("isAttacking", true);
         animSprite.SetBool("isAttacking", true);
@@ -44,7 +42,6 @@ public class GargoyleMelee : EnemyAttackClass
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("claw hitbox");
         if(other.TryGetComponent(out HealthSystem hSystem))
         {
             OnHit(hSystem);
@@ -67,9 +64,7 @@ public class GargoyleMelee : EnemyAttackClass
     private void OnHit(HealthSystem healthSystem)
     {
         //Deal Damage
-        Debug.Log("Hit!");
         healthSystem.UpdateHealth(claw_dmg);
-        Debug.Log(healthSystem.currentHealth);
     }
 
 

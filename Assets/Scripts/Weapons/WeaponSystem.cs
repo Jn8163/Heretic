@@ -26,7 +26,6 @@ public abstract class WeaponSystem : MonoBehaviour
         if (is_ammo) {
             // weapon_ammo--;
         }
-        Debug.Log("Attack Casted");
         coroutine = start_cooldown(reload_time);
         StartCoroutine(coroutine);
     }
@@ -55,7 +54,6 @@ public abstract class WeaponSystem : MonoBehaviour
     private IEnumerator start_cooldown(float reload_time)
     {
         reloading = true;
-        Debug.Log("Reloading");
         yield return new WaitForSeconds(reload_time);
 
         reloading = false;
