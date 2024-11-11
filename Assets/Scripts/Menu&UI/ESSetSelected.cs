@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Finds Event System and Updates selected object to SelectedButton.
@@ -19,18 +20,25 @@ public class ESSetSelected : MonoBehaviour
 
     #region Methods
 
+    private void Awake()
+    {
+        //Event sub is done during awake to prevent any potential duplicate subscription issues in OnEnable
+        SceneManager.sceneLoaded += NewScene;
+    }
+
+
+
     private void OnEnable()
     {
         InputDeviceTracker.ControllerConnected += GamepadAdded;
+        Initialization();
+    }
 
-        myEventSystem = FindAnyObjectByType<EventSystem>();
-        GamepadActive = InputDeviceTracker.gamepadConnected;
 
-        if (GamepadActive && myEventSystem)
-        {
-            myEventSystem.SetSelectedGameObject(null);
-            myEventSystem.SetSelectedGameObject(SelectedButton);
-        }
+
+    private void Start()
+    {
+        Initialization();
     }
 
 
@@ -47,16 +55,54 @@ public class ESSetSelected : MonoBehaviour
 
 
 
+    private void OnDestroy()
+    {
+        //Only unsubscribes during OnDestroy because the initial sub only happens in awake
+        SceneManager.sceneLoaded -= NewScene;
+    }
+
+
+
     private void GamepadAdded(bool b)
     {
         GamepadActive = b;
-        if (b && myEventSystem)
+
+        if (myEventSystem)
         {
-            myEventSystem.SetSelectedGameObject(SelectedButton);
+            if (b)
+            {
+                myEventSystem.SetSelectedGameObject(SelectedButton);
+            }
+            else
+            {
+                myEventSystem.SetSelectedGameObject(null);
+            }
         }
-        else if(myEventSystem)
+    }
+
+
+
+    private void NewScene(Scene scene, LoadSceneMode mode)
+    {
+        OnDisable();
+        OnEnable();
+        Initialization();
+    }
+
+
+
+    /// <summary>
+    /// Initilization needed every time the script is enabled.
+    /// </summary>
+    private void Initialization()
+    {
+        myEventSystem = FindAnyObjectByType<EventSystem>();
+        GamepadActive = InputDeviceTracker.gamepadConnected;
+
+        if (GamepadActive && myEventSystem)
         {
             myEventSystem.SetSelectedGameObject(null);
+            myEventSystem.SetSelectedGameObject(SelectedButton);
         }
     }
 
