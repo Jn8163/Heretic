@@ -98,8 +98,6 @@ public class MenuSystem : MonoBehaviour
 
     private void PauseMenu(bool b)
     {
-        Debug.Log("Pause " + b);
-
         if (b)
         {
             SwitchMenu("PauseMenu");
