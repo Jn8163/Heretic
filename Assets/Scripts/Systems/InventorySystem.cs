@@ -1,32 +1,41 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-//Update get selected item for preview slot 
+/// <summary>
+/// System for keeping track of and using items. Any Inventory action should
+/// go through this system to ensure proper trcaking.
+/// </summary>
 public class InventorySystem : MonoBehaviour
 {
     #region Fields
 
     public static InventorySystem instance;
 
-    [Header("Input Detection")]
-    [SerializeField] private GameObject fInventory;
+    [Header("Inventory Sections & Variables")]
     [SerializeField] private float VisibleDuration = 3f;
+    [SerializeField] private GameObject fInventory;
+    [SerializeField] private SelectedItem previewSlot;
+    [SerializeField] private InventorySlot[] inventorySlots;
 
     private PlayerInput pInput;
     private int selectedSlot = 0;
-
-    [SerializeField] private InventorySlot[] inventorySlots;
-    [SerializeField] private SelectedItem previewSlot;
 
     #endregion
 
 
 
+    #region Methods
+
+    #region UnityMethods
+
     private void Awake()
     {
         instance = this;
+        
+        //Event sub is done during awake to prevent any potential duplicate subscription issues in OnEnable
+        SceneManager.sceneLoaded += NewSceneLoaded;
     }
 
 
@@ -52,9 +61,14 @@ public class InventorySystem : MonoBehaviour
         pInput.Disable();
     }
 
+    #endregion
 
 
-    //For retreiving and using inventory items if use is set to true
+
+    /// <summary>
+    /// For using currently selected item. 
+    /// Can call from any script to use current item.
+    /// </summary>
     public void UseSelectedItem()
     {
         int itemslot = previewSlot.UseItem();
@@ -66,7 +80,19 @@ public class InventorySystem : MonoBehaviour
 
 
 
-    //Checks if inventory slot is available for adding an item
+    private void OnDestroy()
+    {
+        //Only unsubscribes during OnDestroy because the initial sub only happens in awake
+        SceneManager.sceneLoaded -= NewSceneLoaded;
+    }
+
+
+
+    /// <summary>
+    /// Checks if inventory slot is available for adding an item
+    /// </summary>
+    /// <param name="prefab"></param>
+    /// <returns>bool indicating if the item was used</returns>
     public bool AddItem(GameObject prefab)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
@@ -85,7 +111,11 @@ public class InventorySystem : MonoBehaviour
 
 
 
-    //Changes selected slot based on player input
+    /// <summary>
+    /// Changes selected slot based on parameter provided.
+    /// Only changes inventory slots one at a time.
+    /// </summary>
+    /// <param name="increment"></param>
     private void IncrementSelectedSlot(int increment)
     {
         increment += selectedSlot;
@@ -105,6 +135,11 @@ public class InventorySystem : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Updates preview slot and inventoryslots selected function to
+    /// properly show which item is selected.
+    /// </summary>
+    /// <param name="currentSlot"></param>
     private void ChangeSelectedSlot(int currentSlot)
     {
         if (selectedSlot >= 0 && selectedSlot < inventorySlots.Length)
@@ -119,6 +154,9 @@ public class InventorySystem : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Change preview slot to currently selected slot.
+    /// </summary>
     public void UpdatePreviewSlot()
     {
         ChangePreviewSlot(selectedSlot);
@@ -126,7 +164,10 @@ public class InventorySystem : MonoBehaviour
 
 
 
-    //Updates preview slot on slot change
+    /// <summary>
+    /// Updates all parameters of the preview slot.
+    /// </summary>
+    /// <param name="slot"></param>
     private void ChangePreviewSlot(int slot)
     {
         InventoryItem item = inventorySlots[slot].GetComponentInChildren<InventoryItem>();
@@ -144,6 +185,9 @@ public class InventorySystem : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Clears any values out of preview slot.
+    /// </summary>
     private void ClearPreviewSlot()
     {
         previewSlot.itemSelected = false;
@@ -153,8 +197,11 @@ public class InventorySystem : MonoBehaviour
 
 
 
-    //Method subscribed to player input to enable inventory after detected input.
-    //Inventory disables after 'VisibleDuration' seconds (as it does in OG Heretic)
+    /// <summary>
+    /// Method subscribed to player input to enable inventory after detected input.
+    /// Inventory disables after 'VisibleDuration' seconds (as it does in OG Heretic)
+    /// </summary>
+    /// <param name="c"></param>
     private void ShowFullInventory(InputAction.CallbackContext c)
     {
         StopAllCoroutines();
@@ -176,6 +223,10 @@ public class InventorySystem : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Uses Selected Item on PlayerInput
+    /// </summary>
+    /// <param name="c"></param>
     private void UsePreviewedItem(InputAction.CallbackContext c)
     {
         UseSelectedItem();
@@ -183,11 +234,29 @@ public class InventorySystem : MonoBehaviour
 
 
 
-    //Keeps Inventory Open for duration of time (OG Heretic mimic)
+    /// <summary>
+    /// Refreshes event subscriptions when new scene is loaded.
+    /// </summary>
+    /// <param name="scene"></param>
+    /// <param name="mode"></param>
+    private void NewSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        OnDisable();
+        OnEnable();
+    }
+
+
+
+    /// <summary>
+    /// Keeps Inventory Open for duration of time (OG Heretic mimic)
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator DeactivateInventory()
     {
         fInventory.SetActive(true);
         yield return new WaitForSeconds(VisibleDuration);
         fInventory.SetActive(false);
     }
+
+    #endregion
 }

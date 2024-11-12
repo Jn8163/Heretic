@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.ProBuilder.Shapes;
 
 public class KeyYPickupGA : GameAction
 {
@@ -17,7 +16,7 @@ public class KeyYPickupGA : GameAction
 
 	IEnumerator DestroyPickup()
 	{
-		this.GetComponent<Collider>().enabled = false;
+		GetComponent<Collider>().enabled = false;
 		mesh.GetComponent<MeshRenderer>().enabled = false;
 		sprite.GetComponent<SpriteRenderer>().enabled = false;
 		yield return new WaitForSeconds(5);
