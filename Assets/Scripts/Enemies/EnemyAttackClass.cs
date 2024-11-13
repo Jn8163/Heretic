@@ -22,7 +22,7 @@ public abstract class EnemyAttackClass : MonoBehaviour
 
     protected virtual void MeleeAttack()
     {
-        Debug.Log("melee triggered");
+        
     }
 }
 
