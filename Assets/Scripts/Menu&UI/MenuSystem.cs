@@ -13,7 +13,7 @@ public class MenuSystem : MonoBehaviour
     public static MenuSystem instance;
     [SerializeField] private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, creditsM, playerHUD;
     [SerializeField] private List<GameObject> menus = new List<GameObject>();
-    private int selectedLevel, selectedDifficulty;
+    public int selectedLevel, selectedDifficulty;
     private bool activeHUD, destroy = false;
 
     public static Action<bool> MenuActive = delegate { };
@@ -312,4 +312,5 @@ public class MenuSystem : MonoBehaviour
     }
 
     #endregion
+
 }
