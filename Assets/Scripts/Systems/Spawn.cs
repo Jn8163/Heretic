@@ -19,6 +19,7 @@ public class Spawn : MonoBehaviour
     public void SpawnObject()
     {
         int currentDifficulty = MenuSystem.instance.selectedDifficulty;
+        GameObject go;
         if (prefab)
         {
             if (Increasing)
@@ -31,12 +32,14 @@ public class Spawn : MonoBehaviour
                     {
                         if (currentDifficulty == difficulty)
                         {
-                            Instantiate(prefab, transform);
+                            go = Instantiate(prefab, transform);
+                            go.transform.position += transform.up;
                         }
                     }
                     else
                     {
-                        Instantiate(prefab, transform);
+                        go = Instantiate(prefab, transform);
+                        go.transform.position += transform.up;
                     }
                 }
             }
@@ -48,12 +51,14 @@ public class Spawn : MonoBehaviour
                     {
                         if (currentDifficulty == difficulty)
                         {
-                            Instantiate(prefab, transform);
+                            go = Instantiate(prefab, transform);
+                            go.transform.position += transform.up;
                         }
                     }
                     else
                     {
-                        Instantiate(prefab, transform);
+                        go = Instantiate(prefab, transform);
+                        go.transform.position += transform.up;
                     }
                 }
             }
