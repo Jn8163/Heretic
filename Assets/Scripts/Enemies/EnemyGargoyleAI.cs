@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyGargoyleAI : EnemyBaseClass
 {
 	[SerializeField]
 	private float hoverDist;
+	[SerializeField]
+	private float DashRange;
 	RaycastHit hit;
 	Vector3 pos;
 	protected override void Awake()
@@ -23,4 +26,13 @@ public class EnemyGargoyleAI : EnemyBaseClass
 		}
 		base.Update();
 	}
+    protected override void AttackPlayer()
+    {
+        Vector3 distanceToPlayer = transform.position - player.position;
+        if ((distanceToPlayer.magnitude - 2) < DashRange && DashRange < (distanceToPlayer.magnitude + 2)) 
+		{
+			//agent.speed
+		}
+        base.AttackPlayer();
+    }
 }

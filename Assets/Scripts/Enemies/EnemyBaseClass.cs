@@ -6,7 +6,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
 {
     // protected float eHealth, eSpeed, eAtkRate, eDamage;
 	[SerializeField]
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     private HealthSystem healthSystem;
 
@@ -36,9 +36,6 @@ public abstract class EnemyBaseClass : MonoBehaviour
 
 	protected virtual void Update()
 	{
-		/*if (!playerInSightRange && !playerInAttackRange)
-			Patrolling();*/
-
 		if (healthSystem != null && healthSystem.bAlive)
 		{
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
@@ -50,7 +47,11 @@ public abstract class EnemyBaseClass : MonoBehaviour
 			if (playerInAttackRange && playerInSightRange)
 				AttackPlayer();
 			if (!playerInAttackRange && !playerInSightRange)
+			{
 				ReturnToOrigin();
+                if (!playerInSightRange && !playerInAttackRange)
+                    Patrolling();
+            }
 		}
 		else if (!healthSystem.bAlive)
 		{
@@ -60,7 +61,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
 		}
 	}
 
-	/*protected virtual void Patrolling()
+	protected virtual void Patrolling()
 	{
 		if (!walkPointSet)
 			SearchWalkPoint();
@@ -73,7 +74,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
 		// Walkpoint reached
 		if(distanceToWalkPoint.magnitude < 1f)
 			walkPointSet = false;
-	}*/
+	}
 
 	protected virtual void SearchWalkPoint()
 	{

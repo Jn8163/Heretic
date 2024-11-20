@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class EnemySpawnSystem : MonoBehaviour
 {
+    int SpawnNum;
     [SerializeField]
     public List<GameObject> GargoyleSpawns = new List<GameObject>();
     [SerializeField] GameObject GargoylePrefab;
-    int SpawnNum;
+    
     [SerializeField]
     public List<GameObject> GolemSpawns = new List<GameObject>();
-    //golem prefab
+    [SerializeField] GameObject GolemPrefab;
+
     [SerializeField]
     public List<GameObject> SkeletonSpawns = new List<GameObject>();
-    //skeleton warrior prefab
+    [SerializeField] GameObject SkeletonPrefab;
 
     void Start()
     {
