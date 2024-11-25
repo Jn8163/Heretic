@@ -7,9 +7,8 @@ public class HealthSystem : MonoBehaviour
     #region Fields
 
     [SerializeField] public bool bPlayer;
-    [SerializeField] private int score;
     [SerializeField] private int maxHealth = 100;
-
+    [SerializeField] private int score;
     [SerializeField]private Image healthBar;
 
     public int currentHealth;
@@ -41,12 +40,6 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
-        //talk to healthbar
-        if (healthBar)
-        {
-            healthBar.fillAmount = currentHealth / (maxHealth * 1f);
-        }
 
         if (currentHealth == 0 && bAlive)
         {
