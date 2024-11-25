@@ -1,11 +1,19 @@
 using UnityEngine;
 
-public class Shield : MonoBehaviour
+public class ArmorSystem : MonoBehaviour
 {
+    public static ArmorSystem instance;
     [SerializeField] private int maxShield;
     private int currentShieldHealth = 0;
     private float reductionAmount = .5f;
-    private bool shieldEquipped;
+    public bool shieldEquipped;
+
+
+
+    private void Start()
+    {
+        instance = this;   
+    }
 
 
 
@@ -19,7 +27,7 @@ public class Shield : MonoBehaviour
         if (!shieldEquipped)
         {
             shieldEquipped = true;
-            currentShieldHealth = Mathf.Clamp(health, 0, 200);
+            currentShieldHealth = Mathf.Clamp(health, 0, maxShield);
             return true;
         }
         return false;
@@ -36,14 +44,14 @@ public class Shield : MonoBehaviour
     {
         int reducedDamage = (int)(damage * reductionAmount);
         
-        if(currentShieldHealth <= reducedDamage)
+        if(currentShieldHealth + reducedDamage <= 0)
         {
             reducedDamage = currentShieldHealth;
             DestroyShield();
         }
         else
         {
-            currentShieldHealth -= reducedDamage;
+            currentShieldHealth += reducedDamage;
         }
         return damage - reducedDamage;
     }

@@ -38,6 +38,14 @@ public class HealthSystem : MonoBehaviour
 
     public void UpdateHealth(int amount)
     {
+        if (bPlayer && amount < 0)
+        {
+            if(ArmorSystem.instance.shieldEquipped)
+            {
+                amount = ArmorSystem.instance.UseShield(amount);
+            }
+        }
+
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 

@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 256345378888288106}
   - component: {fileID: 4526130836130253100}
   - component: {fileID: 4642459962824795597}
+  - component: {fileID: 8890098794275835459}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -630,10 +631,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPlayer: 1
-  score: 0
   maxHealth: 100
+  score: 0
   healthBar: {fileID: 0}
   currentHealth: 0
+  bAlive: 1
 --- !u!114 &256345378888288106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,6 +679,20 @@ MonoBehaviour:
   ElvenWandAmmoMax: 50
   EtherealCrossbowAmmo: 0
   EtherealCrossbowAmmoMax: 0
+--- !u!114 &8890098794275835459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069564516227274093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d710dad861b5a4eb890b54683bfd23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxShield: 200
+  shieldEquipped: 0
 --- !u!1 &2907615243466202451
 GameObject:
   m_ObjectHideFlags: 0
