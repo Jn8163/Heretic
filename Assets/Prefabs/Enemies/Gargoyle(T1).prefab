@@ -880,6 +880,7 @@ MonoBehaviour:
   playerInSightRange: 0
   playerInAttackRange: 0
   hoverDist: 1.7
+  DashRange: 14
 --- !u!195 &6168588899592246224
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -915,8 +916,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPlayer: 0
-  score: 0
   maxHealth: 40
+  score: 0
   healthBar: {fileID: 0}
   currentHealth: 0
   bAlive: 1

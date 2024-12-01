@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,7 +7,7 @@ public class EnemyGargoyleAI : EnemyBaseClass
 	[SerializeField]
 	private float hoverDist;
 	[SerializeField]
-	private float DashRange;
+	private float DashRange = 11;
 	RaycastHit hit;
 	Vector3 pos;
 	protected override void Awake()
@@ -26,13 +27,27 @@ public class EnemyGargoyleAI : EnemyBaseClass
 		}
 		base.Update();
 	}
-    protected override void AttackPlayer()
+    protected override void ChasePlayer()
     {
         Vector3 distanceToPlayer = transform.position - player.position;
-        if ((distanceToPlayer.magnitude - 2) < DashRange && DashRange < (distanceToPlayer.magnitude + 2)) 
+		float distance = distanceToPlayer.magnitude;
+
+        if (Mathf.Abs(distance - DashRange) < 5)
 		{
-			//agent.speed
-		}
-        base.AttackPlayer();
+            int dashChance = Random.Range(1, 10);
+			if (dashChance == 1)
+			{
+                Debug.Log("dash");
+                agent.speed = 15;
+				StartCoroutine(nameof(resetSpeed));
+			}
+        }
+        base.ChasePlayer();
     }
+	IEnumerator resetSpeed()
+	{
+        yield return new WaitForSeconds(1.5f);
+        agent.speed = 5;
+    }
+
 }

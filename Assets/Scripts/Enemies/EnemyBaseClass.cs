@@ -41,7 +41,6 @@ public abstract class EnemyBaseClass : MonoBehaviour
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
             playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-            Debug.Log(healthSystem.bAlive);
 			if (Physics.CheckSphere(transform.position, sightRange, whatIsPlayer) && !playerInAttackRange)
 				ChasePlayer();
 			if (playerInAttackRange && playerInSightRange)
