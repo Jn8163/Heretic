@@ -37,7 +37,6 @@ public class EnemyGargoyleAI : EnemyBaseClass
             int dashChance = Random.Range(1, 10);
 			if (dashChance == 1)
 			{
-                Debug.Log("dash");
                 agent.speed = 15;
 				StartCoroutine(nameof(resetSpeed));
 			}
