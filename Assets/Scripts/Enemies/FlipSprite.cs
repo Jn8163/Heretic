@@ -31,48 +31,56 @@ public class FlipSprite : MonoBehaviour
 		{
 			// front
 			anim.SetInteger("index", 1);
+			animationIndex = 1;
 		}
 
 		if (22.5 < angle && angle < 67.5)
 		{
 			// front right diagonal
 			anim.SetInteger("index", 2);
+			animationIndex = 2;
 		}
 
 		if (67.5 < angle && angle < 112.5)
 		{
 			// right
 			anim.SetInteger("index", 3);
+			animationIndex = 3;
 		}
 
 		if (112.5 < angle && angle < 157.5)
 		{
 			// back right diagonal
 			anim.SetInteger("index", 4);
+			animationIndex = 4;
 		}
 
 		if (157.5 < angle || angle < -157.5)
 		{
 			// back
 			anim.SetInteger("index", 5);
+			animationIndex = 5;
 		}
 
 		if (-157.5 < angle && angle < -112.5)
 		{
 			// back left diagonal
 			anim.SetInteger("index", 6);
+			animationIndex = 6;
 		}
 
 		if (-112.5 < angle && angle < -67.5)
 		{
 			// left
 			anim.SetInteger("index", 7);
+			animationIndex = 7;
 		}
 
 		if (-67.5 < angle && angle < -22.5)
 		{
 			// front left diagonal
 			anim.SetInteger("index", 8);
+			animationIndex = 8;
 		}
 
 

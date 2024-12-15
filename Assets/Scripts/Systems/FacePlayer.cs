@@ -11,6 +11,6 @@ public class FacePlayer : MonoBehaviour
 
 	private void Update()
 	{
-		transform.LookAt(player, Vector3.up);
+		transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z), Vector3.up);
 	}
 }
