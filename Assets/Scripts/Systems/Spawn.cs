@@ -34,13 +34,15 @@ public class Spawn : MonoBehaviour
                         {
                             go = Instantiate(prefab, transform);
                             go.transform.position += transform.up;
+                            StatTracker.maxKills++;
                         }
                     }
                     else
                     {
                         go = Instantiate(prefab, transform);
                         go.transform.position += transform.up;
-                    }
+						StatTracker.maxKills++;
+					}
                 }
             }
             else
@@ -63,5 +65,6 @@ public class Spawn : MonoBehaviour
                 }
             }
         }
+        Debug.Log(StatTracker.maxKills);
     }
 }

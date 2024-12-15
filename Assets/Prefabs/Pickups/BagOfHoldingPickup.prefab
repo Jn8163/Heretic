@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 3878810909396215247}
   - component: {fileID: 3508392140017428585}
   - component: {fileID: 7052375624306902966}
+  - component: {fileID: 2876356177339722927}
   m_Layer: 6
   m_Name: BagOfHoldingPickup
   m_TagString: Pickup
@@ -302,3 +303,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObj: {fileID: 6667119437083935165}
   _meshObj: {fileID: 5742542057600183398}
+--- !u!114 &2876356177339722927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7845494183717795178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97aa9c8d683d57b4e95b0fdadf74543d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -18,6 +18,9 @@ public class EnemyDeathGA : MonoBehaviour
     }
     private void KillEnemy()
     {
+        // make sure to track stat for each enemy death
+        StatTracker.killCount++;
+        Debug.Log(StatTracker.killCount);
         // Destroy(gameObject);
         anim.SetBool("Dead", true);
         StartCoroutine(nameof(DestroyEnemy));

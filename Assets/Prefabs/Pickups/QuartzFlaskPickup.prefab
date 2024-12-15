@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 1827077213811763825}
   - component: {fileID: 186701923617473661}
   - component: {fileID: 4474227172996680446}
+  - component: {fileID: 3295367084460822130}
   m_Layer: 6
   m_Name: QuartzFlaskPickup
   m_TagString: Pickup
@@ -393,3 +394,15 @@ MonoBehaviour:
   audioSource: {fileID: 186701923617473661}
   destroyDelay: 0
   pickupPrefab: {fileID: 4101700839171962501, guid: c082c263a55f61740b03d43d757d46e8, type: 3}
+--- !u!114 &3295367084460822130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264753525667295727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97aa9c8d683d57b4e95b0fdadf74543d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
