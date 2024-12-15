@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.92, y: 0.16, z: 4.44}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1444641011199452373}
@@ -65,7 +65,7 @@ MonoBehaviour:
   walkPointRange: 0
   startingPos: {x: 0, y: 0, z: 0}
   sightRange: 25
-  attackRange: 1.4
+  attackRange: 1.9
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!195 &776176281447337559
@@ -331,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1444641011199452373}
   - component: {fileID: 8553310820049361518}
-  - component: {fileID: 7880607489208593456}
+  - component: {fileID: 2861379612193054127}
   m_Layer: 0
   m_Name: GolemMelee
   m_TagString: Untagged
@@ -348,7 +348,7 @@ Transform:
   m_GameObject: {fileID: 1320431549813428550}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.036, z: -0.33}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -369,15 +369,15 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  attackRange: 1.5
+  attackRange: 2
   playerInAttackRange: 0
-  fist: {fileID: 7880607489208593456}
+  fist: {fileID: 2861379612193054127}
   fist_dmg: -5
   coolDown: 0.5
   animMesh: {fileID: 35321596643366289}
   animSprite: {fileID: 9042044281528656176}
---- !u!65 &7880607489208593456
-BoxCollider:
+--- !u!135 &2861379612193054127
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -395,7 +395,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 1.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2000868309884848474
 GameObject:
