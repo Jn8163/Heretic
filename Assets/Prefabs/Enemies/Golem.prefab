@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3712381868068891201}
   - component: {fileID: 710038254357723713}
   - component: {fileID: 6687147258092512826}
+  - component: {fileID: -4128520477529473283}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Untagged
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObj: {fileID: 8495799287916142536}
   _meshObj: {fileID: 7611167474767439835}
+  spriteActive: 1
 --- !u!82 &710038254357723713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -289,6 +291,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2605267, y: 1.8615485, z: 0.88774633}
   m_Center: {x: -0.0049123764, y: -0.100253165, z: -0.030336142}
+--- !u!54 &-4128520477529473283
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340824930535376310}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &493658274125109659
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +361,7 @@ GameObject:
   - component: {fileID: 1444641011199452373}
   - component: {fileID: 8553310820049361518}
   - component: {fileID: 2861379612193054127}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GolemMelee
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,9 @@ public class FlexibleHP : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out HealthSystem healthSystem))
+		Debug.Log("This hit... " + other.transform.gameObject);
+
+		if (other.TryGetComponent(out HealthSystem healthSystem))
         {
             healthSystem.UpdateHealth(flexhealth);
         }
