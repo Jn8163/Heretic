@@ -8,7 +8,7 @@ public class IncrementScene : MonoBehaviour
     private bool isInteractable;
 
 	[SerializeField]
-	private string sceneName;
+	private int sceneNumber;
 
 	private void Start()
 	{
@@ -43,7 +43,7 @@ public class IncrementScene : MonoBehaviour
 	{
 		if (isInteractable)
 		{
-			SceneManager.LoadScene(sceneName);
+			SceneManager.LoadScene(sceneNumber);
 		}
 	}
 }

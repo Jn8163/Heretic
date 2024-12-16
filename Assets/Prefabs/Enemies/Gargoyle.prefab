@@ -509,6 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObj: {fileID: 4510932517566534145}
   _meshObj: {fileID: 2490432937633163369}
+  spriteActive: 1
 --- !u!65 &2165233215201140700
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -929,7 +930,7 @@ GameObject:
   - component: {fileID: 6493748548031918070}
   - component: {fileID: 7861079632469172307}
   - component: {fileID: 953101091375697706}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ghostMelee
   m_TagString: Untagged
   m_Icon: {fileID: 0}

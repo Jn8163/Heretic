@@ -1,8 +1,3 @@
-using System.Collections;
-using UnityEngine;
-using UnityEngine.AI;
-using static UnityEditor.PlayerSettings;
-
 public class Golem : EnemyBaseClass
 {
     protected override void Awake()
