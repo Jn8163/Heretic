@@ -2,18 +2,21 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerUI : MonoBehaviour
 {
 	public HealthSystem healthSystem;
 
 	[SerializeField]
-	private int pLife, pAmmo, pArmor, pItemCount; // these are temporary until the systems for these are actually implemented
+	private int pLife, pArmor, pItemCount; // these are temporary until the systems for these are actually implemented
 
 	public TextMeshProUGUI life, ammo, armor, itemCount, announcementText;
 
 	[SerializeField]
-	private Image ammoIcon, itemIcon, yKey, gKey, bKey; 
+	private Image itemIcon, yKey, gKey, bKey;
+
+	[SerializeField] private List<GameObject> ammoDisplays = new List<GameObject>();
 
 	[SerializeField]
 	private GameObject hpIndicator, lerpPointA, lerpPointB;
@@ -30,28 +33,38 @@ public class PlayerUI : MonoBehaviour
 
 	private void Start()
 	{
-		KeyYPickupGA.KeyYPickup += KeyYellowLight;
-		KeyGPickupGA.KeyGPickup += KeyGreenLight;
-		KeyBPickupGA.KeyBPickup += KeyBlueLight;
-
-		OpenKeyDoor.DisplayText += DisplayText;
-
 		tmp = healthSystem.currentHealth;
 	}
 
-	private void OnDisable()
+
+
+    private void OnEnable()
+    {
+        KeyYPickupGA.KeyYPickup += KeyYellowLight;
+        KeyGPickupGA.KeyGPickup += KeyGreenLight;
+        KeyBPickupGA.KeyBPickup += KeyBlueLight;
+
+        OpenKeyDoor.DisplayText += DisplayText;
+
+		RangedWeapon.UpdateAmmoUI += UpdateAmmoDisplay;
+    }
+
+
+
+    private void OnDisable()
 	{
 		KeyYPickupGA.KeyYPickup -= KeyYellowLight;
 		KeyGPickupGA.KeyGPickup -= KeyGreenLight;
 		KeyBPickupGA.KeyBPickup -= KeyBlueLight;
 
 		OpenKeyDoor.DisplayText -= DisplayText;
-	}
 
-	private void Update()
+        RangedWeapon.UpdateAmmoUI -= UpdateAmmoDisplay;
+    }
+
+    private void Update()
 	{
 		life.text = healthSystem.currentHealth.ToString();
-		ammo.text = GameObject.Find("Player").GetComponent<AmmoSystem>().ElvenWandAmmo.ToString();
 		armor.text = pArmor.ToString();
 
 		// indicator changes depending on player hp, the more full their hp is the farther right the indicator goes
@@ -137,6 +150,24 @@ public class PlayerUI : MonoBehaviour
 		announcementText.text = "You need a key to open this door.";
 		StartCoroutine(nameof(TextTimer));
 	}
+
+
+
+	private void UpdateAmmoDisplay(Ammo ammoToDisplay, int ammoAmount)
+	{
+		foreach(GameObject ammoDisplay in ammoDisplays)
+		{
+			ammoDisplay.SetActive(false);
+		}
+
+		if((int)ammoToDisplay < ammoDisplays.Count && (int)ammoToDisplay >= 0)
+		{
+			ammoDisplays[(int)ammoToDisplay].SetActive(true);
+            ammoDisplays[(int)ammoToDisplay].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = ammoAmount.ToString();
+        }
+    }
+
+
 
 	IEnumerator TextTimer()
 	{

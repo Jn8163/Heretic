@@ -11,19 +11,18 @@ public class EW_AmmoPickupGA : GameAction
 	[SerializeField] private AudioSource audioSource;
 
 	public int ammo_amount;
-    private AmmoSystem ammoSystem;
 
     private void Start()
     {
         GameObject ammoObject = GameObject.Find("Player");
         if (ammoObject != null)
         {
-            ammoSystem = ammoObject.GetComponent<AmmoSystem>();
         }
     }
 
     public override void Action()
     {
+		/*
 		if (ammoSystem.ElvenWandAmmo != ammoSystem.ElvenWandAmmoMax)
 		{
 			ammoSystem.ElvenWandAmmo += ammo_amount;
@@ -31,7 +30,7 @@ public class EW_AmmoPickupGA : GameAction
 			audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
 			audioSource.Play();
 			StartCoroutine(DestroyPickup());
-		}
+		}*/
     }
 
     IEnumerator DestroyPickup()

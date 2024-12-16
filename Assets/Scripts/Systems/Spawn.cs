@@ -24,10 +24,8 @@ public class Spawn : MonoBehaviour
         {
             if (Increasing)
             {
-                Debug.Log(currentDifficulty);
                 if (difficulty <= currentDifficulty)
                 {
-                    Debug.Log(prefab);
                     if (OnlyThisDifficulty)
                     {
                         if (currentDifficulty == difficulty)
@@ -65,6 +63,5 @@ public class Spawn : MonoBehaviour
                 }
             }
         }
-        Debug.Log(StatTracker.maxKills);
     }
 }

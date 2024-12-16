@@ -5,6 +5,7 @@ public class GraphicsSwapDelegate : MonoBehaviour
 {
     [SerializeField] private GameObject _spriteObj;
     [SerializeField] private GameObject _meshObj;
+	[HideInInspector] public bool spriteActive = true;
 
 	private void Start()
 	{
@@ -31,6 +32,26 @@ public class GraphicsSwapDelegate : MonoBehaviour
 		{
 			_spriteObj.SetActive(true);
 			_meshObj.SetActive(false);
+		}
+
+		spriteActive = toggle;
+	}
+
+	public void ToggleVisibility(bool toggle)
+	{
+        _spriteObj.SetActive(false);
+        _meshObj.SetActive(false);
+
+		if (toggle)
+		{
+			if (spriteActive)
+			{
+				_spriteObj.SetActive(toggle);
+			}
+			else
+			{
+				_meshObj.SetActive(toggle);
+			}
 		}
 	}
 }

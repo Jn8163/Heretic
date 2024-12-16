@@ -1,97 +1,52 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class ElvenWand : WeaponSystem
+public class ElvenWand : RangedWeapon
 {
-    [SerializeField]
-    private PlayerUI playerUI;
-    [SerializeField]
-    private AudioSource attack_sound;
-    [SerializeField]
-    private GameObject wandBullet;
-    [SerializeField]
-    private GameObject wandBulletSpawn;
-    [SerializeField]
-    private float projectile_speed = 600;
-    private Vector3 direction = Vector3.forward;
-    private int bullets_used = -1;
-    [SerializeField]
-    private Animator attackAnimation;
+    [SerializeField] private LayerMask detectableLayers;
     private IEnumerator startAttackAnimation;
-    public AmmoSystem ammoSystem;
-    private int ammoCount;
 
-    private void Awake()
+
+
+    protected override void OnEnable()
     {
-        //attackAnimation = transform.Find("Wand").GetComponent<Animator>();
+        base.OnEnable();
     }
 
-    public override void Start()
+
+
+    protected override void Start()
     {
-        GameObject ammoObject = GameObject.Find("Player");
-        if (ammoObject != null)
-        {
-            ammoSystem = ammoObject.GetComponent<AmmoSystem>();
-            ammoCount = ammoSystem.ElvenWandAmmo;
-        }
         base.Start();
     }
 
-    public override void Attack()
+
+
+    protected override void OnDisable()
     {
-        if (wandBulletSpawn != null)
+        base.OnDisable();
+    }
+
+
+
+    protected override void Attack(InputAction.CallbackContext c)
+    {
+        base.Attack(c);
+
+        if(!cooldown && currentAmmo > 0 && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, weaponRange, detectableLayers))
         {
-            ammoSystem = GameObject.Find("Player").GetComponent<AmmoSystem>();
-            ammoCount = ammoSystem.ElvenWandAmmo;
-            if (ammoCount > 0)
-            {
-                //current_ammo--;
-                // UpdateAmmo(bullets_used);
-                ammoSystem.ElvenWandAmmo--;
-                attack_sound.Play();
-
-                startAttackAnimation = play_animation(attackAnimation);
-                StartCoroutine(startAttackAnimation);
-                
-                base.Attack();
-
-                GameObject spell = Instantiate(wandBullet, wandBulletSpawn.transform.position, wandBulletSpawn.transform.rotation);
-                Vector3 launchDirection = wandBulletSpawn.transform.forward;
-                spell.GetComponent<BulletSystem>().InstantiateBullet(launchDirection);
-
-            } else
-            {
-                Debug.Log("Out of ammo");
-            }
+            StartCoroutine(nameof(WeaponCooldown));
+            Vector3 offset = -transform.forward * .25f;
+            Instantiate(projectilePFab, hit.point + offset, Quaternion.identity);
         }
+        UpdateAmmo(ammoType, -1);
     }
 
 
-    public override void OnHit(HealthSystem healthSystem)
+
+    protected override IEnumerator WeaponCooldown()
     {
-
-        base.OnHit(healthSystem);
+        return base.WeaponCooldown();
     }
-
-    public override void OnWeaponSwap()
-    {
-        base.OnWeaponSwap();
-    }
-
-    public void UpdateWandAmmo(int bullets_used)
-    {
-        ammoSystem.UpdateAmmoSystem(ammoSystem.ElvenWandAmmo,bullets_used);
-        playerUI.ammo.text = ammoSystem.ElvenWandAmmo.ToString();
-        Debug.Log($"update elven wand ammo, {ammoSystem.ElvenWandAmmo}");
-    }
-
-    private IEnumerator play_animation(Animator attackAnimation)
-    {
-        attackAnimation.SetBool("firing", true);
-        yield return new WaitForSeconds(reload_time);
-        attackAnimation.SetBool("firing", false);
-
-    }
-
 }
