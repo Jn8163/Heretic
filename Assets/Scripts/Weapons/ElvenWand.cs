@@ -39,8 +39,8 @@ public class ElvenWand : RangedWeapon
             StartCoroutine(nameof(WeaponCooldown));
             Vector3 offset = -transform.forward * .25f;
             Instantiate(projectilePFab, hit.point + offset, Quaternion.identity);
+            UpdateAmmo(ammoType, -1);
         }
-        UpdateAmmo(ammoType, -1);
     }
 
 
