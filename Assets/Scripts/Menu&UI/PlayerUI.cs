@@ -46,7 +46,7 @@ public class PlayerUI : MonoBehaviour
 
         OpenKeyDoor.DisplayText += DisplayText;
 
-		RangedWeapon.UpdateAmmoUI += UpdateAmmoDisplay;
+		AmmoSystem.UpdateAmmoUI += UpdateAmmoDisplay;
     }
 
 
@@ -59,7 +59,7 @@ public class PlayerUI : MonoBehaviour
 
 		OpenKeyDoor.DisplayText -= DisplayText;
 
-        RangedWeapon.UpdateAmmoUI -= UpdateAmmoDisplay;
+        AmmoSystem.UpdateAmmoUI -= UpdateAmmoDisplay;
     }
 
     private void Update()
@@ -153,17 +153,36 @@ public class PlayerUI : MonoBehaviour
 
 
 
-	private void UpdateAmmoDisplay(Ammo ammoToDisplay, int ammoAmount)
+    private void DisableAmmoDisplays()
+    {
+        foreach (GameObject ammoDisplay in ammoDisplays)
+        {
+            ammoDisplay.SetActive(false);
+        }
+    }
+
+
+
+    private void UpdateAmmoDisplay(Ammo ammoToDisplay, int ammoAmount)
 	{
-		foreach(GameObject ammoDisplay in ammoDisplays)
-		{
-			ammoDisplay.SetActive(false);
-		}
+		DisableAmmoDisplays();
 
 		if((int)ammoToDisplay < ammoDisplays.Count && (int)ammoToDisplay >= 0)
 		{
 			ammoDisplays[(int)ammoToDisplay].SetActive(true);
             ammoDisplays[(int)ammoToDisplay].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = ammoAmount.ToString();
+        }
+    }
+
+
+
+	private void ChangeAmmoDisplay(Ammo ammoToDisplay)
+	{
+		DisableAmmoDisplays();
+
+        if ((int)ammoToDisplay < ammoDisplays.Count && (int)ammoToDisplay >= 0)
+        {
+            ammoDisplays[(int)ammoToDisplay].SetActive(true);
         }
     }
 

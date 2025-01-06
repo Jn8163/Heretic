@@ -6,39 +6,23 @@ public class AmmoPickup : ImmediatePickup
     [SerializeField] private Ammo ammoType;
     [SerializeField] private int ammoAmount;
     [SerializeField] private GameObject mesh, sprite;
-    private GameObject targetWeapon, ElvenWand;
+    private AmmoSystem ammoSystem;
 
 
 
     private void OnEnable()
     {
-        ElvenWand = FindAnyObjectByType<ElvenWand>().gameObject;
+        ammoSystem = FindAnyObjectByType<AmmoSystem>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            CheckWeapons();
-        }
-    }
-
-
-
-
-
-    private void CheckWeapons()
-    {
-        switch (ammoType)
-        {
-            case Ammo.wand:
-                targetWeapon = ElvenWand;
-                break;
-        }
-
-        if (targetWeapon)
-        {
-            PickupItem();
+            if (!ammoSystem.CheckIfFull(ammoType))
+            {
+                PickupItem();
+            }
         }
     }
 
@@ -46,7 +30,7 @@ public class AmmoPickup : ImmediatePickup
 
     protected override void PickupItem()
     {
-        targetWeapon.GetComponent<RangedWeapon>().UpdateAmmo(ammoType, ammoAmount);
+        ammoSystem.UpdateAmmo(ammoType, ammoAmount);
         StartCoroutine(nameof(DestroyPickup));
     }
 

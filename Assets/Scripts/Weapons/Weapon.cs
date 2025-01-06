@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,7 +12,9 @@ public abstract class Weapon : MonoBehaviour
     [Tooltip("WeaponSlot for swapping weapons, should be between 0 and 5 (Array Index)")]
     [SerializeField] protected int weaponSlot;
 
-    protected bool currentWeapon, cooldown;
+    public static Action<bool> RangedWeaponActive = delegate { };
+
+    protected bool currentWeapon, cooldown, RangedWeapon;
 
 
     PlayerInput pInput;
@@ -25,16 +28,18 @@ public abstract class Weapon : MonoBehaviour
         pInput.Enable();
 
         pInput.Player.Attack.performed += Attack;
+
+        RangedWeaponActive(RangedWeapon);
     }
 
 
 
     protected virtual void Start()
     {
-        GameObject swapWeapon = (GameObject)FindAnyObjectByType(typeof(SwapWeapon));
+        SwapWeapon swapWeapon = FindAnyObjectByType<SwapWeapon>();
         if (swapWeapon)
         {
-            swapWeapon.GetComponent<SwapWeapon>().EnableWeapon(weaponSlot);
+            swapWeapon.EnableWeapon(weaponSlot);
         }
     }
 
@@ -52,11 +57,11 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// Updates weapon's status of being active.
     /// </summary>
-    /// <param name="equipped"></param>
-    public virtual void ToggleWeapon(bool equipped)
+    /// <param name="isActive"></param>
+    public virtual void ToggleWeapon(bool isActive)
     {
-        currentWeapon = equipped;
-        gameObject.GetComponent<GraphicsSwapDelegate>().ToggleVisibility(equipped);
+        currentWeapon = isActive;
+        gameObject.GetComponent<GraphicsSwapDelegate>().ToggleVisibility(isActive);
     }
 
 

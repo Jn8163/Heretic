@@ -8,13 +8,13 @@ using UnityEngine.InputSystem;
 public class SwapWeapon : MonoBehaviour
 {
     private PlayerInput pInput;
+    [SerializeField] private int startingSlot = 1;
     [SerializeField] private List<GameObject> weapons = new List<GameObject>();
-    [SerializeField] private List<bool> weaponAquired = new List<bool>(){ false, false, false, false, false, false };
-    [SerializeField] private List<bool> hasAmmo = new List<bool>() { true, false, false, false, false, false };
+    [SerializeField] private List<bool> weaponAquired = new List<bool>(){ false, true, false, false, false, false };
     /// <summary>
     /// Shows array index of current weapon. Ex: 0 through 5
     /// </summary>
-    private int currentWeapon = 0;
+    private int currentWeapon = 1;
 
 
 
@@ -30,6 +30,18 @@ public class SwapWeapon : MonoBehaviour
         pInput.Player.Weapon4.performed += SwapToWeapon4;
         pInput.Player.Weapon5.performed += SwapToWeapon5;
         pInput.Player.Weapon6.performed += SwapToWeapon6;
+    }
+
+
+
+    private void Start()
+    {
+        foreach (var weapon in weapons)
+        {
+            weapon.SetActive(false);
+        }
+
+        weapons[startingSlot].SetActive(true);
     }
 
 
@@ -59,31 +71,6 @@ public class SwapWeapon : MonoBehaviour
         if(weaponSlot >= 0 && weaponSlot < weapons.Count - 1)
         {
             weaponAquired[weaponSlot] = true;
-            hasAmmo[weaponSlot] = true;
-        }
-    }
-
-
-
-    /// <summary>
-    /// Updates the weaponSlot to track if there is ammo
-    /// </summary>
-    /// <param name="hasAmmo"></param>
-    /// <param name="weaponSlot"></param>
-    public void UpdateAmmo(bool hasAmmo, int weaponSlot)
-    {
-        this.hasAmmo[weaponSlot] = hasAmmo;
-
-        if (!hasAmmo)
-        {
-            for(int counter = this.hasAmmo.Count - 1; counter >= 0; counter--)
-            {
-                if(this.hasAmmo[counter])
-                {
-                    SwapToWeapon(counter);
-                    return;
-                }
-            }
         }
     }
 
