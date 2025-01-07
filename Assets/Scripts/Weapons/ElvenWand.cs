@@ -4,14 +4,14 @@ using UnityEngine.InputSystem;
 
 public class ElvenWand : RangedWeapon
 {
-    [SerializeField] private LayerMask detectableLayers;
-    private IEnumerator startAttackAnimation;
 
 
 
     protected override void OnEnable()
     {
         base.OnEnable();
+
+        cooldown = false;
     }
 
 

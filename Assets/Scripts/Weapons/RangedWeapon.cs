@@ -15,13 +15,14 @@ public abstract class RangedWeapon : Weapon
     [SerializeField] protected int ammoUsage = -1;
 
     protected AmmoSystem ammoSystem;
-    public static List<GameObject> weapons = new List<GameObject>();
 
 
 
     protected override void OnEnable()
     {
         base.OnEnable();
+
+        ammoSystem.UpdateAmmo(ammoType, 0);
     }
 
 

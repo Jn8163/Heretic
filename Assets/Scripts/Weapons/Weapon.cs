@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public abstract class Weapon : MonoBehaviour
 {
+    [SerializeField] protected LayerMask detectableLayers;
     [SerializeField] private PlayerUI playerUI;
     [SerializeField] private AudioSource attack_sound;
     [SerializeField] private Animator attackAnimation;
@@ -12,7 +13,7 @@ public abstract class Weapon : MonoBehaviour
     [Tooltip("WeaponSlot for swapping weapons, should be between 0 and 5 (Array Index)")]
     [SerializeField] protected int weaponSlot;
 
-    public static Action<bool> RangedWeaponActive = delegate { };
+    public static Action MeleeWeaponActive = delegate { };
 
     protected bool currentWeapon, cooldown, RangedWeapon;
 
@@ -28,8 +29,6 @@ public abstract class Weapon : MonoBehaviour
         pInput.Enable();
 
         pInput.Player.Attack.performed += Attack;
-
-        RangedWeaponActive(RangedWeapon);
     }
 
 

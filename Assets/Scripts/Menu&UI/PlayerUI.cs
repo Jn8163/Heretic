@@ -47,6 +47,7 @@ public class PlayerUI : MonoBehaviour
         OpenKeyDoor.DisplayText += DisplayText;
 
 		AmmoSystem.UpdateAmmoUI += UpdateAmmoDisplay;
+		Weapon.MeleeWeaponActive += DisableAmmoDisplays;
     }
 
 
@@ -60,6 +61,7 @@ public class PlayerUI : MonoBehaviour
 		OpenKeyDoor.DisplayText -= DisplayText;
 
         AmmoSystem.UpdateAmmoUI -= UpdateAmmoDisplay;
+        Weapon.MeleeWeaponActive -= DisableAmmoDisplays;
     }
 
     private void Update()

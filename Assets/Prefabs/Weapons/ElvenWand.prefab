@@ -158,6 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d084fc4092d74b54eae9e4cdf414e062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectableLayers:
+    serializedVersion: 2
+    m_Bits: 631
   playerUI: {fileID: 0}
   attack_sound: {fileID: 1704281161486500945}
   attackAnimation: {fileID: 1568270877709807643}
@@ -168,9 +171,6 @@ MonoBehaviour:
   AmmoMax: 100
   weaponRange: 50
   ammoUsage: -1
-  detectableLayers:
-    serializedVersion: 2
-    m_Bits: 119
 --- !u!114 &5974292912867999103
 MonoBehaviour:
   m_ObjectHideFlags: 0

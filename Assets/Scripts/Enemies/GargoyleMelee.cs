@@ -42,7 +42,7 @@ public class GargoyleMelee : EnemyAttackClass
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out HealthSystem hSystem))
+        if(other.CompareTag("Player") && other.TryGetComponent(out HealthSystem hSystem))
         {
             OnHit(hSystem);
         }

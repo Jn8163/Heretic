@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 7488451295814796331}
   - component: {fileID: 2165233215201140700}
   - component: {fileID: 3354048419611650228}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UndeadWarrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,6 +426,7 @@ MonoBehaviour:
   playerInSightRange: 0
   playerInAttackRange: 0
   hoverDist: 1.7
+  DashRange: 11
 --- !u!195 &4651758550010086627
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -461,8 +462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPlayer: 0
-  score: 0
   maxHealth: 40
+  score: 0
   healthBar: {fileID: 0}
   currentHealth: 0
   bAlive: 1
@@ -507,6 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObj: {fileID: 4510932517566534145}
   _meshObj: {fileID: 2490432937633163369}
+  spriteActive: 1
 --- !u!65 &2165233215201140700
 BoxCollider:
   m_ObjectHideFlags: 0
