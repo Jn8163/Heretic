@@ -34,7 +34,7 @@ public class ElvenWand : RangedWeapon
     {
         base.Attack(c);
 
-        if(!cooldown && ammoSystem.UpdateAmmo(ammoType, ammoUsage) && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, weaponRange, detectableLayers))
+        if(!cooldown && ammoSystem.UpdateAmmo(ammoType, ammoUsage, false) && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, weaponRange, detectableLayers))
         {
             Debug.Log(hit.transform.gameObject);
             StartCoroutine(nameof(WeaponCooldown));

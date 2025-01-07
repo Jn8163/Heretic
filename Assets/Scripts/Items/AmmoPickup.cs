@@ -30,7 +30,7 @@ public class AmmoPickup : ImmediatePickup
 
     protected override void PickupItem()
     {
-        ammoSystem.UpdateAmmo(ammoType, ammoAmount);
+        ammoSystem.UpdateAmmo(ammoType, ammoAmount, true);
         StartCoroutine(nameof(DestroyPickup));
     }
 

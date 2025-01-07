@@ -28,7 +28,7 @@ public class AmmoSystem : MonoBehaviour
     /// <param name="ammoType"></param>
     /// <param name="ammoUsed"></param>
     /// <returns></returns>
-    public bool UpdateAmmo(Ammo ammoType, int ammoUsed)
+    public bool UpdateAmmo(Ammo ammoType, int ammoUsed, bool AmmoPickup)
     {
         int adjustedAmmo = ammoTypes[(int)ammoType].currentAmmo + ammoUsed;
         math.clamp(adjustedAmmo, 0, ammoTypes[(int)ammoType].ammoMax);
@@ -40,7 +40,12 @@ public class AmmoSystem : MonoBehaviour
         }
 
         ammoTypes[(int)ammoType].currentAmmo = adjustedAmmo;
-        UpdateAmmoUI(ammoType, adjustedAmmo);
+
+        if (!AmmoPickup)
+        {
+            UpdateAmmoUI(ammoType, adjustedAmmo);
+        }
+
         return true;
     }
 

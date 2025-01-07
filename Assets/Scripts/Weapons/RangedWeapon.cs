@@ -22,7 +22,7 @@ public abstract class RangedWeapon : Weapon
     {
         base.OnEnable();
 
-        ammoSystem.UpdateAmmo(ammoType, 0);
+        ammoSystem.UpdateAmmo(ammoType, 0, false);
     }
 
 
@@ -35,7 +35,7 @@ public abstract class RangedWeapon : Weapon
 
         if (currentWeapon)
         {
-            ammoSystem.UpdateAmmo(ammoType, 0);
+            ammoSystem.UpdateAmmo(ammoType, 0, false);
         }
     }
 
