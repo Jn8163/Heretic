@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public abstract class Weapon : MonoBehaviour
 {
+    public bool currentWeapon;
     [SerializeField] protected LayerMask detectableLayers;
     [SerializeField] private PlayerUI playerUI;
     [SerializeField] private AudioSource attack_sound;
@@ -15,7 +16,7 @@ public abstract class Weapon : MonoBehaviour
 
     public static Action MeleeWeaponActive = delegate { };
 
-    protected bool currentWeapon, cooldown, RangedWeapon;
+    protected bool cooldown, RangedWeapon;
 
 
     PlayerInput pInput;

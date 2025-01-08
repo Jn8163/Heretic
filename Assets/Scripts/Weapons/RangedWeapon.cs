@@ -22,7 +22,12 @@ public abstract class RangedWeapon : Weapon
     {
         base.OnEnable();
 
-        ammoSystem.UpdateAmmo(ammoType, 0, false);
+        ammoSystem = FindAnyObjectByType<AmmoSystem>();
+
+        if (currentWeapon)
+        {
+            ammoSystem.UpdateAmmo(ammoType, 0, false);
+        }
     }
 
 
@@ -30,13 +35,6 @@ public abstract class RangedWeapon : Weapon
     protected override void Start()
     {
         base.Start();
-
-        ammoSystem = FindAnyObjectByType<AmmoSystem>();
-
-        if (currentWeapon)
-        {
-            ammoSystem.UpdateAmmo(ammoType, 0, false);
-        }
     }
 
 
