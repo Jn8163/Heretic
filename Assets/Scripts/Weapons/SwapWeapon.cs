@@ -113,7 +113,6 @@ public class SwapWeapon : MonoBehaviour
         {
             UnequipAll();
             currentWeapon = weaponSlot;
-            weapons[weaponSlot].GetComponent<Weapon>().currentWeapon = true;
             weapons[weaponSlot].SetActive(true);
         }
     }

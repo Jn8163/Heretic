@@ -158,12 +158,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370141d23704a134e91966e4a694ac03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapon: 0
   detectableLayers:
     serializedVersion: 2
     m_Bits: 512
   playerUI: {fileID: 0}
   attack_sound: {fileID: 1704281161486500945}
-  attackAnimation: {fileID: 1568270877709807643}
+  animator2D: {fileID: 1568270877709807643}
+  animator3D: {fileID: 6396138433829895678}
   reloadTime: 0.25
   weaponSlot: 0
   hitRange: 2.5

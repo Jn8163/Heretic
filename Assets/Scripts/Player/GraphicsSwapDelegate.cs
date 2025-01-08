@@ -5,11 +5,15 @@ public class GraphicsSwapDelegate : MonoBehaviour
 {
     [SerializeField] private GameObject _spriteObj;
     [SerializeField] private GameObject _meshObj;
-	[HideInInspector] public bool spriteActive = true;
+    public static bool spriteInactive;
 
-	private void Start()
-	{
+    private void OnEnable()
+    {
 		AssetSwapEntities.SwapGraphics += Swap;
+    }
+
+    private void Start()
+	{
 		_spriteObj.SetActive(true);
 		_meshObj.SetActive(false);
 	}
@@ -34,24 +38,11 @@ public class GraphicsSwapDelegate : MonoBehaviour
 			_meshObj.SetActive(false);
 		}
 
-		spriteActive = toggle;
+		spriteInactive = toggle;
 	}
 
 	public void ToggleVisibility(bool toggle)
 	{
-        _spriteObj.SetActive(false);
-        _meshObj.SetActive(false);
-
-		if (toggle)
-		{
-			if (spriteActive)
-			{
-				_spriteObj.SetActive(toggle);
-			}
-			else
-			{
-				_meshObj.SetActive(toggle);
-			}
-		}
+		Swap(toggle);
 	}
 }
