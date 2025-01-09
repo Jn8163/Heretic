@@ -9,7 +9,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected LayerMask detectableLayers;
     [SerializeField] private PlayerUI playerUI;
     [SerializeField] private AudioSource attack_sound;
-    [SerializeField] private Animator animator2D, animator3D;
+    [SerializeField] protected Animator animator2D, animator3D;
     [SerializeField] protected float reloadTime = 1f;
     [Tooltip("WeaponSlot for swapping weapons, should be between 0 and 5 (Array Index)")]
     [SerializeField] protected int weaponSlot;
@@ -19,7 +19,7 @@ public abstract class Weapon : MonoBehaviour
     protected bool cooldown, RangedWeapon;
 
 
-    PlayerInput pInput;
+    protected PlayerInput pInput;
 
 
 
@@ -30,6 +30,8 @@ public abstract class Weapon : MonoBehaviour
         pInput.Enable();
 
         pInput.Player.Attack.performed += Attack;
+
+        cooldown = false;
 
         currentWeapon = true;
         GraphicsSwapDelegate g = gameObject.GetComponent<GraphicsSwapDelegate>();

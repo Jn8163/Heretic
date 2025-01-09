@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2554256650118226151}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3684397, y: -0, z: -0, w: 0.9296516}
-  m_LocalPosition: {x: 0, y: -0.19400012, z: 0.6800003}
-  m_LocalScale: {x: 0.2, y: 0.20000002, z: 0.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.01, y: -0.07, z: 0.66}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5777855642772417240}
-  m_LocalEulerAnglesHint: {x: 43.239, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2182039417123231166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -195724181, guid: 2193121356720d0408ac905393f3f770, type: 3}
+  m_Sprite: {fileID: 1164826033, guid: 2193121356720d0408ac905393f3f770, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 2554256650118226151}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd565c33fe886cf459140ea42dfae76f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0bd17ad9645f0a14ebf77c5362d082c9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -119,9 +119,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5777855642772417240}
-  - component: {fileID: 1864461917004618118}
   - component: {fileID: 5974292912867999103}
   - component: {fileID: 1704281161486500945}
+  - component: {fileID: 8990864339447970116}
   m_Layer: 0
   m_Name: Gauntlets
   m_TagString: Player
@@ -146,33 +146,6 @@ Transform:
   - {fileID: 6392215367140739083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 39.841, y: 0, z: 0}
---- !u!114 &1864461917004618118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6585601536718532706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d084fc4092d74b54eae9e4cdf414e062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWeapon: 0
-  detectableLayers:
-    serializedVersion: 2
-    m_Bits: 119
-  playerUI: {fileID: 0}
-  attack_sound: {fileID: 1704281161486500945}
-  animator2D: {fileID: 1568270877709807643}
-  animator3D: {fileID: 6396138433829895678}
-  reloadTime: 0.5
-  weaponSlot: 0
-  ammoType: 0
-  projectilePFab: {fileID: 6832841594439106919, guid: d1e5df184b41ad346a626e02eecf232e, type: 3}
-  AmmoMax: 100
-  weaponRange: 50
-  ammoUsage: -1
 --- !u!114 &5974292912867999103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +160,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObj: {fileID: 2554256650118226151}
   _meshObj: {fileID: 7896878237492126297}
-  spriteActive: 1
 --- !u!82 &1704281161486500945
 AudioSource:
   m_ObjectHideFlags: 0
@@ -285,6 +257,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8990864339447970116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6585601536718532706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c22e6300b544345a9e439a6a4d9848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: 0
+  detectableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  playerUI: {fileID: 0}
+  attack_sound: {fileID: 0}
+  animator2D: {fileID: 1568270877709807643}
+  animator3D: {fileID: 6396138433829895678}
+  reloadTime: 1
+  weaponSlot: 0
 --- !u!1 &7896878237492126297
 GameObject:
   m_ObjectHideFlags: 0

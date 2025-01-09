@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,7 +14,6 @@ public class Staff : Weapon
     {
         base.OnEnable();
 
-        cooldown = false;
         MeleeWeaponActive();
     }
 

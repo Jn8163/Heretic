@@ -81,10 +81,16 @@ public class SwapWeapon : MonoBehaviour
     /// </summary>
     private void UnequipAll()
     {
-        foreach (GameObject weapon in weapons)
+        for(int weaponSlot = 0; weaponSlot < weapons.Count; weaponSlot++)
         {
-            weapon.SetActive(false);
-            weapon.GetComponent<Weapon>().currentWeapon = false;
+            if (weaponSlot != currentWeapon)
+            {
+                weapons[weaponSlot].SetActive(false);
+            }
+            else
+            {
+                Debug.Log("Don't disable");
+            }
         }
     }
 
@@ -111,8 +117,8 @@ public class SwapWeapon : MonoBehaviour
 
         if (weaponAquired[weaponSlot])
         {
-            UnequipAll();
             currentWeapon = weaponSlot;
+            UnequipAll();
             weapons[weaponSlot].SetActive(true);
         }
     }
