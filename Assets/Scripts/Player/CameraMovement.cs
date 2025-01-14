@@ -6,7 +6,6 @@ public class CameraMovement : MonoBehaviour
 
     [SerializeField] GameObject player;
     [SerializeField] private float sensitivity = 15f, gamepadSensitivity = 150f;
-    private Vector3 startPos;
     private PlayerInput pInput;
     private float verticalRotation;
     private bool gamepadActive;
@@ -40,7 +39,6 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
-        startPos = transform.position;
     }
 
 

@@ -18,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Animator cameraAnim;
 
-    private Vector3 direction;
+    private Vector3 direction, targetPos;
+    private bool snapToPos;
 
 
 
@@ -91,53 +92,49 @@ public class PlayerMovement : MonoBehaviour
     public void TargetPosition(Vector3 position)
     {
         Debug.Log("Impleement Update Position");
+        snapToPos = true;
+        targetPos = position;
     }
 
 
 
+    /// <summary>
+    /// Movement function for physics based player movememnt.
+    /// </summary>
     private void Move()
     {
-        //get direction from input.
-        direction.x = pInput.Player.Move.ReadValue<Vector2>().x;
-        direction.z = pInput.Player.Move.ReadValue<Vector2>().y;
-
-
-
-        //allign direction to current player allignment
-        direction = transform.right * direction.x + transform.forward * direction.z;
-
-
-
-        if (direction.x != 0 && direction.z != 0)//if player is moving
+        if (!snapToPos)
         {
-            //prevent sticking to wall
-            WallCollisionCorrection();
-            rb.linearVelocity = (direction * speed) + new Vector3(0, rb.linearVelocity.y, 0);
+            //get direction from input.
+            direction.x = pInput.Player.Move.ReadValue<Vector2>().x;
+            direction.z = pInput.Player.Move.ReadValue<Vector2>().y;
 
-            AutoStep();
+
+
+            //allign direction to current player allignment
+            direction = transform.right * direction.x + transform.forward * direction.z;
+
+
+
+            if (direction.x != 0 && direction.z != 0)//if player is moving
+            {
+                rb.linearVelocity = (direction * speed) + new Vector3(0, rb.linearVelocity.y, 0);
+
+                AutoStep();
+            }
+        }
+        else
+        {
+            snapToPos = false;
+            rb.position = targetPos;
         }
     }
 
 
 
-    private void WallCollisionCorrection()
-    {
-        if (Physics.SphereCast(transform.position, 0.5f, direction, out RaycastHit hit, 0.35f))
-        {
-            direction += hit.normal * (direction.magnitude/2);
-        }
-        else if (Physics.SphereCast(transform.position, 0.5f, direction + Vector3.right * -.5f, out RaycastHit hitl, 0.35f))
-        {
-            direction += hitl.normal * (direction.magnitude/2);
-        }
-        else if (Physics.SphereCast(transform.position, 0.5f, direction + Vector3.right * .5f, out RaycastHit hitr, 0.35f))
-        {
-            direction += hitr.normal * (direction.magnitude / 2);
-        }
-    }
-
-
-
+    /// <summary>
+    /// Snaps the player to the top of a stepable ledge.
+    /// </summary>
     private void AutoStep()
     {
         Debug.DrawRay(stepRayLower.transform.position, direction);
