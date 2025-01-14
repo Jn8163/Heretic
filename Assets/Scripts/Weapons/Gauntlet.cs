@@ -4,6 +4,12 @@ using UnityEngine.InputSystem;
 
 public class Gauntlet : Weapon
 {
+    [SerializeField] private float hitRange = 2.5f;
+    [SerializeField] private Vector3 hitBoxHalfSize = Vector3.one;
+    [SerializeField] private int damage = -1;
+    private bool attacking;
+
+
 
     protected override void OnEnable()
     {
@@ -12,6 +18,7 @@ public class Gauntlet : Weapon
         pInput.Player.Attack.canceled += AttackCanceled;
 
         MeleeWeaponActive();
+        attacking = false;
     }
 
 
@@ -19,6 +26,27 @@ public class Gauntlet : Weapon
     protected override void Start()
     {
         base.Start();
+    }
+
+
+
+    private void Update()
+    {
+        if (attacking)
+        {
+            if (!cooldown)
+            {
+
+                if (Physics.BoxCast(transform.position - (transform.forward * .25f), hitBoxHalfSize, transform.forward, out RaycastHit hit, Quaternion.identity, hitRange, detectableLayers, QueryTriggerInteraction.Ignore))
+                {
+                    if (hit.transform.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
+                    {
+                        hSystem.UpdateHealth(damage);
+                        FindAnyObjectByType<PlayerMovement>().TargetPosition(hit.transform.position + hit.transform.forward);
+                    }
+                }
+            }
+        }
     }
 
 
@@ -36,8 +64,7 @@ public class Gauntlet : Weapon
     {
         base.Attack(c);
 
-        animator2D.SetBool("Attacking", true);
-        animator3D.SetBool("Attacking", true);
+        StartCoroutine(nameof(WeaponCooldown));
     }
 
 
@@ -46,5 +73,18 @@ public class Gauntlet : Weapon
     {
         animator2D.SetBool("Attacking", false);
         animator3D.SetBool("Attacking", false);
+        attacking = false;
+    }
+
+
+
+    protected override IEnumerator WeaponCooldown()
+    {
+        cooldown = true;
+        attacking = true;
+        animator2D.SetBool("Attacking", true);
+        animator3D.SetBool("Attacking", true);
+        yield return new WaitForSeconds(reloadTime);
+        cooldown = false;
     }
 }

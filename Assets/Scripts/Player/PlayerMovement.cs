@@ -88,6 +88,13 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+    public void TargetPosition(Vector3 position)
+    {
+        Debug.Log("Impleement Update Position");
+    }
+
+
+
     private void Move()
     {
         //get direction from input.
