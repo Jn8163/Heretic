@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+//Implement player being stuck to enemy whenever they attack, they cannot move
+
 public class Gauntlet : Weapon
 {
     [SerializeField] private float hitRange = 2.5f;
@@ -36,14 +39,22 @@ public class Gauntlet : Weapon
         {
             if (!cooldown)
             {
-
-                if (Physics.BoxCast(transform.position - (transform.forward * .25f), hitBoxHalfSize, transform.forward, out RaycastHit hit, Quaternion.identity, hitRange, detectableLayers, QueryTriggerInteraction.Ignore))
+                Debug.DrawLine(transform.position - transform.forward, (transform.position - (transform.forward * .5f)) + transform.forward * hitRange);
+                if (Physics.BoxCast(transform.position - transform.forward, hitBoxHalfSize, transform.forward, out RaycastHit hit, Quaternion.identity, hitRange, detectableLayers, QueryTriggerInteraction.Ignore))
                 {
                     if (hit.transform.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
                     {
                         hSystem.UpdateHealth(damage);
-                        FindAnyObjectByType<PlayerMovement>().TargetPosition(hit.transform.position + hit.transform.forward);
+
+                        Vector3 enemyDir = transform.position - hit.transform.position;
+                        FindAnyObjectByType<PlayerMovement>().TargetPosition(hit.transform.position + enemyDir.normalized * 2);
+                        FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(true);
+                        StartCoroutine(nameof(WeaponCooldown));
                     }
+                }
+                else
+                {
+                    FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
                 }
             }
         }
@@ -73,6 +84,7 @@ public class Gauntlet : Weapon
     {
         animator2D.SetBool("Attacking", false);
         animator3D.SetBool("Attacking", false);
+        FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
         attacking = false;
     }
 

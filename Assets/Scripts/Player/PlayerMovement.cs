@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator cameraAnim;
 
     private Vector3 direction, targetPos;
-    private bool snapToPos;
+    private bool snapToPos, movementLock;
 
 
 
@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         pInput.Enable();
 
         rb.freezeRotation = true;
+        movementLock = false;
     }
 
 
@@ -98,12 +99,19 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+    public void PlayerMovementLocked(bool locked)
+    {
+        movementLock = locked;
+    }
+
+
+
     /// <summary>
     /// Movement function for physics based player movememnt.
     /// </summary>
     private void Move()
     {
-        if (!snapToPos)
+        if (!snapToPos && !movementLock)
         {
             //get direction from input.
             direction.x = pInput.Player.Move.ReadValue<Vector2>().x;
@@ -123,9 +131,10 @@ public class PlayerMovement : MonoBehaviour
                 AutoStep();
             }
         }
-        else
+        else if(snapToPos)
         {
             snapToPos = false;
+            targetPos.y = transform.position.y;
             rb.position = targetPos;
         }
     }

@@ -36,7 +36,6 @@ public class ElvenWand : RangedWeapon
 
         if(!cooldown && ammoSystem.UpdateAmmo(ammoType, ammoUsage, false) && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, weaponRange, detectableLayers))
         {
-            Debug.Log(hit.transform.gameObject);
             StartCoroutine(nameof(WeaponCooldown));
             Vector3 offset = -transform.forward * .25f;
             Instantiate(projectilePFab, hit.point + offset, Quaternion.identity);
