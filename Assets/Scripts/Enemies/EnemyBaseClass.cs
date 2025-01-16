@@ -26,6 +26,8 @@ public abstract class EnemyBaseClass : MonoBehaviour
 	public float sightRange, attackRange;
 	public bool playerInSightRange, playerInAttackRange;
 
+	public bool AgroYellDone;
+
 	protected virtual void Awake()
 	{
 		player = GameObject.Find("Player").transform;
@@ -58,6 +60,12 @@ public abstract class EnemyBaseClass : MonoBehaviour
 			playerInSightRange = false;
 			transform.position = transform.position;
 		}
+
+		if(playerInSightRange && !AgroYellDone)
+		{
+			AgroYellDone = true;
+            GetComponentInChildren<EnemyAudioCalls>().PlayYell();
+        }
 	}
 
 	protected virtual void Patrolling()
@@ -89,7 +97,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
 	{
 		if (GetComponent<NavMeshAgent>() != null)
 		{
-			agent.SetDestination(player.position);
+            agent.SetDestination(player.position);
 		}
 		
 	}
