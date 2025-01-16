@@ -158,7 +158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObj: {fileID: 7874496609693465778}
   _meshObj: {fileID: 1303850847473411393}
-  spriteActive: 1
 --- !u!82 &-7634847129491833604
 AudioSource:
   m_ObjectHideFlags: 0
@@ -168,7 +167,7 @@ AudioSource:
   m_GameObject: {fileID: 4311281349883400539}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -626945850888947736, guid: 0df4d79dae275df45b2620eddabcbe43, type: 2}
   m_audioClip: {fileID: 8300000, guid: 09c17a01f666eab4981a6422390886c2, type: 3}
   m_Resource: {fileID: 8300000, guid: 09c17a01f666eab4981a6422390886c2, type: 3}
   m_PlayOnAwake: 0
@@ -270,10 +269,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: -7634847129491833604}
   destroyDelay: 1
-  ammoType: 0
-  ammoAmount: 10
   mesh: {fileID: 1303850847473411393}
   sprite: {fileID: 7874496609693465778}
+  ammoType: 0
+  ammoAmount: 10
 --- !u!1 &7874496609693465778
 GameObject:
   m_ObjectHideFlags: 0
