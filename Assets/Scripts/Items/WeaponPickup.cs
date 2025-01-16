@@ -1,16 +1,17 @@
 using System.Collections;
 using UnityEngine;
 
-public class ShieldPickup : ImmediatePickup
+public class WeaponPickup : ImmediatePickup
 {
-    //10 is the value in OG Heretic
-    [SerializeField] private int shieldAmount = 100;
+    [SerializeField] private int WeaponSlot;
 
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (ArmorSystem.instance)
+        bool weaponAdded = FindAnyObjectByType<SwapWeapon>().EnableWeapon(WeaponSlot);
+        Debug.Log(weaponAdded);
+        if (weaponAdded)
         {
             PickupItem();
         }
@@ -21,10 +22,6 @@ public class ShieldPickup : ImmediatePickup
     protected override void PickupItem()
     {
         base.PickupItem();
-        if (ArmorSystem.instance.CreateShield(shieldAmount))
-        {
-            StartCoroutine(DestroyPickup());
-        }
     }
 
 

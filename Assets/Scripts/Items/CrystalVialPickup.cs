@@ -5,8 +5,6 @@ public class CrystalVialPickup : ImmediatePickup
 {
     //10 is the value in OG Heretic
     [SerializeField] private int heal_amount = 10;
-    [SerializeField] private GameObject mesh, sprite;
-
     private HealthSystem healthSystem;
 
 
@@ -53,10 +51,6 @@ public class CrystalVialPickup : ImmediatePickup
 
     protected override IEnumerator DestroyPickup()
     {
-        GetComponent<Collider>().enabled = false;
-        mesh.GetComponent<MeshRenderer>().enabled = false;
-        sprite.GetComponent<SpriteRenderer>().enabled = false;
-        yield return new WaitForSeconds(destroyDelay);
-        Destroy(gameObject);
+        return base.DestroyPickup();
     }
 }

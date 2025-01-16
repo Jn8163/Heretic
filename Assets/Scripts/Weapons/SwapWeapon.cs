@@ -10,7 +10,7 @@ public class SwapWeapon : MonoBehaviour
     private PlayerInput pInput;
     [SerializeField] private int startingSlot = 1;
     [SerializeField] private List<GameObject> weapons = new List<GameObject>();
-    [SerializeField] private List<bool> weaponAquired = new List<bool>(){ false, true, false, false, false, false };
+    [SerializeField] private List<bool> weaponAquired = new List<bool>(){ false, true, false, false, false, false, false};
     /// <summary>
     /// Shows array index of current weapon. Ex: 0 through 5
     /// </summary>
@@ -66,12 +66,23 @@ public class SwapWeapon : MonoBehaviour
     /// weaponSlot must be within 0 to 5
     /// </summary>
     /// <param name="weaponSlot"></param>
-    public void EnableWeapon(int weaponSlot)
+    public bool EnableWeapon(int weaponSlot)
     {
-        if(weaponSlot >= 0 && weaponSlot < weapons.Count - 1)
+        if(weaponSlot >= 0 && weaponSlot < weaponAquired.Count)
         {
-            weaponAquired[weaponSlot] = true;
+            if (!weaponAquired[weaponSlot])
+            {
+                weaponAquired[weaponSlot] = true;
+
+                if(weaponSlot == 6)
+                {
+                    weapons[0].GetComponent<ToggleStaff>().gauntletUnlocked = true;
+                }
+
+                return true;
+            }
         }
+        return false;
     }
 
 
