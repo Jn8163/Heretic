@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,14 +93,1963 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 151
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0450983064204de42a80653abd569a37
+      internalID: -537361113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_2
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 151
+        width: 273
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2117cccefe542ca45b85c31f48747374
+      internalID: 217607264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_3
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 179
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b826b447a92b17c4d86c6f12b545cf41
+      internalID: -1826632649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_4
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 179
+        width: 4
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 532b7c510913cfd4f80a796dd9d4858d
+      internalID: 1411457831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_5
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 179
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42567716c162b60429a5636dbf7410cf
+      internalID: 688646537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_6
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 179
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d163f758b7178b4b88861c6f032e973
+      internalID: -1782832923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_7
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 179
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496aef1693d7013469fa57503993e845
+      internalID: -1043031984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_8
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 179
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 812ad9f2ad391f7438226bf9a90c7830
+      internalID: -1265435969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_10
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 179
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310dcd56bd7c4224cbfe3b37e1456541
+      internalID: 551121694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_11
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 179
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520ff0eb045fc764b81554c8f411932d
+      internalID: -233511391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_12
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 179
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d376420b2c27a54fae7de7f355844d8
+      internalID: 1244336533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_13
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 179
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c232deb1865c704dbf01e1e6e8750ba
+      internalID: 1970277852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 179
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d470308824052bc40ab12ae01a4aa3bc
+      internalID: -1692297502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_17
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 179
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad943be6d557df94288b397363b978a5
+      internalID: -974137669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_18
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 179
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a3cb87f7825c048ab781b8723c27e1
+      internalID: -348237807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_19
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 179
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a07718ab32ce14fb24dc5fdbef853e
+      internalID: -653217975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_20
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 179
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4903657a4d3f6144a50e435f71189b9
+      internalID: -612417758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_21
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 179
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca3d37b9ab1f3da4da7b4911edef8133
+      internalID: 512403673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_22
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 179
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d122c3ecda919ec4980fe86eb57063cd
+      internalID: 1332279730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_23
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 184
+        width: 35
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0f8a316500e0354288ef7a0d144c1d7
+      internalID: -2106088005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_24
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 162
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad7a9a30334a7249b3d2be28f6ecbb6
+      internalID: -1412475257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_28
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 117
+        width: 248
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87aa59dc4011a764d9cffca3d3095c90
+      internalID: 995765632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_29
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 125
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e74cef2e761a7c04d94f0d287bb4b7a1
+      internalID: 359976039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_30
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 125
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff0f2f8f68bccda46bff938f7241f71b
+      internalID: 1844651580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_33
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 121
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b68c8b425f4d8f4abf2f9a7e54b0603
+      internalID: 1140473898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_36
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 123
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f084647c98f044b9b25815fcdbf742
+      internalID: -1476431245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_37
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 83
+        width: 248
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba479821b810c0d44bda06a428713882
+      internalID: -1385672222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_38
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 108
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a466eab19b372b458a60712ae3592fc
+      internalID: 1369927082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_39
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 87
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28443840c2137bd41aef5a4677da773f
+      internalID: -659344412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_40
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 87
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dd8b697a53169c499ff1c5de2a4bdb2
+      internalID: -596759316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_41
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 87
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bafd02e6bf0c1824782ad8b11233652f
+      internalID: -821643578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_42
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 87
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd150ea46cd08a4b9ca4429d9fbc9da
+      internalID: -341708699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_43
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 87
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd6169b133c17d4f94c0b70ac07ca21
+      internalID: -1235033631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_44
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 87
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a7fd9e074b198e40abdd7b4c0cc59c2
+      internalID: -1135551952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_45
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 87
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a008faf33da11974f85207245d1f24fc
+      internalID: 80657215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_46
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 102
+        width: 17
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f19ec96184d9e4583260134cb369d3
+      internalID: -1239871593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_47
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 94
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9dad00c1e8696749b1e8a39f6d54ae7
+      internalID: 796768124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_48
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 94
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f50379cda1ed084b92ea49b545b6acb
+      internalID: -1458904396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_49
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 94
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d22feaffbfd9f541a0a0df16b94ab7d
+      internalID: 1669197290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_50
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 94
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a3624ad4bc49f4cb3ab5c6a202948b
+      internalID: -1739020789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_51
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 87
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a886bdc772b46ff4b942cc924e48c9ab
+      internalID: -739025578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_52
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 49
+        width: 248
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d3492add07d78146960ae5c0748d3c9
+      internalID: 1189200339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_53
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 78
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159d4e3591604b241bfd7a214214fff9
+      internalID: -1543529499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_54
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 53
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804c2773ef1d4d042af37ba14bb24acc
+      internalID: 1983014072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_57
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 50
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eb6cc33ab339c34ca0e54b785bc11b1
+      internalID: -2053771493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_59
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 54
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ab43fdea9490040b384e7023459235
+      internalID: 1088439045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_60
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 54
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7f117607ff91048834447f513780a1
+      internalID: -83513335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_61
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 54
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b369f361716eac3479781342389d9005
+      internalID: 387295568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_62
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 54
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc46a417e21a364c9f1411d9125d7ab
+      internalID: -531106604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_63
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 54
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd99d80ed38577e4b80c484a65864904
+      internalID: -1491316507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_64
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 54
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c392f05c0d1e8b04b96bfaa82304908e
+      internalID: -923267591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_65
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 54
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a52f68b330a4e94499ff7e35dd73842
+      internalID: 1426606681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_66
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 54
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6beb5a20571fd468ef9d555567b54d
+      internalID: 81772313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_67
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 54
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bc8f7ab26e46734bb86023b3f8fb275
+      internalID: -1050350445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 63
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92e160a3d12d194cb299d1de4393b98
+      internalID: 955516685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_71
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 50
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 463d1bf8636fb9a478cbef43e14c42e4
+      internalID: 1269581447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_77
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 38
+        width: 296
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376599fa76a1cb84f89f42c5ab9465d4
+      internalID: -1347422775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_78
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 38
+        width: 21
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9236fb54aeb41849a6ab38cd3059d43
+      internalID: 218515271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_79
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 38
+        width: 21
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38a682131c44314a82b0d7f4c124f45
+      internalID: 166161279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_80
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 38
+        width: 21
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44dae886e6ed0254fbd46ba0b48d2175
+      internalID: -1207493438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_81
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 38
+        width: 21
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6bbd3d5e8ee126479a53002b92817c2
+      internalID: -1033535545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_82
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 12
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e9075bf76335ff4d89f4fadc022c575
+      internalID: -683330527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_83
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 12
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013c8b375ce83da409ef2541ac125bae
+      internalID: -1316001465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_84
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 12
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f543c5548df89074593dddd3ef5a77ab
+      internalID: 548295084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_85
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 12
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508a945ee31f3cf42b04c215521388d3
+      internalID: 1143839080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_86
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 12
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a007157595a07942a0b4ad798c07734
+      internalID: -963827670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_87
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 12
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2f233bd1586e1044bcd9d1257e602a6
+      internalID: 328165974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_88
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 12
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90b9627ee46c4c49b90e69e97ca4603
+      internalID: 1688998419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_89
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 12
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b084e06d49dd949ba3789bb6f9754c
+      internalID: -1645894267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_90
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 12
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc441835ef736a44bf892e5642647ad
+      internalID: -345312355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_91
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 12
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da8c70f6c2bf03b45a576ff0bce1100b
+      internalID: 328398591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_92
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 12
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3516a0855cfd7d844a65df78fd281ce8
+      internalID: 1470473289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_93
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 12
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4477331521d871e4294e4a21eec94c53
+      internalID: 1292927586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_94
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 12
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e6083edc25a8e4086e459554e44734
+      internalID: -1585564164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_95
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 12
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6633bf9480479694d920bf7338f2767e
+      internalID: 237034708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_96
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 12
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ca6ea6a9cffaa46a23e208e9507d66
+      internalID: -2054070136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_97
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 12
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1310b2572ef0a1a4d9418c44e5eca2b5
+      internalID: 1232294248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 151
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac1e301f0ff6b24b88834bd1616f54f
+      internalID: -1826646388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_9
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 179
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc487f2cd4073004593ea25e87d2247b
+      internalID: 1262730423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_14
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 179
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c091b2470a34c74ea988c861eb16721
+      internalID: 2035316323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_15
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 179
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8792d3a4128bf748ba91b5417ee79bb
+      internalID: -1369714391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_25
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 153
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 711b82d6ecf24e4419012892bbc4babe
+      internalID: -875758784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_26
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 151
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec2ffac32a6a544ba38ae30e66eec90
+      internalID: -130090037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_27
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 125
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c2dff3bda3c3d14a94a2e1644adad38
+      internalID: 1455951023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_31
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 124
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e55565d7a4dbe3d49bca17a03e04da85
+      internalID: -1764588493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_32
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 123
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42bcecd1ba22a844af7c18f95e581e4
+      internalID: -230365323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_34
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 139
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 741e1d6d906b0f245beb0051a2ab28f7
+      internalID: -266866866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Status Bar Background1_35
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 131
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b3a0f7a8be507f41ae046b572971a83
+      internalID: -1825839457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ef1ea5d0d9bb8e946b9f25b535252628
     internalID: 0
     vertices: []
     indices: 
@@ -109,7 +2058,105 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Heretic - Status Bar Background1_0: -537361113
+      Heretic - Status Bar Background1_1: -1826646388
+      Heretic - Status Bar Background1_10: 551121694
+      Heretic - Status Bar Background1_11: -233511391
+      Heretic - Status Bar Background1_12: 1244336533
+      Heretic - Status Bar Background1_13: 1970277852
+      Heretic - Status Bar Background1_14: 2035316323
+      Heretic - Status Bar Background1_15: -1369714391
+      Heretic - Status Bar Background1_16: -1692297502
+      Heretic - Status Bar Background1_17: -974137669
+      Heretic - Status Bar Background1_18: -348237807
+      Heretic - Status Bar Background1_19: -653217975
+      Heretic - Status Bar Background1_2: 217607264
+      Heretic - Status Bar Background1_20: -612417758
+      Heretic - Status Bar Background1_21: 512403673
+      Heretic - Status Bar Background1_22: 1332279730
+      Heretic - Status Bar Background1_23: -2106088005
+      Heretic - Status Bar Background1_24: -1412475257
+      Heretic - Status Bar Background1_25: -875758784
+      Heretic - Status Bar Background1_26: -130090037
+      Heretic - Status Bar Background1_27: 1455951023
+      Heretic - Status Bar Background1_28: 995765632
+      Heretic - Status Bar Background1_29: 359976039
+      Heretic - Status Bar Background1_3: -1826632649
+      Heretic - Status Bar Background1_30: 1844651580
+      Heretic - Status Bar Background1_31: -1764588493
+      Heretic - Status Bar Background1_32: -230365323
+      Heretic - Status Bar Background1_33: 1140473898
+      Heretic - Status Bar Background1_34: -266866866
+      Heretic - Status Bar Background1_35: -1825839457
+      Heretic - Status Bar Background1_36: -1476431245
+      Heretic - Status Bar Background1_37: -1385672222
+      Heretic - Status Bar Background1_38: 1369927082
+      Heretic - Status Bar Background1_39: -659344412
+      Heretic - Status Bar Background1_4: 1411457831
+      Heretic - Status Bar Background1_40: -596759316
+      Heretic - Status Bar Background1_41: -821643578
+      Heretic - Status Bar Background1_42: -341708699
+      Heretic - Status Bar Background1_43: -1235033631
+      Heretic - Status Bar Background1_44: -1135551952
+      Heretic - Status Bar Background1_45: 80657215
+      Heretic - Status Bar Background1_46: -1239871593
+      Heretic - Status Bar Background1_47: 796768124
+      Heretic - Status Bar Background1_48: -1458904396
+      Heretic - Status Bar Background1_49: 1669197290
+      Heretic - Status Bar Background1_5: 688646537
+      Heretic - Status Bar Background1_50: -1739020789
+      Heretic - Status Bar Background1_51: -739025578
+      Heretic - Status Bar Background1_52: 1189200339
+      Heretic - Status Bar Background1_53: -1543529499
+      Heretic - Status Bar Background1_54: 1983014072
+      Heretic - Status Bar Background1_55: 1041645039
+      Heretic - Status Bar Background1_56: 1647304600
+      Heretic - Status Bar Background1_57: -2053771493
+      Heretic - Status Bar Background1_58: -2092699206
+      Heretic - Status Bar Background1_59: 1088439045
+      Heretic - Status Bar Background1_6: -1782832923
+      Heretic - Status Bar Background1_60: -83513335
+      Heretic - Status Bar Background1_61: 387295568
+      Heretic - Status Bar Background1_62: -531106604
+      Heretic - Status Bar Background1_63: -1491316507
+      Heretic - Status Bar Background1_64: -923267591
+      Heretic - Status Bar Background1_65: 1426606681
+      Heretic - Status Bar Background1_66: 81772313
+      Heretic - Status Bar Background1_67: -1050350445
+      Heretic - Status Bar Background1_68: 955516685
+      Heretic - Status Bar Background1_69: -1154943883
+      Heretic - Status Bar Background1_7: -1043031984
+      Heretic - Status Bar Background1_70: 1390793365
+      Heretic - Status Bar Background1_71: 1269581447
+      Heretic - Status Bar Background1_72: -1843309129
+      Heretic - Status Bar Background1_73: 42030829
+      Heretic - Status Bar Background1_74: -1827575987
+      Heretic - Status Bar Background1_75: -1023129094
+      Heretic - Status Bar Background1_76: -1866646225
+      Heretic - Status Bar Background1_77: -1347422775
+      Heretic - Status Bar Background1_78: 218515271
+      Heretic - Status Bar Background1_79: 166161279
+      Heretic - Status Bar Background1_8: -1265435969
+      Heretic - Status Bar Background1_80: -1207493438
+      Heretic - Status Bar Background1_81: -1033535545
+      Heretic - Status Bar Background1_82: -683330527
+      Heretic - Status Bar Background1_83: -1316001465
+      Heretic - Status Bar Background1_84: 548295084
+      Heretic - Status Bar Background1_85: 1143839080
+      Heretic - Status Bar Background1_86: -963827670
+      Heretic - Status Bar Background1_87: 328165974
+      Heretic - Status Bar Background1_88: 1688998419
+      Heretic - Status Bar Background1_89: -1645894267
+      Heretic - Status Bar Background1_9: 1262730423
+      Heretic - Status Bar Background1_90: -345312355
+      Heretic - Status Bar Background1_91: 328398591
+      Heretic - Status Bar Background1_92: 1470473289
+      Heretic - Status Bar Background1_93: 1292927586
+      Heretic - Status Bar Background1_94: -1585564164
+      Heretic - Status Bar Background1_95: 237034708
+      Heretic - Status Bar Background1_96: -2054070136
+      Heretic - Status Bar Background1_97: 1232294248
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

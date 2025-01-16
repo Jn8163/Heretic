@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class ToggleStaff : MonoBehaviour
 {
     [SerializeField] private GameObject staff, gauntlet;
-    private bool staffActive = true, gauntletUnlocked;
+    private bool staffActive = true;
+    public bool gauntletUnlocked;
 
     private PlayerInput pInput;
 
@@ -34,9 +35,12 @@ public class ToggleStaff : MonoBehaviour
     /// <param name="c"></param>
     private void Toggle(InputAction.CallbackContext c)
     {
-        staffActive = !staffActive;
+        if (gauntletUnlocked)
+        {
+            staffActive = !staffActive;
 
-        staff.SetActive(staffActive);
-        gauntlet.SetActive(!staffActive);
+            staff.SetActive(staffActive);
+            gauntlet.SetActive(!staffActive);
+        }
     }
 }

@@ -5,7 +5,6 @@ public class AmmoPickup : ImmediatePickup
 {
     [SerializeField] private Ammo ammoType;
     [SerializeField] private int ammoAmount;
-    [SerializeField] private GameObject mesh, sprite;
     private AmmoSystem ammoSystem;
 
 
@@ -30,18 +29,14 @@ public class AmmoPickup : ImmediatePickup
 
     protected override void PickupItem()
     {
+        base.PickupItem();
         ammoSystem.UpdateAmmo(ammoType, ammoAmount, true);
-        StartCoroutine(nameof(DestroyPickup));
     }
 
 
 
     protected override IEnumerator DestroyPickup()
     {
-        GetComponent<Collider>().enabled = false;
-        mesh.GetComponent<MeshRenderer>().enabled = false;
-        sprite.GetComponent<SpriteRenderer>().enabled = false;
-        yield return new WaitForSeconds(destroyDelay);
-        Destroy(gameObject);
+        return base.DestroyPickup();
     }
 }

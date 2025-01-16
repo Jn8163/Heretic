@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class EnemyDeathGA : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class EnemyDeathGA : MonoBehaviour
         Debug.Log(StatTracker.killCount);
         // Destroy(gameObject);
         anim.SetBool("Dead", true);
+        GetComponentInChildren<EnemyAudioCalls>().Die();
         StartCoroutine(nameof(DestroyEnemy));
     }
 

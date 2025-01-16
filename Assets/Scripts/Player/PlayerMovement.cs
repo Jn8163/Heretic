@@ -1,4 +1,6 @@
+using System.Net.NetworkInformation;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent (typeof(Rigidbody))]
 
@@ -11,15 +13,19 @@ public class PlayerMovement : MonoBehaviour
     #region Fields
 
     [Header("Movement Field(s)")]
-    [SerializeField] private float speed = 6f;
+
+    [SerializeField] private float walkSpeed = 6f;
+    [SerializeField] private float runSpeed = 6f;
     [SerializeField] private bool animateCam = true;
 
     private PlayerInput pInput;
     private Rigidbody rb;
     private Animator cameraAnim;
 
+    private float speed = 6f;
     private Vector3 direction, targetPos;
     private bool snapToPos, movementLock;
+    private bool sprinting;
 
 
 
@@ -53,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
         pInput = new PlayerInput();
         pInput.Enable();
 
+        pInput.Player.Sprint.performed += Sprint;
+        pInput.Player.Sprint.canceled += Sprint;
         rb.freezeRotation = true;
         movementLock = false;
     }
@@ -61,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDisable()
     {
+        pInput.Player.Sprint.performed -= Sprint;
+        pInput.Player.Sprint.canceled -= Sprint;
         pInput.Disable();
     }
 
@@ -139,7 +149,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
+    private void Sprint(InputAction.CallbackContext Sprint)
+    {
+        if(sprinting)
+        {
+            sprinting = false;
+            speed = walkSpeed;
+        }
+        else
+        {
+            sprinting = true;
+            speed = runSpeed;
+        }
+    }
 
     /// <summary>
     /// Snaps the player to the top of a stepable ledge.

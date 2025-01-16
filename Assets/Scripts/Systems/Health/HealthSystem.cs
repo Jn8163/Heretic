@@ -45,6 +45,10 @@ public class HealthSystem : MonoBehaviour
                 amount = ArmorSystem.instance.UseShield(amount);
             }
         }
+        else
+        {
+            GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();
+        }
 
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);

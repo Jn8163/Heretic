@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5354729421585840474
 Transform:
   m_ObjectHideFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staff: {fileID: 8383900827515620825}
   gauntlet: {fileID: 3880947671705662072}
+  gauntletUnlocked: 0
 --- !u!1001 &3403974572267273659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,6 +175,10 @@ PrefabInstance:
     - target: {fileID: 6585601536718532706, guid: 2ccd5ff70dfa1f4488d777f8dab7a41d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990864339447970116, guid: 2ccd5ff70dfa1f4488d777f8dab7a41d, type: 3}
+      propertyPath: damage
+      value: -4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

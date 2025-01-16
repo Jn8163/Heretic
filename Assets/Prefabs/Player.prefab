@@ -513,8 +513,8 @@ Transform:
   - {fileID: 2040743484924062903}
   - {fileID: 3620238813630513807}
   - {fileID: 3514062937738562098}
-  - {fileID: 6631157210886981990}
   - {fileID: 2935285382460428783}
+  - {fileID: 6631157210886981990}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &8855727929234538029
@@ -549,7 +549,7 @@ Rigidbody:
   m_GameObject: {fileID: 2069564516227274093}
   serializedVersion: 4
   m_Mass: 50
-  m_Drag: 5
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -597,7 +597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84cb090e2c664b643b8208d8098f8b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  walkSpeed: 15
+  runSpeed: 25
   animateCam: 1
   stepHeight: 1
 --- !u!114 &4526130836130253100
@@ -664,7 +665,7 @@ MonoBehaviour:
   - {fileID: 1495583177269766093}
   - {fileID: 6111439275443721886}
   - {fileID: 6777986779079652017}
-  weaponAquired: 010100000000
+  weaponAquired: 01010000000000
 --- !u!1 &2907615243466202451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,10 +1053,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3896006788232239023}
     m_Modifications:
-    - target: {fileID: 1331609289348823902, guid: 77608645408349d4ca5d1607514eb76d, type: 3}
-      propertyPath: damage
-      value: -4
-      objectReference: {fileID: 0}
     - target: {fileID: 5354729421585840474, guid: 77608645408349d4ca5d1607514eb76d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1100,10 +1097,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Staff&Gauntlet
       objectReference: {fileID: 0}
-    - target: {fileID: 8616040734388527449, guid: 77608645408349d4ca5d1607514eb76d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1127,6 +1120,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 551849847247523623}
     m_Modifications:
+    - target: {fileID: 381608502404245364, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 381608502404245364, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 928005366064588571, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+      propertyPath: ammo
+      value: 
+      objectReference: {fileID: 5583422469875386887}
     - target: {fileID: 928005366064588571, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
       propertyPath: healthSystem
       value: 
@@ -1240,10 +1245,22 @@ PrefabInstance:
       value: UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6161631764942616215, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+--- !u!114 &5583422469875386887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9093261409277624874, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+  m_PrefabInstance: {fileID: 3696765031188891693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6631157210886981990 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8019528215425565003, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
@@ -1257,10 +1274,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3896006788232239023}
     m_Modifications:
-    - target: {fileID: 1864461917004618118, guid: 1153ac5a6bfcff64ebe8b27969c1a364, type: 3}
-      propertyPath: currentWeapon
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5777855642772417240, guid: 1153ac5a6bfcff64ebe8b27969c1a364, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1304,10 +1317,6 @@ PrefabInstance:
     - target: {fileID: 6585601536718532706, guid: 1153ac5a6bfcff64ebe8b27969c1a364, type: 3}
       propertyPath: m_Name
       value: Wand
-      objectReference: {fileID: 0}
-    - target: {fileID: 6585601536718532706, guid: 1153ac5a6bfcff64ebe8b27969c1a364, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

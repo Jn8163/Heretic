@@ -20,6 +20,17 @@ public class GargoyleMelee : EnemyAttackClass
         if (!attacked)
         {
             StartCoroutine(nameof(HurtBox));
+            int x = Random.Range(0, 2);
+            if (x < 1)
+            {
+                GameObject game = GetComponentInParent<EnemyGargoyleAI>().gameObject;
+                game.GetComponentInChildren<EnemyAudioCalls>().PlayAone();
+            }
+            else
+            {
+                GameObject game = GetComponentInParent<EnemyGargoyleAI>().gameObject;
+                game.GetComponentInChildren<EnemyAudioCalls>().PlayAtwo();
+            }
         }
         
     }
@@ -30,7 +41,7 @@ public class GargoyleMelee : EnemyAttackClass
 		claw.enabled = true;
         animMesh.SetBool("isAttacking", true);
         animSprite.SetBool("isAttacking", true);
-		yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1);
 		animMesh.SetBool("isAttacking", false);
         animSprite.SetBool("isAttacking", false);
 		yield return new WaitForSeconds(1);

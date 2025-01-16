@@ -14,7 +14,7 @@ public class PlayerUI : MonoBehaviour
 	public TextMeshProUGUI life, ammo, armor, itemCount, announcementText;
 
 	[SerializeField]
-	private Image itemIcon, yKey, gKey, bKey;
+	private Image yKey, gKey, bKey;
 
 	[SerializeField] private List<GameObject> ammoDisplays = new List<GameObject>();
 
