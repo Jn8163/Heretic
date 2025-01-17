@@ -874,7 +874,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 203, y: -206}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7822772799710791296
 CanvasRenderer:
@@ -2371,13 +2371,13 @@ MonoBehaviour:
   pArmor: 0
   pItemCount: 0
   life: {fileID: 3659208586339486325}
-  ammo: {fileID: 0}
+  ammo: {fileID: 9093261409277624874}
   armor: {fileID: 2477225892706563404}
   itemCount: {fileID: 4210186738895129956}
   announcementText: {fileID: 7549673122223441551}
-  yKey: {fileID: 1101609628350097646}
-  gKey: {fileID: 6221955714000126178}
-  bKey: {fileID: 737896815286487473}
+  yKey: {fileID: 0}
+  gKey: {fileID: 0}
+  bKey: {fileID: 0}
   ammoDisplays:
   - {fileID: 8613231740845618981}
   - {fileID: 9108484880313058081}
@@ -3550,6 +3550,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4809513161054556888, guid: 6724a0daf0fcf25449bf273ebf406ce1, type: 3}
   m_PrefabInstance: {fileID: 3834403997863765501}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9093261409277624874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5406372392857708503, guid: 6724a0daf0fcf25449bf273ebf406ce1, type: 3}
+  m_PrefabInstance: {fileID: 3834403997863765501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3943837271787878765
 PrefabInstance:
   m_ObjectHideFlags: 0

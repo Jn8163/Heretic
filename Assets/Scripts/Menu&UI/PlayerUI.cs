@@ -14,7 +14,7 @@ public class PlayerUI : MonoBehaviour
 	public TextMeshProUGUI life, ammo, armor, itemCount, announcementText;
 
 	[SerializeField]
-	private Image yKey, gKey, bKey;
+	private GameObject yKey, gKey, bKey;
 
 	[SerializeField] private List<GameObject> ammoDisplays = new List<GameObject>();
 
@@ -31,6 +31,13 @@ public class PlayerUI : MonoBehaviour
 	public AnimationCurve curve;
 	public float shakeDuration = 1f;
 
+
+	private void Awake()
+	{
+		yKey.SetActive(false);
+		gKey.SetActive(false);
+		bKey.SetActive(false);
+	}
 	private void Start()
 	{
 		tmp = healthSystem.currentHealth;
@@ -134,18 +141,18 @@ public class PlayerUI : MonoBehaviour
 	
 	private void KeyYellowLight(bool b)
 	{
-		yKey.color = Color.yellow;
+		yKey.SetActive(true);
 	}
 
 	private void KeyGreenLight(bool b)
 	{
-		gKey.color = Color.green;
-	}
+		gKey.SetActive(true);
+    }
 
 	private void KeyBlueLight(bool b)
 	{
-		bKey.color = Color.blue;
-	}
+		bKey.SetActive(true);
+    }
 
 	private void DisplayText(int index)
 	{

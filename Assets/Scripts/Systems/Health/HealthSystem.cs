@@ -45,7 +45,7 @@ public class HealthSystem : MonoBehaviour
                 amount = ArmorSystem.instance.UseShield(amount);
             }
         }
-        else
+        else if (!bPlayer)
         {
             GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();
         }
