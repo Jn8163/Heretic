@@ -169,8 +169,10 @@ public class MenuSystem : MonoBehaviour
                 }
                 return;
             case "SettingsMenu":
-                //ActivateMenu(settingsM);
-                Debug.Log(targetMenu + " not implemented");
+                if (settingsM)
+                {
+                    ActivateMenu(settingsM);
+                }
                 return;
             case "LoadMenu":
                 //ActivateMenu(loadM);
