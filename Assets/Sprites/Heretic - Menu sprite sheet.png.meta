@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,14 +93,898 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 121
+        width: 142
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352632b17687f8848a4f85640b4e77aa
+      internalID: -409519512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 162
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7aa103bfc2c22944bd8da6ca70499ab
+      internalID: -1213443699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 162
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 593cfc495bdc78043bf4ebc49f74444d
+      internalID: -1974956094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 142
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80aa4d82388de1c46912589417a28b37
+      internalID: 1898576724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 142
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212c205a22886ab438da399b7ed58713
+      internalID: -1852563768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 142
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96f07f0424dced4984f9afdba64afee
+      internalID: 529084401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 142
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a0a708c4bad8c64c90c46e8f05c4acc
+      internalID: -1397179335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 106
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c439960274399d14b8d5dd75ed8581cc
+      internalID: -2117716454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 106
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68682531f12a40c43aa1cf909a5071de
+      internalID: -461133297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 106
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846e1fe56e8197f41af88c260c9e5ac5
+      internalID: -132633301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_10
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 106
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578b70f19fe2ee74694b407371905881
+      internalID: 1614677361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_11
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 73
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c053b35a62d624b8eac73b960c09d9
+      internalID: -840124967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 73
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e317e0ea2b49248a7d7a1c0a72427f
+      internalID: -365120074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_13
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 73
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 136876193c0c2bc4095d6a177a58931d
+      internalID: 1241190297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_14
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 73
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98c777289eaaa0c48bf5a9b305a6da47
+      internalID: -44280812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_15
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 73
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d6eefd8631dfd4786612bd5d0f2e07
+      internalID: -1261590387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_16
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 73
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf2f1164e2a7c641bbd298274d77d07
+      internalID: -951982780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 73
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a1184a7941eab49ac13c7e97452802
+      internalID: 592155953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_18
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 73
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb162d9afef92348b78fa4f53e11fb0
+      internalID: 1243627035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 73
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea2653b7ecb88442b9f435f2c44a968
+      internalID: 9481365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 40
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0a1b3b23035e48459ea74f47a9303e1
+      internalID: 1963749458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 40
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93339fb5f28484d47b132dbc10000858
+      internalID: -542645904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 40
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6abdbddeaf8b01541bd0a53703e99488
+      internalID: 804109313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_23
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 40
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41653cf45dfca1744a66d0886ca82fab
+      internalID: 1672981539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_24
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 40
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005617210bbde0d478e9821cdcc94b72
+      internalID: 508983366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_25
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 40
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4bb5f4cddde8948a81508b76fd7866
+      internalID: -480990105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_26
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 40
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19650615875ebdc44b4b40e384f649dc
+      internalID: 1619184281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_27
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 40
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daded5856fdab0541970fdc0ced28ec3
+      internalID: 714931158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_28
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 40
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b924d1828dc7c19409a15686b7f974c4
+      internalID: 170841268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_29
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 6
+        width: 190
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 636fbdd560e5c9548b445311167413a4
+      internalID: 1272965121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 5
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f062d4cc9eb6c1f478c33ba38cb68067
+      internalID: -136213079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_31
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 5
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885940e14a5601944b756744e9d2caa7
+      internalID: -1449621290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_32
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 5
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c41445bdd87a849b85e10e6a8a299a
+      internalID: -47279080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_33
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 5
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5234d63a80c3ed74abdb9f5215dd74bd
+      internalID: 1884528242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_34
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 10
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2e7f67395f5a449a2c6d6fee463e3a
+      internalID: 934972432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_35
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1
+        width: 41
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7146c6cb18a6e449ae0627b4b73998
+      internalID: 495847103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_36
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b39e8e262881a344ba9365a72fe83d2
+      internalID: -1055387888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_37
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b741ddd35402747abe85bf916bfa3e
+      internalID: -910206186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heretic - Menu sprite sheet_38
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677db415e7e573c489c2fbdb1ad5f98c
+      internalID: 1849715609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c06bbc780ecac48439cc8c3b1ae336f1
     internalID: 0
     vertices: []
     indices: 
@@ -109,7 +993,46 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Heretic - Menu sprite sheet_0: -409519512
+      Heretic - Menu sprite sheet_1: -1213443699
+      Heretic - Menu sprite sheet_10: 1614677361
+      Heretic - Menu sprite sheet_11: -840124967
+      Heretic - Menu sprite sheet_12: -365120074
+      Heretic - Menu sprite sheet_13: 1241190297
+      Heretic - Menu sprite sheet_14: -44280812
+      Heretic - Menu sprite sheet_15: -1261590387
+      Heretic - Menu sprite sheet_16: -951982780
+      Heretic - Menu sprite sheet_17: 592155953
+      Heretic - Menu sprite sheet_18: 1243627035
+      Heretic - Menu sprite sheet_19: 9481365
+      Heretic - Menu sprite sheet_2: -1974956094
+      Heretic - Menu sprite sheet_20: 1963749458
+      Heretic - Menu sprite sheet_21: -542645904
+      Heretic - Menu sprite sheet_22: 804109313
+      Heretic - Menu sprite sheet_23: 1672981539
+      Heretic - Menu sprite sheet_24: 508983366
+      Heretic - Menu sprite sheet_25: -480990105
+      Heretic - Menu sprite sheet_26: 1619184281
+      Heretic - Menu sprite sheet_27: 714931158
+      Heretic - Menu sprite sheet_28: 170841268
+      Heretic - Menu sprite sheet_29: 1272965121
+      Heretic - Menu sprite sheet_3: 1898576724
+      Heretic - Menu sprite sheet_30: -136213079
+      Heretic - Menu sprite sheet_31: -1449621290
+      Heretic - Menu sprite sheet_32: -47279080
+      Heretic - Menu sprite sheet_33: 1884528242
+      Heretic - Menu sprite sheet_34: 934972432
+      Heretic - Menu sprite sheet_35: 495847103
+      Heretic - Menu sprite sheet_36: -1055387888
+      Heretic - Menu sprite sheet_37: -910206186
+      Heretic - Menu sprite sheet_38: 1849715609
+      Heretic - Menu sprite sheet_4: -1852563768
+      Heretic - Menu sprite sheet_5: 529084401
+      Heretic - Menu sprite sheet_6: -1397179335
+      Heretic - Menu sprite sheet_7: -2117716454
+      Heretic - Menu sprite sheet_8: -461133297
+      Heretic - Menu sprite sheet_9: -132633301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
