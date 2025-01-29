@@ -133,6 +133,11 @@ public class SwapWeapon : MonoBehaviour
                 currentWeapon = weaponSlot;
                 UnequipAll();
                 weapons[weaponSlot].SetActive(true);
+
+                if (!weapons[weaponSlot].GetComponent<RangedWeapon>())
+                {
+                    FindAnyObjectByType<AmmoSystem>().GetComponent<AmmoSystem>().currentAmmoType = null;
+                }
             }
         }
     }

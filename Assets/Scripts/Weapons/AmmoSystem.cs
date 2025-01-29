@@ -9,7 +9,7 @@ public class AmmoSystem : MonoBehaviour
     [SerializeField] private AmmoType startingAmmoType;
 
     public static Action<Ammo, int> UpdateAmmoUI = delegate { };
-    private AmmoType currentAmmoType;
+    public AmmoType currentAmmoType;
 
 
     private void Awake()
@@ -45,7 +45,12 @@ public class AmmoSystem : MonoBehaviour
 
         ammoTypes[(int)ammoType].currentAmmo = adjustedAmmo;
 
-        if (!AmmoPickup || currentAmmoType.ammo == ammoType)
+        if (!AmmoPickup)
+        {
+            currentAmmoType = ammoTypes[(int)ammoType];
+        }
+
+        if (currentAmmoType.ammo == ammoType)
         {
             UpdateAmmoUI(ammoType, adjustedAmmo);
         }
