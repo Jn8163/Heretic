@@ -6,8 +6,10 @@ using UnityEngine;
 public class AmmoSystem : MonoBehaviour
 {
     [SerializeField] private List<AmmoType> ammoTypes;
+    [SerializeField] private AmmoType startingAmmoType;
 
     public static Action<Ammo, int> UpdateAmmoUI = delegate { };
+    private AmmoType currentAmmoType;
 
 
     private void Awake()
@@ -18,6 +20,8 @@ public class AmmoSystem : MonoBehaviour
 
             UpdateAmmoUI(ammoType.ammo, ammoType.currentAmmo);
         }
+        currentAmmoType = startingAmmoType;
+        UpdateAmmoUI(currentAmmoType.ammo, currentAmmoType.currentAmmo);
     }
 
 
@@ -41,7 +45,7 @@ public class AmmoSystem : MonoBehaviour
 
         ammoTypes[(int)ammoType].currentAmmo = adjustedAmmo;
 
-        if (!AmmoPickup)
+        if (!AmmoPickup || currentAmmoType.ammo == ammoType)
         {
             UpdateAmmoUI(ammoType, adjustedAmmo);
         }

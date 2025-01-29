@@ -113,24 +113,27 @@ public class SwapWeapon : MonoBehaviour
     /// <param name="weaponSlot"></param>
     private void SwapToWeapon(int weaponSlot)
     {
-        Debug.Log("Change Weapon to slot #" + weaponSlot);
-
-        //ensure the weaponslot # is part of the array
-        if(weaponSlot < 0)
+        if (Time.timeScale == 1)
         {
-            weaponSlot = weapons.Count - 1;
-        }
-        else if(weaponSlot > weapons.Count - 1)
-        {
-            weaponSlot = 0;
-        }
+            Debug.Log("Change Weapon to slot #" + weaponSlot);
+
+            //ensure the weaponslot # is part of the array
+            if (weaponSlot < 0)
+            {
+                weaponSlot = weapons.Count - 1;
+            }
+            else if (weaponSlot > weapons.Count - 1)
+            {
+                weaponSlot = 0;
+            }
 
 
-        if (weaponAquired[weaponSlot])
-        {
-            currentWeapon = weaponSlot;
-            UnequipAll();
-            weapons[weaponSlot].SetActive(true);
+            if (weaponAquired[weaponSlot])
+            {
+                currentWeapon = weaponSlot;
+                UnequipAll();
+                weapons[weaponSlot].SetActive(true);
+            }
         }
     }
 
