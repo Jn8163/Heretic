@@ -9,6 +9,8 @@ public class StatTracker : MonoBehaviour
     public static int maxKills;
     public static int maxItems;
     public static int maxSecrets;
+
+    public static int time;
     public static void ResetStats()
     {
         killCount = 0;
@@ -18,5 +20,7 @@ public class StatTracker : MonoBehaviour
         maxKills = 0;
         maxItems = 0;
         maxSecrets = 0;
+
+        time = 0;
     }
 }

@@ -8,7 +8,10 @@ public class StatIncSecret : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider other)
 	{
-		StatTracker.secretCount++;
-		GetComponent<Collider>().enabled = false;
+		if (other.CompareTag("Player"))
+		{
+			StatTracker.secretCount++;
+			GetComponent<Collider>().enabled = false;
+		}
 	}
 }

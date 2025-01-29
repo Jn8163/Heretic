@@ -11,7 +11,7 @@ public class MenuSystem : MonoBehaviour
 {
     #region Fields
     public static MenuSystem instance;
-    [SerializeField] private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, creditsM, playerHUD;
+    [SerializeField] private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, creditsM, statsM, playerHUD;
     [SerializeField] private List<GameObject> menus = new List<GameObject>();
     public int selectedLevel, selectedDifficulty = 1;
     private bool activeHUD, destroy = false;
@@ -58,6 +58,7 @@ public class MenuSystem : MonoBehaviour
         HealthSystem.GameOver += CallGameOverScreen;
         PauseSystem.PauseMenuActive += PauseMenu;
         SceneManager.sceneLoaded += OnSceneLoaded;
+        CallStatsMenu.CallStats += SwitchMenu;
     }
 
 
@@ -87,7 +88,8 @@ public class MenuSystem : MonoBehaviour
             SceneInitializer.MenuActiveOnStart -= SwitchMenu;
             SceneInitializer.PlayerHUDActive -= PlayerHUDActive;
             SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
+			CallStatsMenu.CallStats -= SwitchMenu;
+		}
         else
         {
             Destroy(gameObject);
@@ -125,7 +127,8 @@ public class MenuSystem : MonoBehaviour
             }
             g.SetActive(true);
             MenuActive(true);
-            FreezeTime(true);
+            if(g != statsM)
+                FreezeTime(true);
         }
         else
         {
@@ -208,7 +211,13 @@ public class MenuSystem : MonoBehaviour
                     ActivateMenu(creditsM);
                 }
                 return;
-            case null:
+			case "StatsMenu":
+				if (statsM)
+				{
+					ActivateMenu(statsM);
+				}
+                return;
+			case null:
                 Debug.Log("Menu to switch to was not specified - please enter a menu name in the inspector.");
                 return;
             default:
