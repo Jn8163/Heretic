@@ -8,9 +8,10 @@ public class KeyBPickupGA : GameAction
 	public static Action<bool> KeyBPickup = delegate { };
 
 	[SerializeField] private GameObject mesh, sprite;
-
+	[SerializeField] private AudioSource aSource;
 	public override void Action()
 	{
+		aSource.Play();
 		KeyBPickup(true);
 		StartCoroutine(DestroyPickup());
 	}
