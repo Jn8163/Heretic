@@ -35,7 +35,7 @@ public class AmmoSystem : MonoBehaviour
     public bool UpdateAmmo(Ammo ammoType, int ammoUsed, bool AmmoPickup)
     {
         int adjustedAmmo = ammoTypes[(int)ammoType].currentAmmo + ammoUsed;
-        math.clamp(adjustedAmmo, 0, ammoTypes[(int)ammoType].ammoMax);
+        adjustedAmmo = Mathf.Clamp(adjustedAmmo, -1, ammoTypes[(int)ammoType].ammoMax);
 
         //check if there's enough ammo.
         if(adjustedAmmo < 0)

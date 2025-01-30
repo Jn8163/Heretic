@@ -12,6 +12,10 @@ public class AmmoPickup : ImmediatePickup
     private void OnEnable()
     {
         ammoSystem = FindAnyObjectByType<AmmoSystem>();
+        if (MenuSystem.instance.selectedDifficulty == 1 || MenuSystem.instance.selectedDifficulty == 5)
+        {
+            ammoAmount += ammoAmount / 2;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

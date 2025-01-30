@@ -196,10 +196,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1974477677146660138}
   - component: {fileID: 5374581589657995113}
-  - component: {fileID: 420155831639064666}
-  - component: {fileID: -1193725955295948075}
   - component: {fileID: 7045671104704976195}
   - component: {fileID: -5753027146803663523}
+  - component: {fileID: 227988453133473392}
   m_Layer: 6
   m_Name: EtherealArrowPickup
   m_TagString: Pickup
@@ -245,38 +244,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 4, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &420155831639064666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4311281349883400539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852ce7a6d40822c46aeb042ac4d927fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions:
-  - {fileID: -1193725955295948075}
-  bToggle: 1
---- !u!114 &-1193725955295948075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4311281349883400539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43b61c5e1b0e75f4ba0a3c65a2374ce1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
-  mesh: {fileID: 420825290804983956}
-  sprite: {fileID: 2098207467033075685}
-  audioSource: {fileID: -5753027146803663523}
-  ammo_amount: 10
 --- !u!114 &7045671104704976195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,3 +355,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &227988453133473392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311281349883400539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72eb5f59b73ef3e45b24e88db5efc000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: -5753027146803663523}
+  destroyDelay: 1
+  mesh: {fileID: 420825290804983956}
+  sprite: {fileID: 2098207467033075685}
+  ammoType: 1
+  ammoAmount: 5

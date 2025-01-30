@@ -10,6 +10,7 @@ public abstract class ImmediatePickup : Item
 
     protected override void PickupItem()
     {
+        base.PickupItem();
         StartCoroutine(nameof(DestroyPickup));
     }
 
