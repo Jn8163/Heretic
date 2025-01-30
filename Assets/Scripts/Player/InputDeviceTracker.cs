@@ -7,8 +7,12 @@ public class InputDeviceTracker : MonoBehaviour
     #region Fields
 
     private static InputDeviceTracker instance;
-    public static bool gamepadConnected = false;
-    public static Action<bool> ControllerConnected = delegate { };
+    private InputDevice lastUsedDevice;
+    public static bool gamepadActive = false;
+    public static event Action<bool> ControllerConnected = delegate { };
+
+    private Gamepad currentGamepad;
+    private Mouse currentMouse;
 
     #endregion
 
@@ -19,9 +23,8 @@ public class InputDeviceTracker : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            CheckAllCurrentDevices();
         }
-        else if (instance != this)
+        else
         {
             DestroyImmediate(gameObject);
         }
@@ -29,8 +32,8 @@ public class InputDeviceTracker : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("OnEnable Gamepad stateGamepad Connected: " + gamepadConnected);
         InputSystem.onDeviceChange += OnDeviceChange;
+        DetectInitialDevice();
     }
 
     private void OnDisable()
@@ -38,71 +41,71 @@ public class InputDeviceTracker : MonoBehaviour
         InputSystem.onDeviceChange -= OnDeviceChange;
     }
 
-    private void Start()
-    {
-        Debug.Log("Start Gamepad stateGamepad Connected: " + gamepadConnected);
-
-        // Notify listeners of the current gamepad state.
-        ControllerConnected(gamepadConnected);
-    }
-
-    // Method called when a device is added, removed, disconnected, or reconnected
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
     {
         switch (change)
         {
             case InputDeviceChange.Added:
-                if (device is Gamepad)
-                {
-                    Debug.Log("Gamepad added");
-                    Debug.Log(device.name);
-                    gamepadConnected = true;
-                    ControllerConnected(true);
-                }
-                else if (device is Keyboard)
-                {
-                    Debug.Log("Changed to keyboard");
-                    if (!gamepadConnected)
-                    {
-                        ControllerConnected(false);
-                    }
-                }
-                break;
-
-            case InputDeviceChange.Removed:
-                if (device is Gamepad)
-                {
-                    Debug.Log("Gamepad removed");
-                    gamepadConnected = false;
-                    ControllerConnected(false);
-                }
-                break;
-
-            case InputDeviceChange.Disconnected:
-                if (device is Gamepad)
-                {
-                    Debug.Log("Gamepad disconnected");
-                    gamepadConnected = false;
-                    ControllerConnected(false);
-                }
-                break;
-
             case InputDeviceChange.Reconnected:
-                if (device is Gamepad)
+                Debug.Log($"Device {device.name} connected");
+                break;
+            case InputDeviceChange.Removed:
+            case InputDeviceChange.Disconnected:
+                Debug.Log($"Device {device.name} disconnected");
+                if (device == lastUsedDevice)
                 {
-                    Debug.Log("Gamepad reconnected");
-                    gamepadConnected = true;
-                    ControllerConnected(true);
+                    lastUsedDevice = null;
+                    UpdateGamepadStatus();
                 }
                 break;
         }
     }
 
-    private void CheckAllCurrentDevices()
+    private void Update()
     {
-        foreach (var device in InputSystem.devices)
+        // Track actual input from the devices
+        if (Gamepad.current != null && Gamepad.current.leftStick.ReadValue().magnitude > 0)
         {
-            OnDeviceChange(device, InputDeviceChange.Added);
+            SetActiveDevice(Gamepad.current);
+        }
+        else if (Mouse.current != null && Mouse.current.delta.ReadValue() != Vector2.zero)
+        {
+            SetActiveDevice(Mouse.current);
+        }
+    }
+
+    private void SetActiveDevice(InputDevice device)
+    {
+        if (device != lastUsedDevice)
+        {
+            lastUsedDevice = device;
+            UpdateGamepadStatus();
+        }
+    }
+
+    private void DetectInitialDevice()
+    {
+        if (Gamepad.current != null)
+        {
+            lastUsedDevice = Gamepad.current;
+            gamepadActive = true;
+        }
+        else if (Keyboard.current != null)
+        {
+            lastUsedDevice = Keyboard.current;
+            gamepadActive = false;
+        }
+        ControllerConnected(gamepadActive);
+    }
+
+    private void UpdateGamepadStatus()
+    {
+        bool isGamepad = lastUsedDevice is Gamepad;
+        if (gamepadActive != isGamepad)
+        {
+            gamepadActive = isGamepad;
+            ControllerConnected(gamepadActive);
+            Debug.Log($"Gamepad Active: {gamepadActive}");
         }
     }
 

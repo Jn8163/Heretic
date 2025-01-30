@@ -66,8 +66,6 @@ public class CameraMovement : MonoBehaviour
             verticalMov = pInput.Player.Look.ReadValue<Vector2>().y * (sensitivity + (PlayerPrefs.GetFloat("Sense")))* Time.deltaTime;
         }
 
-        Debug.Log("Rotation");
-
         //Vertical rotation
         verticalRotation -= verticalMov;
         verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f);

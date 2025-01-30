@@ -43,6 +43,16 @@ public class ESSetSelected : MonoBehaviour
 
 
 
+    private void Update()
+    {
+        if (GamepadActive && myEventSystem.currentSelectedGameObject == null)
+        {
+            myEventSystem.SetSelectedGameObject(SelectedButton);
+        }
+    }
+
+
+
     private void OnDisable()
     {
         if (myEventSystem)
@@ -84,8 +94,6 @@ public class ESSetSelected : MonoBehaviour
 
     private void NewScene(Scene scene, LoadSceneMode mode)
     {
-        OnDisable();
-        OnEnable();
         Initialization();
     }
 
@@ -97,7 +105,7 @@ public class ESSetSelected : MonoBehaviour
     private void Initialization()
     {
         myEventSystem = FindAnyObjectByType<EventSystem>();
-        GamepadActive = InputDeviceTracker.gamepadConnected;
+        GamepadActive = InputDeviceTracker.gamepadActive;
 
         if (GamepadActive && myEventSystem)
         {
