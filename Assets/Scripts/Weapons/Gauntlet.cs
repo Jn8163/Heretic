@@ -83,7 +83,6 @@ public class Gauntlet : Weapon
     private void AttackCanceled(InputAction.CallbackContext c)
     {
         animator2D.SetBool("Attacking", false);
-        animator3D.SetBool("Attacking", false);
         FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
         attacking = false;
     }
@@ -95,7 +94,6 @@ public class Gauntlet : Weapon
         cooldown = true;
         attacking = true;
         animator2D.SetBool("Attacking", true);
-        animator3D.SetBool("Attacking", true);
         yield return new WaitForSeconds(reloadTime);
         cooldown = false;
     }

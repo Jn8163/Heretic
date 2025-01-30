@@ -25,7 +25,11 @@ public class Projectile : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
     }
 
-
+    public void SetProjectile(float Speed, Vector3 Direction)
+    {
+        speed = Speed;
+        direction = Direction;
+    }
 
     private IEnumerator WaitToDie()
     {

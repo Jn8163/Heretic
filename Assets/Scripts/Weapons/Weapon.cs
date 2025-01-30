@@ -9,7 +9,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected LayerMask detectableLayers;
     [SerializeField] private PlayerUI playerUI;
     [SerializeField] private AudioSource attack_sound;
-    [SerializeField] protected Animator animator2D, animator3D;
+    [SerializeField] protected Animator animator2D;
     [SerializeField] protected float reloadTime = 1f;
     [Tooltip("WeaponSlot for swapping weapons, should be between 0 and 5 (Array Index)")]
     [SerializeField] protected int weaponSlot;
@@ -64,6 +64,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Attack(InputAction.CallbackContext c)
     {
+
     }
 
 
@@ -72,10 +73,8 @@ public abstract class Weapon : MonoBehaviour
     {
         cooldown = true;
         animator2D.SetBool("Attacking", true);
-        animator3D.SetBool("Attacking", true);
         yield return new WaitForSeconds(reloadTime);
         animator2D.SetBool("Attacking", false);
-        animator3D.SetBool("Attacking", false);
         cooldown = false;
     }
 }
