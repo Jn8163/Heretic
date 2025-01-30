@@ -119,16 +119,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5777855642772417240}
-  - component: {fileID: 1864461917004618118}
   - component: {fileID: 5974292912867999103}
   - component: {fileID: 1704281161486500945}
+  - component: {fileID: 2206422319630780865}
   m_Layer: 0
   m_Name: Crossbow
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5777855642772417240
 Transform:
   m_ObjectHideFlags: 0
@@ -146,33 +146,6 @@ Transform:
   - {fileID: 6392215367140739083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 39.841, y: 0, z: 0}
---- !u!114 &1864461917004618118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6585601536718532706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d084fc4092d74b54eae9e4cdf414e062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWeapon: 0
-  detectableLayers:
-    serializedVersion: 2
-    m_Bits: 119
-  playerUI: {fileID: 0}
-  attack_sound: {fileID: 1704281161486500945}
-  animator2D: {fileID: 0}
-  animator3D: {fileID: 0}
-  reloadTime: 0.5
-  weaponSlot: 0
-  ammoType: 0
-  projectilePFab: {fileID: 6832841594439106919, guid: d1e5df184b41ad346a626e02eecf232e, type: 3}
-  AmmoMax: 100
-  weaponRange: 50
-  ammoUsage: -1
 --- !u!114 &5974292912867999103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +257,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2206422319630780865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6585601536718532706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b74939fee2448f4793ccaf41ffad965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: 0
+  detectableLayers:
+    serializedVersion: 2
+    m_Bits: 631
+  playerUI: {fileID: 0}
+  attack_sound: {fileID: 1704281161486500945}
+  animator2D: {fileID: 1568270877709807643}
+  animator3D: {fileID: 0}
+  reloadTime: 0.5
+  weaponSlot: 2
+  ammoType: 1
+  projectilePFab: {fileID: 0}
+  AmmoMax: 50
+  weaponRange: 50
+  ammoUsage: -1
 --- !u!1 &7896878237492126297
 GameObject:
   m_ObjectHideFlags: 0

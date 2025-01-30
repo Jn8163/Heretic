@@ -255,8 +255,7 @@ public class MenuSystem : MonoBehaviour
 
     public void ChangeScene()
     {
-        ResetScript();
-        SceneManager.LoadScene(selectedLevel);
+        SceneManager.LoadSceneAsync(selectedLevel);
     }
 
 
@@ -320,6 +319,7 @@ public class MenuSystem : MonoBehaviour
         SceneInitializer.MenuActiveOnStart += SwitchMenu;
         SceneInitializer.PlayerHUDActive += PlayerHUDActive;
         SceneManager.sceneLoaded += OnSceneLoaded;
+        ResetScript();
     }
 
     #endregion
