@@ -57,14 +57,16 @@ public class CameraMovement : MonoBehaviour
 
         if (gamepadActive)
         {
-            horizontalMov = pInput.Player.Look.ReadValue<Vector2>().x * gamepadSensitivity * Time.deltaTime;
-            verticalMov = pInput.Player.Look.ReadValue<Vector2>().y * gamepadSensitivity * Time.deltaTime;
+            horizontalMov = pInput.Player.Look.ReadValue<Vector2>().x * (gamepadSensitivity+ (PlayerPrefs.GetFloat("Sense")*15)) * Time.deltaTime;
+            verticalMov = pInput.Player.Look.ReadValue<Vector2>().y * (gamepadSensitivity + (PlayerPrefs.GetFloat("Sense") * 15)) * Time.deltaTime;
         }
         else
         {
-            horizontalMov = pInput.Player.Look.ReadValue<Vector2>().x * sensitivity * Time.deltaTime;
-            verticalMov = pInput.Player.Look.ReadValue<Vector2>().y * sensitivity * Time.deltaTime;
+            horizontalMov = pInput.Player.Look.ReadValue<Vector2>().x * (sensitivity + (PlayerPrefs.GetFloat("Sense"))) * Time.deltaTime;
+            verticalMov = pInput.Player.Look.ReadValue<Vector2>().y * (sensitivity + (PlayerPrefs.GetFloat("Sense")))* Time.deltaTime;
         }
+
+        Debug.Log("Rotation");
 
         //Vertical rotation
         verticalRotation -= verticalMov;

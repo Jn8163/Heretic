@@ -4,9 +4,10 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
+    [SerializeField] private Slider SenseSlider;
+
     [SerializeField] private AudioMixer Master;
     [SerializeField] private Slider MusicSlider;
-
     [SerializeField] private Slider SFXSlider;
 
 
@@ -22,9 +23,34 @@ public class SettingsMenu : MonoBehaviour
             LoadSFXVolume();
         }
 
+        if(PlayerPrefs.HasKey("Sense"))
+        {
+            LoadSense();
+        }
+
+        SetSense();
         MusicVolume();
         SFXVolume();
     }
+
+    public void SetSense()
+    {
+        float Sense = SenseSlider.value;
+        PlayerPrefs.SetFloat("Sense", Sense);
+
+        Debug.Log("SetSense");
+        Debug.Log(PlayerPrefs.GetFloat("Sense"));
+    }
+
+    private void LoadSense()
+    {
+        SenseSlider.value = PlayerPrefs.GetFloat("Sense");
+
+        SetSense();
+
+        Debug.Log("LoadedSense");
+    }
+
     public void MusicVolume()
     {
         float volume = MusicSlider.value;
