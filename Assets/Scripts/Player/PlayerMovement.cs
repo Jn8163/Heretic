@@ -1,4 +1,3 @@
-using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,15 +13,15 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Field(s)")]
 
-    [SerializeField] private float walkSpeed = 6f;
-    [SerializeField] private float runSpeed = 6f;
+    [SerializeField] private float walkSpeed = 15f;
+    [SerializeField] private float runSpeed = 25f;
     [SerializeField] private bool animateCam = true;
 
     private PlayerInput pInput;
     private Rigidbody rb;
     private Animator cameraAnim;
 
-    private float speed = 6f;
+    private float speed = 15f;
     private Vector3 direction, targetPos;
     private bool snapToPos, movementLock;
     private bool sprinting;
@@ -44,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        speed = walkSpeed;
         cameraAnim = transform.Find("CameraParent").transform.Find("Camera").GetComponent<Animator>();
         stepRayLower = transform.Find("StepRayLower").gameObject;
         stepRayUpper = transform.Find("StepRayUpper").gameObject;
