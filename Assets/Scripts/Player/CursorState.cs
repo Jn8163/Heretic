@@ -19,11 +19,9 @@ public class CursorState : MonoBehaviour
     private void Awake()
     {
         //Ensures only one instance is active in scene at all times.
-        //DDOL to preserve states
         if (!instance)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

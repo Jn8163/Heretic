@@ -22,55 +22,36 @@ public class PauseSystem : MonoBehaviour
 
     private void Awake()
     {
-        //Ensures only one instance is active in scene at all times.
-        //DDOL to preserve states
-        if (!instance)
-        {
-            instance = this;
-            inactive = false;
-            mOpen = false;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if(instance != this)
-        {
-            destroy = true;
-            Destroy(gameObject);
-        }
+        instance = this;
     }
 
 
 
     private void OnEnable()
     {
-        if (!destroy)
-        {
-            pInput = new PlayerInput();
-            pInput.Enable();
+        pInput = new PlayerInput();
+        pInput.Enable();
 
-            pInput.Player.Menu.performed += PauseMenuOpen;
-            MenuSystem.FreezeTime += FreezeTime;
-            HealthSystem.GameOver += Death;
-            MenuSystem.Resume += PauseMenu;
-            SceneManager.sceneLoaded += NewScene;
-        }
+        pInput.Player.Menu.performed += PauseMenuOpen;
+        MenuSystem.FreezeTime += FreezeTime;
+        HealthSystem.GameOver += Death;
+        MenuSystem.Resume += PauseMenu;
+        SceneManager.sceneLoaded += NewScene;
     }
 
 
 
     private void OnDisable()
     {
-        if (!destroy)
-        {
-            FreezeTime(false);
-            mOpen = false;
-            PauseMenuActive(false);
+        FreezeTime(false);
+        mOpen = false;
+        PauseMenuActive(false);
 
-            pInput.Disable();
-            pInput.Player.Menu.performed -= PauseMenuOpen;
-            MenuSystem.FreezeTime -= FreezeTime;
-            HealthSystem.GameOver -= Death;
-            MenuSystem.Resume -= PauseMenu;
-        }
+        pInput.Disable();
+        pInput.Player.Menu.performed -= PauseMenuOpen;
+        MenuSystem.FreezeTime -= FreezeTime;
+        HealthSystem.GameOver -= Death;
+        MenuSystem.Resume -= PauseMenu;
     }
 
 
@@ -128,14 +109,6 @@ public class PauseSystem : MonoBehaviour
     {
         OnDisable();
         OnEnable();
-    }
-
-
-
-    private void Restart()
-    {
-        FreezeTime(false);
-        mOpen = false;
     }
 
 

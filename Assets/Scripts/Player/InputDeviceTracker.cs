@@ -18,21 +18,12 @@ public class InputDeviceTracker : MonoBehaviour
     {
         if (instance == null)
         {
-            // No instance exists, set this as the instance and preserve it.
             instance = this;
-            DontDestroyOnLoad(gameObject);
             CheckAllCurrentDevices();
         }
         else if (instance != this)
         {
-            // Destroy the original instance.
-            Destroy(instance.gameObject);
-
-            // Set the new instance.
-            instance = this;
-
-            // Preserve the new instance.
-            DontDestroyOnLoad(gameObject);
+            DestroyImmediate(gameObject);
         }
     }
 

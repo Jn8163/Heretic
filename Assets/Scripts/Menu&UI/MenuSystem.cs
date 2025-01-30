@@ -35,7 +35,6 @@ public class MenuSystem : MonoBehaviour
         if (!instance)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else if(instance != this)
         {
@@ -57,8 +56,10 @@ public class MenuSystem : MonoBehaviour
     {
         HealthSystem.GameOver += CallGameOverScreen;
         PauseSystem.PauseMenuActive += PauseMenu;
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneInitializer.MenuActiveOnStart += SwitchMenu;
+        SceneInitializer.PlayerHUDActive += PlayerHUDActive;
         CallStatsMenu.CallStats += SwitchMenu;
+
     }
 
 
@@ -87,7 +88,6 @@ public class MenuSystem : MonoBehaviour
             PauseSystem.PauseMenuActive -= PauseMenu;
             SceneInitializer.MenuActiveOnStart -= SwitchMenu;
             SceneInitializer.PlayerHUDActive -= PlayerHUDActive;
-            SceneManager.sceneLoaded -= OnSceneLoaded;
 			CallStatsMenu.CallStats -= SwitchMenu;
 		}
         else
@@ -304,22 +304,6 @@ public class MenuSystem : MonoBehaviour
             menus.Remove(playerHUD);
             activeHUD = true;
         }
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        HealthSystem.GameOver -= CallGameOverScreen;
-        PauseSystem.PauseMenuActive -= PauseMenu;
-        SceneInitializer.MenuActiveOnStart -= SwitchMenu;
-        SceneInitializer.PlayerHUDActive -= PlayerHUDActive;
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-
-        HealthSystem.GameOver += CallGameOverScreen;
-        PauseSystem.PauseMenuActive += PauseMenu;
-        SceneInitializer.MenuActiveOnStart += SwitchMenu;
-        SceneInitializer.PlayerHUDActive += PlayerHUDActive;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        ResetScript();
     }
 
     #endregion
