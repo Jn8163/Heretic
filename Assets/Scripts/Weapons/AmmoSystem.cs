@@ -24,7 +24,15 @@ public class AmmoSystem : MonoBehaviour
         UpdateAmmoUI(currentAmmoType.ammo, currentAmmoType.currentAmmo);
     }
 
-
+    public void UpdateAmmoMax(List<int> ammoGained)
+    {
+        for (int i = 0; i < ammoTypes.Count; i++)
+        {
+            ammoTypes[i].ammoMax *= 2;
+			UpdateAmmo((Ammo)i, ammoGained[i], true);
+		}
+		
+	}
 
     /// <summary>
     /// Returns true if ammo was successfully updated, false if the weapon is out of ammo.
