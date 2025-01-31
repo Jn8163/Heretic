@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,9 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] private GameObject fInventory;
     [SerializeField] private SelectedItem previewSlot;
     [SerializeField] private InventorySlot[] inventorySlots;
+    [SerializeField] private int[] itemAmounts;
+    [SerializeField] private GameObject[] itemList;
+    [SerializeField] private TextMeshProUGUI itemCount;
 
     private PlayerInput pInput;
     private int selectedSlot = 0;
@@ -73,12 +77,35 @@ public class InventorySystem : MonoBehaviour
     {
         int itemslot = previewSlot.UseItem();
         if(itemslot >= 0 && itemslot < inventorySlots.Length)
-        {
-            Destroy(inventorySlots[itemslot].GetComponentInChildren<InventoryItem>().gameObject);
+        { 
+            if (itemAmounts[itemslot] == 1)
+            {
+				itemAmounts[itemslot]--;
+				UpdateItemCountUI(itemAmounts[itemslot]);
+				previewSlot.DestroyItem();
+				Destroy(inventorySlots[itemslot].GetComponentInChildren<InventoryItem>().gameObject);
+                itemList[itemslot] = null;
+			}
+            else if (itemAmounts[itemslot] > 1)
+            {
+				itemAmounts[itemslot]--;
+				UpdateItemCountUI(itemAmounts[itemslot]);
+			}
+            
         }
     }
 
-
+    public void UpdateItemCountUI(int amt)
+    {
+        if (amt <= 1)
+        {
+            itemCount.text = "";
+        }
+        else
+        {
+			itemCount.text = amt.ToString();
+		}
+    }
 
     private void OnDestroy()
     {
@@ -99,9 +126,19 @@ public class InventorySystem : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem slotItem = slot.GetComponentInChildren<InventoryItem>();
+            if (prefab == itemList[i])
+            {
+                if (itemAmounts[i] >= 9) // Can only hold up to 9 of one item in the original game
+                    return false;
+                itemAmounts[i]++;
+                ChangeSelectedSlot(i);
+                return true;
+            }
             if (!slotItem)
             {
                 Instantiate(prefab, slot.transform);
+                itemAmounts[i]++;
+                itemList[i] = prefab;
                 ChangeSelectedSlot(i);
                 return true;
             }
@@ -150,6 +187,7 @@ public class InventorySystem : MonoBehaviour
         selectedSlot = currentSlot;
         ChangePreviewSlot(selectedSlot);
         inventorySlots[selectedSlot].Select();
+        UpdateItemCountUI(itemAmounts[selectedSlot]);
     }
 
 
@@ -176,6 +214,7 @@ public class InventorySystem : MonoBehaviour
             previewSlot.itemSelected = true;
             previewSlot.slot = slot;
             previewSlot.ChangeItem(item.itemPrefab);
+            UpdateItemCountUI(itemAmounts[slot]);
         }
         else
         {

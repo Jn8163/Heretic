@@ -40,7 +40,7 @@ public class SelectedItem : MonoBehaviour
         if (itemSelected)
         {
             transform.GetComponentInChildren<InventoryItem>().Action();
-            DestroyItem();
+            // DestroyItem();
         }
         return slot;
     }
