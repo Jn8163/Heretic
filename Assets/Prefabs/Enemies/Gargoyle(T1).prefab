@@ -806,6 +806,7 @@ GameObject:
   - component: {fileID: 3767619874525014755}
   - component: {fileID: 4170974404926831092}
   - component: {fileID: 2516755724748139955}
+  - component: {fileID: 2124356679420574702}
   m_Layer: 0
   m_Name: Gargoyle(T1)
   m_TagString: Untagged
@@ -983,6 +984,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2124356679420574702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083203481098201123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691bd3110882a5142993dac06d710af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 10
+  angle: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  canSeePlayer: 0
 --- !u!1 &7158311608200278911
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,36 +1,28 @@
 using System.Collections;
-using System.Runtime.InteropServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FOV : MonoBehaviour
 {
     public float radius;
-    [Range(0, 360)]
-    public float angle;
-
-    public GameObject playerRef;
-
+    [Range(0, 360)] public float angle;
     public LayerMask targetMask;
     public LayerMask obstructionMask;
-
     public bool canSeePlayer;
+
+    private Transform player;
 
     private void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        StartCoroutine(FOVRoutine());
     }
 
     private IEnumerator FOVRoutine()
     {
-        float delay = 0.2f;
-        WaitForSeconds wait = new WaitForSeconds(0.2f);
-
         while (true)
         {
-            yield return wait;
+            yield return new WaitForSeconds(0.2f);
             FieldOfViewCheck();
-
         }
     }
 
@@ -50,20 +42,10 @@ public class FOV : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     canSeePlayer = true;
-                }
-                else
-                {
-                    canSeePlayer = false;
+                    return;
                 }
             }
-            else
-            {
-                canSeePlayer = false;
-            }
         }
-        else
-        {
-            canSeePlayer = false;
-        }
+        canSeePlayer = false;
     }
 }
