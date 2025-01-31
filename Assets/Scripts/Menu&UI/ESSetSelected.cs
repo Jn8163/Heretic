@@ -20,16 +20,9 @@ public class ESSetSelected : MonoBehaviour
 
     #region Methods
 
-    private void Awake()
-    {
-        //Event sub is done during awake to prevent any potential duplicate subscription issues in OnEnable
-        SceneManager.sceneLoaded += NewScene;
-    }
-
-
-
     private void OnEnable()
     {
+        SceneManager.sceneLoaded += NewScene;
         InputDeviceTracker.ControllerConnected += GamepadAdded;
         Initialization();
     }
@@ -61,13 +54,6 @@ public class ESSetSelected : MonoBehaviour
         }
 
         InputDeviceTracker.ControllerConnected -= GamepadAdded;
-    }
-
-
-
-    private void OnDestroy()
-    {
-        //Only unsubscribes during OnDestroy because the initial sub only happens in awake
         SceneManager.sceneLoaded -= NewScene;
     }
 

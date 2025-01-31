@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputDeviceTracker : MonoBehaviour
 {
@@ -10,9 +11,6 @@ public class InputDeviceTracker : MonoBehaviour
     private InputDevice lastUsedDevice;
     public static bool gamepadActive = false;
     public static event Action<bool> ControllerConnected = delegate { };
-
-    private Gamepad currentGamepad;
-    private Mouse currentMouse;
 
     #endregion
 
@@ -33,12 +31,20 @@ public class InputDeviceTracker : MonoBehaviour
     private void OnEnable()
     {
         InputSystem.onDeviceChange += OnDeviceChange;
+        SceneManager.sceneLoaded += UpdateDelegates;
+
         DetectInitialDevice();
+    }
+
+    private void UpdateDelegates(Scene arg0, LoadSceneMode arg1)
+    {
+        ControllerConnected(gamepadActive);
     }
 
     private void OnDisable()
     {
         InputSystem.onDeviceChange -= OnDeviceChange;
+        SceneManager.sceneLoaded -= UpdateDelegates;
     }
 
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -64,7 +70,7 @@ public class InputDeviceTracker : MonoBehaviour
     private void Update()
     {
         // Track actual input from the devices
-        if (Gamepad.current != null && Gamepad.current.leftStick.ReadValue().magnitude > 0)
+        if (Gamepad.current != null && (Gamepad.current.leftStick.ReadValue().magnitude > 0 || Gamepad.current.rightStick.ReadValue().magnitude > 0))
         {
             SetActiveDevice(Gamepad.current);
         }
