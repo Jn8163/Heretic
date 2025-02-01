@@ -15,9 +15,12 @@ public abstract class RangedWeapon : Weapon
     [SerializeField] protected int ammoUsage = -1;
 
     protected AmmoSystem ammoSystem;
+    protected AudioSource audioSource;
 
-
-
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     protected override void OnEnable()
     {
         base.OnEnable();

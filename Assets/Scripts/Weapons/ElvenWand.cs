@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 public class ElvenWand : RangedWeapon
 {
 
-
-
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -39,6 +37,7 @@ public class ElvenWand : RangedWeapon
             StartCoroutine(nameof(WeaponCooldown));
             Vector3 offset = -transform.forward * .25f;
             Instantiate(projectilePFab, hit.point + offset, Quaternion.identity);
+            audioSource.Play();         
         }
     }
 
