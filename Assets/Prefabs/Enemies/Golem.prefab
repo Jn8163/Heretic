@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6830846152203381250}
   - component: {fileID: 240427161253845971}
+  - component: {fileID: 6253866674710936020}
   - component: {fileID: 776176281447337559}
   - component: {fileID: 35321596643366289}
   - component: {fileID: 3634795277538681123}
@@ -19,7 +20,6 @@ GameObject:
   - component: {fileID: 6687147258092512826}
   - component: {fileID: -4128520477529473283}
   - component: {fileID: 6881608179256636064}
-  - component: {fileID: 6253866674710936020}
   m_Layer: 9
   m_Name: Golem
   m_TagString: Untagged
@@ -69,9 +69,32 @@ MonoBehaviour:
   startingPos: {x: 0, y: 0, z: 0}
   sightRange: 25
   attackRange: 1.9
+  chaseTimer: 0
   playerInSightRange: 0
   playerInAttackRange: 0
+  isChasing: 0
   AgroYellDone: 0
+--- !u!114 &6253866674710936020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340824930535376310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691bd3110882a5142993dac06d710af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 25
+  angle: 140
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 8
+  canSeePlayer: 0
 --- !u!195 &776176281447337559
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -242,27 +265,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6253866674710936020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340824930535376310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691bd3110882a5142993dac06d710af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 10
-  angle: 0
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 1
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 8
-  canSeePlayer: 0
 --- !u!1 &493658274125109659
 GameObject:
   m_ObjectHideFlags: 0

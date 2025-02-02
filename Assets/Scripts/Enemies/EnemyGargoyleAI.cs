@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class EnemyGargoyleAI : EnemyBaseClass
 {
@@ -18,17 +19,11 @@ public class EnemyGargoyleAI : EnemyBaseClass
             transform.position = pos;
         }
 
-        // Only chase if the player is visible
-        if (playerInSightRange)
-        {
-            base.Update();
-        }
+        base.Update();
     }
 
     protected override void ChasePlayer()
     {
-        if (!playerInSightRange) return; // Stop if player isn't visible
-
         Vector3 distanceToPlayer = transform.position - player.position;
         float distance = distanceToPlayer.magnitude;
 

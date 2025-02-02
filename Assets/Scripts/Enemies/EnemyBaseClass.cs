@@ -18,8 +18,8 @@ public abstract class EnemyBaseClass : MonoBehaviour
     public Vector3 startingPos;
 
     // States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public float sightRange, attackRange, chaseTimer;
+    public bool playerInSightRange, playerInAttackRange, isChasing;
     public bool AgroYellDone;
 
     protected virtual void Awake()
@@ -36,14 +36,30 @@ public abstract class EnemyBaseClass : MonoBehaviour
         if (healthSystem != null && healthSystem.bAlive)
         {
             // Check vision using FOV component
-            playerInSightRange = fov != null && fov.canSeePlayer;
-            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+            playerInSightRange = fov.canSeePlayer;
+			playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-            if (playerInSightRange && !playerInAttackRange)
+            if (playerInSightRange || playerInAttackRange)
+            {
+                isChasing = true;
+                chaseTimer = 0;
+            }
+
+            if ((!playerInSightRange && !playerInAttackRange) && isChasing)
+            {
+                chaseTimer += Time.deltaTime;
+                if (chaseTimer > 5)
+                {
+                    chaseTimer = 0;
+                    isChasing = false;
+                }
+            }
+
+            if (isChasing && !playerInAttackRange)
                 ChasePlayer();
             if (playerInAttackRange && playerInSightRange)
                 AttackPlayer();
-            if (!playerInAttackRange && !playerInSightRange)
+            if (!isChasing)
             {
                 ReturnToOrigin();
                 Patrolling();
@@ -71,6 +87,8 @@ public abstract class EnemyBaseClass : MonoBehaviour
             agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+        // Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
@@ -87,6 +105,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
     {
         if (agent != null && playerInSightRange)
         {
+            isChasing = true;
             agent.SetDestination(player.position);
         }
     }

@@ -426,8 +426,10 @@ MonoBehaviour:
   startingPos: {x: 0, y: 0, z: 0}
   sightRange: 25
   attackRange: 1.4
+  chaseTimer: 0
   playerInSightRange: 0
   playerInAttackRange: 0
+  isChasing: 0
   AgroYellDone: 0
   hoverDist: 1.7
   DashRange: 11
@@ -609,14 +611,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691bd3110882a5142993dac06d710af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 10
-  angle: 0
+  radius: 25
   targetMask:
     serializedVersion: 2
     m_Bits: 1
   obstructionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   canSeePlayer: 0
 --- !u!1 &3735223130289852140
 GameObject:

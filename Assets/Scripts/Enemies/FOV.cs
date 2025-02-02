@@ -4,16 +4,18 @@ using UnityEngine;
 public class FOV : MonoBehaviour
 {
     public float radius;
-    [Range(0, 360)] public float angle;
     public LayerMask targetMask;
     public LayerMask obstructionMask;
     public bool canSeePlayer;
 
-    private Transform player;
+    private GameObject player;
+
+    private Vector3 tmp;
+    private RaycastHit hit;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        player = GameObject.Find("Player");
         StartCoroutine(FOVRoutine());
     }
 
@@ -28,24 +30,21 @@ public class FOV : MonoBehaviour
 
     private void FieldOfViewCheck()
     {
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+        Vector3 directionToTarget = (player.transform.position - transform.position).normalized;
+        float distanceToTarget = Vector3.Distance(transform.position, player.transform.position);
+        if(distanceToTarget > radius)
+            distanceToTarget = radius;
 
-        if (rangeChecks.Length != 0)
-        {
-            Transform target = rangeChecks[0].transform;
-            Vector3 directionToTarget = (target.position - transform.position).normalized;
+        if(Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask) && !Physics.Raycast(transform.position, directionToTarget, distanceToTarget, targetMask))
+            canSeePlayer = true;
+        else
+            canSeePlayer = false;
 
-            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
-            {
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+	}
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
-                {
-                    canSeePlayer = true;
-                    return;
-                }
-            }
-        }
-        canSeePlayer = false;
-    }
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, radius);
+	}
 }

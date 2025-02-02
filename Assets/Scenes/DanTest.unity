@@ -118,6 +118,114 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &10670704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 10670708}
+  - component: {fileID: 10670707}
+  - component: {fileID: 10670706}
+  - component: {fileID: 10670705}
+  m_Layer: 0
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &10670705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10670704}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &10670706
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10670704}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &10670707
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10670704}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &10670708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10670704}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 738.49, y: 214.267, z: -384.43}
+  m_LocalScale: {x: 6.9602, y: 9.1177, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &18948713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169,6 +277,10 @@ PrefabInstance:
     - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
       propertyPath: m_Name
       value: WandCrystalPickup (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -227,6 +339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WandCrystalPickup (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -283,6 +399,10 @@ PrefabInstance:
     - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
       propertyPath: m_Name
       value: QuartzFlaskPickup (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -341,6 +461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WandCrystalPickup (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -397,6 +521,10 @@ PrefabInstance:
     - target: {fileID: 3947099605991942097, guid: ea7beed4b1ac7db4eb5ea1a585209e72, type: 3}
       propertyPath: m_Name
       value: TomeOfPowerPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947099605991942097, guid: ea7beed4b1ac7db4eb5ea1a585209e72, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -502,6 +630,10 @@ PrefabInstance:
     - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
       propertyPath: m_Name
       value: WandCrystalPickup (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -659,6 +791,10 @@ PrefabInstance:
     - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
       propertyPath: m_Name
       value: WandCrystalPickup (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1101,6 +1237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwitchDoor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6791508465363279695, guid: f28afe61eeb3a5f4ea0c08c7682c5d7f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1157,6 +1297,10 @@ PrefabInstance:
     - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
       propertyPath: m_Name
       value: QuartzFlaskPickup (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1215,11 +1359,123 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuartzFlaskPickup (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+--- !u!1 &624598966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624598970}
+  - component: {fileID: 624598969}
+  - component: {fileID: 624598968}
+  - component: {fileID: 624598967}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &624598967
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624598966}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &624598968
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624598966}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &624598969
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624598966}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &624598970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624598966}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 754.75, y: 214.267, z: -372.58}
+  m_LocalScale: {x: 6.9602, y: 9.1177, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &672980776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1231,6 +1487,10 @@ PrefabInstance:
     - target: {fileID: 4936215545744734605, guid: c2112455b6c5a7f4d89e1d99a0dd46f5, type: 3}
       propertyPath: m_Name
       value: KeyDoorG (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4936215545744734605, guid: c2112455b6c5a7f4d89e1d99a0dd46f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7991422729156307218, guid: c2112455b6c5a7f4d89e1d99a0dd46f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1329,6 +1589,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WandCrystalPickup (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1385,6 +1649,10 @@ PrefabInstance:
     - target: {fileID: 3947099605991942097, guid: ea7beed4b1ac7db4eb5ea1a585209e72, type: 3}
       propertyPath: m_Name
       value: TomeOfPowerPickup (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947099605991942097, guid: ea7beed4b1ac7db4eb5ea1a585209e72, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1608,6 +1876,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WandCrystalPickup (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1665,6 +1937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WandCrystalPickup (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1721,6 +1997,10 @@ PrefabInstance:
     - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
       propertyPath: m_Name
       value: WandCrystalPickup (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1827,6 +2107,10 @@ PrefabInstance:
     - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
       propertyPath: m_Name
       value: QuartzFlaskPickup (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2182,6 +2466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TomeOfPowerPickup (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3947099605991942097, guid: ea7beed4b1ac7db4eb5ea1a585209e72, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2364,6 +2652,10 @@ PrefabInstance:
     - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
       propertyPath: m_Name
       value: WandCrystalPickup (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2598,6 +2890,71 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1001 &1233267454
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 240427161253845971, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 340824930535376310, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_Name
+      value: Golem (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253866674710936020, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: radius
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 755.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 214.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -368.10275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
 --- !u!1001 &1235978488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2649,6 +3006,10 @@ PrefabInstance:
     - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
       propertyPath: m_Name
       value: QuartzFlaskPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2707,6 +3068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BagOfHoldingPickup
       objectReference: {fileID: 0}
+    - target: {fileID: 7845494183717795178, guid: d0bb0f3ee62b71244b290572ba8ead23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2723,6 +3088,18 @@ PrefabInstance:
     - target: {fileID: 340824930535376310, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
       propertyPath: m_Name
       value: Golem
+      objectReference: {fileID: 0}
+    - target: {fileID: 340824930535376310, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253866674710936020, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: angle
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253866674710936020, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
+      propertyPath: radius
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6830846152203381250, guid: 26a6141b692518c4794ffcad5ca2ff0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2820,6 +3197,10 @@ PrefabInstance:
     - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
       propertyPath: m_Name
       value: WandCrystalPickup (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2920,6 +3301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuartzFlaskPickup (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2977,6 +3362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuartzFlaskPickup (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3033,6 +3422,10 @@ PrefabInstance:
     - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
       propertyPath: m_Name
       value: QuartzFlaskPickup (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3257,12 +3650,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gargoyle
       objectReference: {fileID: 0}
+    - target: {fileID: 3486166225400030514, guid: 3b5f1f200fa7d394a9a0d6dac75d2fa0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4651758550010086627, guid: 3b5f1f200fa7d394a9a0d6dac75d2fa0, type: 3}
       propertyPath: m_AgentTypeID
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4651758550010086627, guid: 3b5f1f200fa7d394a9a0d6dac75d2fa0, type: 3}
       propertyPath: m_Acceleration
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114712495642428483, guid: 3b5f1f200fa7d394a9a0d6dac75d2fa0, type: 3}
+      propertyPath: angle
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114712495642428483, guid: 3b5f1f200fa7d394a9a0d6dac75d2fa0, type: 3}
+      propertyPath: radius
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114712495642428483, guid: 3b5f1f200fa7d394a9a0d6dac75d2fa0, type: 3}
+      propertyPath: obstructionMask.m_Bits
       value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3759,9 +4168,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 788664571725262591, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480322996426386984, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632296402997792693, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2069564516227274093, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069564516227274093, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907615243466202451, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509790111920738571, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600579713968905330, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5718682691596366310, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643879903659966897, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898002818140423593, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7271060012840924899, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3786,6 +4235,10 @@ PrefabInstance:
     - target: {fileID: 7271060012840924899, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193803821574666886, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3847,6 +4300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TomeOfPowerPickup (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3947099605991942097, guid: ea7beed4b1ac7db4eb5ea1a585209e72, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3904,6 +4361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WandCrystalPickup (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3960,6 +4421,10 @@ PrefabInstance:
     - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
       propertyPath: m_Name
       value: WandCrystalPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311281349883400539, guid: ea94cc4d53c8bbe429dca5fa4ab5372c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4058,6 +4523,150 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1091409216830293379, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577263541753745119, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577263541753745119, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577263541753745119, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577263541753745119, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577263541753745119, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577263541753745119, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577263541753745119, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -740
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423007782331988965, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638003902382593226, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638003902382593226, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638003902382593226, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638003902382593226, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638003902382593226, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638003902382593226, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638003902382593226, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -640
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511129117787321666, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511129117787321666, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511129117787321666, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511129117787321666, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511129117787321666, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511129117787321666, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511129117787321666, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -440
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950421752426661007, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950421752426661007, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950421752426661007, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950421752426661007, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950421752426661007, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950421752426661007, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -540
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332618606896611451, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332618606896611451, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332618606896611451, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332618606896611451, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332618606896611451, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332618606896611451, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332618606896611451, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -340
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4114,6 +4723,10 @@ PrefabInstance:
     - target: {fileID: 3947099605991942097, guid: ea7beed4b1ac7db4eb5ea1a585209e72, type: 3}
       propertyPath: m_Name
       value: TomeOfPowerPickup (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947099605991942097, guid: ea7beed4b1ac7db4eb5ea1a585209e72, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4250,6 +4863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuartzFlaskPickup (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4266,6 +4883,10 @@ PrefabInstance:
     - target: {fileID: 546429814736664314, guid: 4afaa3cc4e7ec3d4d8a09fddac689757, type: 3}
       propertyPath: m_Name
       value: Navmesh (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 546429814736664314, guid: 4afaa3cc4e7ec3d4d8a09fddac689757, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7635980120700199125, guid: 4afaa3cc4e7ec3d4d8a09fddac689757, type: 3}
       propertyPath: m_AgentTypeID
@@ -4375,6 +4996,10 @@ PrefabInstance:
     - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
       propertyPath: m_Name
       value: QuartzFlaskPickup (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4937,14 +5562,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: DocksSwitchDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 4908861566463395925, guid: 88a7ab48e1fc9174baa24bc849f1faf7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788972574635987063, guid: 88a7ab48e1fc9174baa24bc849f1faf7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6387558100087942229, guid: 88a7ab48e1fc9174baa24bc849f1faf7, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 726693553}
+    - target: {fileID: 6498306439106772832, guid: 88a7ab48e1fc9174baa24bc849f1faf7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6834741655411886501, guid: 88a7ab48e1fc9174baa24bc849f1faf7, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1437137754}
+    - target: {fileID: 7753831178888833062, guid: 88a7ab48e1fc9174baa24bc849f1faf7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8149137541031177773, guid: 88a7ab48e1fc9174baa24bc849f1faf7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -5012,6 +5653,10 @@ PrefabInstance:
     - target: {fileID: 1237682439298452342, guid: a00250a330ed8524395a40d30203ae37, type: 3}
       propertyPath: m_Name
       value: KeyDoorY (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237682439298452342, guid: a00250a330ed8524395a40d30203ae37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5488,6 +6133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CornerDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 9187176376570165948, guid: 9edfe8f02bc45ce468f1eea84e9a6240, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5572,6 +6221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyDoorB (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5283238253230009576, guid: 68e8f509debd08a47ab6b3177d7e8672, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5628,6 +6281,10 @@ PrefabInstance:
     - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
       propertyPath: m_Name
       value: QuartzFlaskPickup (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264753525667295727, guid: c07f266a019c794459e1776b2b4e8212, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5686,6 +6343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyDoorB
       objectReference: {fileID: 0}
+    - target: {fileID: 5283238253230009576, guid: 68e8f509debd08a47ab6b3177d7e8672, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5702,6 +6363,10 @@ PrefabInstance:
     - target: {fileID: 4936215545744734605, guid: c2112455b6c5a7f4d89e1d99a0dd46f5, type: 3}
       propertyPath: m_Name
       value: KeyDoorG
+      objectReference: {fileID: 0}
+    - target: {fileID: 4936215545744734605, guid: c2112455b6c5a7f4d89e1d99a0dd46f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7991422729156307218, guid: c2112455b6c5a7f4d89e1d99a0dd46f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5800,6 +6465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyYellow
       objectReference: {fileID: 0}
+    - target: {fileID: 7912514252032362489, guid: f3de246d18a6e5b42aabf4674e5cf91a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5857,6 +6526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stat Resetter
       objectReference: {fileID: 0}
+    - target: {fileID: 3373278424220931508, guid: 75b6c5a20ed568d4a859f267b3aba51a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5873,6 +6546,10 @@ PrefabInstance:
     - target: {fileID: 6194654304845595780, guid: e7a2e684c16388346a5a573ce275e34e, type: 3}
       propertyPath: m_Name
       value: KeyBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194654304845595780, guid: e7a2e684c16388346a5a573ce275e34e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7263814946454699870, guid: e7a2e684c16388346a5a573ce275e34e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5930,6 +6607,10 @@ PrefabInstance:
     - target: {fileID: 546429814736664314, guid: 4afaa3cc4e7ec3d4d8a09fddac689757, type: 3}
       propertyPath: m_Name
       value: Navmesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 546429814736664314, guid: 4afaa3cc4e7ec3d4d8a09fddac689757, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7635980120700199125, guid: 4afaa3cc4e7ec3d4d8a09fddac689757, type: 3}
       propertyPath: m_AgentTypeID
@@ -5999,6 +6680,10 @@ PrefabInstance:
     - target: {fileID: 6098612840858079914, guid: bb4650c6f77047249a8607dab2e6bf7e, type: 3}
       propertyPath: m_Name
       value: KeyGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6098612840858079914, guid: bb4650c6f77047249a8607dab2e6bf7e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8736049723457519756, guid: bb4650c6f77047249a8607dab2e6bf7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6105,6 +6790,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 8498971664657163679, guid: 957872006d498214d962deb67c47914c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6168,6 +6857,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwitchDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6791508465363279695, guid: f28afe61eeb3a5f4ea0c08c7682c5d7f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6224,6 +6917,10 @@ PrefabInstance:
     - target: {fileID: 1237682439298452342, guid: a00250a330ed8524395a40d30203ae37, type: 3}
       propertyPath: m_Name
       value: KeyDoorY
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237682439298452342, guid: a00250a330ed8524395a40d30203ae37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6302,3 +6999,6 @@ SceneRoots:
   - {fileID: 1793717386}
   - {fileID: 1062569599}
   - {fileID: 724127995}
+  - {fileID: 624598970}
+  - {fileID: 10670708}
+  - {fileID: 1233267454}
