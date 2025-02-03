@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 7052126593952272008}
   - component: {fileID: 2504099974091802718}
   - component: {fileID: 851674081308374579}
+  - component: {fileID: 2015168040183712659}
   m_Layer: 8
   m_Name: CrossBowBigBolt
   m_TagString: Untagged
@@ -363,3 +364,17 @@ CapsuleCollider:
   m_Height: 1.2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.1}
+--- !u!114 &2015168040183712659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934813225373073617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c966d395caa4a4b974f851a48aa82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunValue: 2
+  knockbackValue: 2

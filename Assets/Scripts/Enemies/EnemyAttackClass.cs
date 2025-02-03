@@ -8,11 +8,18 @@ public abstract class EnemyAttackClass : MonoBehaviour
     public float attackRange;
     public bool playerInAttackRange;
 
+    public StunSystem stunSystem;
+
     protected virtual void Update()
     {
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-            if (playerInAttackRange)
-                MeleeAttack();
+        if (playerInAttackRange)
+        {
+            if (!stunSystem.isStunned)
+            {
+				MeleeAttack();
+			}
+        }
     }
 
 	protected virtual void AttackPlayer()

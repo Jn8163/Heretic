@@ -7,6 +7,7 @@ public class Staff : Weapon
     [SerializeField] private float hitRange = 2.5f;
     [SerializeField] private Vector3 hitBoxHalfSize = Vector3.one;
     [SerializeField] private int damage = -1;
+    [SerializeField] private int stunValue = 2;
 
 
 
@@ -44,6 +45,10 @@ public class Staff : Weapon
                 if(hit.transform.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
                 {
                     hSystem.UpdateHealth(damage);
+                }
+                if (hit.transform.TryGetComponent<StunSystem>(out StunSystem sSystem))
+                {
+                    sSystem.TryStun(stunValue, 1);
                 }
             }
             StartCoroutine(nameof(WeaponCooldown));

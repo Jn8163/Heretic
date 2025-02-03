@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System;
+using UnityEngine.AI;
 
 public class EnemyDeathGA : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class EnemyDeathGA : MonoBehaviour
         // Destroy(gameObject);
         anim.SetBool("Dead", true);
         GetComponentInChildren<EnemyAudioCalls>().Die();
+        GetComponent<NavMeshAgent>().speed = 0;
         StartCoroutine(nameof(DestroyEnemy));
     }
 

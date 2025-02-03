@@ -50,7 +50,7 @@ public class HealthSystem : MonoBehaviour
         else if (!bPlayer)
         {
             GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();
-            StartCoroutine(nameof(EnemyHurt));
+            
         }
 
         currentHealth += amount;
@@ -63,12 +63,7 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
-    IEnumerator EnemyHurt()
-    {
-		anim.SetBool("isHurt", true);
-        yield return new WaitForSeconds(1f / 6f);
-		anim.SetBool("isHurt", false);
-	}
+    
 
     public void Death()
     {

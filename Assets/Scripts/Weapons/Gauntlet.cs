@@ -10,6 +10,7 @@ public class Gauntlet : Weapon
     [SerializeField] private float hitRange = 2.5f;
     [SerializeField] private Vector3 hitBoxHalfSize = Vector3.one;
     [SerializeField] private int damage = -1;
+    [SerializeField] private int stunValue = 2;
     private bool attacking;
 
 
@@ -50,6 +51,10 @@ public class Gauntlet : Weapon
                         FindAnyObjectByType<PlayerMovement>().TargetPosition(hit.transform.position + enemyDir.normalized * 2);
                         FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(true);
                         StartCoroutine(nameof(WeaponCooldown));
+                    }
+                    if (hit.transform.TryGetComponent<StunSystem>(out StunSystem sSystem))
+                    {
+                        sSystem.TryStun(stunValue, 0);
                     }
                 }
                 else

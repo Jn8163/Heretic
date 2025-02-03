@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4594698891351078973}
   - component: {fileID: 2377492766579512910}
   - component: {fileID: 2401548988057772185}
+  - component: {fileID: -2530070374219029778}
   m_Layer: 8
   m_Name: ElvenWandProjectile
   m_TagString: Untagged
@@ -173,3 +174,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flexhealth: -7
+--- !u!114 &-2530070374219029778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832841594439106919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c966d395caa4a4b974f851a48aa82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunValue: 1
