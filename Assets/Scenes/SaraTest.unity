@@ -118,6 +118,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &744244036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 744244037}
+  m_Layer: 0
+  m_Name: Firing1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &744244037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744244036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.17364816, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1139721984}
+  m_LocalEulerAnglesHint: {x: 0, y: 20, z: 0}
 --- !u!1 &842830774
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +845,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1139721984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6643685397179820434, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+  m_PrefabInstance: {fileID: 827881369438195721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1174177456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1174177457}
+  m_Layer: 0
+  m_Name: Firing2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1174177457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174177456}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.17364825, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1139721984}
+  m_LocalEulerAnglesHint: {x: 0, y: -20, z: 0}
 --- !u!1 &1342199201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1145,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1333844887327722123, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: SmallBoltSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333844887327722123, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: SmallboltPrefab
+      value: 
+      objectReference: {fileID: 6572644684171455506, guid: 048956807ae00564d958055f6fa82d02, type: 3}
+    - target: {fileID: 1333844887327722123, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: SmallBoltFiringpoint1
+      value: 
+      objectReference: {fileID: 744244036}
+    - target: {fileID: 1333844887327722123, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      propertyPath: SmallBoltFiringpoint2
+      value: 
+      objectReference: {fileID: 1174177456}
     - target: {fileID: 2069564516227274093, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1112,7 +1195,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6643685397179820434, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 744244037}
+    - targetCorrespondingSourceObject: {fileID: 6643685397179820434, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1174177457}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
 --- !u!1660057539 &9223372036854775807
