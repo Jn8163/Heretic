@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 25
-  angle: 140
   targetMask:
     serializedVersion: 2
     m_Bits: 1
@@ -155,6 +154,7 @@ MonoBehaviour:
   maxHealth: 80
   score: 1
   healthBar: {fileID: 0}
+  anim: {fileID: 9042044281528656176}
   currentHealth: 0
   bAlive: 1
 --- !u!114 &7999930604784212307
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSystem: {fileID: 3634795277538681123}
-  anim: {fileID: 35321596643366289}
+  anim: {fileID: 9042044281528656176}
 --- !u!114 &3712381868068891201
 MonoBehaviour:
   m_ObjectHideFlags: 0
