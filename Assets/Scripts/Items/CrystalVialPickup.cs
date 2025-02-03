@@ -39,10 +39,10 @@ public class CrystalVialPickup : ImmediatePickup
 
     protected override void PickupItem()
     {
-        base.PickupItem();
         if (healthSystem.GetMissingHealth() > 0)
         {
-            healthSystem.UpdateHealth(heal_amount);
+			base.PickupItem();
+			healthSystem.UpdateHealth(heal_amount);
             StartCoroutine(DestroyPickup());
         }
     }
