@@ -22,10 +22,13 @@ public class SceneInitializer : MonoBehaviour
     private void Start()
     {
         CursorState.instance.CursorVisible(cursorVisible);
-        PauseSystem.instance.PauseInactive(pausingInactive);
+        if (PauseSystem.instance)
+        {
+            PauseSystem.instance.PauseInactive(pausingInactive);
+        }
         MenuSystem.instance.PlayerHUDActive(playerHUD);
         
-        if (menuToActivate != "")
+        if (!menuToActivate.Equals(""))
         {
             MenuSystem.instance.SwitchMenu(menuToActivate);
         }

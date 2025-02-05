@@ -17,7 +17,7 @@ public class OpenKeyDoor : MonoBehaviour
 	[SerializeField]
 	[Range(0,2)]
 	private int index; // 0 is yellow, 1 is green, 2 is blue
-	private void Start()
+	private void OnEnable()
 	{
 		pInput = new PlayerInput();
 		pInput.Enable();
@@ -31,6 +31,7 @@ public class OpenKeyDoor : MonoBehaviour
 	private void OnDisable()
 	{
 		pInput.Player.Interact.performed -= OpenDoor;
+		pInput.Disable();
 	}
 
 	private void ToggleKeyYellow(bool b)

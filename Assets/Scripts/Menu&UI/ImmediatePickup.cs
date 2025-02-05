@@ -19,8 +19,14 @@ public abstract class ImmediatePickup : Item
     protected override IEnumerator DestroyPickup()
     {
         GetComponent<Collider>().enabled = false;
-        mesh.GetComponent<MeshRenderer>().enabled = false;
-        sprite.GetComponent<SpriteRenderer>().enabled = false;
+        if (mesh)
+        {
+            mesh.GetComponent<MeshRenderer>().enabled = false;
+        }
+        if (sprite)
+        {
+            sprite.GetComponent<SpriteRenderer>().enabled = false;
+        }
         yield return new WaitForSeconds(destroyDelay);
         Destroy(gameObject);
     }

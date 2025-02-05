@@ -246,7 +246,7 @@ public class InventorySystem : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(nameof(DeactivateInventory));
 
-        if (!PauseSystem.instance.mOpen) {
+        if (PauseSystem.instance && !PauseSystem.instance.mOpen) {
             float input = pInput.Player.InventorySelection.ReadValue<float>();
 
             if (input < 0)

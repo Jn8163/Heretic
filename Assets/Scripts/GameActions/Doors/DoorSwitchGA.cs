@@ -24,6 +24,7 @@ public class DoorSwitchGA : MonoBehaviour
 	private void OnDisable()
 	{
         pInput.Player.Interact.performed -= ButtonPressed;
+		pInput.Disable();
 	}
 
 	private void OnTriggerEnter(Collider other)

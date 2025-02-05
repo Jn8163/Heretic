@@ -10,7 +10,7 @@ public class IncrementScene : MonoBehaviour
 	[SerializeField]
 	private int sceneNumber;
 
-	private void Start()
+	private void OnEnable()
 	{
 		pInput = new PlayerInput();
 		pInput.Enable();
@@ -21,6 +21,7 @@ public class IncrementScene : MonoBehaviour
 	private void OnDisable()
 	{
 		pInput.Player.Interact.performed -= SwitchScene;
+		pInput.Disable();
 	}
 
 	private void OnTriggerEnter(Collider other)

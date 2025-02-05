@@ -11,7 +11,7 @@ public class OpenDoorGA : MonoBehaviour
 
 	[SerializeField]
 	private Animator anim;
-	private void Start()
+	private void OnEnable()
 	{
 		pInput = new PlayerInput();
 		pInput.Enable();
@@ -22,6 +22,7 @@ public class OpenDoorGA : MonoBehaviour
 	private void OnDisable()
 	{
 		pInput.Player.Interact.performed -= OpenDoor;
+		pInput.Disable();
 	}
 
 	private void OnTriggerEnter(Collider other)

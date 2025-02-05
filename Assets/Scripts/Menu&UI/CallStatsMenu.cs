@@ -10,7 +10,7 @@ public class CallStatsMenu : MonoBehaviour
 
 	public static Action<string> CallStats = delegate { };
 
-	private void Start()
+	private void OnEnable()
 	{
 		pInput = new PlayerInput();
 		pInput.Enable();

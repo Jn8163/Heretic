@@ -14,8 +14,14 @@ public class GraphicsSwapDelegate : MonoBehaviour
 
     private void Start()
 	{
-		_spriteObj.SetActive(true);
-		_meshObj.SetActive(false);
+		if (_spriteObj)
+		{
+			_spriteObj.SetActive(true);
+		}
+		if (_meshObj)
+		{
+			_meshObj.SetActive(false);
+		}
 	}
 
 	private void OnDisable()
@@ -27,7 +33,7 @@ public class GraphicsSwapDelegate : MonoBehaviour
 	{
 		// if toggle is true, turn on new graphics and disable old
 		// if toggle is false, do the opposite
-		if (toggle)
+		if (toggle && _meshObj && _spriteObj)
 		{
 			_spriteObj.SetActive(false);
 			_meshObj.SetActive(true);

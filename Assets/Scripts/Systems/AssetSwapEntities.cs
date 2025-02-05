@@ -9,7 +9,7 @@ public class AssetSwapEntities : MonoBehaviour
 
 	public static Action<bool> SwapGraphics = delegate { };
 
-	private void Start()
+	private void OnEnable()
 	{
 		pInput = new PlayerInput();
 		pInput.Enable();
@@ -21,6 +21,7 @@ public class AssetSwapEntities : MonoBehaviour
 	private void OnDisable()
 	{
 		pInput.Player.GraphicsSwap.performed -= Swap;
+		pInput.Disable();
 	}
 
 	private void Swap(InputAction.CallbackContext c)
