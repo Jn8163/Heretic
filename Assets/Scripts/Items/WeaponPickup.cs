@@ -9,12 +9,15 @@ public class WeaponPickup : ImmediatePickup
 
     private void OnTriggerEnter(Collider other)
     {
-        bool weaponAdded = FindAnyObjectByType<SwapWeapon>().EnableWeapon(WeaponSlot);
-        Debug.Log(weaponAdded);
-        if (weaponAdded)
+        if (other.CompareTag("Player"))
         {
-            PickupItem();
-        }
+			bool weaponAdded = FindAnyObjectByType<SwapWeapon>().EnableWeapon(WeaponSlot);
+			Debug.Log(weaponAdded);
+			if (weaponAdded)
+			{
+				PickupItem();
+			}
+		}
     }
 
 

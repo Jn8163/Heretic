@@ -423,7 +423,6 @@ MonoBehaviour:
   difficultyM: {fileID: 243301684344732372}
   creditsM: {fileID: 6087843221537717329}
   statsM: {fileID: 1372183708634038869}
-  mapM: {fileID: 2528258600224751830}
   playerHUD: {fileID: 0}
   menus:
   - {fileID: 2423007782331988965}
@@ -1175,14 +1174,14 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 0
+  m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &3068782540359807733
 MonoBehaviour:
@@ -2889,13 +2888,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5698527939245250085}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: -231.95862, y: -301.6, z: -390.8803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2503496180478285889}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!20 &3555711173168643913
 Camera:
   m_ObjectHideFlags: 0
