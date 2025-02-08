@@ -9,6 +9,9 @@ public class LockMapCameraRotation : MonoBehaviour
 	}
 	private void Update()
 	{
-		transform.position = player.transform.position;
+		Vector3 pos = transform.position;
+		pos = player.transform.position;
+		pos.y += 30;
+		transform.position = pos;
 	}
 }

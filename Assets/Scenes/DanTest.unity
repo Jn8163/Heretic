@@ -4124,30 +4124,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7271060012840924899, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7271060012840924899, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7271060012840924899, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7271060012840924899, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7271060012840924899, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7271060012840924899, guid: 876c403330a4b2c458ceb26c56463bc7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4701,6 +4677,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1362692714592469219, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -240
+      objectReference: {fileID: 0}
     - target: {fileID: 1577263541753745119, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4735,7 +4715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528258600224751830, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2638003902382593226, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4767,7 +4747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3068782540359807733, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3511129117787321666, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4796,6 +4776,10 @@ PrefabInstance:
     - target: {fileID: 3511129117787321666, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -440
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555711173168643913, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
+      propertyPath: near clip plane
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5950421752426661007, guid: c3775421c4649754ca5583a850c79ae8, type: 3}
       propertyPath: m_AnchorMax.y
