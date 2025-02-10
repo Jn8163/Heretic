@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelEndResults : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI kills, items, secrets, time;
+    [SerializeField] private TextMeshProUGUI kills, items, secrets, time, timeCounter;
 	private float waitTime = 18f / 21f;
 	private int counter = 0;
 	private float timer = 0;
@@ -62,7 +62,8 @@ public class LevelEndResults : MonoBehaviour
 			}
 			if (counter == 3)
 			{
-				time.text = "time                    " + StatTracker.time / 60 + ":" + StatTracker.time % 60;
+				time.text = "time";
+				timeCounter.text = StatTracker.time / 60 + ":" + StatTracker.time % 60;
 				aSource.Play();
 				StartCoroutine(nameof(StartSwitchTimer));
 			}
