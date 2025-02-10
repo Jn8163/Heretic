@@ -266,6 +266,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   itemCount: {fileID: 4210186738895129956}
+  aSource: {fileID: 0}
 --- !u!1 &1532237671827179910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,11 +2971,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 129186339591399702, guid: 6724a0daf0fcf25449bf273ebf406ce1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 8
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 129186339591399702, guid: 6724a0daf0fcf25449bf273ebf406ce1, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 129186339591399702, guid: 6724a0daf0fcf25449bf273ebf406ce1, type: 3}
       propertyPath: m_LocalScale.x
@@ -2990,7 +2991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 129186339591399702, guid: 6724a0daf0fcf25449bf273ebf406ce1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50.5
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 3095585369450296377, guid: 6724a0daf0fcf25449bf273ebf406ce1, type: 3}
       propertyPath: m_Pivot.x
@@ -3124,6 +3125,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8409811909938163901, guid: 6724a0daf0fcf25449bf273ebf406ce1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1239871593, guid: a1eac6ef4f9ad0e4cb1565d0ced6e6d9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
