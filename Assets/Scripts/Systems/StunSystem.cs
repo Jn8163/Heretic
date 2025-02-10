@@ -30,6 +30,7 @@ public class StunSystem : MonoBehaviour
 			Debug.Log("stunned! " + stunValue);
 			isStunned = true;
 			refreshTimer = true;
+			GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();
 			ApplyKnockback(knockbackValue);
 		}
 		
@@ -61,6 +62,7 @@ public class StunSystem : MonoBehaviour
 			GetComponent<NavMeshAgent>().speed = 0f;
 			GetComponent<NavMeshAgent>().acceleration = 500f;
 			GetComponent<NavMeshAgent>().angularSpeed = 0;
+
 			anim.SetBool("isHurt", true);
 			stunTimer += Time.deltaTime;
 			if (isKnockback)

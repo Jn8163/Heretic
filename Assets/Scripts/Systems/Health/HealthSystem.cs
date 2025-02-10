@@ -49,7 +49,7 @@ public class HealthSystem : MonoBehaviour
         }
         else if (!bPlayer)
         {
-            GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();
+            // GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();         This should only play when the enemy is stunned
             
         }
 
