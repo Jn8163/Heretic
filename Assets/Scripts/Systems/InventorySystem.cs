@@ -22,6 +22,7 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] private int[] itemAmounts;
     [SerializeField] private GameObject[] itemList;
     [SerializeField] private TextMeshProUGUI itemCount;
+    [SerializeField] private AudioSource aSource;
 
     private PlayerInput pInput;
     private int selectedSlot = 0;
@@ -91,7 +92,7 @@ public class InventorySystem : MonoBehaviour
 				itemAmounts[itemslot]--;
 				UpdateItemCountUI(itemAmounts[itemslot]);
 			}
-            
+            aSource.Play();
         }
     }
 

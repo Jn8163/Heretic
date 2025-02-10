@@ -292,8 +292,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -626945850888947736, guid: 0df4d79dae275df45b2620eddabcbe43, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 09c17a01f666eab4981a6422390886c2, type: 3}
-  m_Resource: {fileID: 8300000, guid: 09c17a01f666eab4981a6422390886c2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 735384fcb0dcbdb478d2148126a14bd0, type: 3}
+  m_Resource: {fileID: 8300000, guid: 735384fcb0dcbdb478d2148126a14bd0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -392,8 +392,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 186701923617473661}
-  destroyDelay: 0
+  destroyDelay: 1
   pickupPrefab: {fileID: 4101700839171962501, guid: c082c263a55f61740b03d43d757d46e8, type: 3}
+  mesh: {fileID: 2752514611577645170}
+  sprite: {fileID: 628026786219084562}
 --- !u!114 &3295367084460822130
 MonoBehaviour:
   m_ObjectHideFlags: 0
