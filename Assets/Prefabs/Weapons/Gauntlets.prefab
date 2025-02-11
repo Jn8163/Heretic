@@ -276,12 +276,16 @@ MonoBehaviour:
   playerUI: {fileID: 0}
   attack_sound: {fileID: 0}
   animator2D: {fileID: 1568270877709807643}
-  animator3D: {fileID: 6396138433829895678}
   reloadTime: 0.1
   weaponSlot: 0
   hitRange: 2.5
+  chargedHitRange: 5
   hitBoxHalfSize: {x: 1, y: 1, z: 1}
-  damage: -1
+  damage: -4
+  chargedDamage: -8
+  stunValue: 2
+  gauntletsSprite: {fileID: 2554256650118226151}
+  gauntletsMesh: {fileID: 8992322290141986428}
 --- !u!1 &7896878237492126297
 GameObject:
   m_ObjectHideFlags: 0

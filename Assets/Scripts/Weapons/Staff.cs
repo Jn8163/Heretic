@@ -79,11 +79,6 @@ public class Staff : Weapon
         }
     }
 
-    private void ChargeStaff()
-    {
-        staffSprite.GetComponent<Animator>().SetBool("Supercharged", true);
-    }
-
     protected override IEnumerator WeaponCooldown()
     {
         return base.WeaponCooldown();

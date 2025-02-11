@@ -5,11 +5,9 @@ public class ActivateTome : MonoBehaviour
 {
     public static bool isCharged;
 
-	[SerializeField] private GameObject j;
-
-	private void Update()
+	private void OnDisable()
 	{
-		
+		isCharged = false;
 	}
 
 	public void TomeUsed()

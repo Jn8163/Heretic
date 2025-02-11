@@ -8,9 +8,12 @@ using UnityEngine.InputSystem;
 public class Gauntlet : Weapon
 {
     [SerializeField] private float hitRange = 2.5f;
+    [SerializeField] private float chargedHitRange = 5.0f;
     [SerializeField] private Vector3 hitBoxHalfSize = Vector3.one;
     [SerializeField] private int damage = -1;
+    [SerializeField] private int chargedDamage = -2;
     [SerializeField] private int stunValue = 2;
+    [SerializeField] private GameObject gauntletsSprite, gauntletsMesh;
     private bool attacking;
 
 
@@ -36,31 +39,75 @@ public class Gauntlet : Weapon
 
     private void Update()
     {
-        if (attacking)
+		if (ActivateTome.isCharged)
+		{
+			gauntletsSprite.GetComponent<Animator>().SetBool("Supercharged", true);
+		}
+		else
+		{
+			gauntletsSprite.GetComponent<Animator>().SetBool("Supercharged", false);
+		}
+
+		if (attacking)
         {
             if (!cooldown)
             {
-                Debug.DrawLine(transform.position - transform.forward, (transform.position - (transform.forward * .5f)) + transform.forward * hitRange);
-                if (Physics.BoxCast(transform.position - transform.forward, hitBoxHalfSize, transform.forward, out RaycastHit hit, Quaternion.identity, hitRange, detectableLayers, QueryTriggerInteraction.Ignore))
+                if (!ActivateTome.isCharged)
                 {
-                    if (hit.transform.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
+                    Debug.DrawLine(transform.position - transform.forward, (transform.position - (transform.forward * .5f)) + transform.forward * hitRange);
+                    if (Physics.BoxCast(transform.position - transform.forward, hitBoxHalfSize, transform.forward, out RaycastHit hit, Quaternion.identity, hitRange, detectableLayers, QueryTriggerInteraction.Ignore))
                     {
-                        hSystem.UpdateHealth(damage);
+                        if (hit.transform.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
+                        {
+                            hSystem.UpdateHealth(damage);
 
-                        Vector3 enemyDir = transform.position - hit.transform.position;
-                        FindAnyObjectByType<PlayerMovement>().TargetPosition(hit.transform.position + enemyDir.normalized * 2);
-                        FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(true);
-                        StartCoroutine(nameof(WeaponCooldown));
+                            Vector3 enemyDir = transform.position - hit.transform.position;
+                            FindAnyObjectByType<PlayerMovement>().TargetPosition(hit.transform.position + enemyDir.normalized * 2);
+                            FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(true);
+                            StartCoroutine(nameof(WeaponCooldown));
+                        }
+                        if (hit.transform.TryGetComponent<StunSystem>(out StunSystem sSystem))
+                        {
+                            sSystem.TryStun(stunValue, 0);
+                        }
                     }
-                    if (hit.transform.TryGetComponent<StunSystem>(out StunSystem sSystem))
+                    else
                     {
-                        sSystem.TryStun(stunValue, 0);
+                        FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
                     }
                 }
+
+                // Charged version
                 else
                 {
-                    FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
-                }
+					Debug.DrawLine(transform.position - transform.forward, (transform.position - (transform.forward * .5f)) + transform.forward * chargedHitRange);
+					if (Physics.BoxCast(transform.position - transform.forward, hitBoxHalfSize, transform.forward, out RaycastHit hit, Quaternion.identity, chargedHitRange, detectableLayers, QueryTriggerInteraction.Ignore))
+					{
+						if (hit.transform.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
+						{
+							hSystem.UpdateHealth(chargedDamage);
+
+							Vector3 enemyDir = transform.position - hit.transform.position;
+							FindAnyObjectByType<PlayerMovement>().TargetPosition(hit.transform.position + enemyDir.normalized * 2);
+							FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(true);
+
+                            // Regenerate health on hit
+                            if (GameObject.Find("Player").TryGetComponent<HealthSystem>(out HealthSystem playerHSystem))
+                            {
+                                playerHSystem.UpdateHealth(-chargedDamage);
+                            }
+							StartCoroutine(nameof(WeaponCooldown));
+						}
+						if (hit.transform.TryGetComponent<StunSystem>(out StunSystem sSystem))
+						{
+							sSystem.TryStun(stunValue, 0);
+						}
+					}
+					else
+					{
+						FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
+					}
+				}
             }
         }
     }
@@ -88,6 +135,7 @@ public class Gauntlet : Weapon
     private void AttackCanceled(InputAction.CallbackContext c)
     {
         animator2D.SetBool("Attacking", false);
+        Debug.Log("attack stopped");
         FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
         attacking = false;
     }
