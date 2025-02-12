@@ -7,9 +7,9 @@ public class CrossBowBolt : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 9)
+        if(other.gameObject.layer == 9 || other.gameObject.layer == 0)
         {
-            Instantiate(HitPrefab, other.transform.position, other.gameObject.transform.rotation);
+            Instantiate(HitPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
