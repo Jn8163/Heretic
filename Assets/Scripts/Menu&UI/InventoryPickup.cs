@@ -14,7 +14,10 @@ public class InventoryPickup : Item
 
     private void OnTriggerEnter(Collider other)
     {
-        PickupItem();
+        if (other.CompareTag("Player"))
+        {
+			PickupItem();
+		}
     }
 
 
