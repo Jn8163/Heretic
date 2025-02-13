@@ -15,6 +15,8 @@ public class OpenKeyDoor : MonoBehaviour
 	[SerializeField]
 	private Animator anim;
 	[SerializeField]
+	private AudioSource audioSource;
+	[SerializeField]
 	[Range(0,2)]
 	private int index; // 0 is yellow, 1 is green, 2 is blue
 	private void OnEnable()
@@ -72,24 +74,28 @@ public class OpenKeyDoor : MonoBehaviour
 			{
 				isDoorOpen = true;
 				anim.SetBool("isDoorOpen", isDoorOpen);
-			}
-		}
+                audioSource.Play();
+
+            }
+        }
 		else if (index == 1 && isKeyG)
 		{
 			if (isInteractable)
 			{
-				isDoorOpen = true;
+                isDoorOpen = true;
 				anim.SetBool("isDoorOpen", isDoorOpen);
-			}
-		}
+                audioSource.Play();
+            }
+        }
 		else if (index == 2 && isKeyB)
 		{
 			if (isInteractable)
 			{
-				isDoorOpen = true;
+                isDoorOpen = true;
 				anim.SetBool("isDoorOpen", isDoorOpen);
-			}
-		}
+                audioSource.Play();
+            }
+        }
 
 		else if(index == 0 && !isKeyY)
 		{

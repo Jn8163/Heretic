@@ -11,6 +11,8 @@ public class OpenDoorGA : MonoBehaviour
 
 	[SerializeField]
 	private Animator anim;
+	[SerializeField]
+	private AudioSource audioSource;
 	private void OnEnable()
 	{
 		pInput = new PlayerInput();
@@ -47,7 +49,11 @@ public class OpenDoorGA : MonoBehaviour
 	{
 		if (isInteractable)
 		{
-			isDoorOpen = true;
+			if (!isDoorOpen)
+			{
+                audioSource.Play();
+            }
+            isDoorOpen = true;
 			anim.SetBool("isDoorOpen", isDoorOpen);
 		}
 	}

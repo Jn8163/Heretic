@@ -53,6 +53,8 @@ public class EtherealCrossbow : RangedWeapon
 
                 Projectile sP2 = Instantiate(SmallboltPrefab, SmallBoltFiringpoint2.transform.position, SmallBoltFiringpoint2.transform.rotation).GetComponent<Projectile>();
                 sP2.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint2.transform.forward);
+
+                audioSource.Play();
             }
         }
         else

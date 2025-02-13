@@ -12,6 +12,8 @@ public class DoorSwitchGA : MonoBehaviour
 
 	[SerializeField]
 	private Animator doorAnim, buttonAnim;
+	[SerializeField]
+	private AudioSource doorSound, buttonSound;
 
 	private void Start()
 	{
@@ -47,9 +49,14 @@ public class DoorSwitchGA : MonoBehaviour
 	{
 		if (isInteractable)
 		{
-			isButtonPressed = true;
-			doorAnim.SetBool("isDoorOpen", isButtonPressed);
-			buttonAnim.SetBool("isButtonPressed", isButtonPressed);
-		}
-	}
+			if (!isButtonPressed) {
+                buttonSound.Play();
+                doorSound.Play();
+            }
+            isButtonPressed = true;
+            doorAnim.SetBool("isDoorOpen", isButtonPressed);
+            buttonAnim.SetBool("isButtonPressed", isButtonPressed);
+
+        }
+    }
 }

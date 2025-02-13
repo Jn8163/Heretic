@@ -8,7 +8,7 @@ public abstract class Weapon : MonoBehaviour
     public bool currentWeapon;
     [SerializeField] protected LayerMask detectableLayers;
     [SerializeField] private PlayerUI playerUI;
-    [SerializeField] private AudioSource attack_sound;
+    [SerializeField] protected AudioSource attack_sound;
     [SerializeField] protected Animator animator2D;
     [SerializeField] protected float reloadTime = 1f;
     [Tooltip("WeaponSlot for swapping weapons, should be between 0 and 5 (Array Index)")]

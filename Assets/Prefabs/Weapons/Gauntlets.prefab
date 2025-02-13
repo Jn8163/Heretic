@@ -120,8 +120,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5777855642772417240}
   - component: {fileID: 5974292912867999103}
-  - component: {fileID: 1704281161486500945}
   - component: {fileID: 8990864339447970116}
+  - component: {fileID: 1753281084838419483}
   m_Layer: 0
   m_Name: Gauntlets
   m_TagString: Player
@@ -160,7 +160,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObj: {fileID: 2554256650118226151}
   _meshObj: {fileID: 7896878237492126297}
---- !u!82 &1704281161486500945
+--- !u!114 &8990864339447970116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6585601536718532706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c22e6300b544345a9e439a6a4d9848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: 0
+  detectableLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  playerUI: {fileID: 0}
+  attack_sound: {fileID: 1753281084838419483}
+  animator2D: {fileID: 1568270877709807643}
+  reloadTime: 0.1
+  weaponSlot: 0
+  hitRange: 2.5
+  chargedHitRange: 5
+  hitBoxHalfSize: {x: 1, y: 1, z: 1}
+  damage: -4
+  chargedDamage: -8
+  stunValue: 2
+  gauntletsSprite: {fileID: 2554256650118226151}
+  gauntletsMesh: {fileID: 8992322290141986428}
+--- !u!82 &1753281084838419483
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,12 +199,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9aa602a579c7c6b4987fadd167782415, type: 3}
-  m_Resource: {fileID: 8300000, guid: 9aa602a579c7c6b4987fadd167782415, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 398cc2933f6aa874f87258312707883c, type: 3}
+  m_Resource: {fileID: 8300000, guid: 398cc2933f6aa874f87258312707883c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -257,35 +286,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8990864339447970116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6585601536718532706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c22e6300b544345a9e439a6a4d9848, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWeapon: 0
-  detectableLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  playerUI: {fileID: 0}
-  attack_sound: {fileID: 0}
-  animator2D: {fileID: 1568270877709807643}
-  reloadTime: 0.1
-  weaponSlot: 0
-  hitRange: 2.5
-  chargedHitRange: 5
-  hitBoxHalfSize: {x: 1, y: 1, z: 1}
-  damage: -4
-  chargedDamage: -8
-  stunValue: 2
-  gauntletsSprite: {fileID: 2554256650118226151}
-  gauntletsMesh: {fileID: 8992322290141986428}
 --- !u!1 &7896878237492126297
 GameObject:
   m_ObjectHideFlags: 0

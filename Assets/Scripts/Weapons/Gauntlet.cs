@@ -15,6 +15,7 @@ public class Gauntlet : Weapon
     [SerializeField] private int stunValue = 2;
     [SerializeField] private GameObject gauntletsSprite, gauntletsMesh;
     private bool attacking;
+    private bool audio_playing;
 
 
 
@@ -54,6 +55,11 @@ public class Gauntlet : Weapon
             {
                 if (!ActivateTome.isCharged)
                 {
+                    if (!audio_playing)
+                    {
+                        audio_playing = true;
+                        attack_sound.Play();
+                    }
                     Debug.DrawLine(transform.position - transform.forward, (transform.position - (transform.forward * .5f)) + transform.forward * hitRange);
                     if (Physics.BoxCast(transform.position - transform.forward, hitBoxHalfSize, transform.forward, out RaycastHit hit, Quaternion.identity, hitRange, detectableLayers, QueryTriggerInteraction.Ignore))
                     {
@@ -75,12 +81,19 @@ public class Gauntlet : Weapon
                     {
                         FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
                     }
+
                 }
+
 
                 // Charged version
                 else
                 {
-					Debug.DrawLine(transform.position - transform.forward, (transform.position - (transform.forward * .5f)) + transform.forward * chargedHitRange);
+                    if (!audio_playing)
+                    {
+                        audio_playing = true;
+                        attack_sound.Play();
+                    }
+                    Debug.DrawLine(transform.position - transform.forward, (transform.position - (transform.forward * .5f)) + transform.forward * chargedHitRange);
 					if (Physics.BoxCast(transform.position - transform.forward, hitBoxHalfSize, transform.forward, out RaycastHit hit, Quaternion.identity, chargedHitRange, detectableLayers, QueryTriggerInteraction.Ignore))
 					{
 						if (hit.transform.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
@@ -138,6 +151,8 @@ public class Gauntlet : Weapon
         Debug.Log("attack stopped");
         FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
         attacking = false;
+        audio_playing= false;
+        attack_sound.Stop();
     }
 
 
