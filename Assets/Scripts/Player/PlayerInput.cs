@@ -198,6 +198,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MapZoomIn"",
+                    ""type"": ""Button"",
+                    ""id"": ""34b9f719-e5d2-43da-a9d1-988536e87a3c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MapZoomOut"",
+                    ""type"": ""Button"",
+                    ""id"": ""b6378fd8-4183-4d19-bb91-d74b7d419df8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -673,6 +691,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""GraphicsSwap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d2a8076-40e1-48b4-9a2d-ddef5384008d"",
+                    ""path"": ""<Keyboard>/equals"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MapZoomIn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""501a7751-fdad-4c22-a7bc-f9d181cc1439"",
+                    ""path"": ""<Keyboard>/minus"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MapZoomOut"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -728,6 +768,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Weapon6 = m_Player.FindAction("Weapon6", throwIfNotFound: true);
         m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
         m_Player_GraphicsSwap = m_Player.FindAction("GraphicsSwap", throwIfNotFound: true);
+        m_Player_MapZoomIn = m_Player.FindAction("MapZoomIn", throwIfNotFound: true);
+        m_Player_MapZoomOut = m_Player.FindAction("MapZoomOut", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -813,6 +855,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Weapon6;
     private readonly InputAction m_Player_UseItem;
     private readonly InputAction m_Player_GraphicsSwap;
+    private readonly InputAction m_Player_MapZoomIn;
+    private readonly InputAction m_Player_MapZoomOut;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -836,6 +880,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Weapon6 => m_Wrapper.m_Player_Weapon6;
         public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
         public InputAction @GraphicsSwap => m_Wrapper.m_Player_GraphicsSwap;
+        public InputAction @MapZoomIn => m_Wrapper.m_Player_MapZoomIn;
+        public InputAction @MapZoomOut => m_Wrapper.m_Player_MapZoomOut;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -902,6 +948,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @GraphicsSwap.started += instance.OnGraphicsSwap;
             @GraphicsSwap.performed += instance.OnGraphicsSwap;
             @GraphicsSwap.canceled += instance.OnGraphicsSwap;
+            @MapZoomIn.started += instance.OnMapZoomIn;
+            @MapZoomIn.performed += instance.OnMapZoomIn;
+            @MapZoomIn.canceled += instance.OnMapZoomIn;
+            @MapZoomOut.started += instance.OnMapZoomOut;
+            @MapZoomOut.performed += instance.OnMapZoomOut;
+            @MapZoomOut.canceled += instance.OnMapZoomOut;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -963,6 +1015,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @GraphicsSwap.started -= instance.OnGraphicsSwap;
             @GraphicsSwap.performed -= instance.OnGraphicsSwap;
             @GraphicsSwap.canceled -= instance.OnGraphicsSwap;
+            @MapZoomIn.started -= instance.OnMapZoomIn;
+            @MapZoomIn.performed -= instance.OnMapZoomIn;
+            @MapZoomIn.canceled -= instance.OnMapZoomIn;
+            @MapZoomOut.started -= instance.OnMapZoomOut;
+            @MapZoomOut.performed -= instance.OnMapZoomOut;
+            @MapZoomOut.canceled -= instance.OnMapZoomOut;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1019,5 +1077,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnWeapon6(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
         void OnGraphicsSwap(InputAction.CallbackContext context);
+        void OnMapZoomIn(InputAction.CallbackContext context);
+        void OnMapZoomOut(InputAction.CallbackContext context);
     }
 }

@@ -175,6 +175,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MapZoomIn",
+                    "type": "Button",
+                    "id": "34b9f719-e5d2-43da-a9d1-988536e87a3c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MapZoomOut",
+                    "type": "Button",
+                    "id": "b6378fd8-4183-4d19-bb91-d74b7d419df8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -648,6 +666,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "GraphicsSwap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d2a8076-40e1-48b4-9a2d-ddef5384008d",
+                    "path": "<Keyboard>/equals",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapZoomIn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "501a7751-fdad-4c22-a7bc-f9d181cc1439",
+                    "path": "<Keyboard>/minus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapZoomOut",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
