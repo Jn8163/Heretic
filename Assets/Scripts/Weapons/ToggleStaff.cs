@@ -17,6 +17,7 @@ public class ToggleStaff : MonoBehaviour
         pInput.Enable();
 
         pInput.Player.Weapon1.performed += Toggle;
+        pInput.Player.SwitchWeapon.performed += SwitchWeapon;
     }
 
 
@@ -25,6 +26,7 @@ public class ToggleStaff : MonoBehaviour
     {
         pInput.Disable();
         pInput.Player.Weapon1.performed -= Toggle;
+        pInput.Player.SwitchWeapon.performed -= SwitchWeapon;
     }
 
 
@@ -42,5 +44,10 @@ public class ToggleStaff : MonoBehaviour
             staff.SetActive(staffActive);
             gauntlet.SetActive(!staffActive);
         }
+    }
+
+    private void SwitchWeapon(InputAction.CallbackContext c)
+    {
+
     }
 }

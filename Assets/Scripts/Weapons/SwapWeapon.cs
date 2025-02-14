@@ -10,7 +10,9 @@ public class SwapWeapon : MonoBehaviour
     private PlayerInput pInput;
     [SerializeField] private int startingSlot = 1;
     [SerializeField] private List<GameObject> weapons = new List<GameObject>();
-    [SerializeField] private List<bool> weaponAquired = new List<bool>(){ false, true, false, false, false, false, false};
+    [SerializeField] private List<bool> weaponAquired = new List<bool>(){ true, true, false, false, false, false, false};
+    private bool staffActive = true;
+    public bool gauntletUnlocked;
     /// <summary>
     /// Shows array index of current weapon. Ex: 0 through 5
     /// </summary>
@@ -76,7 +78,7 @@ public class SwapWeapon : MonoBehaviour
 
                 if(weaponSlot == 6)
                 {
-                    weapons[0].GetComponent<ToggleStaff>().gauntletUnlocked = true;
+                    gauntletUnlocked = true;
                 }
 
                 return true;
@@ -127,6 +129,14 @@ public class SwapWeapon : MonoBehaviour
                 weaponSlot = 0;
             }
 
+            if (weaponAquired[6] && weaponSlot == 0)
+            {
+                staffActive = !staffActive;
+                if (!staffActive)
+                {
+                    weaponSlot = 6;
+                }
+            }
 
             if (weaponAquired[weaponSlot])
             {
@@ -139,6 +149,8 @@ public class SwapWeapon : MonoBehaviour
                     FindAnyObjectByType<AmmoSystem>().GetComponent<AmmoSystem>().currentAmmoType = null;
                 }
             }
+
+            
         }
     }
 
