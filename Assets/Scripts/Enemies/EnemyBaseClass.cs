@@ -1,5 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public abstract class EnemyBaseClass : MonoBehaviour
 {
@@ -14,10 +15,12 @@ public abstract class EnemyBaseClass : MonoBehaviour
     // Patrolling
     public Vector3 walkPoint;
     public bool walkPointSet;
-    public float walkPointRange;
-    public Vector3 startingPos;
+    public float walkPointRange = 5f; // Controlled wandering distance
+    public float patrolPauseTime = 3f; // Time between wander attempts
+    private bool isPausing;
 
-    // States
+    // Enemy AI states
+    protected Vector3 startingPos;
     public float sightRange, attackRange, chaseTimer;
     public bool playerInSightRange, playerInAttackRange, isChasing;
     public bool AgroYellDone;
@@ -28,6 +31,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         healthSystem = GetComponent<HealthSystem>();
         fov = GetComponent<FOV>(); // Get FOV component
+
         startingPos = transform.position;
     }
 
@@ -35,17 +39,19 @@ public abstract class EnemyBaseClass : MonoBehaviour
     {
         if (healthSystem != null && healthSystem.bAlive)
         {
-            // Check vision using FOV component
+            // Check vision using FOV system
             playerInSightRange = fov.canSeePlayer;
-			playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
+            // If the enemy sees the player or is attacking, reset chase state
             if (playerInSightRange || playerInAttackRange)
             {
                 isChasing = true;
                 chaseTimer = 0;
             }
 
-            if ((!playerInSightRange && !playerInAttackRange) && isChasing)
+            // If the player disappears, enemy waits for 5 sec before giving up
+            if (!playerInSightRange && !playerInAttackRange && isChasing)
             {
                 chaseTimer += Time.deltaTime;
                 if (chaseTimer > 5)
@@ -55,14 +61,20 @@ public abstract class EnemyBaseClass : MonoBehaviour
                 }
             }
 
-            if (isChasing && !playerInAttackRange)
-                ChasePlayer();
-            if (playerInAttackRange && playerInSightRange)
+            // Behavior priority: Attack > Chase > Return to Origin > Patrol
+            if (playerInAttackRange)
+            {
                 AttackPlayer();
-            if (!isChasing)
+            }
+            else if (isChasing)
+            {
+                ChasePlayer();
+            }
+            else
             {
                 ReturnToOrigin();
-                Patrolling();
+                if (!isPausing)
+                    StartCoroutine(PatrolPause());
             }
         }
         else if (!healthSystem.bAlive)
@@ -78,34 +90,35 @@ public abstract class EnemyBaseClass : MonoBehaviour
         }
     }
 
-    protected virtual void Patrolling()
+    protected virtual void AttackPlayer()
     {
-        if (!walkPointSet)
-            SearchWalkPoint();
-
-        if (walkPointSet)
-            agent.SetDestination(walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        // Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
+        if (agent != null)
+        {
+            agent.SetDestination(transform.position); // Stop moving while attacking
+            StartCoroutine(ResumeChaseAfterAttack());
+        }
     }
 
-    protected virtual void SearchWalkPoint()
+    IEnumerator ResumeChaseAfterAttack()
     {
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-        walkPoint = new Vector3(startingPos.x + randomX, startingPos.y, startingPos.z + randomZ);
-        walkPointSet = true;
+        yield return new WaitForSeconds(1f); // Adjust based on attack animation length
+
+        if (playerInSightRange)
+        {
+            isChasing = true;
+            ChasePlayer(); // Resume chasing after attack
+        }
+        else
+        {
+            isChasing = false;
+        }
     }
 
     protected virtual void ChasePlayer()
     {
-        if (agent != null && playerInSightRange)
+        if (agent != null)
         {
-            isChasing = true;
+            agent.isStopped = false;
             agent.SetDestination(player.position);
         }
     }
@@ -118,12 +131,43 @@ public abstract class EnemyBaseClass : MonoBehaviour
         }
     }
 
-    protected virtual void AttackPlayer()
+    protected virtual void Patrolling()
     {
-        if (agent != null)
+        if (!walkPointSet)
+            SearchWalkPoint();
+
+        if (walkPointSet)
+            agent.SetDestination(walkPoint);
+
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+        if (distanceToWalkPoint.magnitude < 1f)
+            walkPointSet = false;
+    }
+
+    protected virtual void SearchWalkPoint()
+    {
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        walkPoint = new Vector3(startingPos.x + randomX, startingPos.y, startingPos.z + randomZ);
+
+        if (NavMesh.SamplePosition(walkPoint, out NavMeshHit hit, 2.0f, NavMesh.AllAreas))
         {
-            agent.SetDestination(transform.position);
+            walkPoint = hit.position; // Ensure walk point is valid
+            walkPointSet = true;
         }
+        else
+        {
+            walkPointSet = false;
+        }
+    }
+
+    protected virtual IEnumerator PatrolPause()
+    {
+        isPausing = true;
+        yield return new WaitForSeconds(patrolPauseTime);
+        Patrolling();
+        isPausing = false;
     }
 
     protected virtual void OnDrawGizmos()

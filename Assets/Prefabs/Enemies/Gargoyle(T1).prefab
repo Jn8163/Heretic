@@ -874,14 +874,19 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointSet: 0
   walkPointRange: 6
-  startingPos: {x: 0, y: 0, z: 0}
-  sightRange: 25
+  patrolPauseTime: 3
+  sightRange: 35
   attackRange: 1.4
+  chaseTimer: 0
   playerInSightRange: 0
   playerInAttackRange: 0
+  isChasing: 0
   AgroYellDone: 0
   hoverDist: 1.7
   DashRange: 14
+  randomMoveInterval: 1.2
+  hoverMoveRadius: 2
+  dodgeChance: 0.3
 --- !u!195 &6168588899592246224
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -891,7 +896,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7083203481098201123}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.8
+  m_Radius: 1.3
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -920,6 +925,7 @@ MonoBehaviour:
   maxHealth: 40
   score: 0
   healthBar: {fileID: 0}
+  anim: {fileID: 0}
   currentHealth: 0
   bAlive: 1
 --- !u!114 &2204896372537155073
@@ -997,7 +1003,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
-  angle: 0
   targetMask:
     serializedVersion: 2
     m_Bits: 1
@@ -1087,6 +1092,7 @@ MonoBehaviour:
     m_Bits: 8
   attackRange: 1.5
   playerInAttackRange: 0
+  stunSystem: {fileID: 0}
   claw: {fileID: 1782791765801055422}
   claw_dmg: -3
   coolDown: 0.5
