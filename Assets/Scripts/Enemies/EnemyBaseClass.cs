@@ -44,7 +44,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
             playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
             // If the enemy sees the player or is attacking, reset chase state
-            if (playerInSightRange || playerInAttackRange)
+            if (playerInSightRange)
             {
                 isChasing = true;
                 chaseTimer = 0;
@@ -64,6 +64,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
             // Behavior priority: Attack > Chase > Return to Origin > Patrol
             if (playerInAttackRange)
             {
+                isChasing = false;
                 AttackPlayer();
             }
             else if (isChasing)
@@ -95,7 +96,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
         if (agent != null)
         {
             agent.SetDestination(transform.position); // Stop moving while attacking
-            StartCoroutine(ResumeChaseAfterAttack());
+            // StartCoroutine(ResumeChaseAfterAttack());
         }
     }
 

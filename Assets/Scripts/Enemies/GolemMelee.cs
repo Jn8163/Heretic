@@ -29,10 +29,13 @@ public class GolemMelee : EnemyAttackClass
         fist.enabled = true;
         animMesh.SetBool("isAttacking", true);
         animSprite.SetBool("isAttacking", true);
-        yield return new WaitForSeconds(1);
-        animMesh.SetBool("isAttacking", false);
-        animSprite.SetBool("isAttacking", false);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(coolDown);
+        if (!playerInAttackRange)
+        {
+			animMesh.SetBool("isAttacking", false);
+			animSprite.SetBool("isAttacking", false);
+		}
+        // yield return new WaitForSeconds(1);
         fist.enabled = false;
         attacked = false;
     }
