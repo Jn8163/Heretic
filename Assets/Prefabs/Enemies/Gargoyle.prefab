@@ -425,7 +425,7 @@ MonoBehaviour:
   walkPointSet: 0
   walkPointRange: 0
   patrolPauseTime: 3
-  sightRange: 35
+  sightRange: 100
   attackRange: 1.4
   chaseTimer: 0
   playerInSightRange: 0
@@ -436,7 +436,7 @@ MonoBehaviour:
   DashRange: 11
   randomMoveInterval: 1.2
   hoverMoveRadius: 2
-  dodgeChance: 0.3
+  dodgeChance: 0.05
 --- !u!195 &4651758550010086627
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691bd3110882a5142993dac06d710af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 25
+  radius: 100
   targetMask:
     serializedVersion: 2
     m_Bits: 1
