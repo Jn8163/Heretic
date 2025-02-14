@@ -434,6 +434,9 @@ MonoBehaviour:
   AgroYellDone: 0
   hoverDist: 1.7
   DashRange: 11
+  randomMoveInterval: 1.2
+  hoverMoveRadius: 2
+  dodgeChance: 0.3
 --- !u!195 &4651758550010086627
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -635,8 +638,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minStunValue: 1
   maxStunValue: 1
+  knockbackResist: 0
   anim: {fileID: 3807300584846532091}
   isStunned: 0
+  isKnockback: 0
   refreshTimer: 0
 --- !u!1 &3735223130289852140
 GameObject:
@@ -1349,6 +1354,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyAudio
       objectReference: {fileID: 0}
+    - target: {fileID: 4918924165968302174, guid: 163caaf98620ded409be84a9ba59c703, type: 3}
+      propertyPath: AgroYell
+      value: 
+      objectReference: {fileID: 8300000, guid: 981449cdfdadb264ea322b6afea9a533, type: 3}
+    - target: {fileID: 4918924165968302174, guid: 163caaf98620ded409be84a9ba59c703, type: 3}
+      propertyPath: AttackOne
+      value: 
+      objectReference: {fileID: 8300000, guid: f344749b644e36c4299ca17e6f698e18, type: 3}
+    - target: {fileID: 4918924165968302174, guid: 163caaf98620ded409be84a9ba59c703, type: 3}
+      propertyPath: AttackTwo
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fcc7f85c5de82b4697f57e953e775b3, type: 3}
+    - target: {fileID: 4918924165968302174, guid: 163caaf98620ded409be84a9ba59c703, type: 3}
+      propertyPath: TakingDamage
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c7901f051ea7ef499ba284723aa5782, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
