@@ -11,14 +11,17 @@ public class Teleporter : MonoBehaviour
     [SerializeField]
     public Transform rotation;
 
-    private void OnTriggerEnter(Collider other)
+	private void Start()
+	{
+        player = GameObject.Find("Player");
+        TP_Start = player.transform;
+	}
+	private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerMovement>() != null)
         {
-            player.SetActive(false);
             TP_Start.position = TP_End.position;
             player.transform.LookAt(rotation);
-            player.SetActive(true);
         }
     }
 }
