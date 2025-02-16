@@ -11,7 +11,12 @@ public class StatTracker : MonoBehaviour
     public static int maxSecrets;
 
     public static int time;
-    public static void ResetStats()
+
+	private void Awake()
+	{
+		ResetStats();
+	}
+	public static void ResetStats()
     {
         killCount = 0;
         itemCount = 0;

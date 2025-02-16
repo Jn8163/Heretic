@@ -8,6 +8,9 @@ public class StatIncItem : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider other)
 	{
-		StatTracker.itemCount++;
+		if (other.CompareTag("Player"))
+		{
+			StatTracker.itemCount++;
+		}
 	}
 }

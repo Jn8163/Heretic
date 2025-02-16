@@ -82,6 +82,7 @@ public class EnemyGargoyleAI : EnemyBaseClass
     IEnumerator resetSpeed()
     {
         yield return new WaitForSeconds(1.5f);
-        agent.speed = 5;
+		if (healthSystem != null && healthSystem.bAlive)
+            agent.speed = 5;
     }
 }

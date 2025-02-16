@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 995951743119024948}
   - component: {fileID: 4797788324655494510}
-  - component: {fileID: 76613870328360457}
-  - component: {fileID: 6227537019807565898}
-  - component: {fileID: 4813371755033267229}
   - component: {fileID: 3525233641833212459}
+  - component: {fileID: -4726530454576727328}
+  - component: {fileID: 3282898919331524263}
   m_Layer: 6
   m_Name: QuiverPickup
   m_TagString: Pickup
@@ -59,49 +58,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &76613870328360457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947099605991942097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de27400fa173d849bc747696135e3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
---- !u!114 &6227537019807565898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947099605991942097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852ce7a6d40822c46aeb042ac4d927fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions:
-  - {fileID: 4813371755033267229}
-  bToggle: 0
---- !u!114 &4813371755033267229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947099605991942097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc63f56c72ff8bd4c8c83c6081d6f364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
-  mesh: {fileID: 7166805460829125570}
-  sprite: {fileID: 5216815541571731986}
 --- !u!114 &3525233641833212459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +72,121 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObj: {fileID: 5216815541571731986}
   _meshObj: {fileID: 7166805460829125570}
+--- !u!114 &-4726530454576727328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947099605991942097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72eb5f59b73ef3e45b24e88db5efc000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 3282898919331524263}
+  destroyDelay: 1
+  mesh: {fileID: 7166805460829125570}
+  sprite: {fileID: 5216815541571731986}
+  ammoType: 1
+  ammoAmount: 20
+--- !u!82 &3282898919331524263
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947099605991942097}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 09c17a01f666eab4981a6422390886c2, type: 3}
+  m_Resource: {fileID: 8300000, guid: 09c17a01f666eab4981a6422390886c2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5216815541571731986
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,8 +198,9 @@ GameObject:
   - component: {fileID: 1512429752772842642}
   - component: {fileID: 4004370395539192602}
   - component: {fileID: 4642095016440411060}
+  - component: {fileID: 6593626847936295317}
   m_Layer: 0
-  m_Name: Tome_Sprite
+  m_Name: Quiver_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +265,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1163656998, guid: 048e8f2f703c91f4c8467bab38fc2223, type: 3}
+  m_Sprite: {fileID: 55463072, guid: 540a4f3d33c6f524eb05dbb09a92e8e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -216,6 +288,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053c453ff34020f41a472868fc8740e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &6593626847936295317
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5216815541571731986}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20dd2eab2d2c14047ad28a7d7dc8a136, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7166805460829125570
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,12 +322,12 @@ GameObject:
   - component: {fileID: 5392871296515779422}
   - component: {fileID: 7505380278936520814}
   m_Layer: 0
-  m_Name: Tome_Mesh
+  m_Name: Quiver_Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3748994994352490915
 Transform:
   m_ObjectHideFlags: 0
