@@ -27,12 +27,7 @@ public class EnemyDeathGA : MonoBehaviour
         anim.SetBool("Dead", true);
         GetComponentInChildren<EnemyAudioCalls>().Die();
         GetComponent<NavMeshAgent>().speed = 0;
-        StartCoroutine(nameof(DestroyEnemy));
-    }
-
-    IEnumerator DestroyEnemy()
-    {
-        yield return new WaitForSeconds(50f/60f);
-        Destroy(gameObject);
-    }
+        GetComponent<Collider>().enabled = false;
+        GetComponentInChildren<EnemyAttackClass>().enabled = false;
+	}
 }

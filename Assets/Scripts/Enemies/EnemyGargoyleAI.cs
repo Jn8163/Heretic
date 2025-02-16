@@ -14,37 +14,43 @@ public class EnemyGargoyleAI : EnemyBaseClass
 
     protected override void Update()
     {
-        // Keep hovering at a set height above the ground
-        if (Physics.Raycast(transform.position, -transform.up, out hit))
+        if (healthSystem != null && healthSystem.bAlive)
         {
-            pos = transform.position;
-            pos.y = hit.point.y + hoverDist;
-            transform.position = pos;
-        }
+			// Keep hovering at a set height above the ground
+			if (Physics.Raycast(transform.position, -transform.up, out hit))
+			{
+				pos = transform.position;
+				pos.y = hit.point.y + hoverDist;
+				transform.position = pos;
+			}
 
-        if (isChasing)
-        {
-            StartCoroutine(RandomHoverMovement());
-        }
-
-        base.Update();
-    }
+			if (isChasing)
+			{
+				StartCoroutine(RandomHoverMovement());
+			}
+			base.Update();
+		}
+	}
 
     protected override void ChasePlayer()
     {
-        Vector3 distanceToPlayer = transform.position - player.position;
-        float distance = distanceToPlayer.magnitude;
-
-        if (Mathf.Abs(distance - DashRange) < 5)
+        if (healthSystem != null && healthSystem.bAlive)
         {
-            int dashChance = Random.Range(1, 10);
-            if (dashChance == 1)
-            {
-                agent.speed = 15;
-                StartCoroutine(nameof(resetSpeed));
-            }
-        }
-        base.ChasePlayer();
+			Vector3 distanceToPlayer = transform.position - player.position;
+			float distance = distanceToPlayer.magnitude;
+
+			if (Mathf.Abs(distance - DashRange) < 5)
+			{
+				int dashChance = Random.Range(1, 10);
+				if (dashChance == 1)
+				{
+					agent.speed = 15;
+					StartCoroutine(nameof(resetSpeed));
+				}
+			}
+			base.ChasePlayer();
+		}
+		
     }
 
     IEnumerator RandomHoverMovement()

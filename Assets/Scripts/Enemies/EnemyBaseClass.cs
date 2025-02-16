@@ -5,7 +5,7 @@ using System.Collections;
 public abstract class EnemyBaseClass : MonoBehaviour
 {
     [SerializeField] public NavMeshAgent agent;
-    private HealthSystem healthSystem;
+    protected HealthSystem healthSystem;
     protected Transform player;
     public LayerMask whatIsPlayer;
 
