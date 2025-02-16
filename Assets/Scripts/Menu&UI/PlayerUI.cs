@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class PlayerUI : MonoBehaviour
 {
 	public HealthSystem healthSystem;
+	public ArmorSystem armorSystem;
 
 	[SerializeField]
 	private int pLife, pArmor, pItemCount; // these are temporary until the systems for these are actually implemented
@@ -74,7 +75,7 @@ public class PlayerUI : MonoBehaviour
     private void Update()
 	{
 		life.text = healthSystem.currentHealth.ToString();
-		armor.text = pArmor.ToString();
+		armor.text = armorSystem.currentShieldHealth.ToString();
 
 		// indicator changes depending on player hp, the more full their hp is the farther right the indicator goes
 

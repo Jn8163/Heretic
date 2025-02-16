@@ -20,23 +20,6 @@ public class CrystalVialPickup : ImmediatePickup
             }
         }
     }
-
-
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
-        {
-            if (hSystem.bPlayer)
-            {
-                healthSystem = hSystem;
-                PickupItem();
-            }
-        }
-    }
-
-
-
     protected override void PickupItem()
     {
         if (healthSystem.GetMissingHealth() > 0)

@@ -4,7 +4,7 @@ public class ArmorSystem : MonoBehaviour
 {
     public static ArmorSystem instance;
     [SerializeField] private int maxShield;
-    private int currentShieldHealth = 0;
+    public int currentShieldHealth = 0;
     private float reductionAmount = .5f;
     public bool shieldEquipped;
 

@@ -589,6 +589,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   anim: {fileID: 0}
   currentHealth: 0
+  currentArmor: 0
   bAlive: 1
 --- !u!114 &256345378888288106
 MonoBehaviour:
@@ -631,6 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxShield: 200
+  currentShieldHealth: 0
   shieldEquipped: 0
 --- !u!114 &3015902131299573398
 MonoBehaviour:
@@ -1322,6 +1324,10 @@ PrefabInstance:
       propertyPath: yKey
       value: 
       objectReference: {fileID: 2231988494874242924}
+    - target: {fileID: 928005366064588571, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+      propertyPath: armorSystem
+      value: 
+      objectReference: {fileID: 8890098794275835459}
     - target: {fileID: 928005366064588571, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
       propertyPath: healthSystem
       value: 

@@ -10,7 +10,7 @@ public class ShieldPickup : ImmediatePickup
 
     private void OnTriggerEnter(Collider other)
     {
-        if (ArmorSystem.instance)
+        if (ArmorSystem.instance && other.CompareTag("Player"))
         {
             PickupItem();
         }
