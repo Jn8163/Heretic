@@ -40,7 +40,7 @@ public class EnemyAudioCalls : MonoBehaviour
     }
     public void Die()
     {
-        Instantiate(DeathPrefab);
+        Instantiate(DeathPrefab, transform.position, DeathPrefab.transform.rotation);
     }
 
 }
