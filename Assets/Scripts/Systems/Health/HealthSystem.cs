@@ -12,6 +12,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField]private Image healthBar;
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject hurtScreen;
 
     public int currentHealth;
     public bool bAlive = true;
@@ -46,6 +47,7 @@ public class HealthSystem : MonoBehaviour
             {
                 amount = ArmorSystem.instance.UseShield(amount);
             }
+            StartCoroutine(nameof(FlashHurtScreen));
         }
         else if (!bPlayer)
         {
@@ -63,7 +65,12 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
-    
+    IEnumerator FlashHurtScreen()
+    {
+        hurtScreen.SetActive(true);
+        yield return new WaitForSeconds(8f / 60f);
+		hurtScreen.SetActive(false);
+	}
 
     public void Death()
     {

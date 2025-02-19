@@ -588,8 +588,8 @@ MonoBehaviour:
   score: 0
   healthBar: {fileID: 0}
   anim: {fileID: 0}
+  hurtScreen: {fileID: 5685208341732035212}
   currentHealth: 0
-  currentArmor: 0
   bAlive: 1
 --- !u!114 &256345378888288106
 MonoBehaviour:
@@ -1576,6 +1576,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &5685208341732035212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9054600198069617313, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+  m_PrefabInstance: {fileID: 3696765031188891693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6631157210886981990 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8019528215425565003, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
