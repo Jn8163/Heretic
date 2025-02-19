@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// Player movement utilizing Unity Physics and new Input System.
 /// </summary>
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IManageData
 {
 
     #region Fields
@@ -185,6 +185,16 @@ public class PlayerMovement : MonoBehaviour
                 rb.position = rb.position + new Vector3(0f, objectHeight, 0f);
             }
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void SaveData(GameData data)
+    {
+        throw new System.NotImplementedException();
     }
 
     #endregion
