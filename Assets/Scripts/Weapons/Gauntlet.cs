@@ -107,7 +107,7 @@ public class Gauntlet : Weapon
                             // Regenerate health on hit
                             if (GameObject.Find("Player").TryGetComponent<HealthSystem>(out HealthSystem playerHSystem))
                             {
-                                playerHSystem.UpdateHealth(-chargedDamage);
+                                playerHSystem.UpdateHealth(-chargedDamage/2);
                             }
 							StartCoroutine(nameof(WeaponCooldown));
 						}
