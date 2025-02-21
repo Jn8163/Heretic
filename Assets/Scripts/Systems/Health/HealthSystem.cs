@@ -41,22 +41,22 @@ public class HealthSystem : MonoBehaviour
 
     public void UpdateHealth(int amount)
     {
-        if (bPlayer && amount < 0)
+        if (bPlayer && amount < 0 && !ActivateRing.isInvincible)
         {
             if(ArmorSystem.instance.shieldEquipped)
             {
                 amount = ArmorSystem.instance.UseShield(amount);
             }
             StartCoroutine(nameof(FlashHurtScreen));
-        }
+			currentHealth += amount;
+			currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+		}
         else if (!bPlayer)
         {
-            // GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();         This should only play when the enemy is stunned
-            
-        }
-
-        currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+			// GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();         This should only play when the enemy is stunned
+			currentHealth += amount;
+			currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+		}
 
         if (currentHealth == 0 && bAlive)
         {

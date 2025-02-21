@@ -250,7 +250,7 @@ TextureImporter:
         width: 9
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -272,7 +272,7 @@ TextureImporter:
         width: 9
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -294,7 +294,7 @@ TextureImporter:
         width: 9
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -303,6 +303,94 @@ TextureImporter:
       bones: []
       spriteID: 1c453e52b314ad247854fdab2fb9a804
       internalID: -700028073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ring1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 272
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b144ccc9e625c4ebb64b348d522b3f
+      internalID: -353180184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ring2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 272
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57a7ad0811ebed41b57b4df4cbc94ff
+      internalID: -300694827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ring3
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 272
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e01906286bc65d347922e06bdafcaa53
+      internalID: -1215663738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ring4
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 272
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf5e3146419d7540a7181a11e1917bd
+      internalID: 1049088523
       vertices: []
       indices: 
       edges: []
@@ -329,6 +417,10 @@ TextureImporter:
       Quiver1: 55463072
       Quiver2: 1372347358
       Quiver3: -700028073
+      Ring1: -353180184
+      Ring2: -300694827
+      Ring3: -1215663738
+      Ring4: 1049088523
       SilverShield: -2099843889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

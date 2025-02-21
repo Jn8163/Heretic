@@ -491,6 +491,7 @@ GameObject:
   - component: {fileID: 3015902131299573398}
   - component: {fileID: 8025091887253146196}
   - component: {fileID: 8580495323771803913}
+  - component: {fileID: 3910918342451556844}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -689,6 +690,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9229e1639bc0314595b3aa4db27fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3910918342451556844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069564516227274093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbbfd9fde3947104e9af32513542f38f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenOverlay: {fileID: 2734643103965080607}
 --- !u!1 &2907615243466202451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1350,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1639006110504903730, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+      propertyPath: m_Color.a
+      value: 0.2509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639006110504903730, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.28616333
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639006110504903730, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.845477
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639006110504903730, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3293276470136629057, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1452,6 +1482,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9054600198069617313, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+      propertyPath: m_Name
+      value: ScreenOverlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054600198069617313, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9148162856036439135, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
       propertyPath: m_Name
       value: UI
@@ -1469,6 +1507,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3293276470136629057, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
   m_PrefabInstance: {fileID: 3696765031188891693}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2734643103965080607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1639006110504903730, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
+  m_PrefabInstance: {fileID: 3696765031188891693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5685208341732035212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2742153682863948203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1532237671827179910, guid: 36d52b4d3e867e34dbe544b7e9e3fc0c, type: 3}
