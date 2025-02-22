@@ -404,7 +404,7 @@ TextureImporter:
         width: 23
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -413,6 +413,138 @@ TextureImporter:
       bones: []
       spriteID: ab1cd0e28810a9b47940361d94d131f1
       internalID: -1195481816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClawOrb1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 796
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b249510a50b00847a00208218ddac8a
+      internalID: 750856266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClawOrb2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 796
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61be57d250fdf3640b82f757191153bf
+      internalID: -331028814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClawOrb3
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 796
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a9eb43bf852ed48b37a702cd2490a6
+      internalID: -1943904812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnergyOrb1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 791
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb974f7e656a11a49af9541c88537a1e
+      internalID: 92164813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnergyOrb2
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 791
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 539e3f409900af642a5fdc99c44fb275
+      internalID: -1706281106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnergyOrb3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 791
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8048485412086c45abb5518c23ab5f5
+      internalID: -420012481
       vertices: []
       indices: 
       edges: []
@@ -431,8 +563,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      ClawOrb1: 750856266
+      ClawOrb2: -331028814
+      ClawOrb3: -1943904812
       CrossbowPickup: 1313111837
       DragonClawPickup: -1195481816
+      EnergyOrb1: 92164813
+      EnergyOrb2: -1706281106
+      EnergyOrb3: -420012481
       GauntletPickup: -536868144
       Items_QuartzFlask_0: -1663976993
       Items_QuartzFlask_1: 1107175837
