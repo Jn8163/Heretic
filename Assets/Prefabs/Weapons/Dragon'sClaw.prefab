@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6392215367140739083}
   - component: {fileID: 2182039417123231166}
-  - component: {fileID: 1568270877709807643}
+  - component: {fileID: 7252914265024645765}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Player
@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2554256650118226151}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3684397, y: -0, z: -0, w: 0.9296516}
-  m_LocalPosition: {x: 0, y: -0.19400012, z: 0.6800003}
-  m_LocalScale: {x: 0.2, y: 0.20000002, z: 0.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.051, z: 0.6800003}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5777855642772417240}
-  m_LocalEulerAnglesHint: {x: 43.239, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2182039417123231166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -195724181, guid: 2193121356720d0408ac905393f3f770, type: 3}
+  m_Sprite: {fileID: -1167518742, guid: ac890a626a65fab4aa6df7b64baa4f7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1568270877709807643
+--- !u!95 &7252914265024645765
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 2554256650118226151}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd565c33fe886cf459140ea42dfae76f, type: 2}
+  m_Controller: {fileID: 9100000, guid: c7559a8b0eabb1340a7d44afbf5fc142, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -119,9 +119,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5777855642772417240}
-  - component: {fileID: 1864461917004618118}
   - component: {fileID: 5974292912867999103}
   - component: {fileID: 1704281161486500945}
+  - component: {fileID: 6160664921189290139}
   m_Layer: 0
   m_Name: Dragon'sClaw
   m_TagString: Player
@@ -137,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6585601536718532706}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34071591, y: 0, z: 0, w: 0.9401663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.473, z: 0.404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -145,34 +145,7 @@ Transform:
   - {fileID: 8549655055060876331}
   - {fileID: 6392215367140739083}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 39.841, y: 0, z: 0}
---- !u!114 &1864461917004618118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6585601536718532706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d084fc4092d74b54eae9e4cdf414e062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWeapon: 0
-  detectableLayers:
-    serializedVersion: 2
-    m_Bits: 119
-  playerUI: {fileID: 0}
-  attack_sound: {fileID: 1704281161486500945}
-  animator2D: {fileID: 0}
-  animator3D: {fileID: 0}
-  reloadTime: 0.5
-  weaponSlot: 0
-  ammoType: 0
-  projectilePFab: {fileID: 6832841594439106919, guid: d1e5df184b41ad346a626e02eecf232e, type: 3}
-  AmmoMax: 100
-  weaponRange: 50
-  ammoUsage: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5974292912867999103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,10 +170,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -626945850888947736, guid: 0df4d79dae275df45b2620eddabcbe43, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9aa602a579c7c6b4987fadd167782415, type: 3}
-  m_Resource: {fileID: 8300000, guid: 9aa602a579c7c6b4987fadd167782415, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a2609683a2d2b564692138b5f3b8815c, type: 3}
+  m_Resource: {fileID: 8300000, guid: a2609683a2d2b564692138b5f3b8815c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -284,6 +257,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6160664921189290139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6585601536718532706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747bd25f6aef8c94b8b0ce85879aeff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: 0
+  detectableLayers:
+    serializedVersion: 2
+    m_Bits: 513
+  playerUI: {fileID: 0}
+  attack_sound: {fileID: 1704281161486500945}
+  animator2D: {fileID: 7252914265024645765}
+  reloadTime: 0.1715266
+  weaponSlot: 0
+  ammoType: 2
+  projectilePFab: {fileID: 3632521627172150349, guid: 321a2e147b1a46d4fb31aa1c7570287e, type: 3}
+  AmmoMax: 100
+  weaponRange: 150
+  ammoUsage: -1
+  projectilePFabMiss: {fileID: 7750987063746414399, guid: 27f884e56b6a0db49aae22ab70362e9b, type: 3}
 --- !u!1 &7896878237492126297
 GameObject:
   m_ObjectHideFlags: 0

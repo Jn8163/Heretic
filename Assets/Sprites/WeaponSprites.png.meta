@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 540a4f3d33c6f524eb05dbb09a92e8e5
+guid: ac890a626a65fab4aa6df7b64baa4f7f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -93,30 +93,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Items_QuartzFlask_0
+      name: DC_EnemyImpact1
       rect:
         serializedVersion: 2
-        x: 3
-        y: 402
-        width: 21
-        height: 21
+        x: 1285
+        y: 216
+        width: 11
+        height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,294 +112,338 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90cda0d0aab15b34a9e70e77a67f286c
-      internalID: -1663976993
+      spriteID: b3ae4b36d8056364ea0dc2873744b6e1
+      internalID: 925840871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_QuartzFlask_1
+      name: DC_EnemyImpact2
       rect:
         serializedVersion: 2
-        x: 43
-        y: 402
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 212ffe15db42ff14ebc6c3c3c4f1a22e
-      internalID: 1107175837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Items_QuartzFlask_2
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 402
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2004c548cfbfc84d874965c28d18e60
-      internalID: -1655268548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SilverShield
-      rect:
-        serializedVersion: 2
-        x: 332
-        y: 172
-        width: 26
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04a8111cdb5c53c499808d31f05aa526
-      internalID: -2099843889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GauntletPickup
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 933
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54be5fdacf514924bbaa8cd0aa187eea
-      internalID: -536868144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CrossbowPickup
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 926
-        width: 46
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03727b4c016b3c24b8161cc32f8d5d08
-      internalID: 1313111837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Quiver1
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 839
-        width: 9
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e803b24d210952b468bb8868a8b31205
-      internalID: 55463072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Quiver2
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 839
-        width: 9
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8937111b74111db49b5ecc0ac9f676e8
-      internalID: 1372347358
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Quiver3
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 839
-        width: 9
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c453e52b314ad247854fdab2fb9a804
-      internalID: -700028073
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ring1
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 272
-        width: 19
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28b144ccc9e625c4ebb64b348d522b3f
-      internalID: -353180184
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ring2
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 272
-        width: 19
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c57a7ad0811ebed41b57b4df4cbc94ff
-      internalID: -300694827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ring3
-      rect:
-        serializedVersion: 2
-        x: 94
-        y: 272
-        width: 19
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e01906286bc65d347922e06bdafcaa53
-      internalID: -1215663738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ring4
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 272
-        width: 19
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: caf5e3146419d7540a7181a11e1917bd
-      internalID: 1049088523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DragonClawPickup
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 939
+        x: 1297
+        y: 216
         width: 23
-        height: 20
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab1cd0e28810a9b47940361d94d131f1
-      internalID: -1195481816
+      spriteID: 6def483acf5359a4092be9f38b12da03
+      internalID: 1186820762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DC_EnemyImpact3
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 216
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ad88e219ed6fd449d8cfb3f6a257cd
+      internalID: 396656006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DC_EnemyImpact4
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 216
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c10de05abdc13c4c807e55c968e2b07
+      internalID: 1872221787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DC_EnemyImpact5
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 216
+        width: 54
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c7e6dc3c96d93946ac9e780988cbc0b
+      internalID: -802789926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DC_EnemyImpact6
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 216
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f52c17ef3f0df6419f3fe158752bce9
+      internalID: 677919258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DC_EnemyImpact7
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 216
+        width: 67
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42395397128b5d547b7a6035372dcb18
+      internalID: 1516224765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DC_WallImpact1
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 294
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 664f0cab85bc9284daf02ed51095890f
+      internalID: -1312567882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DC_WallImpact2
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 294
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45579195bfc9cca42b8ef50183ab1ade
+      internalID: 2105554229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DC_WallImpact3
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 294
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e584c68bf11a740a1f7902ffeee78c
+      internalID: 548282568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DC_WallImpact4
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 294
+        width: 9
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55cb4f5121061a4c98ed1be817e87ac
+      internalID: 2130446359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DC_WallImpact5
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 294
+        width: 7
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08851cf03f9669d44862e961e6f939fd
+      internalID: -927213223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonClawIdle
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 177
+        width: 320
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdbf89166b4b9334084079150c291c64
+      internalID: -1167518742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonClawFiring1
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 177
+        width: 320
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ea71c58e05f914daa716e24699970e
+      internalID: 798317068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonClawFiring2
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 177
+        width: 320
+        height: 160
+      alignment: 9
+      pivot: {x: 0.471875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e50566728532fb45a067559b1d88aab
+      internalID: 1576215456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonClawFiring3
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 177
+        width: 320
+        height: 160
+      alignment: 9
+      pivot: {x: 0.50625, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a17ee1759ea36004292d648c562d47ed
+      internalID: -1419845780
       vertices: []
       indices: 
       edges: []
@@ -421,7 +452,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 39daf1ea8f080ae4a84509f1ea53b112
     internalID: 0
     vertices: []
     indices: 
@@ -431,20 +462,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CrossbowPickup: 1313111837
-      DragonClawPickup: -1195481816
-      GauntletPickup: -536868144
-      Items_QuartzFlask_0: -1663976993
-      Items_QuartzFlask_1: 1107175837
-      Items_QuartzFlask_2: -1655268548
-      Quiver1: 55463072
-      Quiver2: 1372347358
-      Quiver3: -700028073
-      Ring1: -353180184
-      Ring2: -300694827
-      Ring3: -1215663738
-      Ring4: 1049088523
-      SilverShield: -2099843889
+      DC_EnemyImpact1: 925840871
+      DC_EnemyImpact2: 1186820762
+      DC_EnemyImpact3: 396656006
+      DC_EnemyImpact4: 1872221787
+      DC_EnemyImpact5: -802789926
+      DC_EnemyImpact6: 677919258
+      DC_EnemyImpact7: 1516224765
+      DC_WallImpact1: -1312567882
+      DC_WallImpact2: 2105554229
+      DC_WallImpact3: 548282568
+      DC_WallImpact4: 2130446359
+      DC_WallImpact5: -927213223
+      DragonClawFiring1: 798317068
+      DragonClawFiring2: 1576215456
+      DragonClawFiring3: -1419845780
+      DragonClawIdle: -1167518742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
