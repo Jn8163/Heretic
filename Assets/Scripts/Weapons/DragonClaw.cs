@@ -7,6 +7,9 @@ public class DragonClaw : RangedWeapon
     private bool attacking, wait;
     [SerializeField] private GameObject projectilePFabMiss;
 
+    [SerializeField] private GameObject tomedProjectilePFab;
+    [SerializeField] private float tomedFireRate;
+
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -56,6 +59,15 @@ public class DragonClaw : RangedWeapon
                 else
                 {
                     // tomed mode
+                    if (ammoSystem.UpdateAmmo(ammoType, ammoUsage * 5, false))
+                    {
+                        StartCoroutine(nameof(WeaponCooldown));
+                        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, weaponRange, detectableLayers)) // hits enemy
+                        {
+                            Vector3 offset = -transform.forward * .25f;
+                            Instantiate(tomedProjectilePFab, hit.point + offset, Quaternion.identity);
+                        }
+                    }
                 }
             }
         }
@@ -88,18 +100,38 @@ public class DragonClaw : RangedWeapon
 
     protected override IEnumerator WeaponCooldown()
     {
-        if (ammoSystem.CheckForAmmo(ammoType))
+        if (!ActivateTome.isCharged)
         {
-            audioSource.Play();
-            cooldown = true;
-            attacking = true;
-            animator2D.SetBool("Attacking", true);
-            yield return new WaitForSeconds(reloadTime);
-            cooldown = false;
+            if (ammoSystem.CheckForAmmo(ammoType))
+            {
+                audioSource.Play();
+                cooldown = true;
+                attacking = true;
+                animator2D.SetBool("Attacking", true);
+                yield return new WaitForSeconds(reloadTime);
+                cooldown = false;
+            }
+            else
+            {
+                animator2D.SetBool("Attacking", false);
+            }
         }
         else
         {
-            animator2D.SetBool("Attacking", false);
+            if (ammoSystem.CheckForAmmo(ammoType))
+            {
+                audioSource.Play();
+                cooldown = true;
+                attacking = true;
+                animator2D.SetBool("Attacking", true);
+                yield return new WaitForSeconds(tomedFireRate);
+                cooldown = false;
+            }
+            else
+            {
+                animator2D.SetBool("Attacking", false);
+            }
         }
+        
     }
 }
