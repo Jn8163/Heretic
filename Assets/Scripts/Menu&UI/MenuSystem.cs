@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 /// Management of menus through preset inspector refrences.
 /// Menu logs in DDOL- if another instance is created it's destroyed.
 /// </summary>
-public class MenuSystem : MonoBehaviour
+public class MenuSystem : MonoBehaviour, IManageData
 {
     #region Fields
     public static MenuSystem instance;
-    [SerializeField] private GameObject mainM, settingsM, loadM, pauseM, deathM, episodeM, difficultyM, creditsM, statsM, playerHUD;
+    public List<GameObject> continues = new List<GameObject>();
+    [SerializeField] private GameObject mainM, settingsM, loadM, saveM, pauseM, deathM, episodeM, difficultyM, creditsM, statsM, playerHUD;
     [SerializeField] private List<GameObject> menus = new List<GameObject>();
-    public int selectedLevel, selectedDifficulty = 1;
+    public int selectedLevel, selectedDifficulty = 1, unlockedLevel;
     private bool activeHUD, destroy = false;
+    private DataManager dManager;
 
     public static Action<bool> MenuActive = delegate { };
     public static Action<bool> FreezeTime = delegate { };
@@ -54,12 +56,13 @@ public class MenuSystem : MonoBehaviour
 
     private void OnEnable()
     {
+        dManager = DataManager.instance;
+
         HealthSystem.GameOver += CallGameOverScreen;
         PauseSystem.PauseMenuActive += PauseMenu;
         SceneInitializer.MenuActiveOnStart += SwitchMenu;
         SceneInitializer.PlayerHUDActive += PlayerHUDActive;
         CallStatsMenu.CallStats += SwitchMenu;
-
     }
 
 
@@ -71,6 +74,19 @@ public class MenuSystem : MonoBehaviour
         {
             menus.Add(playerHUD);
             activeHUD = true;
+        }
+    }
+
+
+
+    private void Update()
+    {
+        if (continues.Count > 0)
+        {
+            foreach(GameObject g in continues)
+            {
+                g.SetActive(dManager.profilesFound);
+            }
         }
     }
 
@@ -178,8 +194,11 @@ public class MenuSystem : MonoBehaviour
                 }
                 return;
             case "LoadMenu":
-                //ActivateMenu(loadM);
-                Debug.Log(targetMenu + " not implemented");
+                ActivateMenu(loadM);
+                //Debug.Log(targetMenu + " not implemented");
+                return;
+            case "SaveMenu":
+                ActivateMenu(saveM);
                 return;
             case "PauseMenu":
                 if (pauseM)
@@ -231,9 +250,6 @@ public class MenuSystem : MonoBehaviour
 
     public void Continue()
     {
-        Debug.Log("Save-System not implemented: Currently Starts first level");
-
-        SetLevel(1);
         ChangeScene();
     }
 
@@ -304,6 +320,16 @@ public class MenuSystem : MonoBehaviour
             menus.Remove(playerHUD);
             activeHUD = true;
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        selectedLevel = data.currentLevel;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.currentLevel = selectedLevel;
     }
 
     #endregion

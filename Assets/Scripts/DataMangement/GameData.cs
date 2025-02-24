@@ -1,10 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class GameData
 {
+    [Header("Game Progress")]
+    public int currentLevel;
+    public int levelUnlocked;
+
     public long lastUpdated;
     public int deathCount;
     public Vector3 playerPosition;
@@ -13,7 +15,9 @@ public class GameData
     //New Save values
     public GameData()
     {
-        this.deathCount = 0;
+        currentLevel = 1;
+        levelUnlocked = 1;
+        deathCount = 0;
         playerPosition = Vector3.zero;
         coinsCollected = new SerializableDictionary<string, bool>();
     }

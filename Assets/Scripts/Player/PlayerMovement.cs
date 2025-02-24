@@ -189,12 +189,16 @@ public class PlayerMovement : MonoBehaviour, IManageData
 
     public void LoadData(GameData data)
     {
-        throw new System.NotImplementedException();
+        if (data.playerPosition != Vector3.zero)
+        {
+            transform.position = data.playerPosition;
+        }
     }
 
-    public void SaveData(GameData data)
+    public void SaveData(ref GameData data)
     {
-        throw new System.NotImplementedException();
+        data.playerPosition = transform.position;
+        Debug.Log(data.playerPosition);
     }
 
     #endregion

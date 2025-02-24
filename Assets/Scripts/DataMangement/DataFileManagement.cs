@@ -1,8 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEngine.UI;
 
 public class DataFileManagement
 {
@@ -201,7 +201,7 @@ public class DataFileManagement
 
     public string GetMostRecentlyUpdatedProfileId()
     {
-        string mostRecentProfileId = null;
+        string mostRecentProfileId = "";
 
         Dictionary<string, GameData> profilesGameData = LoadAllProfiles();
         foreach (KeyValuePair<string, GameData> pair in profilesGameData)

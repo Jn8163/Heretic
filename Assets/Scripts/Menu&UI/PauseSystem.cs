@@ -9,7 +9,6 @@ public class PauseSystem : MonoBehaviour
 
     public static PauseSystem instance;
     private PlayerInput pInput;
-    private bool destroy = false;
     public bool inactive = false, mOpen;
 
     public static Action<bool> PauseMenuActive = delegate { };
@@ -22,7 +21,14 @@ public class PauseSystem : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 
