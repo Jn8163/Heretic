@@ -352,9 +352,9 @@ GameObject:
   - component: {fileID: 7488451295814796331}
   - component: {fileID: 2165233215201140700}
   - component: {fileID: 4826148725315168705}
-  - component: {fileID: 5344471210331126159}
   - component: {fileID: 5026857139624449703}
   - component: {fileID: 677407950725761586}
+  - component: {fileID: 848767635475561238}
   m_Layer: 9
   m_Name: UndeadWarrior
   m_TagString: Untagged
@@ -528,35 +528,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   canSeePlayer: 0
---- !u!114 &5344471210331126159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3486166225400030514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7bbcee535ff904b802839c995698f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 4651758550010086627}
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 8
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointSet: 0
-  walkPointRange: 0
-  patrolPauseTime: 3
-  sightRange: 35
-  attackRange: 1.9
-  chaseTimer: 0
-  playerInSightRange: 0
-  playerInAttackRange: 0
-  isChasing: 0
-  AgroYellDone: 0
-  zigZagInterval: 1.5
-  zigZagAmount: 3
 --- !u!54 &5026857139624449703
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -603,6 +574,38 @@ MonoBehaviour:
   isStunned: 0
   isKnockback: 0
   refreshTimer: 0
+--- !u!114 &848767635475561238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3486166225400030514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646120cc661fbe94e8bcbef05fdd3f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointSet: 0
+  walkPointRange: 5
+  patrolPauseTime: 3
+  sightRange: 25
+  attackRange: 20
+  chaseTimer: 10
+  playerInSightRange: 0
+  playerInAttackRange: 0
+  isChasing: 0
+  AgroYellDone: 0
+  axePrefab: {fileID: 0}
+  throwPoint: {fileID: 7321016252867422957}
+  axeSpeed: 15
+  rangedAttackCooldown: 3
+  anim: {fileID: 17050411683291394}
 --- !u!1 &3735223130289852140
 GameObject:
   m_ObjectHideFlags: 0
