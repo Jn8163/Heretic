@@ -41,15 +41,23 @@ public class HealthSystem : MonoBehaviour
 
     public void UpdateHealth(int amount)
     {
-        if (bPlayer && amount < 0 && !ActivateRing.isInvincible)
+        if (bPlayer)
         {
             if(ArmorSystem.instance.shieldEquipped)
             {
                 amount = ArmorSystem.instance.UseShield(amount);
             }
-            StartCoroutine(nameof(FlashHurtScreen));
-			currentHealth += amount;
-			currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            if (!ActivateRing.isInvincible)
+            {
+                StartCoroutine(nameof(FlashHurtScreen));
+                currentHealth += amount;
+                currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            }
+            else if (amount > 0)
+            {
+				currentHealth += amount;
+				currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+			}
 		}
         else if (!bPlayer)
         {
