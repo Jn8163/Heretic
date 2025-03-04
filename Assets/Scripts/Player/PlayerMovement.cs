@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour, IManageData
     [SerializeField] private float walkSpeed = 15f;
     [SerializeField] private float runSpeed = 25f;
     [SerializeField] private bool animateCam = true;
+    [SerializeField] private AudioSource footSteps, footStepsSprint;
 
     private PlayerInput pInput;
     private Rigidbody rb;
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour, IManageData
     private float speed = 15f;
     private Vector3 direction, targetPos;
     private bool snapToPos, movementLock;
-    private bool sprinting;
+    private bool walking, sprinting;
 
 
 
@@ -128,6 +129,7 @@ public class PlayerMovement : MonoBehaviour, IManageData
             direction.z = pInput.Player.Move.ReadValue<Vector2>().y;
 
 
+            
 
             //allign direction to current player allignment
             direction = transform.right * direction.x + transform.forward * direction.z;
@@ -138,7 +140,24 @@ public class PlayerMovement : MonoBehaviour, IManageData
             {
                 rb.linearVelocity = (direction * speed) + new Vector3(0, rb.linearVelocity.y, 0);
 
+                //play footstep sound effect when player starts walking
+                if (footSteps && walking == false)
+                {
+                    //set walking to true so sound effect doesn't play multiple times
+                    walking = true;
+                    footSteps.Play();
+                }
+
                 AutoStep();
+            }
+            else
+            {
+                //stop footstep sound effect when not moving
+                if (footSteps)
+                {
+                    walking = false;
+                    footSteps.Stop();
+                }
             }
         }
         else if(snapToPos)
@@ -155,10 +174,19 @@ public class PlayerMovement : MonoBehaviour, IManageData
         {
             sprinting = false;
             speed = walkSpeed;
+            if (footStepsSprint)
+            {
+                footSteps.Stop();
+            }
         }
         else
         {
+            if (footStepsSprint && sprinting == false)
+            {
+                footStepsSprint.Play();
+            }
             sprinting = true;
+            walking = false;
             speed = runSpeed;
         }
     }
