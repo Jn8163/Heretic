@@ -84,6 +84,10 @@ public class HealthSystem : MonoBehaviour
     {
         if (!bPlayer)
         {
+            if (transform.parent)
+            {
+                transform.parent.GetComponent<Spawn>().targetActive = false;
+            }
             UpdateScore(score);
             EnemyDeath?.Invoke();
         }

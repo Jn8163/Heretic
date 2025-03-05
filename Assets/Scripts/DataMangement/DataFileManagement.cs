@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
-using UnityEngine.UI;
 
 public class DataFileManagement
 {
@@ -216,7 +215,7 @@ public class DataFileManagement
             }
 
             // if this is the first data we've come across that exists, it's the most recent so far
-            if (mostRecentProfileId == null)
+            if (mostRecentProfileId == "")
             {
                 mostRecentProfileId = profileId;
             }

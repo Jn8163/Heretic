@@ -4,7 +4,7 @@ using UnityEngine;
 public class InventoryPickup : Item
 {
     [SerializeField] GameObject pickupPrefab;
-    [SerializeField] private GameObject mesh, sprite;
+    [SerializeField] private GameObject sprite;
     protected override void Start()
     {
         base.Start();    
@@ -34,7 +34,6 @@ public class InventoryPickup : Item
     protected override IEnumerator DestroyPickup()
     {
         GetComponent<Collider>().enabled = false;
-        mesh.GetComponent<MeshRenderer>().enabled = false;
         sprite.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(destroyDelay);
         Destroy(gameObject);

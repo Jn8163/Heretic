@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
-    [SerializeField] private int difficulty;
+    public string id;
+    public bool targetActive = true;
+    [SerializeField] private GameObject target;
+    [SerializeField] private int difficulty, currentDifficulty;
     [Tooltip("True if the object has more spawn points as difficulty increases. " +
         "Otherwise false. Ex: Enemies would be true because there are more " +
         "enemies at higher difficulties.")]
@@ -16,52 +18,56 @@ public class Spawn : MonoBehaviour
     /// Spawns prefab from inspector, based on the object they will spawn from 
     /// lowest to highest or reverse if needed.
     /// </summary>
+    /// 
+
+    public Spawn()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
     public void SpawnObject()
     {
-        int currentDifficulty = MenuSystem.instance.selectedDifficulty;
-        GameObject go;
-        if (prefab)
+        currentDifficulty = MenuSystem.instance.selectedDifficulty;
+
+        if (target && targetActive)
         {
             if (Increasing)
             {
                 if (difficulty <= currentDifficulty)
                 {
-                    if (OnlyThisDifficulty)
-                    {
-                        if (currentDifficulty == difficulty)
-                        {
-                            go = Instantiate(prefab, transform);
-                            go.transform.position += transform.up;
-                            StatTracker.maxKills++;
-                        }
-                    }
-                    else
-                    {
-                        go = Instantiate(prefab, transform);
-                        go.transform.position += transform.up;
-						StatTracker.maxKills++;
-					}
+                    ToggleTarget(true);
+                }
+                else
+                {
+                    ToggleTarget(false);
                 }
             }
             else
             {
                 if (difficulty >= currentDifficulty)
                 {
-                    if (OnlyThisDifficulty)
-                    {
-                        if (currentDifficulty == difficulty)
-                        {
-                            go = Instantiate(prefab, transform);
-                            go.transform.position += transform.up;
-                        }
-                    }
-                    else
-                    {
-                        go = Instantiate(prefab, transform);
-                        go.transform.position += transform.up;
-                    }
+                    ToggleTarget(true);
+                }
+                else
+                {
+                    ToggleTarget(false);
                 }
             }
+        }else if (target)
+        {
+            ToggleTarget(false);
+        }
+    }
+
+    public void ToggleTarget(bool isActive)
+    {
+        currentDifficulty = MenuSystem.instance.selectedDifficulty;
+
+        if ((OnlyThisDifficulty && currentDifficulty == difficulty) || !OnlyThisDifficulty || !isActive)
+        {
+            target.SetActive(isActive);
+            target.transform.position += transform.up / 2;
+            StatTracker.maxKills++;
         }
     }
 }

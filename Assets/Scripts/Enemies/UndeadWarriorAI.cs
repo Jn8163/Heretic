@@ -3,7 +3,6 @@
 public class UndeadWarriorAI : EnemyBaseClass
 {
     [Header("Undead Warrior AI Settings")]
-    [SerializeField] private float attackRange = 3f; // Melee attack range
     [SerializeField] private float rangedAttackRange = 8f; // Minimum distance to throw axe
 
     private UndeadWarriorMelee meleeAttack;

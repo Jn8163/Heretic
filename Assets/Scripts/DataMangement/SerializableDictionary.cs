@@ -23,7 +23,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
     // load the dictionary from lists
     public void OnAfterDeserialize()
     {
-        this.Clear();
+        Clear();
 
         if (keys.Count != values.Count)
         {
@@ -34,7 +34,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
 
         for (int i = 0; i < keys.Count; i++)
         {
-            this.Add(keys[i], values[i]);
+            Add(keys[i], values[i]);
         }
     }
 
