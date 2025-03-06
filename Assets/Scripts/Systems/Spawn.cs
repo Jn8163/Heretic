@@ -18,7 +18,7 @@ public class Spawn : MonoBehaviour
     /// Spawns prefab from inspector, based on the object they will spawn from 
     /// lowest to highest or reverse if needed.
     /// </summary>
-    /// 
+    ///
 
     public Spawn()
     {
@@ -66,8 +66,11 @@ public class Spawn : MonoBehaviour
         if ((OnlyThisDifficulty && currentDifficulty == difficulty) || !OnlyThisDifficulty || !isActive)
         {
             target.SetActive(isActive);
-            target.transform.position += transform.up / 2;
             StatTracker.maxKills++;
+        }
+        else
+        {
+            ToggleTarget(false);
         }
     }
 }

@@ -258,6 +258,10 @@ public class MenuSystem : MonoBehaviour, IManageData
     public void SetLevel(int i)
     {
         selectedLevel = i;
+        if(unlockedLevel < i)
+        {
+            unlockedLevel = i;
+        }
     }
 
 
@@ -324,12 +328,12 @@ public class MenuSystem : MonoBehaviour, IManageData
 
     public void LoadData(GameData data)
     {
-        selectedLevel = data.currentLevel;
+        SetLevel(data.currentLevel);
     }
 
     public void SaveData(ref GameData data)
     {
-        data.currentLevel = selectedLevel;
+        data.currentLevel = unlockedLevel;
     }
 
     #endregion

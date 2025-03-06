@@ -18,6 +18,7 @@ public abstract class Item : MonoBehaviour
 
     protected virtual void PickupItem()
     {
+        transform.parent.GetComponent<Spawn>().targetActive = false;
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.Play();
     }

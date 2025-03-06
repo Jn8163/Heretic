@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 628026786219084562}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -292,7 +292,6 @@ MonoBehaviour:
   audioSource: {fileID: 186701923617473661}
   destroyDelay: 1
   pickupPrefab: {fileID: 4101700839171962501, guid: c082c263a55f61740b03d43d757d46e8, type: 3}
-  mesh: {fileID: 0}
   sprite: {fileID: 628026786219084562}
 --- !u!114 &3295367084460822130
 MonoBehaviour:

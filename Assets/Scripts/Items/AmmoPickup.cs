@@ -12,7 +12,7 @@ public class AmmoPickup : ImmediatePickup
     private void OnEnable()
     {
         ammoSystem = FindAnyObjectByType<AmmoSystem>();
-        if (MenuSystem.instance.selectedDifficulty == 1 || MenuSystem.instance.selectedDifficulty == 5)
+        if (MenuSystem.instance && MenuSystem.instance.selectedDifficulty == 1 || MenuSystem.instance.selectedDifficulty == 5)
         {
             ammoAmount += ammoAmount / 2;
         }
