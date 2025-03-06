@@ -599,14 +599,14 @@ MonoBehaviour:
   walkPointRange: 0
   patrolPauseTime: 3
   sightRange: 35
-  attackRange: 1.9
+  attackRange: 20
   chaseTimer: 0
   playerInSightRange: 0
   playerInAttackRange: 0
   isChasing: 0
   AgroYellDone: 0
-  throwRange: 15
-  meleeRange: 3
+  throwRange: 20
+  meleeRange: 3.03
   throwPrefab: {fileID: 8934813225373073617, guid: ef684fba03356eb41acda73cdf3761f2, type: 3}
   throwPoint: {fileID: 7321016252867422957}
 --- !u!114 &1412227361213877960
@@ -683,10 +683,10 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  attackRange: 50.7
+  attackRange: 20
   playerInAttackRange: 0
   stunSystem: {fileID: 677407950725761586}
-  throwPrefab: {fileID: 8934813225373073617, guid: ef684fba03356eb41acda73cdf3761f2, type: 3}
+  throwPrefab: {fileID: 3874380942321415298, guid: a5fd0da909071bc499eea69014b269bd, type: 3}
   throwPoint: {fileID: 2274463410041831768}
   throwForce: 10
   attackCooldown: 2
