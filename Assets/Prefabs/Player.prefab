@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2069564516227274093}
   sensitivity: 10
-  gamepadSensitivity: 150
+  gamepadSensitivity: 100
 --- !u!95 &859149938066602040
 Animator:
   serializedVersion: 7
@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 3910918342451556844}
   - component: {fileID: 1264735620708102043}
   - component: {fileID: 331632088000668012}
+  - component: {fileID: 7689127946041129927}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -902,6 +903,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7689127946041129927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069564516227274093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746dcde5c1c699f4fb695c80140876cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2907615243466202451
 GameObject:
   m_ObjectHideFlags: 0
