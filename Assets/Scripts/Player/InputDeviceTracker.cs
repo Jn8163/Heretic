@@ -78,12 +78,30 @@ public class InputDeviceTracker : MonoBehaviour
         {
             SetActiveDevice(Mouse.current);
         }
+        else if (Keyboard.current != null && Keyboard.current.wKey.isPressed)
+        {
+            SetActiveDevice(Mouse.current);
+        }
+        else if (Keyboard.current != null && Keyboard.current.aKey.isPressed)
+        {
+            SetActiveDevice(Mouse.current);
+        }
+        else if (Keyboard.current != null && Keyboard.current.sKey.isPressed)
+        {
+            SetActiveDevice(Mouse.current);
+        }
+        else if (Keyboard.current != null && Keyboard.current.dKey.isPressed)
+        {
+            SetActiveDevice(Mouse.current);
+        }
     }
 
     private void SetActiveDevice(InputDevice device)
     {
         if (device != lastUsedDevice)
         {
+            Debug.Log(lastUsedDevice);
+
             lastUsedDevice = device;
             UpdateGamepadStatus();
         }
