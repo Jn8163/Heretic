@@ -10,6 +10,8 @@ public class Teleporter : MonoBehaviour
     public GameObject player;
     [SerializeField]
     public Transform rotation;
+    [SerializeField]
+    public AudioSource TP_Audio;
 
 	private void Start()
 	{
@@ -22,6 +24,7 @@ public class Teleporter : MonoBehaviour
         {
             TP_Start.position = TP_End.position;
             player.transform.LookAt(rotation);
+            TP_Audio.Play();
         }
     }
 }

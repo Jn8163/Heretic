@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour, IManageData
     [SerializeField] private float walkSpeed = 15f;
     [SerializeField] private float runSpeed = 25f;
     [SerializeField] private bool animateCam = true;
-    [SerializeField] private AudioSource footSteps, footStepsSprint;
+    [SerializeField] private AudioSource footSteps, footStepsSprint, currentFootsteps;
 
     private PlayerInput pInput;
     private Rigidbody rb;
@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour, IManageData
     private void Awake()
     {
         speed = walkSpeed;
+        currentFootsteps = footSteps;
         cameraAnim = transform.Find("CameraParent").transform.Find("Camera").GetComponent<Animator>();
         stepRayLower = transform.Find("StepRayLower").gameObject;
         stepRayUpper = transform.Find("StepRayUpper").gameObject;
@@ -129,8 +130,6 @@ public class PlayerMovement : MonoBehaviour, IManageData
             direction.z = pInput.Player.Move.ReadValue<Vector2>().y;
 
 
-            
-
             //allign direction to current player allignment
             direction = transform.right * direction.x + transform.forward * direction.z;
 
@@ -145,7 +144,7 @@ public class PlayerMovement : MonoBehaviour, IManageData
                 {
                     //set walking to true so sound effect doesn't play multiple times
                     walking = true;
-                    footSteps.Play();
+                    currentFootsteps.Play();
                 }
 
                 AutoStep();
@@ -156,7 +155,7 @@ public class PlayerMovement : MonoBehaviour, IManageData
                 if (footSteps)
                 {
                     walking = false;
-                    footSteps.Stop();
+                    currentFootsteps.Stop();
                 }
             }
         }
@@ -172,19 +171,16 @@ public class PlayerMovement : MonoBehaviour, IManageData
     {
         if(sprinting)
         {
+            currentFootsteps.Stop();
             sprinting = false;
             speed = walkSpeed;
-            if (footStepsSprint)
-            {
-                footSteps.Stop();
-            }
+            currentFootsteps = footSteps;
+            currentFootsteps.Play();
         }
         else
         {
-            if (footStepsSprint && sprinting == false)
-            {
-                footStepsSprint.Play();
-            }
+            currentFootsteps.Stop();
+            currentFootsteps = footStepsSprint;
             sprinting = true;
             walking = false;
             speed = runSpeed;

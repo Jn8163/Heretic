@@ -611,6 +611,7 @@ MonoBehaviour:
   animateCam: 1
   footSteps: {fileID: 1264735620708102043}
   footStepsSprint: {fileID: 331632088000668012}
+  currentFootsteps: {fileID: 0}
   stepHeight: 1
 --- !u!114 &4526130836130253100
 MonoBehaviour:
@@ -717,8 +718,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ae5c56d0655b2224d82b942850e27f19, type: 3}
-  m_Resource: {fileID: 8300000, guid: ae5c56d0655b2224d82b942850e27f19, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a683dc44c2fe4c04b97c2d2a27c4fb59, type: 3}
+  m_Resource: {fileID: 8300000, guid: a683dc44c2fe4c04b97c2d2a27c4fb59, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -814,8 +815,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ae5c56d0655b2224d82b942850e27f19, type: 3}
-  m_Resource: {fileID: 8300000, guid: ae5c56d0655b2224d82b942850e27f19, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e484f76054973634d90106c7dcbf4a45, type: 3}
+  m_Resource: {fileID: 8300000, guid: e484f76054973634d90106c7dcbf4a45, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -830,7 +831,7 @@ AudioSource:
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
-  BypassListenerEffects: 0
+  BypassListenerEffects: 1
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
