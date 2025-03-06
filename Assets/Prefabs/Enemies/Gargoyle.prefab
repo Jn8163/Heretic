@@ -476,6 +476,7 @@ MonoBehaviour:
   score: 0
   healthBar: {fileID: 0}
   anim: {fileID: 3807300584846532091}
+  hurtScreen: {fileID: 0}
   currentHealth: 0
   bAlive: 1
 --- !u!114 &7885113984737761270
@@ -1350,10 +1351,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4340929373865538536, guid: 6a64c15669bb80047afc20c933be2548, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7049311334400071099, guid: 6a64c15669bb80047afc20c933be2548, type: 3}
       propertyPath: AgroYell
       value: 
-      objectReference: {fileID: 8300000, guid: 981449cdfdadb264ea322b6afea9a533, type: 3}
+      objectReference: {fileID: 8300000, guid: c446c38101ac5eb46816ee77bd16ce45, type: 3}
     - target: {fileID: 7049311334400071099, guid: 6a64c15669bb80047afc20c933be2548, type: 3}
       propertyPath: AttackOne
       value: 
@@ -1369,7 +1374,7 @@ PrefabInstance:
     - target: {fileID: 7049311334400071099, guid: 6a64c15669bb80047afc20c933be2548, type: 3}
       propertyPath: TakingDamage
       value: 
-      objectReference: {fileID: 8300000, guid: c446c38101ac5eb46816ee77bd16ce45, type: 3}
+      objectReference: {fileID: 8300000, guid: 981449cdfdadb264ea322b6afea9a533, type: 3}
     - target: {fileID: 7481959998230596276, guid: 6a64c15669bb80047afc20c933be2548, type: 3}
       propertyPath: m_Name
       value: EnemyAudioGarg Variant
