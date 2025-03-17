@@ -7,15 +7,12 @@ public class SpawnSystem : MonoBehaviour, IManageData
     
     public void LoadData(GameData data)
     {
-        foreach(KeyValuePair<string, bool> spawnPoint in data.spawnPointStatues)
+        foreach (Spawn spawn in spawnPoints)
         {
-            foreach (Spawn spawn in spawnPoints)
+            if(data.spawnPointStatues.ContainsKey(spawn.id))
             {
-                if(spawn.id.CompareTo(spawnPoint.Key) == 0)
-                {
-                    spawn.targetActive = spawnPoint.Value;
-                    spawn.SpawnObject();
-                }
+                spawn.targetActive = data.spawnPointStatues[spawn.id];
+                spawn.SpawnObject();
             }
         }
     }

@@ -14,15 +14,9 @@ public class Spawn : MonoBehaviour
         "difficulty, if that's true check this box true")]
     [SerializeField] private bool OnlyThisDifficulty;
 
-    /// <summary>
-    /// Spawns prefab from inspector, based on the object they will spawn from 
-    /// lowest to highest or reverse if needed.
-    /// </summary>
-    ///
-
-    public Spawn()
+    private void Awake()
     {
-        id = System.Guid.NewGuid().ToString();
+        id = GetComponent<GameObjectID>().GetID();
     }
 
     public void SpawnObject()

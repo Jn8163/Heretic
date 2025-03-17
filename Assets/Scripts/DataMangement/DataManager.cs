@@ -76,10 +76,12 @@ public class DataManager : MonoBehaviour
 
     public void ChangeSelectedProfileId(string newProfileId)
     {
-        // update the profile to use for saving and loading
-        selectedProfileId = newProfileId;
-        // load the game, which will use that profile, updating our game data accordingly
-        LoadGame();
+        if (selectedProfileId.CompareTo(newProfileId) != 0) {
+            // update the profile to use for saving and loading
+            selectedProfileId = newProfileId;
+            // load the game, which will use that profile, updating our game data accordingly
+            LoadGame();
+        }
     }
 
     public void DeleteProfileData(string profileId)

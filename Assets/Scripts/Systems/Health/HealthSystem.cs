@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 
-public class HealthSystem : MonoBehaviour
+public class HealthSystem : MonoBehaviour, IManageData
 {
     #region Fields
 
@@ -96,6 +96,41 @@ public class HealthSystem : MonoBehaviour
             GameOver();
     }
 
-    #endregion
+    public void LoadData(GameData data)
+    {
+        string id = GetComponent<GameObjectID>().GetID();
+        if (data.currentHealths.ContainsKey(id))
+        {
+            currentHealth = data.currentHealths[id];
+        }
 
+        if (data.deathState.ContainsKey(id))
+        {
+            bAlive = data.deathState[id];
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        string id = GetComponent<GameObjectID>().GetID();
+        if (data.currentHealths.ContainsKey(id))
+        {
+            data.currentHealths[id] = currentHealth;
+        }
+        else
+        {
+            data.currentHealths.Add(id, currentHealth);
+        }
+
+        if (data.deathState.ContainsKey(id))
+        {
+            data.deathState[id] = bAlive;
+        }
+        else
+        {
+            data.deathState.Add(id, bAlive);
+        }
+    }
+
+    #endregion
 }

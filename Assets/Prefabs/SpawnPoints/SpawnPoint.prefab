@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4487974814385299069}
   - component: {fileID: 8477518119748699480}
+  - component: {fileID: 5993629703420419529}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -44,7 +45,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdba81bc0d361a42bf29cdb2a42c814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  id: 2aee9d60-66de-4faf-a075-d7998e6b9880
+  targetActive: 1
+  target: {fileID: 0}
   difficulty: 1
+  currentDifficulty: 0
   Increasing: 0
   OnlyThisDifficulty: 0
+--- !u!114 &5993629703420419529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209815842119061154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affa0d6628f2c4b49bb65099700d4cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 

@@ -216,13 +216,14 @@ public class PlayerMovement : MonoBehaviour, IManageData
         if (data.playerPosition != Vector3.zero)
         {
             transform.position = data.playerPosition;
+            transform.rotation = new Quaternion(data.playerRotation.x, data.playerRotation.y, data.playerRotation.z, data.playerRotation.w);
         }
     }
 
     public void SaveData(ref GameData data)
     {
         data.playerPosition = transform.position;
-        Debug.Log(data.playerPosition);
+        data.playerRotation = new Vector4(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
     }
 
     #endregion
