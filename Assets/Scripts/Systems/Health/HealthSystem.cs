@@ -29,7 +29,10 @@ public class HealthSystem : MonoBehaviour, IManageData
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        if (currentHealth == 0)
+        {
+            currentHealth = maxHealth;
+        }
     }
 
 
@@ -98,37 +101,47 @@ public class HealthSystem : MonoBehaviour, IManageData
 
     public void LoadData(GameData data)
     {
-        string id = GetComponent<GameObjectID>().GetID();
-        if (data.currentHealths.ContainsKey(id))
+        if (TryGetComponent<GameObjectID>(out GameObjectID goID))
         {
-            currentHealth = data.currentHealths[id];
-        }
+            string id = goID.GetID();
+            if (data.currentHealths.ContainsKey(id))
+            {
+                currentHealth = data.currentHealths[id];
+            }
 
-        if (data.deathState.ContainsKey(id))
+            if (data.deathState.ContainsKey(id))
+            {
+                bAlive = data.deathState[id];
+            }
+        }
+        else
         {
-            bAlive = data.deathState[id];
+            Debug.Log($"ID not assigned for gameobject: {gameObject.name}");
         }
     }
 
     public void SaveData(ref GameData data)
     {
-        string id = GetComponent<GameObjectID>().GetID();
-        if (data.currentHealths.ContainsKey(id))
+        if (TryGetComponent<GameObjectID>(out GameObjectID goID))
         {
-            data.currentHealths[id] = currentHealth;
-        }
-        else
-        {
-            data.currentHealths.Add(id, currentHealth);
-        }
+            string id = goID.GetID();
+            if (data.currentHealths.ContainsKey(id))
+            {
+                data.currentHealths[id] = currentHealth;
+            }
+            else
+            {
+                data.currentHealths.Add(id, currentHealth);
+            }
 
-        if (data.deathState.ContainsKey(id))
-        {
-            data.deathState[id] = bAlive;
-        }
-        else
-        {
-            data.deathState.Add(id, bAlive);
+            if (data.deathState.ContainsKey(id))
+            {
+                data.deathState[id] = bAlive;
+            }
+            else
+            {
+                data.deathState.Add(id, bAlive);
+            }
         }
     }
 

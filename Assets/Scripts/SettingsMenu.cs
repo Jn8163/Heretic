@@ -37,9 +37,6 @@ public class SettingsMenu : MonoBehaviour
     {
         float Sense = SenseSlider.value;
         PlayerPrefs.SetFloat("Sense", Sense);
-
-        Debug.Log("SetSense");
-        Debug.Log(PlayerPrefs.GetFloat("Sense"));
     }
 
     private void LoadSense()
@@ -47,8 +44,6 @@ public class SettingsMenu : MonoBehaviour
         SenseSlider.value = PlayerPrefs.GetFloat("Sense");
 
         SetSense();
-
-        Debug.Log("LoadedSense");
     }
 
     public void MusicVolume()

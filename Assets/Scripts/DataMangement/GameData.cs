@@ -23,5 +23,7 @@ public class GameData
         levelUnlocked = 1;
         playerPosition = Vector3.zero;
         spawnPointStatues = new SerializableDictionary<string, bool>();
+        currentHealths = new SerializableDictionary<string, int>();
+        deathState = new SerializableDictionary<string, bool>();
     }
 }

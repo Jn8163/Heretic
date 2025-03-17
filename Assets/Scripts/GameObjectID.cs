@@ -1,7 +1,10 @@
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.Experimental.SceneManagement;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
-#if UNITY_EDITOR
-[ExecuteInEditMode] // This will only be applied in the Unity Editor
+[ExecuteInEditMode]
 #endif
 public class GameObjectID : MonoBehaviour
 {
@@ -10,11 +13,14 @@ public class GameObjectID : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        // Generate a new ID in the editor if it's not set already
-        if (string.IsNullOrEmpty(id))
+        // Only generate a new ID if it's part of the scene and not in prefab editing mode
+        if (string.IsNullOrEmpty(id) &&
+            gameObject.scene.IsValid() && // Ensure it's in a scene
+            PrefabStageUtility.GetCurrentPrefabStage() == null) // Not in prefab mode
         {
             id = System.Guid.NewGuid().ToString();
             Debug.Log($"Generated new ID in OnValidate: {id} for {gameObject.name}");
+            UnityEditor.EditorUtility.SetDirty(this); // Mark as dirty to save changes
         }
     }
 #endif

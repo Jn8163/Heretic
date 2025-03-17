@@ -53,11 +53,9 @@ public class InputDeviceTracker : MonoBehaviour
         {
             case InputDeviceChange.Added:
             case InputDeviceChange.Reconnected:
-                Debug.Log($"Device {device.name} connected");
                 break;
             case InputDeviceChange.Removed:
             case InputDeviceChange.Disconnected:
-                Debug.Log($"Device {device.name} disconnected");
                 if (device == lastUsedDevice)
                 {
                     lastUsedDevice = null;
@@ -100,8 +98,6 @@ public class InputDeviceTracker : MonoBehaviour
     {
         if (device != lastUsedDevice)
         {
-            Debug.Log(lastUsedDevice);
-
             lastUsedDevice = device;
             UpdateGamepadStatus();
         }
@@ -129,7 +125,6 @@ public class InputDeviceTracker : MonoBehaviour
         {
             gamepadActive = isGamepad;
             ControllerConnected(gamepadActive);
-            Debug.Log($"Gamepad Active: {gamepadActive}");
         }
     }
 

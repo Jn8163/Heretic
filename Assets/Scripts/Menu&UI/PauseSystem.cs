@@ -25,10 +25,6 @@ public class PauseSystem : MonoBehaviour
         {
             instance = this;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
 
