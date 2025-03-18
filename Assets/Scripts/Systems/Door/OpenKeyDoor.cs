@@ -25,30 +25,12 @@ public class OpenKeyDoor : MonoBehaviour
 		pInput.Enable();
 
 		pInput.Player.Interact.performed += OpenDoor;
-		KeyYPickupGA.KeyYPickup += ToggleKeyYellow;
-		KeyGPickupGA.KeyGPickup += ToggleKeyGreen;
-		KeyBPickupGA.KeyBPickup += ToggleKeyBlue;
 	}
 
 	private void OnDisable()
 	{
 		pInput.Player.Interact.performed -= OpenDoor;
 		pInput.Disable();
-	}
-
-	private void ToggleKeyYellow(bool b)
-	{
-		isKeyY = true;
-	}
-
-	private void ToggleKeyGreen(bool b)
-	{
-		isKeyG = true;
-	}
-
-	private void ToggleKeyBlue(bool b)
-	{
-		isKeyB = true;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -68,6 +50,10 @@ public class OpenKeyDoor : MonoBehaviour
 	}
 	private void OpenDoor(InputAction.CallbackContext c)
 	{
+		PlayerUI pUI = FindAnyObjectByType<PlayerUI>();
+		isKeyY = pUI.yKeyObt;
+		isKeyG = pUI.gKeyObt;
+		isKeyB = pUI.bKeyObt;
 		if (index == 0 && isKeyY)
 		{
 			if (isInteractable)

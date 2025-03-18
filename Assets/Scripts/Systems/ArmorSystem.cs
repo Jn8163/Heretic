@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ArmorSystem : MonoBehaviour
+public class ArmorSystem : MonoBehaviour, IManageData
 {
     public static ArmorSystem instance;
     [SerializeField] private int maxShield;
@@ -43,8 +43,9 @@ public class ArmorSystem : MonoBehaviour
     public int UseShield(int damage)
     {
         int reducedDamage = (int)(damage * reductionAmount);
+        reducedDamage += (reducedDamage == 0) ? -1 : 0;
         
-        if(currentShieldHealth + reducedDamage <= 0)
+        if (currentShieldHealth + reducedDamage <= 0)
         {
             reducedDamage = currentShieldHealth;
             DestroyShield();
@@ -62,5 +63,21 @@ public class ArmorSystem : MonoBehaviour
     {
         shieldEquipped = false;
         currentShieldHealth = 0;
+    }
+
+    public void LoadData(GameData data)
+    {
+        maxShield = data.pMaxShield;
+        currentShieldHealth = data.pCurrentShieldH;
+        reductionAmount = data.pArmorReductionAmount;
+        shieldEquipped = data.shieldEquipped;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.pMaxShield = maxShield;
+        data.pCurrentShieldH = currentShieldHealth;
+        data.pArmorReductionAmount = reductionAmount;
+        data.shieldEquipped = shieldEquipped;
     }
 }

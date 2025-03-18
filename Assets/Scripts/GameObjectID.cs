@@ -1,6 +1,5 @@
 #if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -8,19 +7,33 @@ using UnityEngine;
 #endif
 public class GameObjectID : MonoBehaviour
 {
-    public string id;
+    [SerializeField] private string id;
 
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        // Only generate a new ID if it's part of the scene and not in prefab editing mode
-        if (string.IsNullOrEmpty(id) &&
-            gameObject.scene.IsValid() && // Ensure it's in a scene
-            PrefabStageUtility.GetCurrentPrefabStage() == null) // Not in prefab mode
+        // Skip if object is part of prefab mode or prefab asset
+        if (PrefabStageUtility.GetCurrentPrefabStage() != null || PrefabUtility.IsPartOfPrefabAsset(this))
+            return;
+
+        // Skip if loading from scene (serialization not complete yet)
+        if (string.IsNullOrEmpty(id) && gameObject.scene.IsValid())
         {
-            id = System.Guid.NewGuid().ToString();
-            Debug.Log($"Generated new ID in OnValidate: {id} for {gameObject.name}");
-            UnityEditor.EditorUtility.SetDirty(this); // Mark as dirty to save changes
+            // Delay the assignment until Unity has finished deserializing the scene
+            EditorApplication.delayCall += () =>
+            {
+                if (string.IsNullOrEmpty(id))
+                {
+                    id = System.Guid.NewGuid().ToString();
+
+                    // Make log clickable
+                    Debug.Log($"Generated new ID in OnValidate: {id} for {gameObject.name}", gameObject);
+
+                    // Ensure Unity saves the change
+                    UnityEditor.EditorUtility.SetDirty(this);
+                    UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(gameObject.scene);
+                }
+            };
         }
     }
 #endif

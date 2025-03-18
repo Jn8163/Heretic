@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerUI : MonoBehaviour
+public class PlayerUI : MonoBehaviour, IManageData
 {
 	public HealthSystem healthSystem;
 	public ArmorSystem armorSystem;
@@ -16,6 +16,7 @@ public class PlayerUI : MonoBehaviour
 
 	[SerializeField]
 	private GameObject yKey, gKey, bKey;
+	public bool yKeyObt, gKeyObt, bKeyObt;
 
 	[SerializeField] private List<GameObject> ammoDisplays = new List<GameObject>();
 
@@ -142,17 +143,20 @@ public class PlayerUI : MonoBehaviour
 	
 	private void KeyYellowLight(bool b)
 	{
-		yKey.SetActive(true);
+		yKey.SetActive(b);
+		yKeyObt = b;
 	}
 
 	private void KeyGreenLight(bool b)
 	{
-		gKey.SetActive(true);
+		gKey.SetActive(b);
+		gKeyObt = b;
     }
 
 	private void KeyBlueLight(bool b)
 	{
-		bKey.SetActive(true);
+		bKey.SetActive(b);
+		bKeyObt = b;
     }
 
 	private void DisplayText(int index)
@@ -205,8 +209,22 @@ public class PlayerUI : MonoBehaviour
 		announcementText.text = "";
 	}
 
-	// AMMO ICON/COUNT: Have input action functions that pull up the ammo icon on the UI for the respective weapon
-	// Ex: Pressing 2 would pull up the ammo icon for the crystal wand, as well as its current ammo
-	// Make sure each input action function has its own respective icon and ammo count regarding the weapon
-	// If using LB/RB or something similar to cycle weapons on controller, use an index for a switch case or if statement. Decrement/increment index accordingly
+    public void LoadData(GameData data)
+    {
+		KeyYellowLight(data.yKey);
+		KeyGreenLight(data.gKey);
+		KeyBlueLight(data.bKey);
+    }
+
+    public void SaveData(ref GameData data)
+    {
+		data.yKey = yKeyObt;
+		data.gKey = gKeyObt;
+		data.bKey = bKeyObt;
+    }
+
+    // AMMO ICON/COUNT: Have input action functions that pull up the ammo icon on the UI for the respective weapon
+    // Ex: Pressing 2 would pull up the ammo icon for the crystal wand, as well as its current ammo
+    // Make sure each input action function has its own respective icon and ammo count regarding the weapon
+    // If using LB/RB or something similar to cycle weapons on controller, use an index for a switch case or if statement. Decrement/increment index accordingly
 }

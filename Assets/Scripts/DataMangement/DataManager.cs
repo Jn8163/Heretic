@@ -147,6 +147,12 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public void SaveGame(string newProfileID)
+    {
+        selectedProfileId = newProfileID;
+        SaveGame();
+    }
+
     public void SaveGame()
     {
         // return right away if data persistence is disabled
@@ -185,7 +191,7 @@ public class DataManager : MonoBehaviour
 
     private List<IManageData> FindAllDataPersistenceObjects()
     {
-        IEnumerable<IManageData> dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IManageData>();
+        IEnumerable<IManageData> dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<IManageData>();
 
         return new List<IManageData>(dataPersistenceObjects);
     }
