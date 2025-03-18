@@ -385,10 +385,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4156535780045364484}
   - component: {fileID: 621307209666701369}
-  - component: {fileID: 5055324379885800769}
-  - component: {fileID: 5550319893616265328}
-  - component: {fileID: 6202346341340363684}
   - component: {fileID: -4722154127058794427}
+  - component: {fileID: 6202346341340363684}
+  - component: {fileID: 2035309852249528330}
   m_Layer: 7
   m_Name: HallwayDoor
   m_TagString: Untagged
@@ -433,47 +432,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.4999995, y: 2.0086641, z: 5.0595365}
   m_Center: {x: 0, y: -0.4956665, z: -0.042964697}
---- !u!114 &5055324379885800769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397959151801821008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de27400fa173d849bc747696135e3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
---- !u!114 &5550319893616265328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397959151801821008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852ce7a6d40822c46aeb042ac4d927fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions: []
-  bToggle: 0
---- !u!114 &6202346341340363684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397959151801821008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e73d13f462409f4b8781e04c51ec6c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 4235747742153171745}
-  audioSource: {fileID: -4722154127058794427}
 --- !u!82 &-4722154127058794427
 AudioSource:
   m_ObjectHideFlags: 0
@@ -571,3 +529,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6202346341340363684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397959151801821008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e73d13f462409f4b8781e04c51ec6c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 4235747742153171745}
+  audioSource: {fileID: -4722154127058794427}
+--- !u!114 &2035309852249528330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397959151801821008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affa0d6628f2c4b49bb65099700d4cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 

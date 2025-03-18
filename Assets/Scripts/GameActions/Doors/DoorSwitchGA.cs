@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DoorSwitchGA : MonoBehaviour
+public class DoorSwitchGA : MonoBehaviour, IManageData
 {
     private PlayerInput pInput;
     private bool isButtonPressed;
@@ -49,14 +49,51 @@ public class DoorSwitchGA : MonoBehaviour
 	{
 		if (isInteractable)
 		{
-			if (!isButtonPressed) {
-                buttonSound.Play();
-                doorSound.Play();
-            }
-            isButtonPressed = true;
-            doorAnim.SetBool("isDoorOpen", isButtonPressed);
-            buttonAnim.SetBool("isButtonPressed", isButtonPressed);
+            OpeningDoor();	
+        }
+    }
 
+    private void OpeningDoor()
+    {
+        if (!isButtonPressed)
+        {
+            buttonSound.Play();
+            doorSound.Play();
+        }
+        isButtonPressed = true;
+        doorAnim.SetBool("isDoorOpen", isButtonPressed);
+        buttonAnim.SetBool("isButtonPressed", isButtonPressed);
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (TryGetComponent<GameObjectID>(out GameObjectID goID))
+        {
+            string id = goID.GetID();
+            if (data.buttonsPressed.ContainsKey(id))
+            {
+                isButtonPressed = data.buttonsPressed[id];
+                if(isButtonPressed)
+                {
+                    OpeningDoor();
+                }
+            }
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+		if(TryGetComponent<GameObjectID>(out GameObjectID goID))
+		{
+			string id = goID.GetID();
+            if (data.buttonsPressed.ContainsKey(id))
+            {
+                data.buttonsPressed[id] = isButtonPressed;
+            }
+            else
+            {
+				data.buttonsPressed.Add(id, isButtonPressed);
+            }
         }
     }
 }

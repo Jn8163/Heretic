@@ -25,6 +25,8 @@ public class GameData
     public SerializableDictionary<string, bool> spawnPointStatues;
     public SerializableDictionary<string, int> currentHealths;
     public SerializableDictionary<string, bool> deathState;
+    public SerializableDictionary<string, bool> doorsOpen;
+    public SerializableDictionary<string, bool> buttonsPressed;
 
     //New Save values
     public GameData()
@@ -44,5 +46,7 @@ public class GameData
         spawnPointStatues = new SerializableDictionary<string, bool>();
         currentHealths = new SerializableDictionary<string, int>();
         deathState = new SerializableDictionary<string, bool>();
+        doorsOpen = new SerializableDictionary<string, bool>();
+        buttonsPressed = new SerializableDictionary<string, bool>();
     }
 }

@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class OpenKeyDoor : MonoBehaviour
+public class OpenKeyDoor : MonoBehaviour, IManageData
 {
 	private PlayerInput pInput;
 	private bool isDoorOpen;
@@ -50,61 +49,80 @@ public class OpenKeyDoor : MonoBehaviour
 	}
 	private void OpenDoor(InputAction.CallbackContext c)
 	{
-		PlayerUI pUI = FindAnyObjectByType<PlayerUI>();
-		isKeyY = pUI.yKeyObt;
-		isKeyG = pUI.gKeyObt;
-		isKeyB = pUI.bKeyObt;
-		if (index == 0 && isKeyY)
-		{
-			if (isInteractable)
-			{
-				isDoorOpen = true;
-				anim.SetBool("isDoorOpen", isDoorOpen);
-                audioSource.Play();
-
-            }
+		if(isInteractable)
+        {
+            CheckToOpenDoor();
         }
-		else if (index == 1 && isKeyG)
-		{
-			if (isInteractable)
-			{
-                isDoorOpen = true;
-				anim.SetBool("isDoorOpen", isDoorOpen);
-                audioSource.Play();
-            }
-        }
-		else if (index == 2 && isKeyB)
-		{
-			if (isInteractable)
-			{
-                isDoorOpen = true;
-				anim.SetBool("isDoorOpen", isDoorOpen);
-                audioSource.Play();
-            }
-        }
-
-		else if(index == 0 && !isKeyY)
-		{
-			if (isInteractable)
-			{
-				DisplayText(index);
-			}
-		}
-
-		else if (index == 1 && !isKeyG)
-		{
-			if (isInteractable)
-			{
-				DisplayText(index);
-			}
-		}
-
-		else if (index == 2 && !isKeyB)
-		{
-			if (isInteractable)
-			{
-				DisplayText(index);
-			}
-		}
 	}
+
+	private void CheckToOpenDoor()
+	{
+        PlayerUI pUI = FindAnyObjectByType<PlayerUI>();
+        isKeyY = pUI.yKeyObt;
+        isKeyG = pUI.gKeyObt;
+        isKeyB = pUI.bKeyObt;
+        if (index == 0 && isKeyY)
+        {
+            OpeningDoor();
+        }
+        else if (index == 1 && isKeyG)
+        {
+            OpeningDoor();
+        }
+        else if (index == 2 && isKeyB)
+        {
+            OpeningDoor();
+        }
+        else if (index == 0 && !isKeyY)
+        {
+            DisplayText(index);
+        }
+        else if (index == 1 && !isKeyG)
+        {
+            DisplayText(index);
+        }
+        else if (index == 2 && !isKeyB)
+        {
+            DisplayText(index);
+        }
+    }
+
+    private void OpeningDoor()
+    {
+        isDoorOpen = true;
+        anim.SetBool("isDoorOpen", isDoorOpen);
+        audioSource.Play();
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (TryGetComponent<GameObjectID>(out GameObjectID goID))
+        {
+            string id = goID.GetID();
+            if (data.doorsOpen.ContainsKey(id))
+            {
+                isDoorOpen = data.doorsOpen[id];
+                if (isDoorOpen)
+                {
+                    OpeningDoor();
+                }
+            }
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (TryGetComponent<GameObjectID>(out GameObjectID goID))
+        {
+            string id = goID.GetID();
+            if (data.doorsOpen.ContainsKey(id))
+            {
+                data.doorsOpen[id] = isDoorOpen;
+            }
+            else
+            {
+                data.doorsOpen.Add(id, isDoorOpen);
+            }
+        }
+    }
 }

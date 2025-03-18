@@ -370,8 +370,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3999367106152210724}
   - component: {fileID: 6074871224249915856}
-  - component: {fileID: 8233384720155269162}
-  - component: {fileID: 8190493201535671255}
   m_Layer: 7
   m_Name: SwitchDoor
   m_TagString: Untagged
@@ -417,33 +415,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.4999995, y: 2.0086641, z: 2}
   m_Center: {x: 0, y: -0.49566656, z: 0}
---- !u!114 &8233384720155269162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791508465363279695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de27400fa173d849bc747696135e3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
---- !u!114 &8190493201535671255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791508465363279695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852ce7a6d40822c46aeb042ac4d927fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions: []
-  bToggle: 0
 --- !u!1 &7707759945757718742
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,8 +425,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4640859803211166544}
   - component: {fileID: 5177712967763113831}
-  - component: {fileID: 992472604370557576}
   - component: {fileID: 7890398686573030324}
+  - component: {fileID: 992472604370557576}
+  - component: {fileID: 4370262255137499262}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -500,22 +472,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &992472604370557576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7707759945757718742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 111e34b7a2a8bc5408aa3753610ec333, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnim: {fileID: 1851736780183160206}
-  buttonAnim: {fileID: 2212783863772035677}
-  doorSound: {fileID: 6631591825756739950}
-  buttonSound: {fileID: 7890398686573030324}
 --- !u!82 &7890398686573030324
 AudioSource:
   m_ObjectHideFlags: 0
@@ -613,3 +569,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &992472604370557576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707759945757718742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 111e34b7a2a8bc5408aa3753610ec333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnim: {fileID: 1851736780183160206}
+  buttonAnim: {fileID: 2212783863772035677}
+  doorSound: {fileID: 6631591825756739950}
+  buttonSound: {fileID: 7890398686573030324}
+--- !u!114 &4370262255137499262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707759945757718742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affa0d6628f2c4b49bb65099700d4cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 

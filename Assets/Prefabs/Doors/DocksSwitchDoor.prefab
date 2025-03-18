@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4908601798892496061}
   - component: {fileID: 8993117288270121898}
-  - component: {fileID: 2068666660195655482}
-  - component: {fileID: 7835420577515116838}
   m_Layer: 7
   m_Name: DocksSwitchDoor
   m_TagString: Untagged
@@ -57,33 +55,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.4999995, y: 2.0086641, z: 5.9999986}
   m_Center: {x: 8.077936e-28, y: -0.4956665, z: 0.00000023841858}
---- !u!114 &2068666660195655482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4908861566463395925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de27400fa173d849bc747696135e3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
---- !u!114 &7835420577515116838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4908861566463395925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852ce7a6d40822c46aeb042ac4d927fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions: []
-  bToggle: 0
 --- !u!1 &5788972574635987063
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,8 +415,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1159271452608052072}
   - component: {fileID: 6092895167386191505}
-  - component: {fileID: 3311421054211114570}
   - component: {fileID: 3766307738981147510}
+  - component: {fileID: 3311421054211114570}
+  - component: {fileID: 3631698525242432656}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -490,22 +462,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3311421054211114570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6498306439106772832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 111e34b7a2a8bc5408aa3753610ec333, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnim: {fileID: 1725885941196822833}
-  buttonAnim: {fileID: 3139538551251624135}
-  doorSound: {fileID: 3344535627976549059}
-  buttonSound: {fileID: 3766307738981147510}
 --- !u!82 &3766307738981147510
 AudioSource:
   m_ObjectHideFlags: 0
@@ -603,6 +559,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3311421054211114570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498306439106772832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 111e34b7a2a8bc5408aa3753610ec333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnim: {fileID: 1725885941196822833}
+  buttonAnim: {fileID: 3139538551251624135}
+  doorSound: {fileID: 3344535627976549059}
+  buttonSound: {fileID: 3766307738981147510}
+--- !u!114 &3631698525242432656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498306439106772832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affa0d6628f2c4b49bb65099700d4cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
 --- !u!1 &7753831178888833062
 GameObject:
   m_ObjectHideFlags: 0
