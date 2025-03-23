@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] protected AudioSource audioSource;
     protected InventorySystem inventorySystem;
     [SerializeField] protected float destroyDelay = 1.0f;
 
