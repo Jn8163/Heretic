@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class UndeadWarriorProjectile : MonoBehaviour
@@ -6,6 +7,7 @@ public class UndeadWarriorProjectile : MonoBehaviour
     [SerializeField] private float lifetime = 5f;  // Destroy after X seconds
     [SerializeField] private float throwForce = 15f; // Adjust this value to control speed
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private Animator anim;
     private Rigidbody rb;
 
     private void Start()
@@ -23,10 +25,11 @@ public class UndeadWarriorProjectile : MonoBehaviour
         rb.isKinematic = false; // Allow physics-based movement
 
         // Calculate the direction to the player
-        Transform player = GameObject.FindWithTag("Player")?.transform;
+        Vector3 player = GameObject.FindWithTag("Player").transform.position;
         if (player != null)
         {
-            Vector3 direction = (player.position - transform.position).normalized;
+            player.y += 1.5f;
+            Vector3 direction = (player - transform.position).normalized;
             rb.linearVelocity = direction * throwForce; // Apply velocity to make it move
         }
         else
@@ -47,13 +50,21 @@ public class UndeadWarriorProjectile : MonoBehaviour
             {
                 healthSystem.UpdateHealth(damage);
                 Debug.Log("Projectile dealt " + damage + " damage to player!");
-                Destroy(gameObject); // Destroy on impact
+                StartCoroutine(nameof(DestroyAxe)); // Destroy on impact
             }
         }
-        else if (other.CompareTag("Environment") || other.CompareTag("Obstacle"))
+        else if (other.gameObject.layer == 0 || other.gameObject.layer == 4)
         {
             Debug.Log("Projectile hit an obstacle and was destroyed.");
-            Destroy(gameObject);
+            StartCoroutine(nameof(DestroyAxe));
         }
+    }
+
+    IEnumerator DestroyAxe()
+    {
+        rb.linearVelocity = Vector3.zero;
+        anim.SetBool("Explode", true);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 }
