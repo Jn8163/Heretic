@@ -27,7 +27,6 @@ public class StunSystem : MonoBehaviour
 		rand = UnityEngine.Random.Range(minStunValue, maxStunValue + 1);
 		if (stunValue >= rand)
 		{
-			Debug.Log("stunned! " + stunValue);
 			isStunned = true;
 			refreshTimer = true;
 			GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();
@@ -40,13 +39,11 @@ public class StunSystem : MonoBehaviour
 	{
 		if (knockback - knockbackResist > 0)
 		{
-			Debug.Log("Apply Knockback!");
 			knockbackAmt = knockback - knockbackResist;
 			isKnockback = true;
 		}
 		else
 		{
-			Debug.Log("No knockback!");
 		}
 	}
 

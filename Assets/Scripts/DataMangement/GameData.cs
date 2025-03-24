@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -20,6 +21,12 @@ public class GameData
     public int pCurrentShieldH;
     public float pArmorReductionAmount;
     public bool shieldEquipped;
+    public SerializableDictionary<int, int> ammoMax;
+    public SerializableDictionary<int, int> currentAmmo;
+    public List<bool> weaponsAquired;
+    public bool staffActive;
+    public bool gauntletUnlocked;
+    public int currentWeapon;
 
     [Header("Level Stats")]
     public SerializableDictionary<string, bool> spawnPointStatues;
@@ -27,6 +34,8 @@ public class GameData
     public SerializableDictionary<string, bool> deathState;
     public SerializableDictionary<string, bool> doorsOpen;
     public SerializableDictionary<string, bool> buttonsPressed;
+    public SerializableDictionary<string, Vector3> enemyPositions;
+    public SerializableDictionary<string, Vector4> enemyRotations;
 
     //New Save values
     public GameData()
@@ -42,11 +51,19 @@ public class GameData
         pCurrentShieldH = 0;
         pArmorReductionAmount = 0;
         shieldEquipped = false;
+        ammoMax = new SerializableDictionary<int, int>();
+        currentAmmo = new SerializableDictionary<int, int>();
+        weaponsAquired = new List<bool>();
+        staffActive = false;
+        gauntletUnlocked = false;
+        currentWeapon = 1;
 
-        spawnPointStatues = new SerializableDictionary<string, bool>();
+    spawnPointStatues = new SerializableDictionary<string, bool>();
         currentHealths = new SerializableDictionary<string, int>();
         deathState = new SerializableDictionary<string, bool>();
         doorsOpen = new SerializableDictionary<string, bool>();
         buttonsPressed = new SerializableDictionary<string, bool>();
+        enemyPositions = new SerializableDictionary<string, Vector3>();
+        enemyRotations = new SerializableDictionary<string, Vector4>();
     }
 }

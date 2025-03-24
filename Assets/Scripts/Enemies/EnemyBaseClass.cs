@@ -2,7 +2,7 @@
 using UnityEngine.AI;
 using System.Collections;
 
-public abstract class EnemyBaseClass : MonoBehaviour
+public abstract class EnemyBaseClass : MonoBehaviour, IManageData
 {
     [SerializeField] public NavMeshAgent agent;
     protected HealthSystem healthSystem;
@@ -179,5 +179,54 @@ public abstract class EnemyBaseClass : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(startingPos, walkPointRange);
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (TryGetComponent<GameObjectID>(out GameObjectID goID))
+        {
+            string id = goID.GetID();
+            if (data.enemyPositions.ContainsKey(id))
+            {
+                transform.position = data.enemyPositions[id];
+            }
+            if (data.deathState.ContainsKey(id))
+            {
+                transform.rotation = new Quaternion(data.playerRotation.x, data.playerRotation.y, data.playerRotation.z, data.playerRotation.w);
+            }
+        }
+        else
+        {
+            Debug.Log($"ID not assigned for gameobject: {gameObject.name}");
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (TryGetComponent<GameObjectID>(out GameObjectID goID))
+        {
+            string id = goID.GetID();
+            if (data.enemyPositions.ContainsKey(id))
+            {
+                data.enemyPositions[id] = transform.position;
+            }
+            else
+            {
+                data.enemyPositions.Add(id, transform.position);
+            }
+
+            if (data.enemyRotations.ContainsKey(id))
+            {
+                data.enemyRotations[id] = new Vector4(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            }
+            else
+            {
+                data.enemyRotations.Add(id, new Vector4(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
+            }
+        }
+        else
+        {
+            Debug.Log($"ID not assigned for gameobject: {gameObject.name}");
+        }
     }
 }

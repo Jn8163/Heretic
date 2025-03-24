@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// Tracks current weapon and swaps weapons as needed
 /// </summary>
-public class SwapWeapon : MonoBehaviour
+public class SwapWeapon : MonoBehaviour, IManageData
 {
     private PlayerInput pInput;
     [SerializeField] private int startingSlot = 1;
@@ -217,6 +217,23 @@ public class SwapWeapon : MonoBehaviour
         SwapToWeapon(5);
     }
 
+
+
     #endregion
 
+    public void LoadData(GameData data)
+    {
+        weaponAquired = data.weaponsAquired;
+        staffActive = data.staffActive;
+        gauntletUnlocked = data.gauntletUnlocked;
+        currentWeapon = data.currentWeapon;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.weaponsAquired = weaponAquired;
+        data.staffActive = staffActive;
+        data.gauntletUnlocked = gauntletUnlocked;
+        data.currentWeapon = currentWeapon;
+    }
 }
