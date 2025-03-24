@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
-public class AmmoSystem : MonoBehaviour
+public class AmmoSystem : MonoBehaviour, IManageData
 {
     [SerializeField] private List<AmmoType> ammoTypes;
     [SerializeField] private AmmoType startingAmmoType;
@@ -83,6 +82,54 @@ public class AmmoSystem : MonoBehaviour
     public bool CheckIfFull(Ammo ammoType)
     {
         return ammoTypes[(int)ammoType].currentAmmo >= ammoTypes[(int)ammoType].ammoMax;
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (TryGetComponent<GameObjectID>(out GameObjectID goID))
+        {
+            string id = goID.GetID();
+            foreach (AmmoType at in ammoTypes)
+            {
+                if (data.ammoMax.ContainsKey((int)at.ammo))
+                {
+                    at.ammoMax = data.ammoMax[(int)at.ammo];
+                }
+
+                if (data.currentAmmo.ContainsKey((int)at.ammo))
+                {
+                    at.currentAmmo = data.currentAmmo[(int)at.ammo];
+                }
+            }
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (TryGetComponent<GameObjectID>(out GameObjectID goID))
+        {
+            string id = goID.GetID();
+            foreach (AmmoType at in ammoTypes)
+            {
+                if (data.ammoMax.ContainsKey((int)at.ammo))
+                {
+                    data.ammoMax[(int)at.ammo] = at.ammoMax;
+                }
+                else
+                {
+                    data.ammoMax.Add((int)at.ammo, at.ammoMax);
+                }
+
+                if (data.currentAmmo.ContainsKey((int)at.ammo))
+                {
+                    data.currentAmmo[(int)at.ammo] = at.currentAmmo;
+                }
+                else
+                {
+                    data.currentAmmo.Add((int)at.ammo, at.currentAmmo);
+                }
+            }
+        }
     }
 }
 
