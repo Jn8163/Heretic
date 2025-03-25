@@ -13,6 +13,7 @@ public class Spawn : MonoBehaviour
     [Tooltip("Sometimes objects spawn in completely different locations for one " +
         "difficulty, if that's true check this box true")]
     [SerializeField] private bool OnlyThisDifficulty;
+    [SerializeField] private bool isEnemy;
 
     private void Awake()
     {
@@ -60,7 +61,16 @@ public class Spawn : MonoBehaviour
         if ((OnlyThisDifficulty && currentDifficulty == difficulty) || !OnlyThisDifficulty || !isActive)
         {
             target.SetActive(isActive);
-            StatTracker.maxKills++;
+            
+            if (currentDifficulty == difficulty || (currentDifficulty >= difficulty) && Increasing)
+            {
+                if (isEnemy)
+                {
+                    StatTracker.maxKills++;
+                    Debug.Log("Max Kills: " + StatTracker.maxKills);
+                    Debug.Log(target);
+                }
+            }
         }
         else
         {

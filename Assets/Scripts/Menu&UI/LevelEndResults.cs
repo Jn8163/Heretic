@@ -63,8 +63,15 @@ public class LevelEndResults : MonoBehaviour
 			if (counter == 3)
 			{
 				time.text = "time";
-				timeCounter.text = StatTracker.time / 60 + ":" + StatTracker.time % 60;
-				aSource.Play();
+                if (StatTracker.time % 60 <= 9)
+                {
+                    timeCounter.text = StatTracker.time / 60 + ":" + "0" + StatTracker.time % 60;
+                }
+                else
+                {
+                    timeCounter.text = StatTracker.time / 60 + ":" + StatTracker.time % 60;
+                }
+                aSource.Play();
 				StartCoroutine(nameof(StartSwitchTimer));
 			}
 			counter++;
@@ -94,7 +101,15 @@ public class LevelEndResults : MonoBehaviour
 		kills.text = StatTracker.killCount + " / " + StatTracker.maxKills;
 		items.text = StatTracker.itemCount + " / " + StatTracker.maxItems;
 		secrets.text = StatTracker.secretCount + " / " + StatTracker.maxSecrets;
-		time.text = "time                    " + StatTracker.time / 60 + ":" + StatTracker.time % 60;
+		time.text = "time";
+		if(StatTracker.time % 60 <= 9)
+		{
+            timeCounter.text = StatTracker.time / 60 + ":" + "0" + StatTracker.time % 60;
+        }
+		else
+		{
+            timeCounter.text = StatTracker.time / 60 + ":" + StatTracker.time % 60;
+        }
 		aSource.Play();
 
 		isInterrupted = true;
