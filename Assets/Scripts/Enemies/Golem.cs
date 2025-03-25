@@ -7,14 +7,20 @@ public class Golem : EnemyBaseClass
     [SerializeField] private float zigZagAmount = 3f; // How far to move sideways
 
     private bool movingRight = true;
+    private Coroutine zigZagCoroutine = null;
 
     protected override void Update()
     {
         base.Update();
 
-        if (isChasing)
+        if (isChasing && zigZagCoroutine == null)
         {
-            StartCoroutine(ZigZagMovement());
+            zigZagCoroutine = StartCoroutine(ZigZagMovement());
+        }
+        else if (!isChasing && zigZagCoroutine != null)
+        {
+            StopCoroutine(zigZagCoroutine);
+            zigZagCoroutine = null;
         }
     }
 
@@ -22,16 +28,16 @@ public class Golem : EnemyBaseClass
     {
         while (isChasing)
         {
-            // Compute sideways movement
             Vector3 lateralMovement = transform.right * (movingRight ? 1 : -1) * zigZagAmount;
             Vector3 newTarget = player.position + lateralMovement;
 
-            // Move toward the zig-zag point
             agent.SetDestination(newTarget);
 
-            // Switch direction
             movingRight = !movingRight;
             yield return new WaitForSeconds(zigZagInterval);
         }
+
+        // Just in case isChasing becomes false within the loop
+        zigZagCoroutine = null;
     }
 }
