@@ -48,12 +48,14 @@ public class HealthSystem : MonoBehaviour, IManageData
         {
             if(ArmorSystem.instance.shieldEquipped)
             {
-                amount = ArmorSystem.instance.UseShield(amount);
-            }
+                if(amount < 0)
+					amount = ArmorSystem.instance.UseShield(amount);
+			}
             if (!ActivateRing.isInvincible)
             {
-                StartCoroutine(nameof(FlashHurtScreen));
-                currentHealth += amount;
+                if(amount < 0)
+					StartCoroutine(nameof(FlashHurtScreen));
+				currentHealth += amount;
                 currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             }
             else if (amount > 0)
