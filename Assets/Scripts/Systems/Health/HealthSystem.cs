@@ -98,7 +98,9 @@ public class HealthSystem : MonoBehaviour, IManageData
         }
 
         if (bPlayer)
+        {
             GameOver();
+        }
     }
 
     public void LoadData(GameData data)

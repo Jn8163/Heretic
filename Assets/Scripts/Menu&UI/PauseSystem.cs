@@ -13,6 +13,8 @@ public class PauseSystem : MonoBehaviour
 
     public static Action<bool> PauseMenuActive = delegate { };
 
+    private bool End;
+
     #endregion
 
 
@@ -39,6 +41,7 @@ public class PauseSystem : MonoBehaviour
         HealthSystem.GameOver += Death;
         MenuSystem.Resume += PauseMenu;
         SceneManager.sceneLoaded += NewScene;
+        CallStatsMenu.EndLevel += Death;// not really
     }
 
 
@@ -54,12 +57,18 @@ public class PauseSystem : MonoBehaviour
         MenuSystem.FreezeTime -= FreezeTime;
         HealthSystem.GameOver -= Death;
         MenuSystem.Resume -= PauseMenu;
+        CallStatsMenu.EndLevel -= Death;// not really
     }
 
 
 
     private void PauseMenuOpen(InputAction.CallbackContext c)
     {
+        if (End)
+        {
+            return;
+        }
+
         PauseMenu();
     }
 
@@ -115,9 +124,12 @@ public class PauseSystem : MonoBehaviour
 
 
 
-    private void Death()
+    private void Death() // or Endlevel
     {
+        End = true;
         PauseInactive(true);
+        FreezeTime(true); // fixes firing bug don't change
+        mOpen = true;
     }
 
     #endregion

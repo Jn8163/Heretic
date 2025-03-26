@@ -9,6 +9,7 @@ public class CallStatsMenu : MonoBehaviour
 	[SerializeField] private AudioSource aSource;
 
 	public static Action<string> CallStats = delegate { };
+	public static Action EndLevel = delegate { };
 
 	private void OnEnable()
 	{
@@ -40,6 +41,7 @@ public class CallStatsMenu : MonoBehaviour
 		if (isInCollider)
 		{
 			CallStats("StatsMenu");
+			EndLevel();
 			aSource.Play();
 			GetComponent<Collider>().enabled = false;
 			isInCollider = false;
