@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 public class SwapWeapon : MonoBehaviour, IManageData
 {
     private PlayerInput pInput;
-    [SerializeField] private int startingSlot = 1;
     [SerializeField] private List<GameObject> weapons = new List<GameObject>();
     [SerializeField] private List<bool> weaponAquired = new List<bool>(){ true, true, false, false, false, false, false};
     private bool staffActive = true;
@@ -43,7 +42,7 @@ public class SwapWeapon : MonoBehaviour, IManageData
             weapon.SetActive(false);
         }
 
-        weapons[startingSlot].SetActive(true);
+        weapons[currentWeapon].SetActive(true);
     }
 
 
