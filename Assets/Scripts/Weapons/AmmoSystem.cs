@@ -57,7 +57,7 @@ public class AmmoSystem : MonoBehaviour, IManageData
             currentAmmoType = ammoTypes[(int)ammoType];
         }
 
-        if (currentAmmoType.ammo == ammoType)
+        if (currentAmmoType && (currentAmmoType.ammo == ammoType))
         {
             UpdateAmmoUI(ammoType, adjustedAmmo);
         }
