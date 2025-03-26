@@ -38,49 +38,58 @@ public class EtherealCrossbow : RangedWeapon
 
     protected override void Attack(InputAction.CallbackContext c)
     {
-        base.Attack(c);
+        PauseSystem ps = FindFirstObjectByType<PauseSystem>();
 
-        if (!ActivateTome.isCharged)
+        if (ps.mOpen)
         {
-            if (!cooldown && ammoSystem.UpdateAmmo(ammoType, ammoUsage, false))
-            {
-                StartCoroutine(nameof(WeaponCooldown));
-                Projectile P = Instantiate(projectilePFab, transform.position, transform.rotation).GetComponent<Projectile>();
-                P.SetProjectile(BigBoltSpeed, transform.forward);
-
-                Projectile sP1 = Instantiate(SmallboltPrefab, SmallBoltFiringpoint1.transform.position, SmallBoltFiringpoint1.transform.rotation).GetComponent<Projectile>();
-                sP1.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint1.transform.forward);
-
-                Projectile sP2 = Instantiate(SmallboltPrefab, SmallBoltFiringpoint2.transform.position, SmallBoltFiringpoint2.transform.rotation).GetComponent<Projectile>();
-                sP2.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint2.transform.forward);
-
-                audioSource.Play();
-            }
+            return;
         }
         else
         {
-			if (!cooldown && ammoSystem.UpdateAmmo(ammoType, ammoUsage, false))
-			{
-				StartCoroutine(nameof(WeaponCooldown));
-				Projectile P1 = Instantiate(projectilePFab, transform.position, transform.rotation).GetComponent<Projectile>();
-				P1.SetProjectile(BigBoltSpeed, transform.forward);
-				audioSource.Play();
+            base.Attack(c);
 
-				Projectile P2 = Instantiate(projectilePFab, SmallBoltFiringpoint1.transform.position, SmallBoltFiringpoint1.transform.rotation).GetComponent<Projectile>();
-				P2.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint1.transform.forward);
-				audioSource.Play();
+            if (!ActivateTome.isCharged)
+            {
+                if (!cooldown && ammoSystem.UpdateAmmo(ammoType, ammoUsage, false))
+                {
+                    StartCoroutine(nameof(WeaponCooldown));
+                    Projectile P = Instantiate(projectilePFab, transform.position, transform.rotation).GetComponent<Projectile>();
+                    P.SetProjectile(BigBoltSpeed, transform.forward);
 
-				Projectile P3 = Instantiate(projectilePFab, SmallBoltFiringpoint2.transform.position, SmallBoltFiringpoint2.transform.rotation).GetComponent<Projectile>();
-				P3.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint2.transform.forward);
-				audioSource.Play();
+                    Projectile sP1 = Instantiate(SmallboltPrefab, SmallBoltFiringpoint1.transform.position, SmallBoltFiringpoint1.transform.rotation).GetComponent<Projectile>();
+                    sP1.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint1.transform.forward);
 
-				Projectile sP1 = Instantiate(SmallboltPrefab, SmallBoltFiringpoint3.transform.position, SmallBoltFiringpoint3.transform.rotation).GetComponent<Projectile>();
-				sP1.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint3.transform.forward);
+                    Projectile sP2 = Instantiate(SmallboltPrefab, SmallBoltFiringpoint2.transform.position, SmallBoltFiringpoint2.transform.rotation).GetComponent<Projectile>();
+                    sP2.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint2.transform.forward);
 
-				Projectile sP2 = Instantiate(SmallboltPrefab, SmallBoltFiringpoint4.transform.position, SmallBoltFiringpoint4.transform.rotation).GetComponent<Projectile>();
-				sP2.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint4.transform.forward);
-			}
-		}
+                    audioSource.Play();
+                }
+            }
+            else
+            {
+                if (!cooldown && ammoSystem.UpdateAmmo(ammoType, ammoUsage, false))
+                {
+                    StartCoroutine(nameof(WeaponCooldown));
+                    Projectile P1 = Instantiate(projectilePFab, transform.position, transform.rotation).GetComponent<Projectile>();
+                    P1.SetProjectile(BigBoltSpeed, transform.forward);
+                    audioSource.Play();
+
+                    Projectile P2 = Instantiate(projectilePFab, SmallBoltFiringpoint1.transform.position, SmallBoltFiringpoint1.transform.rotation).GetComponent<Projectile>();
+                    P2.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint1.transform.forward);
+                    audioSource.Play();
+
+                    Projectile P3 = Instantiate(projectilePFab, SmallBoltFiringpoint2.transform.position, SmallBoltFiringpoint2.transform.rotation).GetComponent<Projectile>();
+                    P3.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint2.transform.forward);
+                    audioSource.Play();
+
+                    Projectile sP1 = Instantiate(SmallboltPrefab, SmallBoltFiringpoint3.transform.position, SmallBoltFiringpoint3.transform.rotation).GetComponent<Projectile>();
+                    sP1.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint3.transform.forward);
+
+                    Projectile sP2 = Instantiate(SmallboltPrefab, SmallBoltFiringpoint4.transform.position, SmallBoltFiringpoint4.transform.rotation).GetComponent<Projectile>();
+                    sP2.SetProjectile(SmallBoltSpeed, SmallBoltFiringpoint4.transform.forward);
+                }
+            }
+        }
     }
     protected override IEnumerator WeaponCooldown()
     {

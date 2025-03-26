@@ -138,9 +138,19 @@ public class Gauntlet : Weapon
 
     protected override void Attack(InputAction.CallbackContext c)
     {
-        base.Attack(c);
+        PauseSystem ps = FindFirstObjectByType<PauseSystem>();
 
-        StartCoroutine(nameof(WeaponCooldown));
+        if (ps.mOpen)
+        {
+            return;
+        }
+        else
+        {
+
+            base.Attack(c);
+
+            StartCoroutine(nameof(WeaponCooldown));
+        }
     }
 
 

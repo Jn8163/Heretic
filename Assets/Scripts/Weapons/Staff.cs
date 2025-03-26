@@ -42,40 +42,50 @@ public class Staff : Weapon
 
     protected override void Attack(InputAction.CallbackContext c)
     {
-        base.Attack(c);
+        PauseSystem ps = FindFirstObjectByType<PauseSystem>();
 
-        if (!cooldown)
+        if (ps.mOpen)
         {
-            if(Physics.BoxCast(transform.position - (transform.forward * .25f), hitBoxHalfSize, transform.forward, out RaycastHit hit, Quaternion.identity, hitRange, detectableLayers, QueryTriggerInteraction.Ignore))
+            return;
+        }
+        else
+        {
+
+            base.Attack(c);
+
+            if (!cooldown)
             {
-                if(hit.transform.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
+                if (Physics.BoxCast(transform.position - (transform.forward * .25f), hitBoxHalfSize, transform.forward, out RaycastHit hit, Quaternion.identity, hitRange, detectableLayers, QueryTriggerInteraction.Ignore))
                 {
-                    if (!ActivateTome.isCharged)
+                    if (hit.transform.TryGetComponent<HealthSystem>(out HealthSystem hSystem))
                     {
-                        hSystem.UpdateHealth(damage);
-                        normalHit.pitch = Random.Range(0.95f, 1.05f);
-						normalHit.Play();
-						Vector3 offset = -transform.forward * .25f;
-						Instantiate(staffHit, hit.point + offset, Quaternion.identity);
-					}
-                    else
+                        if (!ActivateTome.isCharged)
+                        {
+                            hSystem.UpdateHealth(damage);
+                            normalHit.pitch = Random.Range(0.95f, 1.05f);
+                            normalHit.Play();
+                            Vector3 offset = -transform.forward * .25f;
+                            Instantiate(staffHit, hit.point + offset, Quaternion.identity);
+                        }
+                        else
+                        {
+                            hSystem.UpdateHealth(chargedDamage);
+                            chargedHit.pitch = Random.Range(0.95f, 1.05f);
+                            chargedHit.Play();
+                            Vector3 offset = -transform.forward * .25f;
+                            Instantiate(chargedStaffHit, hit.point + offset, Quaternion.identity);
+                        }
+                    }
+                    if (hit.transform.TryGetComponent<StunSystem>(out StunSystem sSystem))
                     {
-                        hSystem.UpdateHealth(chargedDamage);
-                        chargedHit.pitch = Random.Range(0.95f, 1.05f);
-						chargedHit.Play();
-						Vector3 offset = -transform.forward * .25f;
-						Instantiate(chargedStaffHit, hit.point + offset, Quaternion.identity);
-					}
+                        if (!ActivateTome.isCharged)
+                            sSystem.TryStun(stunValue, knockbackValue);
+                        else
+                            sSystem.TryStun(chargedStunValue, chargedKnockbackValue);
+                    }
                 }
-                if (hit.transform.TryGetComponent<StunSystem>(out StunSystem sSystem))
-                {
-                    if (!ActivateTome.isCharged)
-                        sSystem.TryStun(stunValue, knockbackValue);
-                    else
-                        sSystem.TryStun(chargedStunValue, chargedKnockbackValue);
-                }
+                StartCoroutine(nameof(WeaponCooldown));
             }
-            StartCoroutine(nameof(WeaponCooldown));
         }
     }
 

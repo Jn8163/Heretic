@@ -75,11 +75,20 @@ public class DragonClaw : RangedWeapon
 
     protected override void Attack(InputAction.CallbackContext c)
     {
-        if (!wait)
-        {
-            base.Attack(c);
+        PauseSystem ps = FindFirstObjectByType<PauseSystem>();
 
-            StartCoroutine(nameof(WeaponCooldown));
+        if (ps.mOpen)
+        {
+            return;
+        }
+        else
+        {
+            if (!wait)
+            {
+                base.Attack(c);
+
+                StartCoroutine(nameof(WeaponCooldown));
+            }
         }
     }
 

@@ -64,7 +64,12 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Attack(InputAction.CallbackContext c)
     {
+        PauseSystem ps = FindFirstObjectByType<PauseSystem>();
 
+        if (ps.mOpen)
+        {
+            return;
+        }
     }
 
 
