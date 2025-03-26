@@ -223,10 +223,17 @@ public class SwapWeapon : MonoBehaviour, IManageData
 
     public void LoadData(GameData data)
     {
-        weaponAquired = data.weaponsAquired;
+        for(int index = 0; index < data.weaponsAquired.Count; index++) 
+        {
+            if (data.weaponsAquired[index])
+            {
+                weaponAquired[index] = data.weaponsAquired[index];
+            }
+        }
         staffActive = data.staffActive;
         gauntletUnlocked = data.gauntletUnlocked;
         currentWeapon = data.currentWeapon;
+        SwapToWeapon(currentWeapon);
     }
 
     public void SaveData(ref GameData data)
