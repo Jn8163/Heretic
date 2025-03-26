@@ -39,7 +39,7 @@ public class LevelEndResults : MonoBehaviour
 
 	IEnumerator DisplayStats()
 	{
-		yield return new WaitForSeconds(waitTime);
+		yield return new WaitForSecondsRealtime(waitTime);
 
 		if (!isInterrupted)
 		{
@@ -85,7 +85,7 @@ public class LevelEndResults : MonoBehaviour
 
 	IEnumerator StartSwitchTimer()
 	{
-		yield return new WaitForSeconds(5.333f);
+		yield return new WaitForSecondsRealtime(5.333f);
 
 		Debug.Log("timer complete");
 		SceneManager.LoadScene(sceneName);

@@ -104,10 +104,10 @@ public class ElvenWand : RangedWeapon
 
 	private void Update()
 	{
-		Debug.DrawLine(transform.position, transform.position + transform.forward * weaponRange, Color.blue);
+		/*Debug.DrawLine(transform.position, transform.position + transform.forward * weaponRange, Color.blue);
 		Debug.DrawLine(transform.position, transform.position + transform.forward * weaponRange - transform.right * 4, Color.red);
 		Debug.DrawLine(transform.position, transform.position + transform.forward * weaponRange - transform.right * 8, Color.red);
 		Debug.DrawLine(transform.position, transform.position + transform.forward * weaponRange + transform.right * 4, Color.red);
-		Debug.DrawLine(transform.position, transform.position + transform.forward * weaponRange + transform.right * 8, Color.red);
+		Debug.DrawLine(transform.position, transform.position + transform.forward * weaponRange + transform.right * 8, Color.red);*/
 	}
 }
