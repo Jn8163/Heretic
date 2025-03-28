@@ -22,32 +22,33 @@ public class StunSystem : MonoBehaviour
 		enemyAcceleration = GetComponent<NavMeshAgent>().acceleration;
 		enemyAngularSpeed = GetComponent<NavMeshAgent>().angularSpeed;
 	}
-	public void TryStun(int stunValue, int knockbackValue)
+    public void TryStun(int stunValue, int knockbackValue, Vector3 hitDirection)
     {
-		rand = UnityEngine.Random.Range(minStunValue, maxStunValue + 1);
-		if (stunValue >= rand)
-		{
-			isStunned = true;
-			refreshTimer = true;
-			GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();
-			ApplyKnockback(knockbackValue);
-		}
-		
-	}
+        rand = UnityEngine.Random.Range(minStunValue, maxStunValue + 1);
+        if (stunValue >= rand)
+        {
+            isStunned = true;
+            refreshTimer = true;
+            GetComponentInChildren<EnemyAudioCalls>().PlayTdamage();
+            ApplyKnockback(knockbackValue, hitDirection);
+        }
+    }
 
-	public void ApplyKnockback(int knockback)
-	{
-		if (knockback - knockbackResist > 0)
-		{
-			knockbackAmt = knockback - knockbackResist;
-			isKnockback = true;
-		}
-		else
-		{
-		}
-	}
 
-	public void Update()
+    private Vector3 knockbackDirection;
+
+    public void ApplyKnockback(int knockback, Vector3 direction)
+    {
+        if (knockback - knockbackResist > 0)
+        {
+            knockbackAmt = knockback - knockbackResist;
+            knockbackDirection = direction.normalized;
+            isKnockback = true;
+        }
+    }
+
+
+    public void Update()
 	{
 		if (refreshTimer)
 		{
