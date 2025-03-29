@@ -78,11 +78,14 @@ public class Staff : Weapon
                     }
                     if (hit.transform.TryGetComponent<StunSystem>(out StunSystem sSystem))
                     {
+                        Vector3 hitDirection = hit.transform.position - transform.position;
+
                         if (!ActivateTome.isCharged)
-                            sSystem.TryStun(stunValue, knockbackValue);
+                            sSystem.TryStun(stunValue, knockbackValue, hitDirection);
                         else
-                            sSystem.TryStun(chargedStunValue, chargedKnockbackValue);
+                            sSystem.TryStun(chargedStunValue, chargedKnockbackValue, hitDirection);
                     }
+
                 }
                 StartCoroutine(nameof(WeaponCooldown));
             }

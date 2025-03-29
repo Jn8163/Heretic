@@ -74,7 +74,9 @@ public class Gauntlet : Weapon
                         }
                         if (hit.transform.TryGetComponent<StunSystem>(out StunSystem sSystem))
                         {
-                            sSystem.TryStun(stunValue, 0);
+                            Vector3 hitDirection = hit.transform.position - transform.position;
+                            sSystem.TryStun(stunValue, 0, hitDirection);
+
                         }
                     }
                     else
@@ -113,9 +115,11 @@ public class Gauntlet : Weapon
 						}
 						if (hit.transform.TryGetComponent<StunSystem>(out StunSystem sSystem))
 						{
-							sSystem.TryStun(stunValue, 0);
-						}
-					}
+                            Vector3 hitDirection = hit.transform.position - transform.position;
+                            sSystem.TryStun(stunValue, 0, hitDirection);
+
+                        }
+                    }
 					else
 					{
 						FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
