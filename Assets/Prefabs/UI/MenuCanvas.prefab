@@ -8169,7 +8169,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4362975425594891312, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7448756920167412693, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
     m_AddedGameObjects:
@@ -13516,7 +13517,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4362975425594891312, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7448756920167412693, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
     m_AddedGameObjects:
@@ -15304,6 +15306,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9218332002806225596, guid: 2236415852359224ea522e2172b9853c, type: 3}
   m_PrefabInstance: {fileID: 8281757313685525642}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1038265506057671024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8972892979608143354, guid: 2236415852359224ea522e2172b9853c, type: 3}
+  m_PrefabInstance: {fileID: 8281757313685525642}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8300506970463246048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15648,7 +15655,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4362975425594891312, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7448756920167412693, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
     m_AddedGameObjects:
@@ -17320,7 +17328,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4362975425594891312, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7448756920167412693, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}
     m_AddedGameObjects:
@@ -17364,7 +17373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609ebb3f2cf30814c95aa34b734d34ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedButton: {fileID: 0}
+  SelectedButton: {fileID: 1038265506057671024}
 --- !u!224 &8395638608648842953 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1055395593888367191, guid: 2ed75baaaaba5af4bb267bead14dbb61, type: 3}

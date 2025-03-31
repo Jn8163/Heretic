@@ -69,9 +69,9 @@ public class DataManager : MonoBehaviour
         // start up the auto saving coroutine
         if (autoSaveCoroutine != null)
         {
-            StopCoroutine(autoSaveCoroutine);
+            //StopCoroutine(autoSaveCoroutine);
         }
-        autoSaveCoroutine = StartCoroutine(AutoSave());
+        //autoSaveCoroutine = StartCoroutine(AutoSave());
     }
 
     public void ChangeSelectedProfileId(string newProfileId)
