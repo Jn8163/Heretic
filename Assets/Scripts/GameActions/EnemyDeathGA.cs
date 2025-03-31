@@ -29,5 +29,13 @@ public class EnemyDeathGA : MonoBehaviour
         GetComponent<NavMeshAgent>().speed = 0;
         GetComponent<Collider>().enabled = false;
         GetComponentInChildren<EnemyAttackClass>().enabled = false;
+
+        StartCoroutine(nameof(DisableEnemy));
 	}
+
+    private IEnumerator DisableEnemy()
+    {
+        yield return new WaitForSeconds(.25f);
+        gameObject.SetActive(false);
+    }
 }

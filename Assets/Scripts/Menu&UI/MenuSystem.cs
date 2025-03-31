@@ -137,9 +137,9 @@ public class MenuSystem : MonoBehaviour, IManageData
         if (g)
         {
             DeactivateAllMenus();
-            if (playerHUD && activeHUD)
+            if (playerHUD)
             {
-                playerHUD.SetActive(false);
+                playerHUD.SetActive(activeHUD);
             }
             g.SetActive(true);
             MenuActive(true);

@@ -66,7 +66,6 @@ GameObject:
   - component: {fileID: 5188222364920081561}
   - component: {fileID: 4651758550010086627}
   - component: {fileID: 1752089512231543575}
-  - component: {fileID: 7885113984737761270}
   - component: {fileID: 4931091135095104963}
   - component: {fileID: 2165233215201140700}
   - component: {fileID: 86730027128729000}
@@ -196,19 +195,6 @@ MonoBehaviour:
   hurtScreen: {fileID: 0}
   currentHealth: 0
   bAlive: 1
---- !u!114 &7885113984737761270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3486166225400030514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de27400fa173d849bc747696135e3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
 --- !u!114 &4931091135095104963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,6 +625,10 @@ PrefabInstance:
       propertyPath: AttackTwo
       value: 
       objectReference: {fileID: 8300000, guid: 4fcc7f85c5de82b4697f57e953e775b3, type: 3}
+    - target: {fileID: 7049311334400071099, guid: 6a64c15669bb80047afc20c933be2548, type: 3}
+      propertyPath: enemyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7049311334400071099, guid: 6a64c15669bb80047afc20c933be2548, type: 3}
       propertyPath: DeathPrefab
       value: 

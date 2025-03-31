@@ -36,6 +36,10 @@ public class GameData
     public SerializableDictionary<string, bool> buttonsPressed;
     public SerializableDictionary<string, Vector3> enemyPositions;
     public SerializableDictionary<string, Vector4> enemyRotations;
+    public SerializableDictionary<string, Vector3> gargCorpsePos;
+    public SerializableDictionary<string, Vector3> golemCorpsePos;
+    public SerializableDictionary<string, Vector3> undeadWCorpsePos;
+
 
     //New Save values
     public GameData()
@@ -65,5 +69,8 @@ public class GameData
         buttonsPressed = new SerializableDictionary<string, bool>();
         enemyPositions = new SerializableDictionary<string, Vector3>();
         enemyRotations = new SerializableDictionary<string, Vector4>();
+        gargCorpsePos = new SerializableDictionary<string, Vector3>();
+        golemCorpsePos = new SerializableDictionary<string, Vector3>();
+        undeadWCorpsePos = new SerializableDictionary<string, Vector3>();
     }
 }
