@@ -62,7 +62,7 @@ public class Spawn : MonoBehaviour
         {
             target.SetActive(isActive);
             
-            if (currentDifficulty == difficulty || (currentDifficulty >= difficulty) && Increasing)
+            if (currentDifficulty == difficulty || (currentDifficulty >= difficulty) && Increasing && isActive)
             {
                 if (isEnemy)
                 {

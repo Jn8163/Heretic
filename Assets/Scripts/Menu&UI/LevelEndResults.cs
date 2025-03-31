@@ -17,13 +17,25 @@ public class LevelEndResults : MonoBehaviour
 
 	public static bool testBool = false;
 
-	private void Start()
+	private void OnEnable()
 	{
 		Debug.Log("grug");
 		StartCoroutine(nameof(DisplayStats));
 	}
 
-	private void Update()
+    private void OnDisable()
+    {
+        kills.text = "";
+        items.text = "";
+        secrets.text = "";
+        time.text = "";
+		timeCounter.text = "";
+		counter = 0;
+		timer = 0;
+        waitTime = 18f / 21f;
+    }
+
+    private void Update()
 	{
 		timer += Time.deltaTime;
 		if (Input.anyKeyDown && isInterrupted)
