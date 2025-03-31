@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -312,6 +313,20 @@ public class MenuSystem : MonoBehaviour, IManageData
         {
             menus.Add(playerHUD);
             activeHUD = true;
+        }
+    }
+
+
+
+    public void ReturnFromSettings()
+    {
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            SwitchMenu("MainMenu");
+        }
+        else
+        {
+            SwitchMenu("PauseMenu");
         }
     }
 
