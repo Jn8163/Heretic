@@ -33,8 +33,10 @@ public class PlayerMovement : MonoBehaviour, IManageData
 
     [Tooltip("The max vertical length of step the player will automatically take.")]
     [SerializeField] private float stepHeight = .3f;
+    [SerializeField] private LayerMask mask;
 
     private GameObject stepRayLower, stepRayUpper;
+
 
     #endregion
 
@@ -193,13 +195,13 @@ public class PlayerMovement : MonoBehaviour, IManageData
     private void AutoStep()
     {
         Debug.DrawRay(stepRayLower.transform.position, direction);
-        if (Physics.BoxCast(stepRayLower.transform.position, new Vector3(.4f, .5f, .4f), direction, out RaycastHit hit, Quaternion.identity, 1f) && hit.transform.CompareTag("Ground"))
+        if (Physics.BoxCast(stepRayLower.transform.position, new Vector3(.4f, .5f, .4f), direction, out RaycastHit hit, Quaternion.identity, 1f, mask) && hit.transform.CompareTag("Ground"))
         {
-            if (!Physics.BoxCast(stepRayUpper.transform.position, new Vector3(.1f, .1f, .1f), direction, Quaternion.identity, 1f))
+            if (!Physics.BoxCast(stepRayUpper.transform.position, new Vector3(.1f, .1f, .1f), direction, Quaternion.identity, 1f, mask) && hit.transform.CompareTag("Ground"))
             {
                 float boxCastHeightInc = .1f;
                 float objectHeight = 0;
-                while(Physics.BoxCast(stepRayLower.transform.position + new Vector3(0, boxCastHeightInc, 0), new Vector3(.1f, .1f, .1f), direction, Quaternion.identity, 1f))
+                while(Physics.BoxCast(stepRayLower.transform.position + new Vector3(0, boxCastHeightInc, 0), new Vector3(.1f, .1f, .1f), direction, Quaternion.identity, 1f, mask) && hit.transform.CompareTag("Ground"))
                 {
                     objectHeight = boxCastHeightInc;
                     boxCastHeightInc += .1f;
