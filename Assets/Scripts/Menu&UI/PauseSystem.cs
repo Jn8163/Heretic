@@ -51,12 +51,15 @@ public class PauseSystem : MonoBehaviour
         FreezeTime(false);
         mOpen = false;
         PauseMenuActive(false);
+        End = false;
 
-        pInput.Disable();
         pInput.Player.Menu.performed -= PauseMenuOpen;
+        pInput.Disable();
+
         MenuSystem.FreezeTime -= FreezeTime;
         HealthSystem.GameOver -= Death;
         MenuSystem.Resume -= PauseMenu;
+        SceneManager.sceneLoaded -= NewScene;
         CallStatsMenu.EndLevel -= Death;// not really
     }
 
