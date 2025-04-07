@@ -8,10 +8,12 @@ public class UndeadWarriorProjectile : MonoBehaviour
     [SerializeField] private float throwForce = 15f; // Adjust this value to control speed
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private Animator anim;
+    [SerializeField] private AudioSource audioSource;
     private Rigidbody rb;
 
     private void Start()
     {
+        audioSource.Play();
         rb = GetComponent<Rigidbody>();
 
         if (rb == null)
