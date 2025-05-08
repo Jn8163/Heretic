@@ -17,13 +17,17 @@ public class UndeadWarriorMelee : EnemyAttackClass
         attackCollider = GetComponent<SphereCollider>();
         if (attackCollider == null)
         {
+#if UNITY_EDITOR
             Debug.LogError("UndeadWarriorMelee: No SphereCollider found on the Undead Warrior!");
+#endif
         }
     }
 
     public void TriggerMeleeAttack()
     {
+#if UNITY_EDITOR
         Debug.Log("Undead warrior is attacking");
+#endif
         if (!attacked)
         {
             StartCoroutine(nameof(MeleeAttackRoutine));

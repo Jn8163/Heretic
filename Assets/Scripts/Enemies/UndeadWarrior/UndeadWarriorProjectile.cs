@@ -18,7 +18,9 @@ public class UndeadWarriorProjectile : MonoBehaviour
 
         if (rb == null)
         {
+#if UNITY_EDITOR
             Debug.LogError("UndeadWarriorProjectile: Rigidbody is missing!");
+#endif
             return;
         }
 
@@ -36,7 +38,9 @@ public class UndeadWarriorProjectile : MonoBehaviour
         }
         else
         {
+#if UNITY_EDITOR
             Debug.LogError("UndeadWarriorProjectile: No player found!");
+#endif
         }
 
         Destroy(gameObject, lifetime); // Destroy after a set time
@@ -44,20 +48,26 @@ public class UndeadWarriorProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Projectile hit: " + other.gameObject.name); 
+#if UNITY_EDITOR
+        Debug.Log("Projectile hit: " + other.gameObject.name);
+#endif
 
         if (other.TryGetComponent(out HealthSystem healthSystem))
         {
             if (healthSystem.bPlayer) // Ensure it only damages the player
             {
                 healthSystem.UpdateHealth(damage);
+#if UNITY_EDITOR
                 Debug.Log("Projectile dealt " + damage + " damage to player!");
+#endif
                 StartCoroutine(nameof(DestroyAxe)); // Destroy on impact
             }
         }
         else if (other.gameObject.layer == 0 || other.gameObject.layer == 4)
         {
+#if UNITY_EDITOR
             Debug.Log("Projectile hit an obstacle and was destroyed.");
+#endif
             StartCoroutine(nameof(DestroyAxe));
         }
     }

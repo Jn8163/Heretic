@@ -17,10 +17,14 @@ public class ActivateTome : MonoBehaviour
 
 	IEnumerator TomeTimer()
 	{
+#if UNITY_EDITOR
 		Debug.Log("timer start");
+#endif
 		isCharged = true;
 		yield return new WaitForSeconds(40);
+#if UNITY_EDITOR
 		Debug.Log("timer up");
+#endif
 		isCharged = false;
 	}
 }

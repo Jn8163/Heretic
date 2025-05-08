@@ -106,7 +106,6 @@ public class PlayerMovement : MonoBehaviour, IManageData
 
     public void TargetPosition(Vector3 position)
     {
-        Debug.Log("Impleement Update Position");
         snapToPos = true;
         targetPos = position;
     }

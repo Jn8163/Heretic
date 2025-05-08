@@ -27,9 +27,11 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
 
         if (keys.Count != values.Count)
         {
+#if UNITY_EDITOR
             Debug.LogError("Tried to deserialize a SerializableDictionary, but the amount of keys ("
                 + keys.Count + ") does not match the number of values (" + values.Count
                 + ") which indicates that something went wrong");
+#endif
         }
 
         for (int i = 0; i < keys.Count; i++)

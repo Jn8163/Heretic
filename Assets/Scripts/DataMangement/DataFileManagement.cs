@@ -59,7 +59,9 @@ public class DataFileManagement
                 // which without this check may cause an infinite recursion loop.
                 if (allowRestoreFromBackup)
                 {
+#if UNITY_EDITOR
                     Debug.LogWarning("Failed to load data file. Attempting to roll back.\n" + e);
+#endif
                     bool rollbackSuccess = AttemptRollback(fullPath);
                     if (rollbackSuccess)
                     {
@@ -70,8 +72,10 @@ public class DataFileManagement
                 // if we hit this else block, one possibility is that the backup file is also corrupt
                 else
                 {
+#if UNITY_EDITOR
                     Debug.LogError("Error occured when trying to load file at path: "
                         + fullPath + " and backup did not work.\n" + e);
+#endif
                 }
             }
         }
@@ -128,7 +132,9 @@ public class DataFileManagement
         }
         catch (Exception e)
         {
+#if UNITY_EDITOR
             Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
+#endif
         }
     }
 
@@ -151,13 +157,17 @@ public class DataFileManagement
             }
             else
             {
+#if UNITY_EDITOR
                 Debug.LogWarning("Tried to delete profile data, but data was not found at path: " + fullPath);
+#endif
             }
         }
         catch (Exception e)
         {
+#if UNITY_EDITOR
             Debug.LogError("Failed to delete profile data for profileId: "
                 + profileId + " at path: " + fullPath + "\n" + e);
+#endif
         }
     }
 
@@ -176,8 +186,10 @@ public class DataFileManagement
             string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
             if (!File.Exists(fullPath))
             {
+#if UNITY_EDITOR
                 Debug.LogWarning("Skipping directory when loading all profiles because it does not contain data: "
                     + profileId);
+#endif
                 continue;
             }
 
@@ -191,7 +203,9 @@ public class DataFileManagement
             }
             else
             {
+#if UNITY_EDITOR
                 Debug.LogError("Tried to load profile but something went wrong. ProfileId: " + profileId);
+#endif
             }
         }
 
@@ -256,7 +270,9 @@ public class DataFileManagement
             {
                 File.Copy(backupFilePath, fullPath, true);
                 success = true;
+#if UNITY_EDITOR
                 Debug.LogWarning("Had to roll back to backup file at: " + backupFilePath);
+#endif
             }
             // otherwise, we don't yet have a backup file - so there's nothing to roll back to
             else
@@ -266,8 +282,10 @@ public class DataFileManagement
         }
         catch (Exception e)
         {
+#if UNITY_EDITOR
             Debug.LogError("Error occured when trying to roll back to backup file at: "
                 + backupFilePath + "\n" + e);
+#endif
         }
 
         return success;

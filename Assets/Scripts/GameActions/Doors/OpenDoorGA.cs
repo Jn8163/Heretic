@@ -64,7 +64,9 @@ public class OpenDoorGA : MonoBehaviour, IManageData
 
 	IEnumerator DoorTimer()
 	{
+#if UNITY_EDITOR
 		Debug.Log("Starting Timer");
+#endif
 		yield return new WaitForSeconds(5);
 		CloseDoor();
 	}

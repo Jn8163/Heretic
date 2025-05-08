@@ -34,7 +34,9 @@ public class DataManager : MonoBehaviour
     {
         if (instance != null)
         {
+#if UNITY_EDITOR
             Debug.Log("Found more than one Data Persistence Manager in the scene. Destroying the newest one.");
+#endif
             Destroy(gameObject);
             return;
         }
@@ -42,7 +44,9 @@ public class DataManager : MonoBehaviour
 
         if (disableDataPersistence)
         {
+#if UNITY_EDITOR
             Debug.LogWarning("Data Persistence is currently disabled!");
+#endif
         }
 
         DFileManager = new DataFileManagement(Application.persistentDataPath, fileName, useEncryption);
@@ -101,7 +105,9 @@ public class DataManager : MonoBehaviour
         if (overrideSelectedProfileId)
         {
             selectedProfileId = testSelectedProfileId;
+#if UNITY_EDITOR
             Debug.LogWarning("Overrode selected profile id with test id: " + testSelectedProfileId);
+#endif
         }
         profilesFound = selectedProfileId != "";
     }
@@ -134,7 +140,9 @@ public class DataManager : MonoBehaviour
         // if no data can be loaded, don't continue
         if (gameData == null)
         {
+#if UNITY_EDITOR
             Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
+#endif
             return;
         }
 
@@ -164,7 +172,9 @@ public class DataManager : MonoBehaviour
         // if we don't have any data to save, log a warning here
         if (gameData == null)
         {
+#if UNITY_EDITOR
             Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
+#endif
             return;
         }
 
@@ -181,7 +191,9 @@ public class DataManager : MonoBehaviour
 
         // save that data to a file using the data handler
         DFileManager.Save(gameData, selectedProfileId);
+#if UNITY_EDITOR
         Debug.Log(gameData.playerPosition);
+#endif
     }
 
     private void OnApplicationQuit()
@@ -212,7 +224,9 @@ public class DataManager : MonoBehaviour
         {
             yield return new WaitForSeconds(autoSaveTimeSeconds);
             SaveGame();
+#if UNITY_EDITOR
             Debug.Log("Auto Saved Game");
+#endif
         }
     }
 }

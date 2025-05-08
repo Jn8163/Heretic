@@ -29,7 +29,9 @@ public class GameObjectID : MonoBehaviour
                     id = System.Guid.NewGuid().ToString();
 
                     // Make log clickable
+#if UNITY_EDITOR            
                     Debug.Log($"Generated new ID in OnValidate: {id} for {gameObject.name}", gameObject);
+#endif
 
                     // Ensure Unity saves the change
                     UnityEditor.EditorUtility.SetDirty(this);

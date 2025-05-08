@@ -67,8 +67,10 @@ public class Spawn : MonoBehaviour
                 if (isEnemy)
                 {
                     StatTracker.maxKills++;
+                    #if UNITY_EDITOR
                     Debug.Log("Max Kills: " + StatTracker.maxKills);
                     Debug.Log(target);
+                    #endif
                 }
             }
         }

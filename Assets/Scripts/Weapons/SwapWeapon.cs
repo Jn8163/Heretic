@@ -101,7 +101,9 @@ public class SwapWeapon : MonoBehaviour, IManageData
             }
             else
             {
+#if UNITY_EDITOR
                 Debug.Log("Don't disable");
+#endif
             }
         }
     }
@@ -116,7 +118,9 @@ public class SwapWeapon : MonoBehaviour, IManageData
     {
         if (Time.timeScale == 1)
         {
+#if UNITY_EDITOR
             Debug.Log("Change Weapon to slot #" + weaponSlot);
+#endif
 
             //ensure the weaponslot # is part of the array
             if (weaponSlot < 0)

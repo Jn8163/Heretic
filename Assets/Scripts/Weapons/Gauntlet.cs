@@ -162,7 +162,9 @@ public class Gauntlet : Weapon
     private void AttackCanceled(InputAction.CallbackContext c)
     {
         animator2D.SetBool("Attacking", false);
+#if UNITY_EDITOR
         Debug.Log("attack stopped");
+#endif
         FindAnyObjectByType<PlayerMovement>().PlayerMovementLocked(false);
         attacking = false;
         audio_playing= false;

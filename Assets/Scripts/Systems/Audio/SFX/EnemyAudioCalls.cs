@@ -74,7 +74,9 @@ public class EnemyAudioCalls : MonoBehaviour, IManageData
                 }
                 break;
             default:
+#if UNITY_EDITOR
                 Debug.Log("Enemy Remains Cannot be saved because enemy type hasn't been set in Inspector");
+#endif
                 break;
         }
     }
@@ -120,7 +122,9 @@ public class EnemyAudioCalls : MonoBehaviour, IManageData
                 }
                 break;
             default:
+#if UNITY_EDITOR
                 Debug.Log("Enemy Remains Cannot be saved because enemy type hasn't been set in Inspector");
+#endif
                 break;
         }
     }

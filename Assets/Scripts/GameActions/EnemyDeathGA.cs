@@ -22,7 +22,9 @@ public class EnemyDeathGA : MonoBehaviour
     {
         // make sure to track stat for each enemy death
         StatTracker.killCount++;
+#if UNITY_EDITOR
         Debug.Log(StatTracker.killCount);
+#endif
         // Destroy(gameObject);
         anim.SetBool("Dead", true);
         GetComponentInChildren<EnemyAudioCalls>().Die();

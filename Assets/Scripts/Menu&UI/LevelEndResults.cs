@@ -19,8 +19,11 @@ public class LevelEndResults : MonoBehaviour
 
 	private void OnEnable()
 	{
+		#if UNITY_EDITOR
 		Debug.Log("grug");
-		StartCoroutine(nameof(DisplayStats));
+#endif
+
+        StartCoroutine(nameof(DisplayStats));
 	}
 
     private void OnDisable()
@@ -40,7 +43,9 @@ public class LevelEndResults : MonoBehaviour
 		timer += Time.deltaTime;
 		if (Input.anyKeyDown && isInterrupted)
 		{
+			#if UNITY_EDITOR
 			Debug.Log("load scene");
+			#endif
 			SceneManager.LoadScene(sceneName);
 		}
 		if (Input.anyKeyDown && !isInterrupted && timer > 1)
@@ -55,7 +60,9 @@ public class LevelEndResults : MonoBehaviour
 
 		if (!isInterrupted)
 		{
+			#if UNITY_EDITOR
 			Debug.Log("is not interrupted");
+			#endif
 			if (counter == 0)
 			{
 				kills.text = StatTracker.killCount + " / " + StatTracker.maxKills;
@@ -99,7 +106,9 @@ public class LevelEndResults : MonoBehaviour
 	{
 		yield return new WaitForSecondsRealtime(5.333f);
 
+		#if UNITY_EDITOR
 		Debug.Log("timer complete");
+		#endif
 		SceneManager.LoadScene(sceneName);
 	}
 

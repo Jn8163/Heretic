@@ -148,7 +148,9 @@ public class MenuSystem : MonoBehaviour, IManageData
         }
         else
         {
+            #if UNITY_EDITOR
             Debug.Log("Menu was not located identified in inspector.");
+            #endif
         }
     }
 
@@ -237,10 +239,14 @@ public class MenuSystem : MonoBehaviour, IManageData
 				}
                 return;
 			case null:
+#if UNITY_EDITOR
                 Debug.Log("Menu to switch to was not specified - please enter a menu name in the inspector.");
+#endif
                 return;
             default:
+#if UNITY_EDITOR
                 Debug.Log("Menu name isn't accounted for.");
+#endif
                 return;
 
         }
@@ -298,7 +304,9 @@ public class MenuSystem : MonoBehaviour, IManageData
 
     public void Quit()
     {
+#if UNITY_EDITOR
         Debug.Log("Quit");
+#endif
         Application.Quit();
     }
 

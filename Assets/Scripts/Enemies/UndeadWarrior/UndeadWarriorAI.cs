@@ -19,16 +19,22 @@ public class UndeadWarriorAI : EnemyBaseClass
 
             if (playerInAttackRange)
             {
-                Debug.Log("Player is in attack range!"); 
+#if UNITY_EDITOR
+                Debug.Log("Player is in attack range!");
+#endif
 
                 if (distanceToPlayer <= meleeRange)
                 {
-                    Debug.Log("Undead Warrior is attacking with melee!"); 
+#if UNITY_EDITOR
+                    Debug.Log("Undead Warrior is attacking with melee!");
+#endif
                     AttackMelee();
                 }
                 else if (distanceToPlayer <= throwRange)
                 {
-                    Debug.Log("Undead Warrior is attacking with throw!"); 
+#if UNITY_EDITOR
+                    Debug.Log("Undead Warrior is attacking with throw!");
+#endif
                     AttackThrow();
                 }
             }
@@ -43,7 +49,9 @@ public class UndeadWarriorAI : EnemyBaseClass
 
     private void AttackThrow()
     {
-        Debug.Log("Undead Warrior is attempting to throw!"); 
+#if UNITY_EDITOR
+        Debug.Log("Undead Warrior is attempting to throw!");
+#endif
         GetComponent<UndeadWarriorThrow>().TriggerThrowAttack();
     }
 

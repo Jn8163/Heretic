@@ -197,7 +197,9 @@ public abstract class EnemyBaseClass : MonoBehaviour, IManageData
         }
         else
         {
+            #if UNITY_EDITOR
             Debug.Log($"ID not assigned for gameobject: {gameObject.name}");
+            #endif
         }
     }
 
@@ -226,7 +228,9 @@ public abstract class EnemyBaseClass : MonoBehaviour, IManageData
         }
         else
         {
+            #if UNITY_EDITOR
             Debug.Log($"ID not assigned for gameobject: {gameObject.name}");
+            #endif
         }
     }
 }
